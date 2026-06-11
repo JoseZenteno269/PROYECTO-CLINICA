@@ -12,19 +12,17 @@
     <form id="form1" runat="server">
         <div id="contenedor">
             <div class="divs">
-                <table>
+                <table class="tabla">
                     <tr>
-                        <td></td>
-                        <td>ABML MEDICOS
+                        <td>
+                            <img src="Imagenes/Medico.png" class="imagen" />
                         </td>
-                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
                         <td align="center">
-                            <asp:Menu ID="Menu_Medicos" runat="server" StaticDisplayLevels="1" StaticSubMenuIndent="0" Orientation="Horizontal" ForeColor="Black" RenderingMode="Table">
+                            <%--                            <asp:Menu ID="Menu_Medicos" runat="server" StaticDisplayLevels="1" StaticSubMenuIndent="0" Orientation="Horizontal" ForeColor="Black" RenderingMode="Table">
                                 <DynamicMenuItemStyle CssClass="menuitem"/>
-                                <DynamicMenuStyle VerticalPadding="15px" />
+                                <DynamicMenuStyle VerticalPadding="15px"/>
                                 <Items>
                                     <asp:MenuItem Text="Medicos" Value="Medicos">
                                         <asp:MenuItem Text="Alta" Value="Alta"></asp:MenuItem>
@@ -33,34 +31,42 @@
                                         <asp:MenuItem Text="Listado" Value="Listado"></asp:MenuItem>
                                     </asp:MenuItem>
                                 </Items>
-                            </asp:Menu>
+                            </asp:Menu>--%>
+                            <h2>Medicos</h2>
                         </td>
-                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="td">
+                            <asp:Button ID="btn_agregarm" cssclass="botones" runat="server" Text="Agregar" />
+                        </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="td">
+                            <asp:Button ID="btn_dar_bajam" runat="server" Text="Eliminar" CssClass="botones" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <asp:Button ID="btn_modificarm" runat="server" Text="Modificar" CssClass="botones" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <asp:Button ID="btn_listarm" runat="server" Text="Listar" CssClass="botones" />
+                        </td>
                     </tr>
                 </table>
             </div>
             <div class="divs">
-                <table>
+                <table class="tabla">
                     <tr>
-                        <td></td>
-                        <td>ABML PACIENTES
+                        <td>
+                            <img src="Imagenes/paciente.png" class="imagen" />
                         </td>
-                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
                         <td align="center">
-                            <asp:Menu ID="Menu_Pacientes" runat="server" StaticDisplayLevels="1" StaticSubMenuIndent="0" Orientation="Horizontal" ForeColor="Black" RenderingMode="Table">
+                            <%--                            <asp:Menu ID="Menu_Pacientes" runat="server" StaticDisplayLevels="1" StaticSubMenuIndent="0" Orientation="Horizontal" ForeColor="Black" RenderingMode="Table">
                                 <DynamicMenuItemStyle CssClass="menuitem" />
                                 <DynamicMenuStyle VerticalPadding="15px" />
                                 <Items>
@@ -71,19 +77,25 @@
                                         <asp:MenuItem Text="Listado" Value="Listado"></asp:MenuItem>
                                     </asp:MenuItem>
                                 </Items>
-                            </asp:Menu>
+                            </asp:Menu>--%>
+                            <h2>Pacientes</h2>
                         </td>
-                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="td">
+                            <asp:Button ID="btn_agregarp" runat="server" Text="Agregar" CssClass="botones" /></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="td">
+                            <asp:Button ID="btn_dar_bajap" runat="server" Text="Eliminar" CssClass="botones" /></td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <asp:Button ID="btn_modificarp" runat="server" Text="Modificar" CssClass="botones" /></td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <asp:Button ID="btn_listarp" runat="server" Text="Listar" CssClass="botones" /></td>
                     </tr>
                 </table>
             </div>

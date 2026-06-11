@@ -79,6 +79,8 @@
     <Content Include="iconos\x.svg" />
     <Content Include="iconos\youtube.svg" />
     <Content Include="Imagenes\imagen1.png" />
+    <Content Include="Imagenes\Medico.png" />
+    <Content Include="Imagenes\paciente.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Recovery.aspx" />

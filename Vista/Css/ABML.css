@@ -28,9 +28,31 @@ form {
 
 table{
     text-align: center; 
+    
 }
 
-#Menu_Medicos {
+.tabla{
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    padding: 30px 80px 30px 80px; 
+}
+
+.botones{
+    width: 130px; 
+    height: 30px; 
+    border-radius: 10px;
+
+}
+
+    .botones:hover {
+        background-color: #ddd;
+    }
+
+.td{
+    padding-bottom: 10px; 
+}
+
+/*#Menu_Medicos {
     display: inline-block;
 }
 
@@ -46,14 +68,19 @@ table{
         display: none !important;
     }
 
+
 .menuitem {
-    display: inline-block;
     border: 1px solid #000000;
     border-radius: 10px;
     cursor: pointer;
-    padding: 5px;   
+    padding: 5px;
 }
 
     .menuitem:hover {
         background-color: #ddd;
-    } 
+    }
+*/
+.imagen {
+    width: 150px;
+    height: 150px;
+}
