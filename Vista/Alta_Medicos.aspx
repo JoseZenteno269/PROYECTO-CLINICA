@@ -12,6 +12,7 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
+            height: 80vh; 
         }
     </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -196,7 +197,15 @@
                 </tr>
                 <tr>
                     <td>
+                        ACTIVO: 
+                    </td>
+                    <td>
+
                         <asp:CheckBox ID="CheckBox1" runat="server" />
+
+                    </td>
+                    <td>
+
                     </td>
                 </tr>
             </table>

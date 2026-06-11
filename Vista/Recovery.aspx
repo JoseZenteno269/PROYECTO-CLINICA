@@ -19,7 +19,7 @@
                     <td>
                         Ingrese su Usuario: 
                     </td>
-                    <td>
+                    <td style="padding-left: 10px">
 
                         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
 
@@ -30,9 +30,9 @@
                 </tr>
                 <tr>
                     <td>
-                        Ingrese Nueva contraseña:
+                        Nueva contraseña:
                     </td>
-                    <td>
+                    <td  style="padding-left: 10px">
 
                         <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
 
@@ -45,7 +45,7 @@
                     <td>
                         Repita la contraseña:
                     </td>
-                    <td>
+                    <td  style="padding-left: 10px">
 
                         <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
 

@@ -14,10 +14,10 @@
             <div class="divs">
                 <table>
                     <tr>
-                        <td class="auto-style1"></td>
-                        <td class="auto-style1">ABML MEDICOS
+                        <td></td>
+                        <td>ABML MEDICOS
                         </td>
-                        <td class="auto-style1"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td></td>
