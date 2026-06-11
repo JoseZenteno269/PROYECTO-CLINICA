@@ -1,0 +1,59 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenedor {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.centrar {
+    align-self: center;
+}
+
+.div1 {
+    border-radius: 10px;
+    width: 100%;
+    background: lightblue;
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+    width: 100%;
+    margin-top: 0px;
+}
+
+.izquierda {
+    text-align: end;
+}
+
+h1 {
+    padding-left: 20px;
+    width: 90%
+}
+
+.icono {
+    padding-right: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.divimagen {
+    /*            width: 1900px;
+            height: 900px; 
+            background-image: url('imagenes/imagen1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;*/
+}

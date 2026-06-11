@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Clases/">
+    <Project Path="Datos/Datos.csproj" Id="bc9a18a4-ed40-4d4d-bd38-e418f5b82928" />
+    <Project Path="Entidades/Entidades.csproj" Id="66d5993d-4c83-4ac8-aa4f-8d26cfb9751a" />
+    <Project Path="Negocio/Negocio.csproj" Id="d30918d1-1570-47da-9ed6-5e596c0f38a3" />
+  </Folder>
+  <Folder Name="/WebForms/">
+    <Project Path="Vista/Vista.csproj" Id="cda3f3f9-a9f6-4f9d-9a01-71c747c99f68" />
+  </Folder>
+</Solution>

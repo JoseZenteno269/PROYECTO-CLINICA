@@ -1,0 +1,20 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+#contenedor {
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+td{
+    padding: 0 0 15px 0; 
+}
