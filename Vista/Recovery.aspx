@@ -13,7 +13,7 @@
         <div id="contenedor">
             <table>
                 <tr style="text-align: center;">
-                    <td colspan="3"><h2>Recuperar Contraseña</h2></td>
+                    <td colspan="3"><h2>Recupera Contraseña</h2></td>
                 </tr>
                 <tr>
                     <td>
@@ -52,6 +52,11 @@
                     </td>
                     <td>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar " />
                     </td>
                 </tr>
                 <tr>
