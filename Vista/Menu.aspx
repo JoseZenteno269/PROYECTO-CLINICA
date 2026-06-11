@@ -1,18 +1,31 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ABML.aspx.cs" Inherits="Vista.ABML" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="Vista.ABML" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="Css/ABML.css" rel="stylesheet" type="text/css" />
+    <link href="Css/Menu.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="divmenu">
+            <table class="tablamenu">
+                <tr>
+                    <td align="initial" style="padding-left: 20px" width="85%"><h1>Clinica Medica</h1></td>
+                    <td>
+                        <asp:Label ID="lbl_usuario" runat="server" Text="USUARIO"></asp:Label></td>
+                    <td align="end" style="padding-right: 20px">
+                        <asp:Button ID="btn_cerrar" runat="server" Text="Cerrar Sesion" CssClass="bottoncerrarsesion"/>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div id="contenedor">
             <div class="divs">
-                <table class="tabla">
+                <table class="tablaABML">
                     <tr>
                         <td>
                             <img src="Imagenes/Medico.png" class="imagen" />
@@ -58,7 +71,7 @@
                 </table>
             </div>
             <div class="divs">
-                <table class="tabla">
+                <table class="tablaABML">
                     <tr>
                         <td>
                             <img src="Imagenes/paciente.png" class="imagen" />

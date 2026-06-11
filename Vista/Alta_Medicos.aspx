@@ -4,17 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <style>
-        body{
-            font-family: Arial; 
-        }
-        form{
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 80vh; 
-        }
-    </style>
+    <link href="Css/Alta_Meidicos.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>

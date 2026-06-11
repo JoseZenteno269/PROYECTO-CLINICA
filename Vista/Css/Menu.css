@@ -31,10 +31,21 @@ table{
     
 }
 
-.tabla{
+.tablaABML{
     border: 1px solid #ccc; 
     border-radius: 10px; 
     padding: 30px 80px 30px 80px; 
+}
+
+.tablamenu{
+    width: 100%; 
+}
+
+.divmenu{
+    width: 100%;  
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: lightblue;
 }
 
 .botones{
@@ -43,7 +54,6 @@ table{
     border-radius: 10px;
 
 }
-
     .botones:hover {
         background-color: #ddd;
     }
@@ -82,5 +92,16 @@ table{
 */
 .imagen {
     width: 150px;
-    height: 150px;
+    height: 150px;}
+
+.bottoncerrarsesion{
+    text-align: center; 
+    padding: 10px; 
+    background-color: #be1717; 
+    border-radius: 10px; 
+    border: 0px; 
 }
+
+    .bottoncerrarsesion:hover{
+        background-color: #fc0000; 
+    }

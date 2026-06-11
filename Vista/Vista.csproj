@@ -67,10 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ABML.aspx" />
+    <Content Include="Menu.aspx" />
     <Content Include="Alta_Medicos.aspx" />
     <Content Include="Alta_Pacientes.aspx" />
-    <Content Include="Css\ABML.css" />
+    <Content Include="Css\Menu.css" />
+    <Content Include="Css\Alta_Meidicos.css" />
+    <Content Include="Css\Alta_Pacientes.css" />
     <Content Include="Css\Inicio.css" />
     <Content Include="Css\Login.css" />
     <Content Include="Css\Recovery.css" />
@@ -87,12 +89,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABML.aspx.cs">
-      <DependentUpon>ABML.aspx</DependentUpon>
+    <Compile Include="Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ABML.aspx.designer.cs">
-      <DependentUpon>ABML.aspx</DependentUpon>
+    <Compile Include="Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Alta_Medicos.aspx.cs">
       <DependentUpon>Alta_Medicos.aspx</DependentUpon>
