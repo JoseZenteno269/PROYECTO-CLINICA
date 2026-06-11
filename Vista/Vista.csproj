@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Imagenes\Turnos.png" />
     <Content Include="Menu.aspx" />
     <Content Include="Alta_Medicos.aspx" />
     <Content Include="Alta_Pacientes.aspx" />

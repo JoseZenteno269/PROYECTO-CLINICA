@@ -4,199 +4,96 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="Css/Alta_Meidicos.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link href="Css/Alta_Meidicos.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <table>
+            <table class="form-medicos">
                 <tr><td colspan="3">Medicos</td></tr>
                 <tr>
-                    <td>
-                        Legajo: 
-                    </td>
-                    <td>
-                        <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-                    </td>
-                    <td>
-
-                    </td>
+                    <td>Legajo:</td>
+                    <td><asp:TextBox ID="TextBox7" runat="server"></asp:TextBox></td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>
-                        Ingrese DNI: 
-                    </td>
-                    <td>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                    </td>
-                    <td>
-
-                    </td>
+                    <td>Ingrese DNI:</td>
+                    <td><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>
-                        Nombre: 
-                    </td>
-                    <td>
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                    </td>
-                    <td>
-
-                    </td>
+                    <td>Nombre:</td>
+                    <td><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>
-
-                        Apellido:
-
-                    </td>
-                    <td>
-
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td>Apellido:</td>
+                    <td><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                    <td></td>
                 </tr>
                 <tr>
+                    <td>Sexo:</td>
                     <td>
-
-                        Sexo
-
+                        <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
                     </td>
-                    <td>
-
-                        <asp:DropDownList ID="DropDownList1" runat="server">
-                        </asp:DropDownList>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td></td>
                 </tr>
                 <tr>
+                    <td>Nacionalidad:</td>
                     <td>
-
-                        Nacionalidad:
-
+                        <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
                     </td>
-                    <td>
-
-                        <asp:DropDownList ID="DropDownList2" runat="server">
-                        </asp:DropDownList>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td></td>
                 </tr>
                 <tr>
+                    <td>Fecha de nacimiento:</td>
                     <td>
-
-                        fecha de naciemiento:
-
+                        <asp:DropDownList ID="DropDownList3" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownList4" runat="server"></asp:DropDownList>
+                        <br />
+                        <asp:Calendar ID="Calendar1" runat="server" CssClass="aspNetCalendar" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>
                     </td>
-                    <td>
-                        <asp:DropDownList ID="DropDownList3" runat="server"></asp:DropDownList><asp:DropDownList ID="DropDownList4" runat="server"></asp:DropDownList>
-                        <asp:Calendar ID="Calendar1" runat="server" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>
-
-                        Direccion:
-
-                    </td>
-                    <td>
-
-                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td>Direccion:</td>
+                    <td><asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
+                    <td></td>
                 </tr>
                 <tr>
+                    <td>Localidad:</td>
                     <td>
-
-                        Localidad:
-
+                        <asp:DropDownList ID="DropDownList5" runat="server"></asp:DropDownList>
                     </td>
-                    <td>
-
-                        <asp:DropDownList ID="DropDownList5" runat="server">
-                        </asp:DropDownList>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td></td>
                 </tr>
                 <tr>
+                    <td>Provincia:</td>
                     <td>
-
-                        Provincia:
-
+                        <asp:DropDownList ID="DropDownList6" runat="server"></asp:DropDownList>
                     </td>
-                    <td>
-
-                        <asp:DropDownList ID="DropDownList6" runat="server">
-                        </asp:DropDownList>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>
-
-                        Correo Electronico:
-
-                    </td>
-                    <td>
-
-                        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td>Correo Electronico:</td>
+                    <td><asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>
-
-                        Telefono:
-
-                    </td>
-                    <td>
-
-                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td>Telefono:</td>
+                    <td><asp:TextBox ID="TextBox6" runat="server"></asp:TextBox></td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>
-                        ACTIVO: 
-                    </td>
-                    <td>
-
-                        <asp:CheckBox ID="CheckBox1" runat="server" />
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td>ACTIVO:</td>
+                    <td><asp:CheckBox ID="CheckBox1" runat="server" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="botones">
+                        &nbsp;</td>
                 </tr>
             </table>
         </div>
