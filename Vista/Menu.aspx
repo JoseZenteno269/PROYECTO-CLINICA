@@ -7,15 +7,6 @@
     <link href="Css/Menu.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 150px;
-        }
-        .auto-style2 {
-            padding-bottom: 10px;
-            width: 150px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -36,12 +27,12 @@
             <div class="divs">
                 <table class="tablaABML">
                     <tr>
-                        <td class="auto-style1">
+                        <td >
                             <img src="Imagenes/Medico.png" class="imagen" />
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" class="auto-style1">
+                        <td align="center" >
                             <%--                            <asp:Menu ID="Menu_Medicos" runat="server" StaticDisplayLevels="1" StaticSubMenuIndent="0" Orientation="Horizontal" ForeColor="Black" RenderingMode="Table">
                                 <DynamicMenuItemStyle CssClass="menuitem"/>
                                 <DynamicMenuStyle VerticalPadding="15px"/>
@@ -58,22 +49,22 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">
+                        <td class="td">
                             <asp:Button ID="btn_agregarm" cssclass="botones" runat="server" Text="Agregar" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">
+                        <td  class="td">
                             <asp:Button ID="btn_dar_bajam" runat="server" Text="Eliminar" CssClass="botones" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">
+                        <td class="td">
                             <asp:Button ID="btn_modificarm" runat="server" Text="Modificar" CssClass="botones" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">
+                        <td class="td">
                             <asp:Button ID="btn_listarm" runat="server" Text="Listar" CssClass="botones" />
                         </td>
                     </tr>
@@ -83,7 +74,7 @@
                 <table class="tablaABML">
                     <tr>
                         <td>
-                            <img src="Imagenes/turnos.png" Class="imagen" />
+                            <img src="Imagenes/Turnos.png" class="imagen" />
                         </td>
                     </tr>
                     <tr>
@@ -105,7 +96,9 @@
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_agregart" runat="server" Text="Asignar" CssClass="botones" /></td>
+                            <asp:Button ID="btn_agregart" runat="server" Text="Asignar" CssClass="botones" />
+                        </td>
+
                     </tr>                    
                 </table>
             </div>

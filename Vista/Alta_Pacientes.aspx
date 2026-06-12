@@ -11,14 +11,14 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <table>
+            <table class="form-pacientes">
                 <tr><td colspan="3">Pacientes</td></tr>
                 <tr>
                     <td>
                         Ingrese DNI: 
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_dni_p" runat="server"></asp:TextBox>
                     </td>
                     <td>
 
@@ -29,7 +29,7 @@
                         Nombre: 
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_nombre_p" runat="server"></asp:TextBox>
                     </td>
                     <td>
 
@@ -43,7 +43,7 @@
                     </td>
                     <td>
 
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_apellido_p" runat="server"></asp:TextBox>
 
                     </td>
                     <td>
@@ -58,7 +58,7 @@
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:DropDownList ID="ddl_sexo_p" runat="server">
                         </asp:DropDownList>
 
                     </td>
@@ -74,7 +74,7 @@
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="DropDownList2" runat="server">
+                        <asp:DropDownList ID="ddl_nacionalidad_p" runat="server">
                         </asp:DropDownList>
 
                     </td>
@@ -89,8 +89,8 @@
 
                     </td>
                     <td>
-                        <asp:DropDownList ID="DropDownList3" runat="server"></asp:DropDownList><asp:DropDownList ID="DropDownList4" runat="server"></asp:DropDownList>
-                        <asp:Calendar ID="Calendar1" runat="server" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>
+                        <asp:DropDownList ID="ddl_mes_p" runat="server"></asp:DropDownList><asp:DropDownList ID="ddl_anio_p" runat="server"></asp:DropDownList>
+                        <asp:Calendar ID="c_calendario_p" runat="server" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>
 
                     </td>
                     <td>
@@ -105,7 +105,7 @@
                     </td>
                     <td>
 
-                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_direccion_p" runat="server"></asp:TextBox>
 
                     </td>
                     <td>
@@ -120,7 +120,7 @@
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="DropDownList5" runat="server">
+                        <asp:DropDownList ID="ddl_localdiad_p" runat="server">
                         </asp:DropDownList>
 
                     </td>
@@ -136,7 +136,7 @@
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="DropDownList6" runat="server">
+                        <asp:DropDownList ID="ddl_provincia_p" runat="server">
                         </asp:DropDownList>
 
                     </td>
@@ -152,7 +152,7 @@
                     </td>
                     <td>
 
-                        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_correo_p" runat="server"></asp:TextBox>
 
                     </td>
                     <td>
@@ -167,7 +167,7 @@
                     </td>
                     <td>
 
-                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_telefono_p" runat="server"></asp:TextBox>
 
                     </td>
                     <td>
@@ -177,8 +177,14 @@
                 <tr>
                     <td>ACTIVO</td>
                     <td>
-                        <asp:CheckBox ID="CheckBox1" runat="server" /></td>
+                        <asp:CheckBox ID="cb_activo_p" runat="server" /></td>
                     <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="botones">
+                        <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" />
+                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="btn-cancelar" />
+                    </td>
                 </tr>
             </table>
         </div>

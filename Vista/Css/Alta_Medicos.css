@@ -95,6 +95,7 @@ form table.form-medicos tr:nth-child(even):not(:first-child) {
     border: none;
     cursor: pointer;
     margin-right: 10px;
+    width: 120px; 
 }
 
 .btn-guardar {

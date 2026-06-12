@@ -67,12 +67,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Imagenes\Medico_agregar.png" />
     <Content Include="Imagenes\Turnos.png" />
     <Content Include="Menu.aspx" />
     <Content Include="Alta_Medicos.aspx" />
     <Content Include="Alta_Pacientes.aspx" />
     <Content Include="Css\Menu.css" />
-    <Content Include="Css\Alta_Meidicos.css" />
+    <Content Include="Css\Alta_Medicos.css" />
     <Content Include="Css\Alta_Pacientes.css" />
     <Content Include="Css\Inicio.css" />
     <Content Include="Css\Login.css" />
