@@ -4,63 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<link href="Css/Menu.css" rel="stylesheet" type="text/css" />
+    <link href="Css/Menu_Medicos.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-
-.usuario-container {
-    position: relative;
-    display: inline-block;
-}
-
-.btn-usuario {
-    cursor: pointer;
-    padding: 13px 56px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background: white;
-    font-size: 14px;
-    text-decoration: none;
-    color: black;
-}
-
-.dropdown-panel {
-    position: absolute;
-    top: 180%;
-    right: 0;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    min-width: 180px;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    padding: 6px 0;
-}
-
-.opcion-menu {
-    display: block;
-    padding: 10px 16px;
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-    text-align: left;
-}
-
-.opcion-roja {
-    color: red;
-}
-
-.contenedor-turnos {
-    height: 80px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 5px;
-}
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -83,36 +29,48 @@
                 </tr>
             </table>
         </div>
-        <div>
+        <div id="divcontenerdor">
             <table>
-                <tr><td></td></tr>
-                <tr><td>
-                    <br />
-                    <br />
-                    </td></tr>
-                <tr><td>Buscar por DNI:
+                <tr>
+                    <td>Buscar por DNI:</td>
+                    <td>
                     <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
-&nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" />
-                    <br />
-                    <br />
-                    </td></tr>
-                <tr style="align-content:center">
-                    <td style="align-content: center">
+                        </td>
+                    <td>
+                        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <br />
+            <table>
+                <tr>
+                    <td>
                         <div class="contenedor-turnos">
                             <asp:DataList ID="DLTurnos" runat="server" CellPadding="4" ForeColor="#333333">
                                 <AlternatingItemStyle BackColor="White" />
                                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                                 <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                                <ItemStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                                <ItemStyle/>
                                 <ItemTemplate>
-                                    <asp:Label ID="lbl_fecha" runat="server" Text='<%# Eval("Fecha") %>'></asp:Label>
-                                    <asp:Label ID="lbl_hora" runat="server" Text='<%# Eval("Hora") %>'></asp:Label>
-                                    <asp:Label ID="lbl_paciente" runat="server" Text='<%# Eval("Paciente") %>'></asp:Label>
-                                    <asp:Label ID="lbl_medico" runat="server" Text='<%# Eval("Medico") %>'></asp:Label>
-                                    <asp:DropDownList ID="ddlPresentismo" runat="server">
-                                        <asp:ListItem Value="1">Presente</asp:ListItem>
-                                        <asp:ListItem Value="0">Ausente</asp:ListItem>
-                                    </asp:DropDownList>
+                                    <td class="tditemtemplate">
+                                        <asp:Label ID="lbl_estado" runat="server" Text='<%# Eval("Estado") %>'></asp:Label>
+                                    </td>
+                                    <td class="tditemtemplate">
+                                        <asp:Label ID="lbl_fecha" runat="server" Text='<%# Eval("Fecha") %>'></asp:Label>
+                                    </td>
+                                    <td class="tditemtemplate">
+                                        <asp:Label ID="lbl_hora" runat="server" Text='<%# Eval("Hora") %>'></asp:Label></td>
+                                    <td class="tditemtemplate">
+                                        <asp:Label ID="lbl_paciente" runat="server" Text='<%# Eval("Paciente") %>'></asp:Label></td>
+                                    <td class="tditemtemplate">
+                                        <asp:Label ID="lbl_medico" runat="server" Text='<%# Eval("Medico") %>'></asp:Label></td>
+                                    <td class="tditemtemplate">
+                                        <asp:DropDownList ID="ddlPresentismo" runat="server">
+                                            <asp:ListItem Value="1">Presente</asp:ListItem>
+                                            <asp:ListItem Value="0">Ausente</asp:ListItem>
+                                        </asp:DropDownList></td>
                                 </ItemTemplate>
                                 <SelectedItemStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                             </asp:DataList>

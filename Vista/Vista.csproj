@@ -69,6 +69,9 @@
   <ItemGroup>
     <Content Include="Baja_Medicos.aspx" />
     <Content Include="Baja_Pacientes.aspx" />
+    <Content Include="Css\Listado_Medicos.css" />
+    <Content Include="Css\Listado_Pacientes.css" />
+    <Content Include="Css\Menu_Medicos.css" />
     <Content Include="Imagenes\Medico_agregar.png" />
     <Content Include="Imagenes\Turnos.png" />
     <Content Include="Listado_Medicos.aspx" />

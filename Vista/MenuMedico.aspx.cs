@@ -30,11 +30,11 @@ namespace Vista
         private void CargarTurnos()
         {
             var lista = new List<object>
-    {
-        new { Fecha = "13/06/2026", Hora = "09:00", Paciente = "Alguien", Medico = "Dr. Alguien" },
-        new { Fecha = "13/06/2026", Hora = "10:30", Paciente = "Alguien", Medico = "Dr. Alguien" },
-        new { Fecha = "14/06/2026", Hora = "08:00", Paciente = "Alguien", Medico = "Dr. Alguien" }
-    };
+            {
+                new { Estado = "asignado", Fecha = "13/06/2026", Hora = "09:00", Paciente = "Alguien", Medico = "Dr. Alguien" },
+                new { Estado = "cancelado", Fecha = "13/06/2026", Hora = "10:30", Paciente = "Alguien", Medico = "Dr. Alguien" },
+                new { Estado = "asignado", Fecha = "14/06/2026", Hora = "08:00", Paciente = "Alguien", Medico = "Dr. Alguien" }
+            };
 
             DLTurnos.DataSource = lista;
             DLTurnos.DataBind();

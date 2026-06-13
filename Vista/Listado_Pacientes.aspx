@@ -4,55 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<link href="Css/Menu.css" rel="stylesheet" type="text/css" />
+<link href="Css/Listado_Pacientes.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-
-.usuario-container {
-    position: relative;
-    display: inline-block;
-}
-
-.btn-usuario {
-    cursor: pointer;
-    padding: 13px 56px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background: white;
-    font-size: 14px;
-    text-decoration: none;
-    color: black;
-}
-
-.dropdown-panel {
-    position: absolute;
-    top: 180%;
-    right: 0;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    min-width: 180px;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    padding: 6px 0;
-}
-
-.opcion-menu {
-    display: block;
-    padding: 10px 16px;
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-    text-align: left;
-}
-
-.opcion-roja {
-    color: red;
-}
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
