@@ -11,7 +11,20 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
 
+            }
+        }
+
+        protected void lb_usuario_menu_Click(object sender, EventArgs e)
+        {
+            p_panel.Visible = !p_panel.Visible; 
+        }
+
+        protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx"); 
         }
     }
 }

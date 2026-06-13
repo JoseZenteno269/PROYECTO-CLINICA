@@ -2,14 +2,17 @@
     font-family: Arial, sans-serif;
     font-size: 15px;
     background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    margin: 0;
 }
 
-form table.form-medicos {
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div table.div-medicos {
     border-collapse: collapse;
     width: 700px;
     background-color: #ffffff;
@@ -17,20 +20,20 @@ form table.form-medicos {
     margin: 25px auto;
 }
 
-    form table.form-medicos tr td:first-child {
+    .div table.div-medicos tr td:first-child {
         width: 220px;
         padding: 10px 12px;
         text-align: left;
         vertical-align: middle;
     }
 
-    form table.form-medicos tr td {
+    .div table.div-medicos tr td {
         padding: 10px 12px;
         vertical-align: middle;
     }
 
     /* Título "Medicos" */
-    form table.form-medicos tr:first-child td {
+    .div table.div-medicos tr:first-child td {
         font-size: 18px;
         font-weight: bold;
         background-color: #2c3e50;
@@ -82,7 +85,7 @@ input[type="checkbox"] {
 }
 
 /* Filas alternadas */
-form table.form-medicos tr:nth-child(even):not(:first-child) {
+.div table.div-medicos tr:nth-child(even):not(:first-child) {
     background-color: #fafafa;
 }
 
@@ -111,4 +114,68 @@ form table.form-medicos tr:nth-child(even):not(:first-child) {
 .botones {
     text-align: right;
     padding: 12px;
+}
+
+.tablamenu {
+    width: 100%; 
+}
+
+.divmenu {
+    width: 100%; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: lightblue;
+}
+
+.usuario-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.btn-usuario {
+    cursor: pointer;
+    padding: 13px 56px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: white;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+
+    .btn-usuario:hover {
+        background: #f0f0f0;
+    }
+
+.dropdown-panel {
+    position: absolute;
+    top: 180%;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 180px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 6px 0;
+}
+
+.opcion-menu {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    text-align: left;
+}
+
+    .opcion-menu:hover {
+        background: #f5f5f5;
+    }
+
+.opcion-roja {
+    color: red;
 }

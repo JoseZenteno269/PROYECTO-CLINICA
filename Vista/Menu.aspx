@@ -15,10 +15,18 @@
                 <tr>
                     <td align="initial" style="padding-left: 20px" width="85%"><h1>Clinica Medica</h1></td>
                     <td>
-                        <asp:Label ID="lbl_usuario" runat="server" Text="USUARIO"></asp:Label></td>
+                    </td>
                     <td align="end" style="padding-right: 20px">
-                        <asp:Button ID="btn_cerrar" runat="server" Text="Cerrar Sesion" CssClass="bottoncerrarsesion"/>
+                        <div class="usuario-container">
+                            <asp:LinkButton ID="lb_usuario_menu" CssClass="btn-usuario" runat="server" OnClick="lb_usuario_menu_Click">👤
+                                <asp:Label runat="server" ID="lbl_usuario" Text="usuario"></asp:Label>
+                            </asp:LinkButton>
+                            <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
 
+                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
+                            </asp:Panel>
+                        </div>
                     </td>
                 </tr>
             </table>
