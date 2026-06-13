@@ -67,8 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Baja_Medicos.aspx" />
+    <Content Include="Baja_Pacientes.aspx" />
     <Content Include="Imagenes\Medico_agregar.png" />
     <Content Include="Imagenes\Turnos.png" />
+    <Content Include="Listado_Medicos.aspx" />
+    <Content Include="Listado_Pacientes.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="Alta_Medicos.aspx" />
     <Content Include="Alta_Pacientes.aspx" />
@@ -87,10 +91,40 @@
     <Content Include="Imagenes\paciente.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Modificacion_Medicos.aspx" />
+    <Content Include="Modificacion_Pacientes.aspx" />
     <Content Include="Recovery.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baja_Medicos.aspx.cs">
+      <DependentUpon>Baja_Medicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Baja_Medicos.aspx.designer.cs">
+      <DependentUpon>Baja_Medicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Baja_Pacientes.aspx.cs">
+      <DependentUpon>Baja_Pacientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Baja_Pacientes.aspx.designer.cs">
+      <DependentUpon>Baja_Pacientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_Medicos.aspx.cs">
+      <DependentUpon>Listado_Medicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Listado_Medicos.aspx.designer.cs">
+      <DependentUpon>Listado_Medicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_Pacientes.aspx.cs">
+      <DependentUpon>Listado_Pacientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Listado_Pacientes.aspx.designer.cs">
+      <DependentUpon>Listado_Pacientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -125,6 +159,20 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modificacion_Medicos.aspx.cs">
+      <DependentUpon>Modificacion_Medicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modificacion_Medicos.aspx.designer.cs">
+      <DependentUpon>Modificacion_Medicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modificacion_Pacientes.aspx.cs">
+      <DependentUpon>Modificacion_Pacientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modificacion_Pacientes.aspx.designer.cs">
+      <DependentUpon>Modificacion_Pacientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recovery.aspx.cs">

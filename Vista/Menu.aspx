@@ -106,8 +106,17 @@
                         <td class="td">
                             <asp:Button ID="btn_agregart" runat="server" Text="Asignar" CssClass="botones" />
                         </td>
-
-                    </tr>                    
+                    </tr> 
+                    <tr>
+                        <td class="td">
+                            <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="botones" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <asp:Button ID="btn_listar" runat="server" Text="Listar turnos" CssClass="botones" />
+                        </td>
+                    </tr>
                 </table>
             </div>
             <div class="divs">
