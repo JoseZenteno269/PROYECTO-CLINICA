@@ -91,6 +91,7 @@
     <Content Include="Imagenes\paciente.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MenuMedico.aspx" />
     <Content Include="Modificacion_Medicos.aspx" />
     <Content Include="Modificacion_Pacientes.aspx" />
     <Content Include="Recovery.aspx" />
@@ -159,6 +160,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuMedico.aspx.cs">
+      <DependentUpon>MenuMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuMedico.aspx.designer.cs">
+      <DependentUpon>MenuMedico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modificacion_Medicos.aspx.cs">
       <DependentUpon>Modificacion_Medicos.aspx</DependentUpon>

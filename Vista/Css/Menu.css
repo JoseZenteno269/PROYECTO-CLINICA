@@ -161,3 +161,11 @@ table{
 .opcion-roja {
     color: red;
 }
+
+.contenedor-turnos {
+    height: 80px; /* altura máxima visible */
+    overflow-y: auto; /* scrollbar vertical automática */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 5px;
+}
