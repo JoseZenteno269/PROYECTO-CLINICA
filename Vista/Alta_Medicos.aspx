@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<link href="Css/Alta_Meidicos.css" rel="stylesheet" type="text/css" />
+<link href="Css/Alta_Medicos.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
