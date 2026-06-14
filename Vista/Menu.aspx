@@ -41,18 +41,6 @@
                     </tr>
                     <tr>
                         <td align="center" >
-                            <%--                            <asp:Menu ID="Menu_Medicos" runat="server" StaticDisplayLevels="1" StaticSubMenuIndent="0" Orientation="Horizontal" ForeColor="Black" RenderingMode="Table">
-                                <DynamicMenuItemStyle CssClass="menuitem"/>
-                                <DynamicMenuStyle VerticalPadding="15px"/>
-                                <Items>
-                                    <asp:MenuItem Text="Medicos" Value="Medicos">
-                                        <asp:MenuItem Text="Alta" Value="Alta"></asp:MenuItem>
-                                        <asp:MenuItem Text="Baja" Value="Baja"></asp:MenuItem>
-                                        <asp:MenuItem Text="Modificacion" Value="Modificacion"></asp:MenuItem>
-                                        <asp:MenuItem Text="Listado" Value="Listado"></asp:MenuItem>
-                                    </asp:MenuItem>
-                                </Items>
-                            </asp:Menu>--%>
                             <h2>Medicos</h2>
                         </td>
                     </tr>
@@ -82,59 +70,11 @@
                 <table class="tablaABML">
                     <tr>
                         <td>
-                            <img src="Imagenes/Turnos.png" class="imagen" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <%--                            <asp:Menu ID="Menu_Turnos" runat="server" StaticDisplayLevels="1" StaticSubMenuIndent="0" Orientation="Horizontal" ForeColor="Black" RenderingMode="Table">
-                                <DynamicMenuItemStyle CssClass="menuitem" />
-                                <DynamicMenuStyle VerticalPadding="15px" />
-                                <Items>
-                                    <asp:MenuItem Text="Turnos" Value="Turnos">
-                                        <asp:MenuItem Text="Alta" Value="Alta"></asp:MenuItem>
-                                        <asp:MenuItem Text="Baja" Value="Baja"></asp:MenuItem>
-                                        <asp:MenuItem Text="Modificacion" Value="Modificacion"></asp:MenuItem>
-                                        <asp:MenuItem Text="Listado" Value="Listado"></asp:MenuItem>
-                                    </asp:MenuItem>
-                                </Items>
-                            </asp:Menu>--%>
-                            <h2>Turnos</h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td">
-                            <asp:Button ID="btn_agregart" runat="server" Text="Asignar" CssClass="botones" />
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td class="td">
-                            <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="botones" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="divs">
-                <table class="tablaABML">
-                    <tr>
-                        <td>
                             <img src="Imagenes/paciente.png" class="imagen" />
                         </td>
                     </tr>
                     <tr>
                         <td align="center">
-                            <%--                            <asp:Menu ID="Menu_Pacientes" runat="server" StaticDisplayLevels="1" StaticSubMenuIndent="0" Orientation="Horizontal" ForeColor="Black" RenderingMode="Table">
-                                <DynamicMenuItemStyle CssClass="menuitem" />
-                                <DynamicMenuStyle VerticalPadding="15px" />
-                                <Items>
-                                    <asp:MenuItem Text="Pacientes" Value="Pacientes">
-                                        <asp:MenuItem Text="Alta" Value="Alta"></asp:MenuItem>
-                                        <asp:MenuItem Text="Baja" Value="Baja"></asp:MenuItem>
-                                        <asp:MenuItem Text="Modificacion" Value="Modificacion"></asp:MenuItem>
-                                        <asp:MenuItem Text="Listado" Value="Listado"></asp:MenuItem>
-                                    </asp:MenuItem>
-                                </Items>
-                            </asp:Menu>--%>
                             <h2>Pacientes</h2>
                         </td>
                     </tr>
@@ -153,6 +93,51 @@
                     <tr>
                         <td class="td">
                             <asp:Button ID="btn_listarp" runat="server" Text="Listar" CssClass="botones" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="contenedor">
+            <div class="divs">
+                <table class="tablaABML">
+                    <tr>
+                        <td>
+                            <img src="Imagenes/Turnos.png" class="imagen" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <h2>Turnos</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <asp:Button ID="btn_agregart" runat="server" Text="Asignar" CssClass="botones" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="botones" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="divs">
+                <table class="tablaABML">
+                    <tr>
+                        <td>
+                            <img src="Imagenes/Informes.png" class="imagen" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <h2>Informes</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <asp:Button ID="btn_informes" runat="server" Text="Mostrar Informes" CssClass="botones" />
+                        </td>
                     </tr>
                 </table>
             </div>

@@ -74,13 +74,16 @@
     <Content Include="Css\Asignar_Turnos.css" />
     <Content Include="Css\Baja_Medicos.css" />
     <Content Include="Css\Baja_Paciente.css" />
+    <Content Include="Css\Informes.css" />
     <Content Include="Css\Listado_Medicos.css" />
     <Content Include="Css\Listado_Pacientes.css" />
     <Content Include="Css\Menu_Medicos.css" />
     <Content Include="Css\Modificacion_Medicos.css" />
     <Content Include="Css\Modificacion_Pacientes.css" />
+    <Content Include="Imagenes\Informes.png" />
     <Content Include="Imagenes\Medico_agregar.png" />
     <Content Include="Imagenes\Turnos.png" />
+    <Content Include="Informes.aspx" />
     <Content Include="Listado_Medicos.aspx" />
     <Content Include="Listado_Pacientes.aspx" />
     <Content Include="Menu.aspx" />
@@ -135,6 +138,13 @@
     </Compile>
     <Compile Include="Cancelar_Turno.aspx.designer.cs">
       <DependentUpon>Cancelar_Turno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Informes.aspx.cs">
+      <DependentUpon>Informes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Informes.aspx.designer.cs">
+      <DependentUpon>Informes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Listado_Medicos.aspx.cs">
       <DependentUpon>Listado_Medicos.aspx</DependentUpon>
