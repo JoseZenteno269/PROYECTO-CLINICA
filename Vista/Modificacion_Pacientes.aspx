@@ -41,7 +41,7 @@
                         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:Button ID="Button1" runat="server" Text="Button" />
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" />
                     </td>
                 </tr>
             </table>

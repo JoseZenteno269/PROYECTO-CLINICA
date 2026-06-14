@@ -19,16 +19,51 @@
                     <td></td>
                     <td align="end" style="padding-right: 20px">
                         <div class="usuario-container">
-                            <asp:LinkButton ID="lb_usuario_menu" CssClass="btn-usuario" runat="server">
+                            <asp:LinkButton ID="lb_usuario_menu" CssClass="btn-usuario" runat="server" OnClick="lb_usuario_menu_Click">
                                 👤
                         <asp:Label runat="server" ID="lbl_usuario" Text="usuario"></asp:Label>
                             </asp:LinkButton>
                             <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
 
                                 <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
-                                <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server">Cerrar Sesion</asp:LinkButton>
+                                <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
                         </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><h2>Mostrar Informes</h2></td><td></td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        <asp:DropDownList ID="ddl_Informes" runat="server">
+                            <asp:ListItem>--Seleccione un Informe--</asp:ListItem>
+                            <asp:ListItem>Informe 1</asp:ListItem>
+                            <asp:ListItem>Informe 2</asp:ListItem>
+                            <asp:ListItem>Informe 3</asp:ListItem>
+                            <asp:ListItem>Informe 4</asp:ListItem>
+                            <asp:ListItem>Informe 5</asp:ListItem>
+                        </asp:DropDownList>
+                        
                     </td>
                 </tr>
             </table>
