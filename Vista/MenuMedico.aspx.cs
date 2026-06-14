@@ -11,10 +11,10 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                CargarTurnos();
-            }
+            //if (!IsPostBack)
+            //{
+            //    CargarTurnos();
+            //}
         }
 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
@@ -27,17 +27,17 @@ namespace Vista
             Response.Redirect("Login.aspx");
         }
 
-        private void CargarTurnos()
-        {
-            var lista = new List<object>
-            {
-                new { Estado = "asignado", Fecha = "13/06/2026", Hora = "09:00", Paciente = "Alguien", Medico = "Dr. Alguien" },
-                new { Estado = "cancelado", Fecha = "13/06/2026", Hora = "10:30", Paciente = "Alguien", Medico = "Dr. Alguien" },
-                new { Estado = "asignado", Fecha = "14/06/2026", Hora = "08:00", Paciente = "Alguien", Medico = "Dr. Alguien" }
-            };
+        //private void CargarTurnos()
+        //{
+        //    var lista = new List<object>
+        //    {
+        //        new { Estado = "asignado", Fecha = "13/06/2026", Hora = "09:00", Paciente = "Alguien", Medico = "Dr. Alguien" },
+        //        new { Estado = "cancelado", Fecha = "13/06/2026", Hora = "10:30", Paciente = "Alguien", Medico = "Dr. Alguien" },
+        //        new { Estado = "asignado", Fecha = "14/06/2026", Hora = "08:00", Paciente = "Alguien", Medico = "Dr. Alguien" }
+        //    };
 
-            DLTurnos.DataSource = lista;
-            DLTurnos.DataBind();
-        }
+        //    DLTurnos.DataSource = lista;
+        //    DLTurnos.DataBind();
+        //}
     }
 }
