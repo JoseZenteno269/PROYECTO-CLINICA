@@ -20,6 +20,15 @@ form {
     background: lightblue;
 }
 
+#divcontenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+
 .usuario-container {
     position: relative;
     display: inline-block;

@@ -71,6 +71,7 @@
     <Content Include="Baja_Medicos.aspx" />
     <Content Include="Baja_Pacientes.aspx" />
     <Content Include="Cancelar_Turno.aspx" />
+    <Content Include="Css\Asignar_Turnos.css" />
     <Content Include="Css\Baja_Medicos.css" />
     <Content Include="Css\Baja_Paciente.css" />
     <Content Include="Css\Listado_Medicos.css" />

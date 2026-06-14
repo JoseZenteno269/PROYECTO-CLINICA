@@ -31,6 +31,22 @@
         </tr>
     </table>
 </div>
+                <div id="divcontenedor">
+            <table>
+                <tr>
+                    <td>
+                        Ingrese DNI, Nombre o Apellido: 
+                    </td>
+                    <td>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:Button ID="Button1" runat="server" Text="Button" />
+                    </td>
+                </tr>
+            </table>
+            <asp:ListView ID="ListView1" runat="server"></asp:ListView>
+        </div>
     </form>
 </body>
 </html>

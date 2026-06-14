@@ -36,7 +36,7 @@
         <div id="divcontenedor">
             <table>
                 <tr>
-                    <td>Ingrese Legajo de Medico: </td>
+                    <td>Ingrese DNI Paciente: </td>
                     <td>
                         <asp:TextBox ID="txt_legajo" runat="server"></asp:TextBox></td>
                     <td>

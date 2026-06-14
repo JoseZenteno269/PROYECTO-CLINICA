@@ -35,7 +35,7 @@
             <table>
                 <tr>
                     <td>
-                        Ingrese Legajo: 
+                        Ingrese Legajo, DNI, Nombre o Apellido: 
                     </td>
                     <td>
                         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>

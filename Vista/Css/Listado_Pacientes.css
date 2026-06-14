@@ -9,7 +9,7 @@ form {
     align-items: center;
 }
 
-#divcontenerdor {
+#divcontenedor {
     display: flex;
     flex-direction: column;
     justify-content: center;

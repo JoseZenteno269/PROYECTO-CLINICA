@@ -33,28 +33,30 @@
                 </tr>
             </table>
         </div>
-        <div>
+        <div id="divcontenedor">
             <table>
                 <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
                     <td>
+                    Ingrese Legajo: 
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txt_buscar" runat="server"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" />
+                    </td>
+                </tr>
+            </table>
                         <asp:GridView ID="gvMedicos" runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:TemplateField HeaderText="Legajo"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="DNI"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Corre Electronico"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Telefono"></asp:TemplateField>
                             </Columns>
                         </asp:GridView>
-                    </td>
-                </tr>
-            </table>
         </div>
     </form>
 </body>

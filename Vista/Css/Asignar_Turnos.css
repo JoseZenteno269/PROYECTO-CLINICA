@@ -4,19 +4,31 @@
 
 form {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  
     justify-content: center;
     align-items: center;
 }
 
-#divcontenedor {
+#divrow {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 80vh;
+    width: 100%
 }
 
+.divfila{
+    justify-content: center; 
+    align-items: center; 
+    width: 50%; 
+    text-align: center; 
+}
+
+.tableturnos{
+    text-align: center; 
+    width: 100%; 
+}
 
 .tablamenu {
     width: 100%;
@@ -33,7 +45,6 @@ form {
     position: relative;
     display: inline-block;
 }
-
 
 .btn-usuario {
     cursor: pointer;

@@ -29,26 +29,28 @@
                 </tr>
             </table>
         </div>
-        <div>
+        <div id="divcontenedor">
             <table>
-                <tr><td></td></tr>
-                <tr><td></td></tr>
                 <tr>
-                    <td>
-                        <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False">
-                            <Columns>
-                                <asp:TemplateField HeaderText="Dni"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Sexo"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Direccion"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Correo Electronico"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Telefono"></asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
+                    <td>Ingrese DNI: 
                     </td>
+                    <td>
+                        <asp:TextBox ID="txt_buscar" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" /></td>
                 </tr>
             </table>
+            <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:TemplateField HeaderText="Dni"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Sexo"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Direccion"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Correo Electronico"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Telefono"></asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </div>
     </form>
 </body>
