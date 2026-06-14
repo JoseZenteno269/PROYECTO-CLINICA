@@ -67,11 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asignar_Turno.aspx" />
     <Content Include="Baja_Medicos.aspx" />
     <Content Include="Baja_Pacientes.aspx" />
+    <Content Include="Cancelar_Turno.aspx" />
+    <Content Include="Css\Baja_Medicos.css" />
+    <Content Include="Css\Baja_Paciente.css" />
     <Content Include="Css\Listado_Medicos.css" />
     <Content Include="Css\Listado_Pacientes.css" />
     <Content Include="Css\Menu_Medicos.css" />
+    <Content Include="Css\Modificacion_Medicos.css" />
+    <Content Include="Css\Modificacion_Pacientes.css" />
     <Content Include="Imagenes\Medico_agregar.png" />
     <Content Include="Imagenes\Turnos.png" />
     <Content Include="Listado_Medicos.aspx" />
@@ -94,13 +100,20 @@
     <Content Include="Imagenes\paciente.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="MenuMedico.aspx" />
+    <Content Include="Menu_Medico.aspx" />
     <Content Include="Modificacion_Medicos.aspx" />
     <Content Include="Modificacion_Pacientes.aspx" />
     <Content Include="Recovery.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asignar_Turno.aspx.cs">
+      <DependentUpon>Asignar_Turno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Asignar_Turno.aspx.designer.cs">
+      <DependentUpon>Asignar_Turno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Baja_Medicos.aspx.cs">
       <DependentUpon>Baja_Medicos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -114,6 +127,13 @@
     </Compile>
     <Compile Include="Baja_Pacientes.aspx.designer.cs">
       <DependentUpon>Baja_Pacientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cancelar_Turno.aspx.cs">
+      <DependentUpon>Cancelar_Turno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cancelar_Turno.aspx.designer.cs">
+      <DependentUpon>Cancelar_Turno.aspx</DependentUpon>
     </Compile>
     <Compile Include="Listado_Medicos.aspx.cs">
       <DependentUpon>Listado_Medicos.aspx</DependentUpon>
@@ -164,12 +184,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MenuMedico.aspx.cs">
-      <DependentUpon>MenuMedico.aspx</DependentUpon>
+    <Compile Include="Menu_Medico.aspx.cs">
+      <DependentUpon>Menu_Medico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MenuMedico.aspx.designer.cs">
-      <DependentUpon>MenuMedico.aspx</DependentUpon>
+    <Compile Include="Menu_Medico.aspx.designer.cs">
+      <DependentUpon>Menu_Medico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modificacion_Medicos.aspx.cs">
       <DependentUpon>Modificacion_Medicos.aspx</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MenuMedico.aspx.cs" Inherits="Vista.MenuMedico" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Menu_Medico.aspx.cs" Inherits="Vista.MenuMedico" %>
 
 <!DOCTYPE html>
 

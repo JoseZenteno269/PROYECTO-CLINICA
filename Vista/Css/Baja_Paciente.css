@@ -64,31 +64,16 @@ form {
     color: red;
 }
 
-.contenedor-turnos {
-    height: 400px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 5px;
-    width: auto; 
+#divcontenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
 }
 
-#divcontenerdor{
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    height: 70vh; 
-}
-
-.tditemtemplate{
-    padding: 10px; 
-}
-.contenedor-turnos {
-    height: 400px; /* altura máxima visible */
-    overflow-y: auto; /* scrollbar vertical automática */
-    border: 1px solid #ccc;
-    border-radius: 6px;
+.bottoneditar {
     padding: 5px;
-    width: auto; 
+    border: 1px solid #cccc;
+    border-radius: 10px;
 }
