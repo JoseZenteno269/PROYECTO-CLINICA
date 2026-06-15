@@ -33,40 +33,198 @@
                 </tr>
             </table>
         </div>
-        <div>
-            <table>
-                <tr>
-                    <td></td>
-                </tr>
-            </table>
-        </div>
-        <div>
-            <table>
-                <tr>
-                    <td></td>
-                </tr>
-            </table>
-        </div>
-        <div>
-            <table>
-                <tr>
-                    <td><h2>Mostrar Informes</h2></td><td></td>
-                </tr>
-                <tr>
-                    <td>
-                        
-                        <asp:DropDownList ID="ddl_Informes" runat="server">
-                            <asp:ListItem>--Seleccione un Informe--</asp:ListItem>
-                            <asp:ListItem>Informe 1</asp:ListItem>
-                            <asp:ListItem>Informe 2</asp:ListItem>
-                            <asp:ListItem>Informe 3</asp:ListItem>
-                            <asp:ListItem>Informe 4</asp:ListItem>
-                            <asp:ListItem>Informe 5</asp:ListItem>
-                        </asp:DropDownList>
-                        
-                    </td>
-                </tr>
-            </table>
+        <div id="contenedor1">
+            <div id="contenedor2">
+                <div id="contenedor3">
+                    <div style="width: 50%">
+                        <table>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="width: 50%">
+                                                <table>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                    2</td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                                            <table>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                    3</td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+                </div>
+            </div>
+            <div id="contenedor4">
+                <div style="width: 50%">
+                                            <table>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                    4</td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+                </div>
+                <div style="width: 50%">
+                                            <table>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                    5</td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+                </div>
+            </div>
         </div>
     </form>
 </body>

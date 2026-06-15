@@ -74,6 +74,7 @@
     <Content Include="Css\Asignar_Turnos.css" />
     <Content Include="Css\Baja_Medicos.css" />
     <Content Include="Css\Baja_Paciente.css" />
+    <Content Include="Css\Cancelar_Turno.css" />
     <Content Include="Css\Informes.css" />
     <Content Include="Css\Listado_Medicos.css" />
     <Content Include="Css\Listado_Pacientes.css" />
