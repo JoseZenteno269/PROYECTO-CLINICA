@@ -221,10 +221,13 @@
                     </tr>
                     <tr>
                         <td colspan="5" style="text-align: center">
-                            <asp:Button ID="Button1" runat="server" Text="Button" />
+                            <asp:Button ID="Button1" runat="server" Text="Aceptar" />
                         </td>
                     </tr>
                 </table>
+                <br />
+                <br />
+                <br />
             </div>
     </form>
 </body>
