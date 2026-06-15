@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Alta_Medicos.aspx.cs" Inherits="Vista.ABML_Medicos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Alta_Medicos.aspx.cs" Inherits="Vista.ABML_Medicos" MaintainScrollPositionOnPostback="true"%>
 
 <!DOCTYPE html>
 
@@ -30,8 +30,7 @@
                 </tr>
             </table>
         </div>
-        <div id="contenedor">
-            <div class="div" style="width: 50%">
+            <div class="div">
                 <table class="div-medicos">
                     <tr>
                         <td colspan="3">Medicos</td>
@@ -130,74 +129,103 @@
                     </tr>
                 </table>
             </div>
-            <div class="otrodiv">
+        <br />
+        <br />
+        <br />
+            <div align="center">
                 <table>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td colspan="5" align="center">
+                            <p>Ingrese Legajo</p>
+                            <asp:TextBox ID="TextBox1" runat="server" Width="100px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:CheckBox ID="cb_lunes" runat="server" Text="Lunes" /></td>
+                        <td>
+                            <asp:CheckBox ID="cb_martes" runat="server" Text="Martes" /></td>
+                        <td>
+                            <asp:CheckBox ID="cb_miercoles" runat="server" Text="Miercoles" /></td>
+                        <td>
+                            <asp:CheckBox ID="cb_jueves" runat="server" Text="Jueves" /></td>
+                        <td>
+                            <asp:CheckBox ID="cb_viernes" runat="server" Text="Viernes" /></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>Hora Inicio:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList1" runat="server">
+                            </asp:DropDownList>
+                        </td>
+                        <td>Hora Fin:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList2" runat="server">
+                            </asp:DropDownList>
+                        </td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Hora Inicio:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList3" runat="server">
+                            </asp:DropDownList>
+                        </td>
+                        <td>Hora Fin:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList4" runat="server">
+                            </asp:DropDownList>
+                        </td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td>dfgdg</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Hora Inicio:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList5" runat="server">
+                            </asp:DropDownList>
+                        </td>
+                        <td>Hora Fin:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList6" runat="server">
+                            </asp:DropDownList>
+                        </td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Hora Inicio:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList7" runat="server">
+                            </asp:DropDownList>
+                        </td>
+                        <td>Hora Fin:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList8" runat="server">
+                            </asp:DropDownList>
+                        </td>
                         <td></td>
                     </tr>
                     <tr>
+                        <td>Hora Inicio:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList9" runat="server">
+                            </asp:DropDownList>
+                        </td>
+                        <td>Hora Fin:</td>
+                        <td>
+                            <asp:DropDownList ID="DropDownList10" runat="server">
+                            </asp:DropDownList>
+                        </td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="text-align: center">
+                            <asp:Button ID="Button1" runat="server" Text="Button" />
+                        </td>
                     </tr>
                 </table>
             </div>
-        </div>
     </form>
 </body>
 </html>

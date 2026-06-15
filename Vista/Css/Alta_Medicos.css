@@ -12,20 +12,8 @@ form {
     align-items: center;
 }
 
-#contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-
-.otrodiv {
-    width: 50%;
-    text-align: center;
-}
-
 .div table.div-medicos {
-    width: 50%;
+    width: 770px; 
     border-collapse: collapse;
     background-color: #ffffff;
     border: 1px solid #ccc;
