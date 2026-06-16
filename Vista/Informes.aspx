@@ -157,7 +157,12 @@
                             </td>
                             <td>Seleccione Especialidad
                                     <br />
-                                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="DropDownList1" runat="server">
+                                    <asp:ListItem>--Seleccione una especialidad--</asp:ListItem>
+                                    <asp:ListItem>Pediatra</asp:ListItem>
+                                    <asp:ListItem>Cirujano</asp:ListItem>
+                                    <asp:ListItem>Neo-Cirujano</asp:ListItem>
+                                </asp:DropDownList>
                             </td>
                         </tr>
                         <tr>
@@ -186,13 +191,41 @@
                     <tr>
                         <td>
                             <p>Mes</p>
-                            <asp:DropDownList ID="ddl_mes" runat="server"></asp:DropDownList></td>
+                            <asp:DropDownList ID="ddl_mes" runat="server">
+                                <asp:ListItem>--Seleccione un Mes</asp:ListItem>
+                                <asp:ListItem>Enero</asp:ListItem>
+                                <asp:ListItem>Febrero</asp:ListItem>
+                                <asp:ListItem>Marzo</asp:ListItem>
+                                <asp:ListItem>Abril</asp:ListItem>
+                                <asp:ListItem>Mayo</asp:ListItem>
+                                <asp:ListItem>Junio</asp:ListItem>
+                                <asp:ListItem>Julio</asp:ListItem>
+                                <asp:ListItem>Agosto</asp:ListItem>
+                                <asp:ListItem>Septiembre</asp:ListItem>
+                                <asp:ListItem>Octubre</asp:ListItem>
+                                <asp:ListItem>Noviembre</asp:ListItem>
+                                <asp:ListItem>Diciembre</asp:ListItem>
+                            </asp:DropDownList></td>
                         <td>
                             <p>Año</p>
-                            <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList></td>
+                            <asp:DropDownList ID="DropDownList2" runat="server">
+                                <asp:ListItem>--Seleccione Año--</asp:ListItem>
+                                <asp:ListItem>2020</asp:ListItem>
+                                <asp:ListItem>2021</asp:ListItem>
+                                <asp:ListItem>2022</asp:ListItem>
+                                <asp:ListItem>2023</asp:ListItem>
+                                <asp:ListItem>2024</asp:ListItem>
+                                <asp:ListItem>2025</asp:ListItem>
+                                <asp:ListItem>2026</asp:ListItem>
+                            </asp:DropDownList></td>
                         <td>
                             <p>Medico</p>
-                            <asp:DropDownList ID="DropDownList3" runat="server"></asp:DropDownList></td>
+                            <asp:DropDownList ID="DropDownList3" runat="server">
+                                <asp:ListItem>--Seleccione un Medico--</asp:ListItem>
+                                <asp:ListItem>Medico 1</asp:ListItem>
+                                <asp:ListItem>Medico 2</asp:ListItem>
+                                <asp:ListItem>Medico 3</asp:ListItem>
+                            </asp:DropDownList></td>
                     </tr>
                 </table>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
@@ -269,19 +302,77 @@
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td>Seleccione una provincia:</td>
+                        <td>
+                            <asp:DropDownList ID="ddl_Informe5" runat="server">
+                                <asp:ListItem>--Seleccione una provincia--</asp:ListItem>
+                                <asp:ListItem>Buenos Aires</asp:ListItem>
+                                <asp:ListItem>Tucuman</asp:ListItem>
+                                <asp:ListItem>Santa Fe</asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>5</td>
+                        <td>Pacientes por Provincia</td>
+                        <td>
+                            <asp:GridView ID="gvInforme5" runat="server" AutoGenerateColumns="False">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="DNI"></asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </td>
                         <td></td>
                     </tr>
                     <tr>
+                        <td>Seleccione una disponibilidad:</td>
+                        <td>
+                            <asp:DropDownList ID="ddlInforme5" runat="server">
+                                <asp:ListItem>--Seleccione una Disponibilidad Horaria--</asp:ListItem>
+                                <asp:ListItem>De 08 a 16 HS</asp:ListItem>
+                                <asp:ListItem>De 10 a 19 HS</asp:ListItem>
+                                <asp:ListItem>De 15 a 23 HS</asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
                         <td></td>
-                        <td></td>
-                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Medicos sin disponibilidad:</td><td>
+                        <asp:GridView ID="gv_Informe5" runat="server" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:TemplateField HeaderText="Legajo"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Especialidad"></asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Seleccione un Rango de edad:</td><td>
+                        <asp:DropDownList ID="ddlRangos" runat="server">
+                            <asp:ListItem>--Seleccione un rango de Edad--</asp:ListItem>
+                            <asp:ListItem>0 a 18 Años</asp:ListItem>
+                            <asp:ListItem>19 a 30</asp:ListItem>
+                            <asp:ListItem>31 a 50</asp:ListItem>
+                            <asp:ListItem>51 a 59</asp:ListItem>
+                            <asp:ListItem>60 +</asp:ListItem>
+                        </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pacientes:</td><td>
+                        <asp:GridView ID="gvEdad" runat="server" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:TemplateField HeaderText="DNI"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Fecha Nacimiento"></asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                        </td>
                     </tr>
                 </table>
             </div>
