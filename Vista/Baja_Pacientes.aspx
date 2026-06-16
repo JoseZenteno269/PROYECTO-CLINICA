@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Css/Baja_Paciente.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
 <body>
@@ -32,6 +32,9 @@
                     </td>
                 </tr>
             </table>
+        </div>
+        <div id="contediv">
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click1"/>
         </div>
         <div id="divcontenedor">
             <table>
@@ -60,9 +63,9 @@
                 </Columns>
             </asp:GridView>
         </div>
-                <br />
-<br />
-<br />
+        <br />
+        <br />
+        <br />
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

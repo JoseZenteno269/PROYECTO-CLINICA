@@ -26,5 +26,60 @@ namespace Vista
         {
             Response.Redirect("Login.aspx"); 
         }
+
+        protected void btn_agregarm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Alta_Medicos.aspx"); 
+        }
+
+        protected void btn_dar_bajam_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Baja_Medicos.aspx");
+        }
+
+        protected void btn_modificarm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Modificacion_Medicos.aspx");
+        }
+
+        protected void btn_listarm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Listado_Medicos.aspx");
+        }
+
+        protected void btn_agregarp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Alta_Pacientes.aspx");
+        }
+
+        protected void btn_dar_bajap_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Baja_Pacientes.aspx");
+        }
+
+        protected void btn_modificarp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Modificacion_Pacientes.aspx");
+        }
+
+        protected void btn_listarp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Listado_Pacientes.aspx");
+        }
+
+        protected void btn_agregart_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Asignar_Turno.aspx");
+        }
+
+        protected void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Cancelar_Turno.aspx");
+        }
+
+        protected void btn_informes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Informes.aspx");
+        }
     }
 }

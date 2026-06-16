@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Css/Baja_Medicos.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
 <body>
@@ -24,7 +24,6 @@
                         <asp:Label runat="server" ID="lbl_usuario" Text="usuario"></asp:Label>
                             </asp:LinkButton>
                             <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
-
                                 <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
                                 <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
@@ -32,6 +31,9 @@
                     </td>
                 </tr>
             </table>
+        </div>
+        <div id="contediv">
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click"/>
         </div>
         <div id="divcontenedor">
             <table>
@@ -60,9 +62,9 @@
                 </Columns>
             </asp:GridView>
         </div>
-                <br />
-<br />
-<br />
+        <br />
+        <br />
+        <br />
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

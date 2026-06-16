@@ -23,5 +23,15 @@ namespace Vista
         {
             Response.Redirect("Login.aspx");
         }
+
+        protected void btn_horarios_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Horarios_Medicos.aspx"); 
+        }
+
+        protected void btn_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx");
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="Vista.ABML" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="Vista.ABML" MaintainScrollPositionOnPostback="true"%>
 
 <!DOCTYPE html>
 
@@ -46,22 +46,22 @@
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_agregarm" cssclass="botones" runat="server" Text="Agregar" />
+                            <asp:Button ID="btn_agregarm" cssclass="botones" runat="server" Text="Agregar" OnClick="btn_agregarm_Click" />
                         </td>
                     </tr>
                     <tr>
                         <td  class="td">
-                            <asp:Button ID="btn_dar_bajam" runat="server" Text="Eliminar" CssClass="botones" />
+                            <asp:Button ID="btn_dar_bajam" runat="server" Text="Eliminar" CssClass="botones" OnClick="btn_dar_bajam_Click" />
                         </td>
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_modificarm" runat="server" Text="Modificar" CssClass="botones" />
+                            <asp:Button ID="btn_modificarm" runat="server" Text="Modificar" CssClass="botones" OnClick="btn_modificarm_Click" />
                         </td>
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_listarm" runat="server" Text="Listar" CssClass="botones" />
+                            <asp:Button ID="btn_listarm" runat="server" Text="Listar" CssClass="botones" OnClick="btn_listarm_Click" />
                         </td>
                     </tr>
                 </table>
@@ -80,19 +80,19 @@
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_agregarp" runat="server" Text="Agregar" CssClass="botones" /></td>
+                            <asp:Button ID="btn_agregarp" runat="server" Text="Agregar" CssClass="botones" OnClick="btn_agregarp_Click" /></td>
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_dar_bajap" runat="server" Text="Eliminar" CssClass="botones" /></td>
+                            <asp:Button ID="btn_dar_bajap" runat="server" Text="Eliminar" CssClass="botones" OnClick="btn_dar_bajap_Click" /></td>
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_modificarp" runat="server" Text="Modificar" CssClass="botones" /></td>
+                            <asp:Button ID="btn_modificarp" runat="server" Text="Modificar" CssClass="botones" OnClick="btn_modificarp_Click" /></td>
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_listarp" runat="server" Text="Listar" CssClass="botones" /></td>
+                            <asp:Button ID="btn_listarp" runat="server" Text="Listar" CssClass="botones" OnClick="btn_listarp_Click" /></td>
                     </tr>
                 </table>
             </div>
@@ -112,12 +112,12 @@
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_agregart" runat="server" Text="Asignar" CssClass="botones" />
+                            <asp:Button ID="btn_agregart" runat="server" Text="Asignar" CssClass="botones" OnClick="btn_agregart_Click" />
                         </td>
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="botones" />
+                            <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="botones" OnClick="btn_cancelar_Click" />
                         </td>
                     </tr>
                 </table>
@@ -136,7 +136,7 @@
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_informes" runat="server" Text="Mostrar Informes" CssClass="botones" />
+                            <asp:Button ID="btn_informes" runat="server" Text="Mostrar Informes" CssClass="botones" OnClick="btn_informes_Click" />
                         </td>
                     </tr>
                 </table>

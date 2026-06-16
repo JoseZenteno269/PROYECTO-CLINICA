@@ -7,21 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Vista
 {
-    public partial class Baja_Medicos : System.Web.UI.Page
+    public partial class Horarios_Medicos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void lb_usuario_menu_Click(object sender, EventArgs e)
-        {
-            p_panel.Visible = !p_panel.Visible; 
-        }
-
-        protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Login.aspx"); 
         }
 
         protected void btn_menu_Click(object sender, EventArgs e)

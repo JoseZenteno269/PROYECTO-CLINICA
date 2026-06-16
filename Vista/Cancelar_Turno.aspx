@@ -33,6 +33,9 @@
                 </tr>
             </table>
         </div>
+                <div id="contediv">
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click"/>
+        </div>
         <div id="contenedor">
             <table>
                 <tr>

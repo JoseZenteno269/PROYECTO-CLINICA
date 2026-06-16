@@ -23,5 +23,10 @@ namespace Vista
         {
             p_panel.Visible = !p_panel.Visible;
         }
+
+        protected void btn_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx");
+        }
     }
 }

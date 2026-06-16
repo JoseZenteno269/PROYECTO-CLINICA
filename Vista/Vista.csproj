@@ -75,18 +75,22 @@
     <Content Include="Css\Baja_Medicos.css" />
     <Content Include="Css\Baja_Paciente.css" />
     <Content Include="Css\Cancelar_Turno.css" />
+    <Content Include="Css\Horarios_Medicos.css" />
     <Content Include="Css\Informes.css" />
     <Content Include="Css\Listado_Medicos.css" />
     <Content Include="Css\Listado_Pacientes.css" />
     <Content Include="Css\Menu_Medicos.css" />
     <Content Include="Css\Modificacion_Medicos.css" />
     <Content Include="Css\Modificacion_Pacientes.css" />
+    <Content Include="Horarios_Medicos.aspx" />
     <Content Include="Imagenes\Informes.png" />
     <Content Include="Imagenes\Logo.png" />
     <Content Include="Imagenes\Logo1.png" />
     <Content Include="Imagenes\Logo2.png" />
     <Content Include="Imagenes\Logo3.png" />
     <Content Include="Imagenes\Medico_agregar.png" />
+    <Content Include="Imagenes\Medico_Baja.png" />
+    <Content Include="Imagenes\Medico_Listado.png" />
     <Content Include="Imagenes\Turnos.png" />
     <Content Include="Informes.aspx" />
     <Content Include="Listado_Medicos.aspx" />
@@ -143,6 +147,13 @@
     </Compile>
     <Compile Include="Cancelar_Turno.aspx.designer.cs">
       <DependentUpon>Cancelar_Turno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Horarios_Medicos.aspx.cs">
+      <DependentUpon>Horarios_Medicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Horarios_Medicos.aspx.designer.cs">
+      <DependentUpon>Horarios_Medicos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Informes.aspx.cs">
       <DependentUpon>Informes.aspx</DependentUpon>

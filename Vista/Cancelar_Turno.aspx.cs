@@ -13,5 +13,10 @@ namespace Vista
         {
 
         }
+
+        protected void btn_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx");
+        }
     }
 }

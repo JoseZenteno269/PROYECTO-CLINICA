@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Css/Asignar_Turnos.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
 <body>
@@ -24,7 +24,6 @@
                         <asp:Label runat="server" ID="lbl_usuario" Text="usuario"></asp:Label>
                             </asp:LinkButton>
                             <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
-
                                 <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
                                 <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
@@ -33,6 +32,9 @@
                 </tr>
             </table>
         </div>
+        <div id="contediv">
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
+        </div>
         <div id="divrow">
             <div class="divfila">
                 <table class="tableturnos">
@@ -40,9 +42,7 @@
                         <td>
                             <p>Seleccione una Especilidad:</p>
                             <asp:DropDownList ID="ddl_especialidad" runat="server"></asp:DropDownList></td>
-                        <td>
-
-                        </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>
@@ -75,7 +75,7 @@
                         <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
                         <asp:TemplateField HeaderText="Telefono"></asp:TemplateField>
                     </Columns>
-                    
+
                 </asp:GridView>
             </div>
         </div>
@@ -88,6 +88,24 @@
                     <td align="center">
                         <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" />
                     </td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="divlogos">
+            <table style="width: 100%">
+                <tr>
+                    <td align="center">
+                        <img src="Imagenes/Logo.png" class="logo" />
+                    </td>
+                    <td align="center">
+                        <img src="Imagenes/Logo1.png" class="logo1" /></td>
+                    <td align="center">
+                        <img src="Imagenes/Logo2.png" class="logo2" /></td>
+                    <td align="center">
+                        <img src="Imagenes/Logo3.png" class="logo3" /></td>
                 </tr>
             </table>
         </div>

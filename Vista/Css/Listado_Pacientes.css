@@ -9,6 +9,18 @@ form {
     align-items: center;
 }
 
+#contediv {
+    justify-content: initial;
+    align-items: initial;
+    width: 99%;
+    padding: 15px 15px 15px 15px;
+}
+
+.button {
+    width: 80px;
+    height: 25px;
+}
+
 #divcontenedor {
     display: flex;
     flex-direction: column;

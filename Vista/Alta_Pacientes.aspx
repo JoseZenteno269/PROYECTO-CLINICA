@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Alta_Pacientes.aspx.cs" Inherits="Vista.ABML_Pacientes" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Alta_Pacientes.aspx.cs" Inherits="Vista.ABML_Pacientes" MaintainScrollPositionOnPostback="True" %>
 
 <!DOCTYPE html>
 
@@ -26,12 +26,15 @@
                             <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
 
                                 <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
-                                <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
+                                <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
                         </div>
                     </td>
                 </tr>
             </table>
+        </div>
+        <div id="contediv">
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
         </div>
         <div class="div">
             <table class="div-pacientes">

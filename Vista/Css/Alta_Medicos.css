@@ -12,6 +12,19 @@ form {
     align-items: center;
 }
 
+#contediv{
+    display: flex; 
+    justify-content: initial; 
+    align-items: initial; 
+    width: 99%; 
+    padding: 15px 15px 15px 15px; 
+}
+
+.button{
+    width: 80px; 
+    height: 25px; 
+}
+
 .div table.div-medicos {
     width: 770px; 
     border-collapse: collapse;
@@ -206,4 +219,9 @@ input[type="checkbox"] {
 .logo3 {
     width: 100px;
     height: 80px;
+}
+
+.imagen {
+    width: 150px;
+    height: 150px;
 }
