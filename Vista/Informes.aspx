@@ -34,7 +34,6 @@
             </table>
         </div>
         <div id="contenedor1">
-            <div id="contenedor3">
                 <div style="width: 50%">
                     <br />
                     <table>
@@ -178,7 +177,6 @@
                         </tr>
                     </table>
                 </div>
-            </div>
         </div>
         <div id="contenedor2">
             <div>
@@ -324,7 +322,7 @@
                                 </Columns>
                             </asp:GridView>
                         </td>
-                        <td></td>
+                        <td class="auto-style1"></td>
                     </tr>
                     <tr>
                         <td>Seleccione una disponibilidad:</td>
@@ -336,7 +334,7 @@
                                 <asp:ListItem>De 15 a 23 HS</asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                        <td></td>
+                        <td class="auto-style1"></td>
                     </tr>
                     <tr>
                         <td>Medicos sin disponibilidad:</td><td>
@@ -376,6 +374,24 @@
                     </tr>
                 </table>
             </div>
+        </div>
+                <br />
+<br />
+<br />
+        <div class="divlogos">
+            <table style="width: 100%">
+                <tr>
+                    <td align="center">
+                        <img src="Imagenes/Logo.png" class="logo" />
+                    </td>
+                    <td align="center">
+                        <img src="Imagenes/Logo1.png" class="logo1" /></td>
+                    <td align="center">
+                        <img src="Imagenes/Logo2.png" class="logo2" /></td>
+                    <td align="center">
+                        <img src="Imagenes/Logo3.png" class="logo3" /></td>
+                </tr>
+            </table>
         </div>
     </form>
 </body>

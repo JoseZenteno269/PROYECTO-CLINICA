@@ -19,6 +19,7 @@ form {
 
 .centrar {
     align-self: center;
+    width: 100%;
 }
 
 .div1 {
@@ -48,12 +49,21 @@ h1 {
     width: 20px;
     height: 20px;
 }
-
-.divimagen {
+.buttonp{
+    width: 80px;
+    height: 30px;
+    border: 1px solid #74e2e9;
+    background-color: #74e2e9; 
+    border-radius: 5px; 
+}
+/*.divimagen {*/
     /*            width: 1900px;
             height: 900px; 
             background-image: url('imagenes/imagen1.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;*/
-}
+/*}*/
+
+
+

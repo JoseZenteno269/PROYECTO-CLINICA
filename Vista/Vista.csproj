@@ -82,6 +82,10 @@
     <Content Include="Css\Modificacion_Medicos.css" />
     <Content Include="Css\Modificacion_Pacientes.css" />
     <Content Include="Imagenes\Informes.png" />
+    <Content Include="Imagenes\Logo.png" />
+    <Content Include="Imagenes\Logo1.png" />
+    <Content Include="Imagenes\Logo2.png" />
+    <Content Include="Imagenes\Logo3.png" />
     <Content Include="Imagenes\Medico_agregar.png" />
     <Content Include="Imagenes\Turnos.png" />
     <Content Include="Informes.aspx" />

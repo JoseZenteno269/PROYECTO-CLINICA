@@ -14,7 +14,7 @@
             <table class="tablamenu">
                 <tr>
                     <td align="initial" style="padding-left: 20px" width="85%">
-                        <h1>Listado de medicos</h1>
+                        <h1>Clinica Medica</h1>
                     </td>
                     <td></td>
                     <td align="end" style="padding-right: 20px">
@@ -57,6 +57,24 @@
                                 <asp:TemplateField HeaderText="Telefono"></asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+        </div>
+                <br />
+<br />
+<br />
+        <div class="divlogos">
+            <table style="width: 100%">
+                <tr>
+                    <td align="center">
+                        <img src="Imagenes/Logo.png" class="logo" />
+                    </td>
+                    <td align="center">
+                        <img src="Imagenes/Logo1.png" class="logo1" /></td>
+                    <td align="center">
+                        <img src="Imagenes/Logo2.png" class="logo2" /></td>
+                    <td align="center">
+                        <img src="Imagenes/Logo3.png" class="logo3" /></td>
+                </tr>
+            </table>
         </div>
     </form>
 </body>

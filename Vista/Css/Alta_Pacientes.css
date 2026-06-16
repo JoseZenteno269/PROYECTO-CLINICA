@@ -179,3 +179,31 @@ div table.div-pacientes tr:nth-child(even):not(:first-child) {
 .opcion-roja {
     color: red;
 }
+
+.divlogos {
+    width: 100%;
+    height: 150px;
+    background-color: #686868;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+    height: 50px;
+}
+
+.logo1 {
+    width: 190px;
+    height: 65px;
+}
+
+.logo2 {
+    width: 180px;
+    height: 50px;
+}
+
+.logo3 {
+    width: 100px;
+    height: 80px;
+}
