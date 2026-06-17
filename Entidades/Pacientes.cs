@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class ClinicaMedica
+    public class Pacientes
     {
+
     }
 }
