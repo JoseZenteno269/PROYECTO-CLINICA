@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Globalization;
 
 namespace Datos
 {
@@ -12,7 +13,7 @@ namespace Datos
     {
         String Ruta = @"Data Source=R7ASUSROG\SQLEXPRESS;Initial Catalog=PROYECTO_CLINICA;Integrated Security=True;Encrypt=False";
 
-        private SqlConnection ObetenerConexion()
+        private SqlConnection ObtenerConexion()
         {
             SqlConnection conexion; 
 
@@ -28,7 +29,7 @@ namespace Datos
             }
         }
 
-        private SqlDataAdapter ObtenerAdaptador(string consulta, SqlConnection conexion)
+        private SqlDataAdapter ObtenerAdaptador(String consulta, SqlConnection conexion)
         {
             SqlDataAdapter adaptador;
 
@@ -41,6 +42,44 @@ namespace Datos
             {
                 return null;
             }
+        }
+
+        public DataTable ObtenerTabla(String nombretabla, String consulta)
+        {
+            DataSet set = new DataSet();
+            SqlConnection conexion = ObtenerConexion(); 
+            SqlDataAdapter adaptador = ObtenerAdaptador(consulta, conexion);
+            adaptador.Fill(set, nombretabla);
+            conexion.Close();
+            return set.Tables[nombretabla];
+        }
+
+        public Boolean Existe(String consulta)
+        {
+            SqlConnection conexion = ObtenerConexion();
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            SqlDataReader leer = comando.ExecuteReader();
+            if (leer.Read())
+            {
+                conexion.Close(); 
+                return true;
+            }
+            else
+            {
+                conexion.Close(); 
+                return false;
+            }
+        }
+
+        public int EjecutarProcedimientoAlmacenado(SqlCommand comando, String procedimiento)
+        {
+            SqlConnection conexion = ObtenerConexion();
+            comando.Connection = conexion;
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = procedimiento;
+            int filasafectadas = comando.ExecuteNonQuery();
+            conexion.Close(); 
+            return filasafectadas;
         }
     }
 }
