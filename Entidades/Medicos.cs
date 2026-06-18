@@ -9,19 +9,20 @@ namespace Entidades
     public class Medicos
     {
         private int IdMedico;
-        private string LegajoMedico;
+        private String LegajoMedico;
         private int IdProvincia;
         private int IdLocalidad;
         private int IdEspecialidad;
         private int DNIMedico;
-        private string NombreMedico;
-        private string ApellidoMedico;
-        private string SexoMedico;
+        private String NombreMedico;
+        private String ApellidoMedico;
+        private String SexoMedico;
+        private String NacionalidadMedico; 
         private DateTime fechaNacimientoMedico;
-        private string DireccionMedico;
-        private string EmailMedico;
-        private string TelefonoMedico;
-        private bool ActivoMedico;
+        private String DireccionMedico;
+        private String EmailMedico;
+        private String TelefonoMedico;
+        private Boolean ActivoMedico;
 
         public Medicos()
         {
@@ -38,12 +39,12 @@ namespace Entidades
             IdMedico = idMedico;
         }
         
-        public string getLegajoMedico()
+        public String getLegajoMedico()
         {
             return LegajoMedico;
         }
 
-        public void setLegajoMedico(string legajoMedico)
+        public void setLegajoMedico(String legajoMedico)
         {
            LegajoMedico = legajoMedico;
         }
@@ -88,68 +89,92 @@ namespace Entidades
             DNIMedico = dNIMedico;
         }
 
-        public string getNombreMedico()
+        public String getNombreMedico()
         {
             return NombreMedico;
         }
 
-       public void setNombreMedico(string nombreMedico)
+       public void setNombreMedico(String nombreMedico)
         {
             NombreMedico = nombreMedico;
         }
-        public string getApellidoMedico()
+
+        public String getApellidoMedico()
         {
             return ApellidoMedico;
         }
-        public void setApellidoMedico(string apellidoMedico)
+
+        public void setApellidoMedico(String apellidoMedico)
         {
             ApellidoMedico = apellidoMedico;
         }
-        public string getSexoMedico()
+
+        public String getSexoMedico()
         {
             return SexoMedico;
         }
-        public void setSexoMedico(string sexoMedico)
+
+        public void setSexoMedico(String sexoMedico)
         {
             SexoMedico = sexoMedico;
         }
+
         public DateTime getFechaNacimientoMedico()
         {
             return fechaNacimientoMedico;
         }
+
+        public void setNacionalidadMedico(String nacionalidadMedico)
+        {
+            NacionalidadMedico = nacionalidadMedico; 
+        }
+
+        public String getNacionalidadMedico()
+        {
+            return NacionalidadMedico;
+        }
+
         public void setFechaNacimientoMedico(DateTime fechaNacimientoMedico)
         {
             this.fechaNacimientoMedico = fechaNacimientoMedico;
         }
-        public string getDireccionMedico()
+
+        public String getDireccionMedico()
         {
             return DireccionMedico;
         }
-        public void setDireccionMedico(string direccionMedico)
+
+        public void setDireccionMedico(String direccionMedico)
         {
             DireccionMedico = direccionMedico;
         }
-        public string getEmailMedico()
+
+        public String getEmailMedico()
         {
             return EmailMedico;
         }
-        public void setEmailMedico(string emailMedico)
+
+        public void setEmailMedico(String emailMedico)
         {
             EmailMedico = emailMedico;
         }
-        public string getTelefonoMedico()
+
+        public String getTelefonoMedico()
         {
             return TelefonoMedico;
         }
-        public void setTelefonoMedico(string telefonoMedico)
+
+        public void setTelefonoMedico(String telefonoMedico)
         {
             TelefonoMedico = telefonoMedico;
         }
-        public bool getActivoMedico()
+
+        public Boolean getActivoMedico()
         {
             return ActivoMedico;
         }
-        public void setActivoMedico(bool activo)
+
+        public void setActivoMedico(Boolean activo)
         {
             ActivoMedico = activo;
         }
