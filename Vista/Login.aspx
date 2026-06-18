@@ -34,9 +34,10 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>
-                        <asp:Button ID="btn_iniciar" runat="server" Text="Iniciar" Width="100px" OnClick="btn_iniciar_Click" /></td>
+                    <td colspan="3" align="center">
+                        <asp:Button ID="btn_iniciar" runat="server" Text="Iniciar" Width="100px" OnClick="btn_iniciar_Click" />
+
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="3">¿olvidaste tu contraseña?

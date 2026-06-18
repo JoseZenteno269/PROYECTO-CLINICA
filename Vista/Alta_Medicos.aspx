@@ -33,9 +33,9 @@
                 </tr>
             </table>
         </div>
-        <div id="contediv">
+        <%--        <div id="contediv">
             <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
-        </div>
+        </div>--%>
         <div class="div">
             <table class="div-medicos">
                 <tr>
@@ -82,10 +82,11 @@
                 <tr>
                     <td>Fecha de nacimiento:</td>
                     <td>
-                        <asp:DropDownList ID="ddl_mes_m" runat="server"></asp:DropDownList>
+                        <asp:TextBox ID="txt_fecha" runat="server" TextMode="Date"></asp:TextBox>
+<%--                        <asp:DropDownList ID="ddl_mes_m" runat="server"></asp:DropDownList>
                         <asp:DropDownList ID="ddl_anio_m" runat="server"></asp:DropDownList>
                         <br />
-                        <asp:Calendar ID="c_calendario_m" runat="server" CssClass="aspNetCalendar" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>
+                        <asp:Calendar ID="c_calendario_m" runat="server" CssClass="aspNetCalendar" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>--%>
                     </td>
                     <td></td>
                 </tr>
@@ -124,15 +125,15 @@
                 <tr>
                     <td>ACTIVO:</td>
                     <td>
-                        <asp:CheckBox ID="cb_activo_m" runat="server" /></td>
+                        <asp:CheckBox ID="cb_activo_m" runat="server" Checked="True" Enabled="False" /></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="botones">
+                    <td class="botones">
                         <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" />
-                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="btn-cancelar" />
+                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="btn-cancelar" OnClick="btn_cancelar_Click" />
                     </td>
-                    <td align="initial">
+                    <td colspan="2" align="end">
                         <asp:Button ID="btn_horarios" runat="server" Text="Horarios" CssClass="btn-cancelar" OnClick="btn_horarios_Click" />
                     </td>
                 </tr>

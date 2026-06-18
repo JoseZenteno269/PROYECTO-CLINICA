@@ -31,6 +31,15 @@ namespace Datos
             return tabla; 
         }
 
+        public Boolean ExisteUsuario(String usuario, String constrasena)
+        {
+            String consulta = "SELECT Username_Usu, Password_Usu,Id_Administrador_Usu FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = @PASSWORD";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@USUARIO", usuario.ToString().Trim());
+            comando.Parameters.AddWithValue("@PASSWORD", constrasena.ToString().Trim());
+            return datos.ExisteUsuario(comando, consulta);
+        }
+
         public Boolean ExisteMedico(Medicos medicos)
         {
             string ConsultaSQL = "SELECT * FROM Medicos WHERE Id_Medico_Med = " + medicos.getIdMedico();

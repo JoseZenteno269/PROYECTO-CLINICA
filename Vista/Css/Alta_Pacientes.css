@@ -37,7 +37,7 @@ form {
 
 .div table.div-pacientes {
     border-collapse: collapse;
-    width: 700px;
+    width: 600px;
     background-color: #ffffff;
     border: 1px solid #ccc;
     margin: 25px auto;
@@ -67,7 +67,17 @@ form {
 
 /* Inputs de texto */
 input[type="text"] {
-    width: 100%;
+    width: 80%;
+    max-width: 400px;
+    height: 26px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+input[type="date"] {
+    width: 80%;
     max-width: 400px;
     height: 26px;
     border: 1px solid #999;
@@ -116,12 +126,12 @@ div table.div-pacientes tr:nth-child(even):not(:first-child) {
 .btn-guardar,
 .btn-cancelar {
     font-size: 14px;
-    padding: 8px 18px;
+    padding: 8px 10px;
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    margin-right: 10px;
-    width: 120px; 
+    margin-right: 5px;
+    width: 100px; 
 }
 
 .btn-guardar {

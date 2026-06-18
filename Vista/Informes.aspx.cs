@@ -24,24 +24,24 @@ namespace Vista
             Response.Redirect("Login.aspx");
         }
 
-        protected void lb_panel_fecha_Click(object sender, EventArgs e)
-        {
-            p_fecha_inicio.Visible = !p_fecha_inicio.Visible;
-        }
+        //protected void lb_panel_fecha_Click(object sender, EventArgs e)
+        //{
+        //    p_fecha_inicio.Visible = !p_fecha_inicio.Visible;
+        //}
 
-        protected void lb_panel_fecha_final_Click(object sender, EventArgs e)
-        {
-            p_fecha_fin.Visible = !p_fecha_fin.Visible;
-        }
-        protected void lb_fecha_inicio2_Click(object sender, EventArgs e)
-        {
-            p_fecha_inicio_2.Visible = !p_fecha_inicio_2.Visible;
-        }
+        //protected void lb_panel_fecha_final_Click(object sender, EventArgs e)
+        //{
+        //    p_fecha_fin.Visible = !p_fecha_fin.Visible;
+        //}
+        //protected void lb_fecha_inicio2_Click(object sender, EventArgs e)
+        //{
+        //    p_fecha_inicio_2.Visible = !p_fecha_inicio_2.Visible;
+        //}
 
-        protected void lb_fecha_inicio_2_Click(object sender, EventArgs e)
-        {
-            p_fecha_fin_2.Visible = !p_fecha_fin_2.Visible;
-        }
+        //protected void lb_fecha_inicio_2_Click(object sender, EventArgs e)
+        //{
+        //    p_fecha_fin_2.Visible = !p_fecha_fin_2.Visible;
+        //}
 
         protected void btn_menu_Click(object sender, EventArgs e)
         {

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace Datos
 {
@@ -44,6 +45,37 @@ namespace Datos
             }
         }
 
+        private SqlDataReader ObtenerLectura(String consulta)
+        {
+            SqlDataReader lectura; 
+            try
+            {
+                SqlCommand comando = new SqlCommand(consulta, ObtenerConexion());
+                return lectura = comando.ExecuteReader(); 
+            }
+            catch (Exception)
+            {
+                return null; 
+            }
+        }
+
+        public SqlDataReader ObtenerUsuarios(String consulta)
+        {
+            SqlDataReader lectura = ObtenerLectura(consulta); 
+            return lectura;
+        }
+
+        public Boolean ExisteUsuario(SqlCommand comando, String consulta)
+        {
+            SqlConnection conexion = ObtenerConexion();
+            comando.Connection = conexion;
+            comando.CommandText = consulta;
+            SqlDataReader leer = comando.ExecuteReader();
+            bool existe = leer.Read();
+            conexion.Close();
+            return existe; 
+        }
+
         public DataTable ObtenerTabla(String nombretabla, String consulta)
         {
             DataSet set = new DataSet();
@@ -59,16 +91,9 @@ namespace Datos
             SqlConnection conexion = ObtenerConexion();
             SqlCommand comando = new SqlCommand(consulta, conexion);
             SqlDataReader leer = comando.ExecuteReader();
-            if (leer.Read())
-            {
-                conexion.Close(); 
-                return true;
-            }
-            else
-            {
-                conexion.Close(); 
-                return false;
-            }
+            bool existe = leer.Read();
+            conexion.Close(); 
+            return existe;
         }
 
         public int EjecutarProcedimientoAlmacenado(SqlCommand comando, String procedimiento)

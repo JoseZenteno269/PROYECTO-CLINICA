@@ -47,7 +47,8 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="link-contenedor">
+                                <asp:TextBox ID="txt_fecha_inicio" runat="server" TextMode="Date"></asp:TextBox>
+                                <%--<div class="link-contenedor">
                                     <asp:LinkButton ID="lb_panel_fecha_inicial" CssClass="btn-link" runat="server" OnClick="lb_panel_fecha_Click">
                                         <asp:Label ID="lbl_fecha_inicio" runat="server" Text="Periodo Inicio"></asp:Label>
                                     </asp:LinkButton>
@@ -66,10 +67,11 @@
                                             </tr>
                                         </table>
                                     </asp:Panel>
-                                </div>
+                                </div>--%>
                             </td>
                             <td>
-                                <div class="link-contenedor">
+                                <asp:TextBox ID="txt_fecha_fin" runat="server" TextMode="Date"></asp:TextBox>
+                                <%--<div class="link-contenedor">
                                     <asp:LinkButton ID="lb_panel_fecha_final" CssClass="btn-link" runat="server" OnClick="lb_panel_fecha_final_Click">
                                         <asp:Label ID="lbl_fecha_fin" runat="server" Text="Periodo Fin"></asp:Label>
                                     </asp:LinkButton>
@@ -88,7 +90,7 @@
                                             </tr>
                                         </table>
                                     </asp:Panel>
-                                </div>
+                                </div>--%>
                             </td>
                         </tr>
                         <tr>
@@ -114,7 +116,8 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="link-contenedor">
+                                <asp:TextBox ID="txt_fecha_inicio1" runat="server" TextMode="Date"></asp:TextBox>
+                                <%--<div class="link-contenedor">
                                     <asp:LinkButton ID="lb_fecha_inicio2" CssClass="btn-link" runat="server" OnClick="lb_fecha_inicio2_Click">
                                         <asp:Label ID="lbl_periodo_inicio" runat="server" Text="Periodo Inicio"></asp:Label>
                                     </asp:LinkButton>
@@ -133,10 +136,11 @@
                                             </tr>
                                         </table>
                                     </asp:Panel>
-                                </div>
+                                </div>--%>
                             </td>
                             <td>
-                                <div class="link-contenedor">
+                                <asp:TextBox ID="txt_fecha_fin1" runat="server" TextMode="Date"></asp:TextBox>
+                                <%--<div class="link-contenedor">
                                     <asp:LinkButton ID="lb_fecha_inicio_2" CssClass="btn-link" runat="server" OnClick="lb_fecha_inicio_2_Click">
                                         <asp:Label ID="lbl_periodo_fin_2" runat="server" Text="Periodo Fin"></asp:Label>
                                     </asp:LinkButton>
@@ -155,7 +159,7 @@
                                             </tr>
                                         </table>
                                     </asp:Panel>
-                                </div>
+                                </div>--%>
                             </td>
                             <td>Seleccione Especialidad
                                     <br />
@@ -192,7 +196,8 @@
                     <tr>
                         <td>
                             <p>Mes</p>
-                            <asp:DropDownList ID="ddl_mes" runat="server">
+                            <asp:TextBox ID="TextBox1" runat="server" TextMode="Month"></asp:TextBox>
+<%--                            <asp:DropDownList ID="ddl_mes" runat="server">
                                 <asp:ListItem>--Seleccione un Mes</asp:ListItem>
                                 <asp:ListItem>Enero</asp:ListItem>
                                 <asp:ListItem>Febrero</asp:ListItem>
@@ -206,10 +211,12 @@
                                 <asp:ListItem>Octubre</asp:ListItem>
                                 <asp:ListItem>Noviembre</asp:ListItem>
                                 <asp:ListItem>Diciembre</asp:ListItem>
-                            </asp:DropDownList></td>
+                            </asp:DropDownList>--%>
+
+                        </td>
                         <td>
                             <p>Año</p>
-                            <asp:DropDownList ID="DropDownList2" runat="server">
+<%--                            <asp:DropDownList ID="DropDownList2" runat="server">
                                 <asp:ListItem>--Seleccione Año--</asp:ListItem>
                                 <asp:ListItem>2020</asp:ListItem>
                                 <asp:ListItem>2021</asp:ListItem>
@@ -218,7 +225,9 @@
                                 <asp:ListItem>2024</asp:ListItem>
                                 <asp:ListItem>2025</asp:ListItem>
                                 <asp:ListItem>2026</asp:ListItem>
-                            </asp:DropDownList></td>
+                            </asp:DropDownList>--%>
+
+                        </td>
                         <td>
                             <p>Medico</p>
                             <asp:DropDownList ID="DropDownList3" runat="server">

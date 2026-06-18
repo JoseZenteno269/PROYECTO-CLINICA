@@ -6,15 +6,16 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column; 
 }
 
 #contenedor {
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center; 
     width: 100%;
-    top: 0px;
-    left: 0px;
 }
 
 .centrar {
@@ -49,21 +50,92 @@ h1 {
     width: 20px;
     height: 20px;
 }
-.buttonp{
+.buttonp {
     width: 80px;
     height: 30px;
-    border: 1px solid #74e2e9;
-    background-color: #74e2e9; 
-    border-radius: 5px; 
+    border: 1px solid lightblue;
+    background-color: lightblue;
+    border-radius: 5px;
 }
-/*.divimagen {*/
-    /*            width: 1900px;
-            height: 900px; 
-            background-image: url('imagenes/imagen1.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;*/
-/*}*/
+.divimagen {
+    width: 100%; 
+    height: 900px; 
+    justify-content: center; 
+    align-items: center;
+    border-radius: 10px; 
+}
 
+.imagen {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: cambiar 16s infinite;
+    border-radius: 10px; 
+}
 
+.imgen1 {
+    animation-delay: 0s;
+}
 
+.imagen2 {
+    animation-delay: 4s;
+}
+
+.imagen3 {
+    animation-delay: 8s;
+}
+
+.imagen4 {
+    animation-delay: 12s;
+}
+
+@keyframes cambiar {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.divlogos {
+    width: 100%;
+    height: 150px;
+    background-color: #686868;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
+.logo {
+    width: 100px;
+    height: 50px;
+}
+
+.logo1 {
+    width: 190px;
+    height: 65px;
+}
+
+.logo2 {
+    width: 180px;
+    height: 50px;
+}
+
+.logo3 {
+    width: 100px;
+    height: 80px;
+}

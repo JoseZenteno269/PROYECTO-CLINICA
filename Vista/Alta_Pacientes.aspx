@@ -33,9 +33,9 @@
                 </tr>
             </table>
         </div>
-        <div id="contediv">
+        <%--        <div id="contediv">
             <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
-        </div>
+        </div>--%>
         <div class="div">
             <table class="div-pacientes">
                 <tr><td colspan="3">Pacientes</td></tr>
@@ -115,8 +115,9 @@
 
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddl_mes_p" runat="server"></asp:DropDownList><asp:DropDownList ID="ddl_anio_p" runat="server"></asp:DropDownList>
-                        <asp:Calendar ID="c_calendario_p" runat="server" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>
+                        <asp:TextBox ID="txt_fecha" runat="server" TextMode="Date"></asp:TextBox>
+                        <%--                        <asp:DropDownList ID="ddl_mes_p" runat="server"></asp:DropDownList><asp:DropDownList ID="ddl_anio_p" runat="server"></asp:DropDownList>
+                        <asp:Calendar ID="c_calendario_p" runat="server" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>--%>
 
                     </td>
                     <td>
@@ -203,13 +204,13 @@
                 <tr>
                     <td>ACTIVO</td>
                     <td>
-                        <asp:CheckBox ID="cb_activo_p" runat="server" /></td>
+                        <asp:CheckBox ID="cb_activo_p" runat="server" Checked="True" Enabled="False" /></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td colspan="3" class="botones">
                         <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" />
-                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="btn-cancelar" />
+                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="btn-cancelar" OnClick="btn_cancelar_Click" />
                     </td>
                 </tr>
             </table>

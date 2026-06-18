@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,11 @@ namespace Negocio
         public DataTable getTurnos()
         {
             return daoDatos.getTablaTurno();
+        }
+
+        public Boolean getUsuarios(String usuario, String constrasena)
+        {
+            return daoDatos.ExisteUsuario(usuario, constrasena); 
         }
     }
 }

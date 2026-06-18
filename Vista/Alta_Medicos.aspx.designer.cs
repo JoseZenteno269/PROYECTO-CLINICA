@@ -69,15 +69,6 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_cerrar_sesion;
 
         /// <summary>
-        /// Control btn_menu.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_menu;
-
-        /// <summary>
         /// Control txt_legajo_m.
         /// </summary>
         /// <remarks>
@@ -132,31 +123,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList ddl_nacionalidad_m;
 
         /// <summary>
-        /// Control ddl_mes_m.
+        /// Control txt_fecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_mes_m;
-
-        /// <summary>
-        /// Control ddl_anio_m.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_anio_m;
-
-        /// <summary>
-        /// Control c_calendario_m.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar c_calendario_m;
+        protected global::System.Web.UI.WebControls.TextBox txt_fecha;
 
         /// <summary>
         /// Control txt_direccion_m.

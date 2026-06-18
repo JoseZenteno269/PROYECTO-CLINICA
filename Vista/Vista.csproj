@@ -83,6 +83,10 @@
     <Content Include="Css\Modificacion_Medicos.css" />
     <Content Include="Css\Modificacion_Pacientes.css" />
     <Content Include="Horarios_Medicos.aspx" />
+    <Content Include="Imagenes\Imagen2.png" />
+    <Content Include="Imagenes\Imagen3.png" />
+    <Content Include="Imagenes\Imagen4.png" />
+    <Content Include="Imagenes\Imagen_menu.png" />
     <Content Include="Imagenes\Informes.png" />
     <Content Include="Imagenes\Logo.png" />
     <Content Include="Imagenes\Logo1.png" />
