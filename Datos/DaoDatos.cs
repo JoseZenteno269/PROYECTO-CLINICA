@@ -25,7 +25,7 @@ namespace Datos
             return tabla;
         }
 
-        public DataTable getTablaTurnno()
+        public DataTable getTablaTurno()
         {
             DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, Id_Medico_Tur, Id_Especialidad_Tur, Id_Paciente_Tur, Id_EstadPaciente_Paci, Id_EstadoTurno_Tur, Fecha_Tur, Horario_Tur, Descripcion_Tur, Activo_Tur FROM Turnos");
             return tabla; 
@@ -90,6 +90,70 @@ namespace Datos
             parametros = comando.Parameters.Add("@TELEFONO", SqlDbType.NVarChar);
             parametros.Value = medicos.getTelefonoMedico();
         }
+
+        public void ArmarParametrosMedicosModificar(ref SqlCommand comando, Medicos medicos)
+        {
+            SqlParameter sqlParameter = new SqlParameter();
+            //ID PROVINCIA
+
+            sqlParameter = comando.Parameters.Add("@IDPROVINCIA",SqlDbType.Int);
+            sqlParameter.Value = medicos.getIdProvincia();
+
+            //ID LOCALIDAD
+
+            sqlParameter = comando.Parameters.Add("@IDLOCALIDAD", SqlDbType.Int);
+            sqlParameter.Value = medicos.getIdLocalidad();
+
+            //ID ESPECIALIDAD
+
+            sqlParameter = comando.Parameters.Add("@IDESPECIALIDAD", SqlDbType.Int);
+            sqlParameter.Value = medicos.getIdEspecialidad();
+
+            //DNI
+
+            sqlParameter = comando.Parameters.Add("@DNI", SqlDbType.Int);
+            sqlParameter.Value = medicos.getDNIMedico();
+
+            //NOMBRE MEDICO
+
+            sqlParameter = comando.Parameters.Add("@NOMBRE", SqlDbType.NVarChar);
+            sqlParameter.Value = medicos.getNombreMedico();
+
+            //APELLIDO MEDICO
+
+            sqlParameter = comando.Parameters.Add("@APELLIDO", SqlDbType.NVarChar);
+            sqlParameter.Value = medicos.getApellidoMedico();
+
+            //SEXO MEDICO
+
+            sqlParameter = comando.Parameters.Add("@SEXO", SqlDbType.NVarChar);
+            sqlParameter.Value = medicos.getSexoMedico();
+
+            //NACIONALIDAD MEDICO
+
+            sqlParameter = comando.Parameters.Add("@NACIONALIDAD", SqlDbType.NVarChar);
+            sqlParameter.Value = medicos.getNacionalidadMedico();
+
+            //FECHA NACIMIENTO MEDICO
+            sqlParameter = comando.Parameters.Add("@FECHANACIMIENTO", SqlDbType.Date);
+            sqlParameter.Value = medicos.getFechaNacimientoMedico();
+
+            //DIRECCION MEDICO
+
+            sqlParameter = comando.Parameters.Add("@DIRECCION", SqlDbType.NVarChar);
+            sqlParameter.Value = medicos.getDireccionMedico();
+
+            //EMAIL MEDICO
+
+            sqlParameter = comando.Parameters.Add("@EMAIL", SqlDbType.NVarChar);
+            sqlParameter.Value = medicos.getEmailMedico();
+
+            //TELEFONO MEDICO
+
+            sqlParameter = comando.Parameters.Add("@TELEFONO", SqlDbType.NVarChar);
+            sqlParameter.Value = medicos.getTelefonoMedico();
+
+        }
         public void ArmarParametrosMedicosDarBaja(ref SqlCommand comando, Medicos medicos)
         {
             SqlParameter parametros = new SqlParameter();
@@ -136,6 +200,65 @@ namespace Datos
             parametros.Value = pacientes.getTelefonoPaciente(); 
         }
 
+        public void ArmarParametrosPacientesModificar(ref SqlCommand comando, Pacientes pacientes)
+        {
+            SqlParameter sqlParameter = new SqlParameter();
+
+            //ID PROVINCIA
+
+            sqlParameter = comando.Parameters.Add("@IDPROVINCIA", SqlDbType.Int);
+            sqlParameter.Value = pacientes.getIdProvincia();
+
+            //ID LOCALIDAD
+
+            sqlParameter = comando.Parameters.Add("@IDLOCALIDAD", SqlDbType.Int);
+            sqlParameter.Value = pacientes.getIdLocalidad();
+
+            //DNI
+
+            sqlParameter = comando.Parameters.Add("@DNI", SqlDbType.Int);
+            sqlParameter.Value = pacientes.getDniPaciente();
+
+            //NOMBRE PACIENTE
+
+            sqlParameter = comando.Parameters.Add("@NOMBRE", SqlDbType.NVarChar);
+            sqlParameter.Value = pacientes.getNombrePaciente();
+
+            //APELLIDO PACIENTE
+
+            sqlParameter = comando.Parameters.Add("@APELLIDO", SqlDbType.NVarChar);
+            sqlParameter.Value = pacientes.getApellidoPaciente();
+
+            //SEXO PACIENTE
+
+            sqlParameter = comando.Parameters.Add("@SEXO", SqlDbType.NVarChar);
+            sqlParameter.Value = pacientes.getSexoPaciente();
+
+            //NACIONALIDAD PACIENTE
+
+            sqlParameter = comando.Parameters.Add("@NACIONALIDAD", SqlDbType.NVarChar);
+            sqlParameter.Value = pacientes.getNacionalidadPaciente();
+
+            //FECHA NACIMIENTO PACIENTE
+
+            sqlParameter = comando.Parameters.Add("@FECHANACIMIENTO", SqlDbType.Date);
+            sqlParameter.Value = pacientes.getFechaNacionalidadPaciente();
+
+            //DIRECCION PACIENTE
+
+            sqlParameter = comando.Parameters.Add("@DIRECCION", SqlDbType.NVarChar);
+            sqlParameter.Value = pacientes.getDireccionPaciente();
+
+            //EMAIL PACIENTE
+
+            sqlParameter = comando.Parameters.Add("@EMAIL", SqlDbType.NVarChar);
+            sqlParameter.Value = pacientes.getCorreoElectronicoPaciente();
+
+            //TELEFONO PACIENTE
+
+            sqlParameter = comando.Parameters.Add("@TELEFONO", SqlDbType.NVarChar);
+            sqlParameter.Value = pacientes.getTelefonoPaciente();
+        }
         public void ArmarParametrosPacientesDarBaja(ref SqlCommand comando, Pacientes pacientes)
         {
             SqlParameter parametros = new SqlParameter();
