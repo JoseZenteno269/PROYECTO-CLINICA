@@ -144,8 +144,11 @@
                         <asp:CheckBox ID="cb_activo_m" runat="server" Checked="True" Enabled="False" /></td>
                     <td></td>
                 </tr>
-                <tr><td colspan="3"></td>
-                    <asp:Label ID="lbl_mensaje" runat="server"></asp:Label></tr>
+                <tr>
+                    <td colspan="3">
+                        <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
+                    </td>
+                </tr>
                 <tr>
                     <td class="botones">
                         <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" OnClick="btn_guardar_Click" />

@@ -51,7 +51,7 @@ namespace Vista
             }
             else
             {
-                lbl_mensaje.Text = "noooo"; 
+                lbl_mensaje.Text = "error"; 
             }
         }
     }
