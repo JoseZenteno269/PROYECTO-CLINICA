@@ -31,13 +31,13 @@ namespace Datos
             return tabla; 
         }
 
-        public Boolean ExisteUsuario(String usuario, String constrasena)
+        public String MedicoAdministrador(String usuario, String constrasena)
         {
-            String consulta = "SELECT Username_Usu, Password_Usu,Id_Administrador_Usu FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = @PASSWORD";
+            String consulta = "SELECT Username_Usu, Password_Usu, Id_Administrador_Usu, Id_Medico_Usu, CASE WHEN Id_Administrador_Usu IS NOT NULL THEN 'Administrador' WHEN Id_Medico_Usu IS NOT NULL THEN 'Medico' END AS Tipousuario FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = @PASSWORD AND Activo_Usu = 1";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USUARIO", usuario.ToString().Trim());
             comando.Parameters.AddWithValue("@PASSWORD", constrasena.ToString().Trim());
-            return datos.ExisteUsuario(comando, consulta);
+            return datos.LoginMedicoAdministrador(comando, consulta);
         }
 
         public Boolean ExisteMedico(Medicos medicos)
@@ -54,6 +54,13 @@ namespace Datos
         public Boolean ExisteTurno(Turnos tunro)
         {
             return datos.Existe("SELECT * FROM Turnos WHERE Id_Turno_Tur = " + tunro.getIdTurno());
+        }
+
+        public int AgregarMedico(Medicos medico)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosMedicosAgregar(ref comando, medico);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarMedico");
         }
 
         public void ArmarParametrosMedicosAgregar(ref SqlCommand comando, Medicos medicos)

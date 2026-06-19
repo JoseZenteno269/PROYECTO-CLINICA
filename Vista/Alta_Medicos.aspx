@@ -68,14 +68,17 @@
                 <tr>
                     <td>Sexo:</td>
                     <td>
-                        <asp:DropDownList ID="ddl_sexo_m" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddl_sexo_m" runat="server" AutoPostBack="True">
+                            <asp:ListItem>mascu</asp:ListItem>
+                            <asp:ListItem>fem</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Nacionalidad:</td>
                     <td>
-                        <asp:DropDownList ID="ddl_nacionalidad_m" runat="server"></asp:DropDownList>
+                        <asp:TextBox ID="txt_nacionalidad" runat="server"></asp:TextBox>
                     </td>
                     <td></td>
                 </tr>
@@ -83,7 +86,7 @@
                     <td>Fecha de nacimiento:</td>
                     <td>
                         <asp:TextBox ID="txt_fecha" runat="server" TextMode="Date"></asp:TextBox>
-<%--                        <asp:DropDownList ID="ddl_mes_m" runat="server"></asp:DropDownList>
+                        <%--                        <asp:DropDownList ID="ddl_mes_m" runat="server"></asp:DropDownList>
                         <asp:DropDownList ID="ddl_anio_m" runat="server"></asp:DropDownList>
                         <br />
                         <asp:Calendar ID="c_calendario_m" runat="server" CssClass="aspNetCalendar" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>--%>
@@ -99,14 +102,27 @@
                 <tr>
                     <td>Localidad:</td>
                     <td>
-                        <asp:DropDownList ID="ddl_localidad_m" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddl_localidad_m" runat="server">
+                            <asp:ListItem Value="1">noseee</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Provincia:</td>
                     <td>
-                        <asp:DropDownList ID="ddl_provincia_m" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddl_provincia_m" runat="server">
+                            <asp:ListItem Value="1">ssssss</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td></td>
+                </tr>
+                                <tr>
+                    <td>Especialidad:</td>
+                    <td>
+                        <asp:DropDownList ID="ddl_especalidad_m" runat="server">
+                            <asp:ListItem Value="1">asdasda</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                     <td></td>
                 </tr>
@@ -128,9 +144,11 @@
                         <asp:CheckBox ID="cb_activo_m" runat="server" Checked="True" Enabled="False" /></td>
                     <td></td>
                 </tr>
+                <tr><td colspan="3"></td>
+                    <asp:Label ID="lbl_mensaje" runat="server"></asp:Label></tr>
                 <tr>
                     <td class="botones">
-                        <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" />
+                        <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" OnClick="btn_guardar_Click" />
                         <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="btn-cancelar" OnClick="btn_cancelar_Click" />
                     </td>
                     <td colspan="2" align="end">

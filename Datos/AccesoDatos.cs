@@ -12,7 +12,7 @@ namespace Datos
 {
     class AccesoDatos
     {
-        String Ruta = @"Data Source=R7ASUSROG\SQLEXPRESS;Initial Catalog=PROYECTO_CLINICA;Integrated Security=True;Encrypt=False";
+        String Ruta = @"Data Source=R7ASUSROG\SQLEXPRESS;Initial Catalog=BDClinica;Integrated Security=True;Encrypt=False"; 
 
         private SqlConnection ObtenerConexion()
         {
@@ -65,15 +65,19 @@ namespace Datos
             return lectura;
         }
 
-        public Boolean ExisteUsuario(SqlCommand comando, String consulta)
+        public String LoginMedicoAdministrador(SqlCommand comando, String consulta)
         {
+            String tipoUsuario = string.Empty; 
             SqlConnection conexion = ObtenerConexion();
             comando.Connection = conexion;
             comando.CommandText = consulta;
             SqlDataReader leer = comando.ExecuteReader();
-            bool existe = leer.Read();
+            if (leer.Read())
+            {
+                tipoUsuario = leer["Tipousuario"].ToString();  
+            }
             conexion.Close();
-            return existe; 
+            return tipoUsuario; 
         }
 
         public DataTable ObtenerTabla(String nombretabla, String consulta)

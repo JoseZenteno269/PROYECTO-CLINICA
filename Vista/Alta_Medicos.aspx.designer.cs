@@ -114,13 +114,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList ddl_sexo_m;
 
         /// <summary>
-        /// Control ddl_nacionalidad_m.
+        /// Control txt_nacionalidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_nacionalidad_m;
+        protected global::System.Web.UI.WebControls.TextBox txt_nacionalidad;
 
         /// <summary>
         /// Control txt_fecha.
@@ -159,6 +159,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList ddl_provincia_m;
 
         /// <summary>
+        /// Control ddl_especalidad_m.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_especalidad_m;
+
+        /// <summary>
         /// Control txt_correo_m.
         /// </summary>
         /// <remarks>
@@ -184,6 +193,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cb_activo_m;
+
+        /// <summary>
+        /// Control lbl_mensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_mensaje;
 
         /// <summary>
         /// Control btn_guardar.

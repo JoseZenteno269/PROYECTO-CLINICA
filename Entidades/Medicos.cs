@@ -123,6 +123,10 @@ namespace Entidades
         {
             return fechaNacimientoMedico;
         }
+        public void setFechaNacimientoMedico(DateTime fechaNacimientoMedico)
+        {
+            this.fechaNacimientoMedico = fechaNacimientoMedico;
+        }
 
         public void setNacionalidadMedico(String nacionalidadMedico)
         {
@@ -132,11 +136,6 @@ namespace Entidades
         public String getNacionalidadMedico()
         {
             return NacionalidadMedico;
-        }
-
-        public void setFechaNacimientoMedico(DateTime fechaNacimientoMedico)
-        {
-            this.fechaNacimientoMedico = fechaNacimientoMedico;
         }
 
         public String getDireccionMedico()
