@@ -38,7 +38,7 @@ namespace Vista
 
         protected void btn_cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Menu.aspx");
+            LimpiarCampos();
         }
 
         protected void btn_guardar_Click(object sender, EventArgs e)
@@ -53,6 +53,28 @@ namespace Vista
             {
                 lbl_mensaje.Text = "error"; 
             }
+        }
+
+        protected void btn_Volver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx");
+        }
+
+        private void LimpiarCampos()
+        {
+            txt_legajo_m.Text = string.Empty;
+            ddl_provincia_m.SelectedIndex = 0;
+            ddl_localidad_m.SelectedIndex = 0;
+            ddl_especalidad_m.SelectedIndex = 0;
+            txt_dni_m.Text = string.Empty;
+            txt_nombre_m.Text = string.Empty;
+            txt_apellido_m.Text = string.Empty;
+            ddl_sexo_m.SelectedIndex = 0;
+            txt_nacionalidad.Text = string.Empty;
+            txt_fecha.Text = string.Empty;
+            txt_direccion_m.Text = string.Empty;
+            txt_correo_m.Text = string.Empty;
+            txt_telefono_m.Text = string.Empty;
         }
     }
 }

@@ -158,6 +158,7 @@
                         <asp:Button ID="btn_horarios" runat="server" Text="Horarios" CssClass="btn-cancelar" OnClick="btn_horarios_Click" />
                     </td>
                 </tr>
+                <asp:Button ID="btn_Volver" runat="server" OnClick="btn_Volver_Click" Text="Volver a Menu" />
             </table>
         </div>
         <br />

@@ -52,12 +52,31 @@
             </table>
                         <asp:GridView ID="gvMedicos" runat="server" AutoGenerateColumns="False">
                             <Columns>
-                                <asp:TemplateField HeaderText="Legajo"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="DNI"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Corre Electronico"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Telefono"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Legajo">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_Legajo" runat="server" Text='<%# Bind("Legajo_Med") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="DNI">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Med") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Nombre y Apellido">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Med") + " " + Eval("Apellido_Med") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Corre Electronico">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_CorreoElectronico" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Telefono">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_Telefono" runat="server" Text='<%# Bind("Telefono_Med") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
         </div>

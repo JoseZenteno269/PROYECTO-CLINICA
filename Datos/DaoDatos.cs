@@ -63,6 +63,20 @@ namespace Datos
             return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarMedico");
         }
 
+        public int DarBajaMedico(Medicos medico)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosMedicosDarBaja(ref comando, medico);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spBajaMedica");
+        }
+
+        public int AgregarPaciente(Pacientes pacientes)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosPacientesAgregar(ref comando, pacientes);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarPaciente");
+        }
+
         public void ArmarParametrosMedicosAgregar(ref SqlCommand comando, Medicos medicos)
         {
             SqlParameter parametros = new SqlParameter();

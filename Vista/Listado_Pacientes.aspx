@@ -45,13 +45,36 @@
             </table>
             <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:TemplateField HeaderText="Dni"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Sexo"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Direccion"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Correo Electronico"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Telefono"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Dni">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nombre y Apellido">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Paci") + " " + Eval("Apellido_Paci") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Sexo">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Sexo" runat="server" Text='<%# Bind("Sexo_Paci") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Direccion">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Direccion" runat="server" Text='<%# Bind("Direccion_Paci") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Correo Electronico">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_CorreoElectronico" runat="server" Text='<%# Bind("CorreoElectronico_Paci") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Telefono">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Telefono" runat="server" Text='<%# Bind("Telefono_Paci") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>

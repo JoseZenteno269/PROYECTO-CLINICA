@@ -38,6 +38,7 @@ namespace Negocio
             return daoDatos.MedicoAdministrador(usuario, constrasena); 
         }
 
+        /// AGREGAR
         public Boolean AgregarMedico(String legajo, int idprovincia, int idlocalidad, int idespecialidad, int dni, String nombre, String apellido, String sexo, String nacionalidad, DateTime fecha, String direccion, String mail,  String telefono)
         {
             int filasafectadas = 0;
@@ -64,5 +65,48 @@ namespace Negocio
 
             return filasafectadas == 1; 
         }
+
+        public Boolean AgregarPacientes(int idprovincia,int idlocalidad, int dni, String nombre, String apellido, String sexo, String nacionalidad, DateTime fecha, String direccion, String mail, String telefono)
+        {
+            int Filasafectadas = 0;
+
+            Pacientes pacientes = new Pacientes();
+            pacientes.setIdProvincia(idprovincia);
+            pacientes.setIdLocalidad(idlocalidad);
+            pacientes.setDniPaciente(dni);
+            pacientes.setNombrePaciente(nombre);
+            pacientes.setApellidoPaciente(apellido);
+            pacientes.setSexoPaciente(sexo);
+            pacientes.setNacionalidadPaciente(nacionalidad);
+            pacientes.setFechaNacimientoPaciente(fecha);
+            pacientes.setDireccionPaciente(direccion);
+            pacientes.setCorreoElectronicoPaciente(mail);
+            pacientes.setTelefonoPaciente(telefono);
+
+            if (daoDatos.ExistePaciente(pacientes) == false)
+            {
+                Filasafectadas = daoDatos.AgregarPaciente(pacientes);
+            }
+
+            return Filasafectadas == 1;
+        }
+
+        /// DAR DE BAJA
+        public Boolean DarBajaMedico(int idMedico)
+        {
+            Medicos medicos = new Medicos();
+            medicos.setIdMedico(idMedico);
+            int filasafectadas = daoDatos.DarBajaMedico(medicos);
+            if(filasafectadas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
 }
