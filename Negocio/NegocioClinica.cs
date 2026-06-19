@@ -38,6 +38,21 @@ namespace Negocio
             return daoDatos.MedicoAdministrador(usuario, constrasena); 
         }
 
+        public DataTable getDropDownListProvincias()
+        {
+            return daoDatos.getTablaProvincia(); 
+        }
+
+        public DataTable getDropDownListLocalidades()
+        {
+            return daoDatos.getTablaLocalidades(); 
+        }
+
+        public DataTable getDropDownListEspecialidad()
+        {
+            return daoDatos.getTablaEspecialidad(); 
+        }
+
         /// AGREGAR
         public Boolean AgregarMedico(String legajo, int idprovincia, int idlocalidad, int idespecialidad, int dni, String nombre, String apellido, String sexo, String nacionalidad, DateTime fecha, String direccion, String mail,  String telefono)
         {

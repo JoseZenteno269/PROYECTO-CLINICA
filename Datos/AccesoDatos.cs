@@ -12,7 +12,7 @@ namespace Datos
 {
     class AccesoDatos
     {
-        String Ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=BDClinica;Integrated Security=True;Encrypt=False";
+        String Ruta = @"Data Source=localhost\sqlexpress;Initial Catalog=BDClinica;Integrated Security=True;Encrypt=False";
 
         private SqlConnection ObtenerConexion()
         {

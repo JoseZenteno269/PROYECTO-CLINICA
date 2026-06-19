@@ -69,8 +69,9 @@
                     <td>Sexo:</td>
                     <td>
                         <asp:DropDownList ID="ddl_sexo_m" runat="server" AutoPostBack="True">
-                            <asp:ListItem>mascu</asp:ListItem>
-                            <asp:ListItem>fem</asp:ListItem>
+                            <asp:ListItem>--Seleccione una opcion--</asp:ListItem>
+                            <asp:ListItem>Masculino</asp:ListItem>
+                            <asp:ListItem>Femenino</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td></td>
@@ -99,29 +100,26 @@
                         <asp:TextBox ID="txt_direccion_m" runat="server"></asp:TextBox></td>
                     <td></td>
                 </tr>
+                                <tr>
+                    <td>Provincia:</td>
+                    <td>
+                        <asp:DropDownList ID="ddl_provincia_m" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_provincia_m_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </td>
+                    <td></td>
+                </tr>
                 <tr>
                     <td>Localidad:</td>
                     <td>
                         <asp:DropDownList ID="ddl_localidad_m" runat="server">
-                            <asp:ListItem Value="1">noseee</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Provincia:</td>
-                    <td>
-                        <asp:DropDownList ID="ddl_provincia_m" runat="server">
-                            <asp:ListItem Value="1">ssssss</asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
-                    <td></td>
-                </tr>
-                                <tr>
                     <td>Especialidad:</td>
                     <td>
                         <asp:DropDownList ID="ddl_especalidad_m" runat="server">
-                            <asp:ListItem Value="1">asdasda</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td></td>

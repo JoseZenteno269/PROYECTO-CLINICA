@@ -141,15 +141,6 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_direccion_m;
 
         /// <summary>
-        /// Control ddl_localidad_m.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_localidad_m;
-
-        /// <summary>
         /// Control ddl_provincia_m.
         /// </summary>
         /// <remarks>
@@ -157,6 +148,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_provincia_m;
+
+        /// <summary>
+        /// Control ddl_localidad_m.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_localidad_m;
 
         /// <summary>
         /// Control ddl_especalidad_m.

@@ -1,6 +1,7 @@
 ﻿using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +14,46 @@ namespace Vista
         NegocioClinica negocio = new NegocioClinica(); 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                CargarDropDownListProv();
+                CargarDropDownListLocal();
+                CargarDropDownListEspe(); 
+            }
+        }
 
+        public void CargarDropDownListProv()
+        {
+            ddl_provincia_m.DataSource = negocio.getDropDownListProvincias();
+            ddl_provincia_m.DataTextField = "Descripcion_Prov";
+            ddl_provincia_m.DataValueField = "Id_Provincia_Prov";
+            ddl_provincia_m.DataBind();
+            ddl_provincia_m.Items.Insert(0, new ListItem("-- Seleccione una opcion --", "0")); 
+        }
+
+        public void CargarDropDownListLocal()
+        {
+            DataTable tabla = negocio.getDropDownListLocalidades();
+            tabla.DefaultView.RowFilter = "Id_Provincia_Local = " + ddl_provincia_m.SelectedValue;
+            ddl_localidad_m.DataSource = tabla.DefaultView; 
+            ddl_localidad_m.DataTextField = "Descripcion_Local";
+            ddl_localidad_m.DataValueField = "Id_Provincia_Local";
+            ddl_localidad_m.DataBind(); 
+            ddl_localidad_m.Items.Insert(0, new ListItem("-- Seleccione una opcion --", "0"));
+        }
+
+        protected void ddl_provincia_m_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDropDownListLocal(); 
+        }
+
+        public void CargarDropDownListEspe()
+        {
+            ddl_especalidad_m.DataSource = negocio.getDropDownListEspecialidad();
+            ddl_especalidad_m.DataTextField = "Nombre_Espe";
+            ddl_especalidad_m.DataValueField = "Id_Especialidad_Espe";
+            ddl_especalidad_m.DataBind();
+            ddl_especalidad_m.Items.Insert(0, new ListItem("-- Seleccione una opcion --", "0"));
         }
 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
@@ -76,5 +116,6 @@ namespace Vista
             txt_correo_m.Text = string.Empty;
             txt_telefono_m.Text = string.Empty;
         }
+
     }
 }

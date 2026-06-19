@@ -40,6 +40,24 @@ namespace Datos
             return datos.LoginMedicoAdministrador(comando, consulta);
         }
 
+        public DataTable getTablaProvincia()
+        {
+            DataTable tabla = datos.ObtenerTabla("Provincias", "SELECT Id_Provincia_Prov, Descripcion_Prov FROM Provincias"); 
+            return tabla;
+        }
+
+        public DataTable getTablaLocalidades()
+        {
+            DataTable tabla = datos.ObtenerTabla("Localidades", "SELECT Id_Provincia_Local, Descripcion_Local FROM Localidades"); 
+            return tabla;
+        }
+
+        public DataTable getTablaEspecialidad()
+        {
+            DataTable tabla = datos.ObtenerTabla("Especialidad", "SELECT Nombre_Espe, Id_Especialidad_Espe FROM Especialidad");
+            return tabla;
+        }
+
         public Boolean ExisteMedico(Medicos medicos)
         {
             string ConsultaSQL = "SELECT * FROM Medicos WHERE Id_Medico_Med = " + medicos.getIdMedico();
