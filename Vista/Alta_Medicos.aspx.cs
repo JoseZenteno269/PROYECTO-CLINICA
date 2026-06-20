@@ -81,19 +81,43 @@ namespace Vista
             LimpiarCampos();
         }
 
+        public string generarusuario(string nombre, string apellido, string fecha)
+        {
+            return nombre[0].ToString().ToUpper() + apellido.Substring(0, apellido.Length - 2).ToLower() + fecha.Substring(8);
+        }
+
+        public string generaracontrasena(string nombre, string apellido)
+        {
+            Random rnd = new Random();
+            return apellido.Substring(0, (apellido.Length % 2 == 0 ? apellido.Length / 2 : (apellido.Length - 1) / 2)) + (rnd.Next(10, 100 + 1)).ToString() + nombre.Substring(0, 2);
+        }
+
         protected void btn_guardar_Click(object sender, EventArgs e)
         {
             DateTime fecha = Convert.ToDateTime(txt_fecha.Text);
 
+            string usuario = generarusuario(txt_nombre_m.Text, txt_apellido_m.Text, txt_fecha.Text);
+
+            string contrasena = generaracontrasena(txt_nombre_m.Text, txt_apellido_m.Text); 
+
             if (negocio.AgregarMedico(txt_legajo_m.Text, Convert.ToInt32(ddl_provincia_m.SelectedValue), Convert.ToInt32(ddl_localidad_m.SelectedValue), Convert.ToInt32(ddl_especalidad_m.SelectedValue), Convert.ToInt32(txt_dni_m.Text), txt_nombre_m.Text, txt_apellido_m.Text, ddl_sexo_m.Text, txt_nacionalidad.Text, fecha , txt_direccion_m.Text, txt_correo_m.Text, txt_telefono_m.Text))
             {
-                lbl_mensaje.Text = "exitoso"; 
+                lbl_mensaje.Text = "exitoso";
+                if (negocio.getIdMedico(txt_legajo_m.Text) != null)
+                {
+                    string idmedico = negocio.getIdMedico(txt_legajo_m.Text); 
+                    if (negocio.AgregarUsuarios(Convert.ToInt32(idmedico), null, usuario, contrasena))
+                    {
+                        lbl_mensaje0.Text = "Usuario creado correctamente";
+                    }
+                }
             }
             else
             {
                 lbl_mensaje.Text = "error"; 
             }
         }
+        
 
         protected void btn_Volver_Click(object sender, EventArgs e)
         {

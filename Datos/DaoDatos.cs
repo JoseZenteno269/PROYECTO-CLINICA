@@ -13,6 +13,12 @@ namespace Datos
             /// Constructor vacio
         }
 
+        public String getIdMedico(String legajo)
+        {
+            String consulta = "SELECT Id_Medico_Med FROM Medicos WHERE Legajo_Med = " + "'" + legajo + "'"; 
+            return datos.ObtenerMedico(consulta); 
+        }
+
         public DataTable getTablaMedicos()
         {
             DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med, Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med, CorreoElectronico_Med, Telefono_Med FROM Medicos");
@@ -60,18 +66,23 @@ namespace Datos
 
         public Boolean ExisteMedico(Medicos medicos)
         {
-            string ConsultaSQL = "SELECT * FROM Medicos WHERE Id_Medico_Med = " + medicos.getIdMedico();
+            string ConsultaSQL = "SELECT * FROM Medicos WHERE Id_Medico_Med = " + medicos.getDNIMedico();
             return datos.Existe(ConsultaSQL);
         }
 
         public Boolean ExistePaciente(Pacientes paciente)
         {
-            return datos.Existe("SELECT * FROM Pacientes WHERE Id_Paciente_Paci = " + paciente.getIdPaciente());
+            return datos.Existe("SELECT * FROM Pacientes WHERE Id_Paciente_Paci = " + paciente.getDniPaciente());
         }
 
         public Boolean ExisteTurno(Turnos tunro)
         {
             return datos.Existe("SELECT * FROM Turnos WHERE Id_Turno_Tur = " + tunro.getIdTurno());
+        }
+
+        public Boolean ExisteUsuario(Usuarios usuario)
+        {
+            return datos.Existe("SELECT * FROM Usuarios WHERE Id_Usuario_Usu = " + usuario.getUsername()); 
         }
 
         public int AgregarMedico(Medicos medico)
@@ -93,6 +104,13 @@ namespace Datos
             SqlCommand comando = new SqlCommand();
             ArmarParametrosPacientesAgregar(ref comando, pacientes);
             return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarPaciente");
+        }
+
+        public int AgregarUsuario(Usuarios usuarios)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosUsuarios(ref comando, usuarios);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spGenerarUsuario"); 
         }
 
         public void ArmarParametrosMedicosAgregar(ref SqlCommand comando, Medicos medicos)
@@ -350,6 +368,23 @@ namespace Datos
 
             parametros = comando.Parameters.Add("@IDTURNO", SqlDbType.Int);
             parametros.Value = turnos.getIdTurno();
+        }
+
+        public void ArmarParametrosUsuarios(ref SqlCommand comando, Usuarios usuarios)
+        {
+            SqlParameter parametros = new SqlParameter();
+
+            parametros = comando.Parameters.Add("@IDMEDICO", SqlDbType.Int);
+            parametros.Value = usuarios.getIdMedico();
+
+            parametros = comando.Parameters.Add("@IDADMINISTRADOR", SqlDbType.Int);
+            parametros.Value = (object)usuarios.getIdAdministrador() ?? DBNull.Value;
+
+            parametros = comando.Parameters.Add("@USERNAME", SqlDbType.NVarChar);
+            parametros.Value = usuarios.getUsername();
+
+            parametros = comando.Parameters.Add("@PASSWORD", SqlDbType.NVarChar);
+            parametros.Value = usuarios.getPassword();
         }
     }
 }

@@ -145,6 +145,7 @@
                 <tr>
                     <td colspan="3">
                         <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
+                        <asp:Label ID="lbl_mensaje0" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>

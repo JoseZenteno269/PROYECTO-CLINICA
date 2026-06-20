@@ -204,6 +204,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Label lbl_mensaje;
 
         /// <summary>
+        /// Control lbl_mensaje0.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_mensaje0;
+
+        /// <summary>
         /// Control btn_guardar.
         /// </summary>
         /// <remarks>

@@ -18,6 +18,11 @@ namespace Negocio
             // Constructor Vacío
         }
 
+        public String getIdMedico(String legajo)
+        {
+            return daoDatos.getIdMedico(legajo);
+        }
+
         public DataTable getPacientes()
         {
             return daoDatos.getTablaPacientes();
@@ -104,6 +109,26 @@ namespace Negocio
             }
 
             return Filasafectadas == 1;
+        }
+
+        public Boolean AgregarUsuarios(int idmedico, int? idadministrador, String username, String password)
+        {
+            int FilasAfectadas = 0; 
+
+            Usuarios usuarios = new Usuarios();
+            usuarios.setIdMedico(idmedico);
+            usuarios.setIdAdministrador(idadministrador); 
+            usuarios.setUsername(username);
+            usuarios.setPassword(password); 
+
+            //if(daoDatos.ExisteUsuario(usuarios) == false) 
+            //{ 
+            //   FilasAfectadas = daoDatos.AgregarUsuario(usuarios);
+            //}
+
+            FilasAfectadas = daoDatos.AgregarUsuario(usuarios);
+
+            return FilasAfectadas == 1; 
         }
 
         /// DAR DE BAJA

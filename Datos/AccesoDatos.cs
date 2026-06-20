@@ -65,6 +65,18 @@ namespace Datos
             return lectura;
         }
 
+        public String ObtenerMedico(String consulta)
+        {
+            SqlCommand comando = new SqlCommand(consulta, ObtenerConexion());
+            SqlDataReader lectura = comando.ExecuteReader(); 
+            if (lectura.Read())
+            {
+                return lectura["Id_Medico_Med"].ToString();
+            }
+
+            return null;
+        }
+
         public String LoginMedicoAdministrador(SqlCommand comando, String consulta)
         {
             String tipoUsuario = string.Empty; 
