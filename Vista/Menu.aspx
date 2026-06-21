@@ -53,7 +53,7 @@
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_dar_bajam" runat="server" Text="Eliminar" CssClass="botones" OnClick="btn_dar_bajam_Click" />
+                            <asp:Button ID="btn_dar_bajam" runat="server" Text="Dar de Baja" CssClass="botones" OnClick="btn_dar_bajam_Click" />
                         </td>
                     </tr>
                     <tr>
@@ -86,7 +86,7 @@
                     </tr>
                     <tr>
                         <td class="td">
-                            <asp:Button ID="btn_dar_bajap" runat="server" Text="Eliminar" CssClass="botones" OnClick="btn_dar_bajap_Click" /></td>
+                            <asp:Button ID="btn_dar_bajap" runat="server" Text="Dar Baja" CssClass="botones" OnClick="btn_dar_bajap_Click" /></td>
                     </tr>
                     <tr>
                         <td class="td">

@@ -78,22 +78,31 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btn_menu;
 
         /// <summary>
-        /// Control txt_legajo.
+        /// Control txt_IDPacientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_legajo;
+        protected global::System.Web.UI.WebControls.TextBox txt_IDPacientes;
 
         /// <summary>
-        /// Control btn_buscar.
+        /// Control btn_Aceptar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_buscar;
+        protected global::System.Web.UI.WebControls.Button btn_Aceptar;
+
+        /// <summary>
+        /// Control lbl_Mensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Mensaje;
 
         /// <summary>
         /// Control gvPacientes.

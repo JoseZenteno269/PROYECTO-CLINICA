@@ -40,19 +40,34 @@
         <div id="divcontenedor">
             <table>
                 <tr>
-                    <td>Ingrese DNI Paciente: </td>
+                    <td>Ingrese ID del Paciente: </td>
                     <td>
-                        <asp:TextBox ID="txt_legajo" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_IDPacientes" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:Button ID="btn_buscar" runat="server" Text="Button" /></td>
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" /></td>
                     <td></td>
                 </tr>
             </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
             <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:CommandField ButtonType="Button" ControlStyle-CssClass="bottoneditar" EditText="Dar Baja" ShowEditButton="True" >
-<ControlStyle CssClass="bottoneditar"></ControlStyle>
-                    </asp:CommandField>
+                    <asp:TemplateField HeaderText="ID Paciente">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_IDPaciente" runat="server" Text='<%# Bind("Id_Paciente_Paci") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="DNI">
                         <ItemTemplate>
                             <asp:Label ID="lbl_It_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
@@ -103,10 +118,10 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+                    </td>
+                </tr>
+            </table>
         </div>
-        <br />
-        <br />
-        <br />
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

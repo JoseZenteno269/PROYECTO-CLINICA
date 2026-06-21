@@ -21,25 +21,25 @@ namespace Datos
 
         public DataTable getTablaMedicos()
         {
-            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med, CorreoElectronico_Med, Telefono_Med FROM Medicos");
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med, CorreoElectronico_Med, Telefono_Med FROM Medicos WHERE Activo_Med = 1");
             return tabla;
         }
 
         public DataTable getTablaBajaMedicos()
         {
-            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Legajo_Med,Id_Medico_Med,DNI_Med,Nombre_Med,Apellido_Med,FechaNacimiento_Med,CorreoElectronico_Med,Telefono_Med,Id_Especialidad_Med,Nombre_Espe,Activo_Med FROM Medicos INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe");
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Legajo_Med, Id_Medico_Med, DNI_Med, Nombre_Med, Apellido_Med, FechaNacimiento_Med, CorreoElectronico_Med, Telefono_Med, Id_Especialidad_Med, Nombre_Espe, Activo_Med FROM Medicos INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE Activo_Med = 1");
             return tabla;
         }
 
         public DataTable getTablaPacientes()
         {
-            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes");
+            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes WHERE Activo_Paci = 1");
             return tabla;
         }
 
         public DataTable getTablaBajaPacientes()
         {
-            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Nacionalidad_Paci, FechaNacimiento_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci, Activo_Paci FROM Pacientes");
+            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci,DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Nacionalidad_Paci, FechaNacimiento_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci, Activo_Paci FROM Pacientes WHERE Activo_Paci = 1");
             return tabla;
         }
 
@@ -92,6 +92,7 @@ namespace Datos
             return datos.Existe("SELECT * FROM Turnos WHERE Id_Turno_Tur = " + tunro.getIdTurno());
         }
 
+        /// Medicos
         public int AgregarMedico(Medicos medico)
         {
             SqlCommand comando = new SqlCommand();
@@ -119,6 +120,37 @@ namespace Datos
             SqlCommand comando = new SqlCommand();
             ArmarParametrosPacientesAgregar(ref comando, pacientes);
             return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarPaciente");
+        }
+
+        public int DarBajaPecientes(Pacientes pacientes)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosPacientesDarBaja(ref comando, pacientes);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spBajaPaciente");
+        }
+
+        /// Turnos
+        
+        public int AgregarTurnos(Turnos turnos)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosTurnosAgregar(ref comando, turnos);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarTurnos");
+        }
+
+        public int CancelarTurnos(Turnos turnos)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosTurnosCancelar(ref comando, turnos);
+            return datos.EjecutarProcedimientoAlmacenado(comando,"spCancelarTurnos");
+        }
+        /// Usuarios
+        
+        public int AgregarUsuario(Usuarios usuarios)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosUsuarios(ref comando, usuarios);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spGenerarUsuario");
         }
 
         public void ArmarParametrosMedicosAgregar(ref SqlCommand comando, Medicos medicos)

@@ -38,27 +38,45 @@
         <div id="divcontenedor">
             <table>
                 <tr>
-                    <td>Ingrese Legajo de Medico: </td>
+                    <td>Ingrese ID del Medico: </td>
                     <td>
-                        <asp:TextBox ID="txt_legajo" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_IdMedico" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:Button ID="btn_buscar" runat="server" Text="Button" /></td>
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" /></td>
                     <td></td>
                 </tr>
             </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="btn_Listar" runat="server" Text="Consultar Medicos" OnClick="btn_Listar_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
             <asp:GridView ID="gvMedicos" runat="server" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:CommandField ButtonType="Button" ControlStyle-CssClass="bottoneditar" EditText="Dar Baja" ShowEditButton="True" >
-<ControlStyle CssClass="bottoneditar"></ControlStyle>
-                    </asp:CommandField>
-                    <asp:TemplateField HeaderText="Legajo">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_it_Legajo" runat="server" Text='<%# Bind("Legajo_Med") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Id Medico">
                         <ItemTemplate>
                             <asp:Label ID="lbl_it_IDmedico" runat="server" Text='<%# Bind("Id_Medico_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Legajo">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Legajo" runat="server" Text='<%# Bind("Legajo_Med") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="DNI">
@@ -101,10 +119,10 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+                    </td>
+                </tr>
+            </table>
         </div>
-        <br />
-        <br />
-        <br />
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

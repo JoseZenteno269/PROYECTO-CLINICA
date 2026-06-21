@@ -44,5 +44,23 @@ namespace Vista
             gvPacientes.DataSource = negocio.getBajaPaciente();
             gvPacientes.DataBind();
         }
+
+        protected void btn_Aceptar_Click(object sender, EventArgs e)
+        {
+            if(negocio.DarBajaPacientes(Convert.ToInt32(txt_IDPacientes.Text)))
+            {
+                lbl_Mensaje.Text = "Operacion exitosa";
+                Limpiar();
+            }
+            else
+            {
+                lbl_Mensaje.Text = "No se pudo realizar la operacion";
+                Limpiar();
+            }
+        }
+        public void Limpiar()
+        {
+            txt_IDPacientes.Text = string.Empty;
+        }
     }
 }

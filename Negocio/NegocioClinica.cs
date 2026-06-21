@@ -156,7 +156,7 @@ namespace Negocio
         {
             Pacientes pacientes = new Pacientes();
             pacientes.setIdPaciente(idPaciente);
-            int filasafectadas = daoDatos.DarBajaPaciente(pacientes);
+            int filasafectadas = daoDatos.DarBajaPecientes(pacientes);
             if(filasafectadas == 1)
             {
                 return true;
