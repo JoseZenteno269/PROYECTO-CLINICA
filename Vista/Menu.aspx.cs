@@ -13,7 +13,14 @@ namespace Vista
         {
             if (!Page.IsPostBack)
             {
-
+                if (Session["Usuario"] != null)
+                {
+                    lbl_usuario.Text = Session["Usuario"].ToString(); 
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx"); 
+                }
             }
         }
 

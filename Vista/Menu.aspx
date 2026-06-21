@@ -19,7 +19,7 @@
                     <td></td>
                     <td align="end" style="padding-right: 20px">
                         <div class="usuario-container">
-                            <asp:LinkButton ID="lb_usuario_menu" CssClass="btn-usuario" runat="server" OnClick="lb_usuario_menu_Click">
+                            <asp:LinkButton ID="lbl_usuario_menu" CssClass="btn-usuario" runat="server" OnClick="lb_usuario_menu_Click">
                                 👤
                                 <asp:Label runat="server" ID="lbl_usuario" Text="usuario"></asp:Label>
                             </asp:LinkButton>

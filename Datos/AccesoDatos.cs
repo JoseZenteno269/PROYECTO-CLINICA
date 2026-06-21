@@ -24,9 +24,9 @@ namespace Datos
                 conexion.Open();
                 return conexion; 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                throw new Exception("Error al conectar: " + ex.Message);
             }
         }
 
@@ -79,9 +79,10 @@ namespace Datos
 
         public String LoginMedicoAdministrador(SqlCommand comando, String consulta)
         {
-            String tipoUsuario = string.Empty; 
+            String tipoUsuario = "nada"; 
             SqlConnection conexion = ObtenerConexion();
             comando.Connection = conexion;
+            
             comando.CommandText = consulta;
             SqlDataReader leer = comando.ExecuteReader();
             if (leer.Read())

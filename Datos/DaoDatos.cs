@@ -51,7 +51,7 @@ namespace Datos
 
         public String MedicoAdministrador(String usuario, String constrasena)
         {
-            String consulta = "SELECT Username_Usu, Password_Usu, Id_Administrador_Usu, Id_Medico_Usu, CASE WHEN Id_Administrador_Usu IS NOT NULL THEN 'Administrador' WHEN Id_Medico_Usu IS NOT NULL THEN 'Medico' END AS Tipousuario FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = @PASSWORD AND Activo_Usu = 1";
+            String consulta = "SELECT Username_Usu, Password_Usu, Id_Administrador_Usu, Id_Medico_Usu, CASE WHEN Id_Administrador_Usu IS NOT NULL THEN 'Administrador' WHEN Id_Medico_Usu IS NOT NULL THEN 'Medico' END AS Tipousuario FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = HASHBYTES('SHA2_256', @PASSWORD) AND Activo_Usu = 1";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USUARIO", usuario.ToString().Trim());
             comando.Parameters.AddWithValue("@PASSWORD", constrasena.ToString().Trim());

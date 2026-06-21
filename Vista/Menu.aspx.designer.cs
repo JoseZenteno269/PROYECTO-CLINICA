@@ -24,13 +24,13 @@ namespace Vista
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lb_usuario_menu.
+        /// Control lbl_usuario_menu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lb_usuario_menu;
+        protected global::System.Web.UI.WebControls.LinkButton lbl_usuario_menu;
 
         /// <summary>
         /// Control lbl_usuario.

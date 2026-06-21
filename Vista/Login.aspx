@@ -44,10 +44,11 @@
                         <asp:HyperLink ID="hl_recovery" runat="server" NavigateUrl="~/Recovery.aspx">Recuperar Contraseña</asp:HyperLink>
                     </td>
                 </tr>
+
             </table>
         </div>
         <br />
-
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>

@@ -119,7 +119,7 @@
                 <tr>
                     <td>Especialidad:</td>
                     <td>
-                        <asp:DropDownList ID="ddl_especalidad_m" runat="server">
+                        <asp:DropDownList ID="ddl_especalidad_m" runat="server" AutoPostBack="True">
                         </asp:DropDownList>
                     </td>
                     <td></td>
@@ -145,6 +145,11 @@
                 <tr>
                     <td colspan="3">
                         <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
                         <asp:Label ID="lbl_mensaje0" runat="server"></asp:Label>
                     </td>
                 </tr>

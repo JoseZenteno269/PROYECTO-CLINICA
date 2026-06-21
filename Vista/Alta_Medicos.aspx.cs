@@ -102,15 +102,23 @@ namespace Vista
 
             if (negocio.AgregarMedico(txt_legajo_m.Text, Convert.ToInt32(ddl_provincia_m.SelectedValue), Convert.ToInt32(ddl_localidad_m.SelectedValue), Convert.ToInt32(ddl_especalidad_m.SelectedValue), Convert.ToInt32(txt_dni_m.Text), txt_nombre_m.Text, txt_apellido_m.Text, ddl_sexo_m.Text, txt_nacionalidad.Text, fecha , txt_direccion_m.Text, txt_correo_m.Text, txt_telefono_m.Text))
             {
-                lbl_mensaje.Text = "exitoso"; 
+                lbl_mensaje.Text = "Medico cargado correctamente";
+
+                string idmedico = negocio.getIdMedico(txt_legajo_m.Text); 
+                if (idmedico != null)
+                {
+                    if (negocio.AgregarUsuarios(Convert.ToInt32(idmedico), null, usuario, contrasena))
+                    {
+                        lbl_mensaje0.Text = "Usuario creado correctamente. USUARIO: " + usuario.ToString() + " - " + "CONTRASEÑA: " + contrasena.ToString();  ;
+                    }
+                }
             }
             else
             {
-                lbl_mensaje.Text = "error";
+                lbl_mensaje.Text = "Error al ingresar nuevo Medico";
                 LimpiarCampos();
             }
         }
-        
 
         protected void btn_Volver_Click(object sender, EventArgs e)
         {
@@ -132,7 +140,11 @@ namespace Vista
             txt_direccion_m.Text = string.Empty;
             txt_correo_m.Text = string.Empty;
             txt_telefono_m.Text = string.Empty;
+            lbl_mensaje.Text = string.Empty;
+            lbl_mensaje0.Text = string.Empty; 
         }
-
     }
 }
+
+//usuario = Jtorto01
+//contrasena = tor91je

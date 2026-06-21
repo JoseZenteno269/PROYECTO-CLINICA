@@ -13,7 +13,15 @@ namespace Vista
         {
             if (!IsPostBack)
             {
-                CargarTurnos();
+                if (Session["Usuario"] != null)
+                {
+                    lbl_usuario.Text = Session["Usuario"].ToString();
+                    CargarTurnos();
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 
@@ -25,6 +33,7 @@ namespace Vista
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
+            Session["Usuario"] = null; 
         }
 
         private void CargarTurnos()

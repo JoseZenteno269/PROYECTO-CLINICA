@@ -18,6 +18,11 @@ namespace Negocio
             // Constructor Vacío
         }
 
+        public String getIdMedico(String legajo)
+        {
+            return daoDatos.getIdMedico(legajo);    
+        }
+
         public DataTable getPacientes()
         {
             return daoDatos.getTablaPacientes();
@@ -167,6 +172,25 @@ namespace Negocio
             }
         }
 
+        public Boolean ModificarMedico(int idMedico, int idprovincia, int idlocalidad, int idespecialidad, String nombre, String apellido, String sexo, String nacionalidad, DateTime fechanacimiento, String direccion, String email, String telefono)
+        {
+            Medicos medicos = new Medicos();
+            medicos.setIdMedico(idMedico);
+            medicos.setIdProvincia(idprovincia);
+            medicos.setIdLocalidad(idlocalidad);
+            medicos.setIdEspecialidad(idespecialidad);
+            medicos.setNombreMedico(nombre);
+            medicos.setApellidoMedico(apellido);
+            medicos.setSexoMedico(sexo);
+            medicos.setNacionalidadMedico(nacionalidad); 
+            medicos.setFechaNacimientoMedico(fechanacimiento);
+            medicos.setDireccionMedico(direccion);
+            medicos.setEmailMedico(email);
+            medicos.setTelefonoMedico(telefono);
+            int filasafecatdas = daoDatos.ModificarMedico(medicos);
+            return filasafecatdas == 1; 
+        }
+
         public Boolean CancelarTurnos(int idTurno)
         {
             Turnos turnos = new Turnos();
@@ -181,7 +205,5 @@ namespace Negocio
                 return false;  
             }
         }
-
-
     }
 }

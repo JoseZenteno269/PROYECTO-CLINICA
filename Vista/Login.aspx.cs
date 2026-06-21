@@ -23,17 +23,23 @@ namespace Vista
             {
                 String tipo = negocio.getUsuarios(txt_usuario.Text.Trim(), txt_contrasena.Text.Trim());
 
-                if (tipo == "Medico")
+                if (tipo == "Medico" || tipo == "Administrador")
                 {
-                    Response.Redirect("Menu_Medico.aspx");
-                }
-                else if (tipo == "Administrador")
-                {
-                    Response.Redirect("Menu.aspx");
+                    Session["Tipousuario"] = tipo;
+                    Session["Usuario"] = txt_usuario.Text.Trim();
+
+                    if (tipo == "Medico")
+                    {
+                        Response.Redirect("Menu_Medico.aspx"); 
+                    }
+                    else
+                    {
+                        Response.Redirect("Menu.aspx"); 
+                    }
                 }
                 else
                 {
-                    //lblMensaje.Text = "Usuario o contraseña incorrectos";
+                    Label1.Text = "Usuarios y/o Constraseña incorrectos"; 
                 }
             }
         }

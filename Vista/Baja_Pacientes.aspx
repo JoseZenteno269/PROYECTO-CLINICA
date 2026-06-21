@@ -11,7 +11,6 @@
 <body>
     <form id="form1" runat="server">
         <div class="divmenu">
-            &nbsp;&nbsp;&nbsp;
             <table class="tablamenu">
                 <tr>
                     <td align="initial" style="padding-left: 20px" width="85%">
