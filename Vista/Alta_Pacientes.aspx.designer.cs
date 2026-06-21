@@ -69,6 +69,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_cerrar_sesion;
 
         /// <summary>
+        /// Control btn_menu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_menu;
+
+        /// <summary>
         /// Control txt_dni_p.
         /// </summary>
         /// <remarks>
@@ -105,13 +114,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList ddl_sexo_p;
 
         /// <summary>
-        /// Control ddl_nacionalidad_p.
+        /// Control txtNacionalidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_nacionalidad_p;
+        protected global::System.Web.UI.WebControls.TextBox txtNacionalidad;
 
         /// <summary>
         /// Control txt_fecha.
@@ -132,15 +141,6 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_direccion_p;
 
         /// <summary>
-        /// Control ddl_localdiad_p.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_localdiad_p;
-
-        /// <summary>
         /// Control ddl_provincia_p.
         /// </summary>
         /// <remarks>
@@ -148,6 +148,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_provincia_p;
+
+        /// <summary>
+        /// Control ddl_localdiad_p.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_localdiad_p;
 
         /// <summary>
         /// Control txt_correo_p.
@@ -175,6 +184,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cb_activo_p;
+
+        /// <summary>
+        /// Control lbl_Mensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Mensaje;
 
         /// <summary>
         /// Control btn_guardar.

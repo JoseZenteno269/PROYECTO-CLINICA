@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,13 @@ namespace Vista
 {
     public partial class Baja_Medicos : System.Web.UI.Page
     {
+        NegocioClinica negocio = new NegocioClinica();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                CargarBajaMedicos();
+            }
         }
 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
@@ -27,6 +32,13 @@ namespace Vista
         protected void btn_menu_Click(object sender, EventArgs e)
         {
             Response.Redirect("Menu.aspx");
+        }
+
+        public void CargarBajaMedicos()
+        {
+          gvMedicos.DataSource =  negocio.getBajaMedicos();
+          gvMedicos.DataBind();  
+
         }
     }
 }

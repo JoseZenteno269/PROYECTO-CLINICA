@@ -102,19 +102,12 @@ namespace Vista
 
             if (negocio.AgregarMedico(txt_legajo_m.Text, Convert.ToInt32(ddl_provincia_m.SelectedValue), Convert.ToInt32(ddl_localidad_m.SelectedValue), Convert.ToInt32(ddl_especalidad_m.SelectedValue), Convert.ToInt32(txt_dni_m.Text), txt_nombre_m.Text, txt_apellido_m.Text, ddl_sexo_m.Text, txt_nacionalidad.Text, fecha , txt_direccion_m.Text, txt_correo_m.Text, txt_telefono_m.Text))
             {
-                lbl_mensaje.Text = "exitoso";
-                if (negocio.getIdMedico(txt_legajo_m.Text) != null)
-                {
-                    string idmedico = negocio.getIdMedico(txt_legajo_m.Text); 
-                    if (negocio.AgregarUsuarios(Convert.ToInt32(idmedico), null, usuario, contrasena))
-                    {
-                        lbl_mensaje0.Text = "Usuario creado correctamente";
-                    }
-                }
+                lbl_mensaje.Text = "exitoso"; 
             }
             else
             {
-                lbl_mensaje.Text = "error"; 
+                lbl_mensaje.Text = "error";
+                LimpiarCampos();
             }
         }
         

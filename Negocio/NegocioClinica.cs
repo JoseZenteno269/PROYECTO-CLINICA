@@ -18,11 +18,6 @@ namespace Negocio
             // Constructor Vacío
         }
 
-        public String getIdMedico(String legajo)
-        {
-            return daoDatos.getIdMedico(legajo);
-        }
-
         public DataTable getPacientes()
         {
             return daoDatos.getTablaPacientes();
@@ -31,6 +26,16 @@ namespace Negocio
         public DataTable getMedicos()
         {
             return daoDatos.getTablaMedicos();
+        }
+
+        public DataTable getBajaMedicos()
+        {
+            return daoDatos.getTablaBajaMedicos();
+        }
+
+        public DataTable getBajaPaciente()
+        {
+            return daoDatos.getTablaBajaPacientes();
         }
 
         public DataTable getTurnos()
@@ -86,13 +91,11 @@ namespace Negocio
             return filasafectadas == 1; 
         }
 
-        public Boolean AgregarPacientes(int idprovincia,int idlocalidad, int dni, String nombre, String apellido, String sexo, String nacionalidad, DateTime fecha, String direccion, String mail, String telefono)
+        public Boolean AgregarPacientes(int dni, String nombre, String apellido, String sexo, String nacionalidad, DateTime fecha, String direccion, int idprovincia, int idlocalidad, String mail,String telefono)
         {
             int Filasafectadas = 0;
 
             Pacientes pacientes = new Pacientes();
-            pacientes.setIdProvincia(idprovincia);
-            pacientes.setIdLocalidad(idlocalidad);
             pacientes.setDniPaciente(dni);
             pacientes.setNombrePaciente(nombre);
             pacientes.setApellidoPaciente(apellido);
@@ -100,6 +103,8 @@ namespace Negocio
             pacientes.setNacionalidadPaciente(nacionalidad);
             pacientes.setFechaNacimientoPaciente(fecha);
             pacientes.setDireccionPaciente(direccion);
+            pacientes.setIdProvincia(idprovincia);
+            pacientes.setIdLocalidad(idlocalidad);
             pacientes.setCorreoElectronicoPaciente(mail);
             pacientes.setTelefonoPaciente(telefono);
 
@@ -144,6 +149,36 @@ namespace Negocio
             else
             {
                 return false;
+            }
+        }
+
+        public Boolean DarBajaPacientes(int idPaciente)
+        {
+            Pacientes pacientes = new Pacientes();
+            pacientes.setIdPaciente(idPaciente);
+            int filasafectadas = daoDatos.DarBajaPaciente(pacientes);
+            if(filasafectadas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean CancelarTurnos(int idTurno)
+        {
+            Turnos turnos = new Turnos();
+            turnos.setIdTurno(idTurno);
+            int filasafectadas = daoDatos.CancelarTurnos(turnos);
+            if(filasafectadas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;  
             }
         }
 

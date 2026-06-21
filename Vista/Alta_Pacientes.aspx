@@ -33,9 +33,9 @@
                 </tr>
             </table>
         </div>
-        <%--        <div id="contediv">
+                <div id="contediv">
             <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
-        </div>--%>
+        </div>
         <div class="div">
             <table class="div-pacientes">
                 <tr><td colspan="3">Pacientes</td></tr>
@@ -84,7 +84,10 @@
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="ddl_sexo_p" runat="server">
+                        <asp:DropDownList ID="ddl_sexo_p" runat="server" AutoPostBack="True">
+                            <asp:ListItem Value="0">--Seleccione una opcion--</asp:ListItem>
+                            <asp:ListItem Value="1">Masculino</asp:ListItem>
+                            <asp:ListItem Value="2">Femenino</asp:ListItem>
                         </asp:DropDownList>
 
                     </td>
@@ -100,8 +103,7 @@
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="ddl_nacionalidad_p" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtNacionalidad" runat="server"></asp:TextBox>
 
                     </td>
                     <td>
@@ -111,7 +113,7 @@
                 <tr>
                     <td>
 
-                        fecha de naciemiento:
+                        fecha de nacimiento:
 
                     </td>
                     <td>
@@ -142,12 +144,10 @@
                 <tr>
                     <td>
 
-                        Localidad:
-
-                    </td>
+                        Provincia:</td>
                     <td>
 
-                        <asp:DropDownList ID="ddl_localdiad_p" runat="server">
+                        <asp:DropDownList ID="ddl_provincia_p" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_provincia_p_SelectedIndexChanged">
                         </asp:DropDownList>
 
                     </td>
@@ -158,12 +158,12 @@
                 <tr>
                     <td>
 
-                        Provincia:
+                        Localidad:
 
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="ddl_provincia_p" runat="server">
+                        <asp:DropDownList ID="ddl_localdiad_p" runat="server">
                         </asp:DropDownList>
 
                     </td>
@@ -208,8 +208,13 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>
+                        <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan="3" class="botones">
-                        <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" />
+                        <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" OnClick="btn_guardar_Click" />
                         <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="btn-cancelar" OnClick="btn_cancelar_Click" />
                     </td>
                 </tr>

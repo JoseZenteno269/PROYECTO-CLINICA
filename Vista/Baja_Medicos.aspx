@@ -46,19 +46,59 @@
                     <td></td>
                 </tr>
             </table>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gvMedicos" runat="server" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:CommandField ButtonType="Button" ControlStyle-CssClass="bottoneditar" EditText="Dar Baja" ShowEditButton="True" />
-                    <asp:TemplateField HeaderText="Legajo"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Id Medico"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="DNI"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Fecha de Nacimiento"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Correo Electronico"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Telefeno"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Especialidad"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="ACTIVO"></asp:TemplateField>
+                    <asp:CommandField ButtonType="Button" ControlStyle-CssClass="bottoneditar" EditText="Dar Baja" ShowEditButton="True" >
+<ControlStyle CssClass="bottoneditar"></ControlStyle>
+                    </asp:CommandField>
+                    <asp:TemplateField HeaderText="Legajo">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Legajo" runat="server" Text='<%# Bind("Legajo_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Id Medico">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_IDmedico" runat="server" Text='<%# Bind("Id_Medico_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="DNI">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nombre y Apellido">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Med")+ "  " + Eval("Apellido_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Fecha de Nacimiento">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Fecha" runat="server" Text='<%# Bind("FechaNacimiento_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Correo Electronico">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Email" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Telefeno">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Telefono" runat="server" Text='<%# Bind("Telefono_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Especialidad">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Especialidad" runat="server" Text='<%# Bind("Nombre_Espe") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="ACTIVO">
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="chk_NuevoEstado" runat="server" AutoPostBack="True" Checked='<%# Bind("Activo_Med") %>' />
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:CheckBox ID="chk_Estado" runat="server" Checked='<%# Bind("Activo_Med") %>' Enabled="False" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
