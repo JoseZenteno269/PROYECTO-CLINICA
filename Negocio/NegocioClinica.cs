@@ -141,10 +141,19 @@ namespace Negocio
             return FilasAfectadas == 1; 
         }
 
-        //public Boolean AgregarTurno()
-        //{
+        public Boolean AgregarTurno(int idEspecialidad,int idMedico,DateTime fecha, TimeSpan Hora,int paciente)
+        {
+            int filasafectadas = 0;
 
-        //}
+            Turnos turnos = new Turnos();
+            turnos.setIdEspecialidadTurno(idEspecialidad);
+            turnos.setIdMedicoTurno(idMedico);
+            turnos.setFechaTurno(fecha);
+            turnos.setIdPacienteTurno(paciente);
+
+            filasafectadas = daoDatos.AgregarTurnos(turnos);
+            return filasafectadas == 1;
+        }
 
         /// DAR DE BAJA
         public Boolean DarBajaMedico(int idMedico)
