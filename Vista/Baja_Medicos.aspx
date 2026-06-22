@@ -47,7 +47,7 @@
                 </tr>
             </table>
         </div>
-        <div>
+        <div class ="grupo-medico">
             <table>
                 <tr>
                     <td></td>
@@ -56,9 +56,6 @@
                     <td>
                         <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
                     </td>
-                </tr>
-                <tr>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>
@@ -120,6 +117,10 @@
                 </Columns>
             </asp:GridView>
                     </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;</td>
                 </tr>
             </table>
         </div>

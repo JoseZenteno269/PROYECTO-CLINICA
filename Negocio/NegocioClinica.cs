@@ -90,10 +90,10 @@ namespace Negocio
 
             if (daoDatos.ExisteMedico(medicos) == false)
             {
-                filasafectadas = daoDatos.AgregarMedico(medicos); 
+                filasafectadas = daoDatos.AgregarMedico(medicos);
             }
 
-            return filasafectadas == 1; 
+            return filasafectadas == 1;
         }
 
         public Boolean AgregarPacientes(int dni, String nombre, String apellido, String sexo, String nacionalidad, DateTime fecha, String direccion, int idprovincia, int idlocalidad, String mail,String telefono)
@@ -129,17 +129,22 @@ namespace Negocio
             usuarios.setIdMedico(idmedico);
             usuarios.setIdAdministrador(idadministrador); 
             usuarios.setUsername(username);
-            usuarios.setPassword(password); 
+            usuarios.setPassword(password);
 
-            //if(daoDatos.ExisteUsuario(usuarios) == false) 
-            //{ 
-            //   FilasAfectadas = daoDatos.AgregarUsuario(usuarios);
+            //if (daoDatos.ExisteUsuario(usuarios) == false)
+            //{
+            //    FilasAfectadas = daoDatos.AgregarUsuario(usuarios);
             //}
 
             FilasAfectadas = daoDatos.AgregarUsuario(usuarios);
 
             return FilasAfectadas == 1; 
         }
+
+        //public Boolean AgregarTurno()
+        //{
+
+        //}
 
         /// DAR DE BAJA
         public Boolean DarBajaMedico(int idMedico)

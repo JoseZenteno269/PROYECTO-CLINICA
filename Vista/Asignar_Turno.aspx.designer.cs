@@ -114,13 +114,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList ddl_horas;
 
         /// <summary>
-        /// Control GridView1.
+        /// Control gvPacientesSeleccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvPacientesSeleccion;
 
         /// <summary>
         /// Control btn_confirmar.

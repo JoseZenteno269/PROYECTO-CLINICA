@@ -41,7 +41,7 @@
                     <tr>
                         <td>
                             <p>Seleccione una Especilidad:</p>
-                            <asp:DropDownList ID="ddl_especialidad" runat="server"></asp:DropDownList></td>
+                            <asp:DropDownList ID="ddl_especialidad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_especialidad_SelectedIndexChanged"></asp:DropDownList></td>
                         <td></td>
                     </tr>
                     <tr>
@@ -67,13 +67,24 @@
                 </table>
             </div>
             <div class="divfila">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                <asp:GridView ID="gvPacientesSeleccion" runat="server" AutoGenerateColumns="False">
                     <Columns>
                         <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
-                        <asp:TemplateField HeaderText="DNI"></asp:TemplateField>
-                        <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
-                        <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
-                        <asp:TemplateField HeaderText="Telefono"></asp:TemplateField>
+                        <asp:TemplateField HeaderText="DNI">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Nombre y Apellido">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Paci") + " " + Eval("Apellido_Paci") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Telefono">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_it_Telefono" runat="server" Text='<%# Bind("Telefono_Paci") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
 
                 </asp:GridView>
@@ -83,10 +94,10 @@
             <table style="width: 100%">
                 <tr>
                     <td align="center">
-                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar" />
+                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar" OnClick="btn_confirmar_Click" />
                     </td>
                     <td align="center">
-                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" />
+                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" OnClick="btn_cancelar_Click" />
                     </td>
                 </tr>
             </table>

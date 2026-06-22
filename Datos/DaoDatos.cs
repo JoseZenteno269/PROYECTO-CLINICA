@@ -21,7 +21,7 @@ namespace Datos
 
         public DataTable getTablaMedicos()
         {
-            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med, CorreoElectronico_Med, Telefono_Med FROM Medicos WHERE Activo_Med = 1");
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med,Id_Especialidad_Med ,CorreoElectronico_Med, Telefono_Med FROM Medicos WHERE Activo_Med = 1");
             return tabla;
         }
 
@@ -45,7 +45,7 @@ namespace Datos
 
         public DataTable getTablaTurno()
         {
-            DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, Id_Medico_Tur, Id_Especialidad_Tur, Id_Paciente_Tur, Id_EstadPaciente_Paci, Id_EstadoTurno_Tur, Fecha_Tur, Horario_Tur, Descripcion_Tur, Activo_Tur FROM Turnos");
+            DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, Id_Medico_Tur, Id_Especialidad_Tur, Id_Paciente_Tur, Id_EstadoPaciente_Tur, Id_EstadoTurno_Tur, Fecha_Tur, Horario_Tur, Descripcion_Tur, Activo_Tur FROM Turnos");
             return tabla; 
         }
 
