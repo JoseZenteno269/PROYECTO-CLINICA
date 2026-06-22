@@ -13,7 +13,8 @@
         <div class="divmenu">
             <table class="tablamenu">
                 <tr>
-                    <td align="initial" style="padding-left: 20px" width="85%"><h1>Clinica Medica</h1></td>
+                    <td align="initial" style="padding-left: 20px" width="85%"><h1>Clinica Medica</h1>
+                    </td>
                     <td></td>
                     <td align="end" style="padding-right: 20px">
                         <div class="usuario-container">

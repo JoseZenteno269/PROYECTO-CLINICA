@@ -24,6 +24,8 @@ namespace Vista
             }
         }
 
+        String nombre = string.Empty;
+        String nombre2 = string.Empty; 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
         {
             p_panel.Visible = !p_panel.Visible; 
@@ -90,3 +92,4 @@ namespace Vista
         }
     }
 }
+
