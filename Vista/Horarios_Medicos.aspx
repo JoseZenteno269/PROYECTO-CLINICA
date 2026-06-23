@@ -39,94 +39,107 @@
         <div align="center">
             <table class="tableshoras">
                 <tr>
-                    <td colspan="5" align="center">
+                    <td colspan="6" align="center">
                         <p>Ingrese Legajo</p>
-                        <asp:TextBox ID="TextBox1" runat="server" Width="100px"></asp:TextBox>
-                    </td>
+                        <asp:TextBox ID="txt_legajo" runat="server" Width="100px"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:CheckBox ID="cb_lunes" runat="server" Text="Lunes" /></td>
-                    <td>
-                        <asp:CheckBox ID="cb_martes" runat="server" Text="Martes" /></td>
-                    <td>
-                        <asp:CheckBox ID="cb_miercoles" runat="server" Text="Miercoles" /></td>
-                    <td>
-                        <asp:CheckBox ID="cb_jueves" runat="server" Text="Jueves" /></td>
-                    <td>
-                        <asp:CheckBox ID="cb_viernes" runat="server" Text="Viernes" /></td>
-                </tr>
-            </table>
-            <table class="tableshoras">
-                <tr>
+                        <asp:CheckBox ID="cb_lunes" runat="server" Text="Lunes" AutoPostBack="True" OnCheckedChanged="cb_lunes_CheckedChanged" /></td>
                     <td>Hora Inicio:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList1" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horainiciol" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td>Hora Fin:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList2" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horafinl" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:CheckBox ID="cb_martes" runat="server" Text="Martes" AutoPostBack="True" OnCheckedChanged="cb_martes_CheckedChanged" /></td>
+                    <td>Hora Inicio:</td>
+                    <td>
+                        <asp:TextBox ID="horainiciom" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
+                    </td>
+                    <td>Hora Fin:</td>
+                    <td>
+                        <asp:TextBox ID="horafinm" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
+                    <td>
+                        <asp:CheckBox ID="cb_miercoles" runat="server" Text="Miercoles" AutoPostBack="True" OnCheckedChanged="cb_miercoles_CheckedChanged" /></td>
                     <td>Hora Inicio:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList3" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horainiciomi" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td>Hora Fin:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList4" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horafinmi" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
+                    <td>
+                        <asp:CheckBox ID="cb_jueves" runat="server" Text="Jueves" AutoPostBack="True" OnCheckedChanged="cb_jueves_CheckedChanged" /></td>
                     <td>Hora Inicio:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList5" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horainicioj" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td>Hora Fin:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList6" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horafinj" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
+                    <td>
+                        <asp:CheckBox ID="cb_viernes" runat="server" Text="Viernes" AutoPostBack="True" OnCheckedChanged="cb_viernes_CheckedChanged" /></td>
                     <td>Hora Inicio:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList7" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horainiciov" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td>Hora Fin:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList8" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horafinv" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
+                    <td>
+                        <asp:CheckBox ID="cb_sabado" runat="server" AutoPostBack="True" OnCheckedChanged="cb_sabado_CheckedChanged" Text="Sabado" />
+                    </td>
                     <td>Hora Inicio:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList9" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horainicios" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td>Hora Fin:</td>
                     <td>
-                        <asp:DropDownList ID="DropDownList10" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="horafins" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td colspan="5" style="text-align: center">
-                        <asp:Button ID="Button1" runat="server" Text="Aceptar" />
+                    <td>
+                        <asp:CheckBox ID="cb_domingo" runat="server" AutoPostBack="True" Text="Domingo" OnCheckedChanged="cb_domingo_CheckedChanged" />
                     </td>
+                    <td>Hora Inicio:</td>
+                    <td>
+                        <asp:TextBox ID="horainiciod" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
+                    </td>
+                    <td>Hora Fin:</td>
+                    <td>
+                        <asp:TextBox ID="horafind" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="6" align="center">
+                        <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" /></td>
                 </tr>
             </table>
         </div>

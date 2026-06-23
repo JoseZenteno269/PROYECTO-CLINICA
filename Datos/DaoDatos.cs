@@ -92,6 +92,15 @@ namespace Datos
             return datos.Existe("SELECT * FROM Turnos WHERE Id_Turno_Tur = " + tunro.getIdTurno());
         }
 
+        public int AgregarhoraXmedico(int idmedico, int dia, TimeSpan hora)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@IDMEDICO", idmedico);
+            comando.Parameters.AddWithValue("@DIASEMANA", dia);
+            comando.Parameters.AddWithValue("@HORA", hora); 
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarHorariosMedico"); 
+        }
+
         /// Medicos
         public int AgregarMedico(Medicos medico)
         {

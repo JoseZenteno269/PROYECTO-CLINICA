@@ -96,6 +96,13 @@ namespace Negocio
             return filasafectadas == 1;
         }
 
+        public Boolean AgregarHorarios(int idmedico, int dia, TimeSpan hora)
+        {
+            int filasafectadas = daoDatos.AgregarhoraXmedico(idmedico, dia, hora);
+
+            return filasafectadas == 1; 
+        }
+
         public Boolean AgregarPacientes(int dni, String nombre, String apellido, String sexo, String nacionalidad, DateTime fecha, String direccion, int idprovincia, int idlocalidad, String mail,String telefono)
         {
             int Filasafectadas = 0;
