@@ -40,7 +40,10 @@
                     <td>
                         <asp:TextBox ID="txt_buscar" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" /></td>
+                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" OnClick="btn_buscar_Click" /></td>
+                    <td style="padding-left: 20px">
+                        <asp:Button ID="btn_Mostrar" runat="server" OnClick="btn_Mostrar_Click" Text="Mostrar Todos" />
+                    </td>
                 </tr>
             </table>
             <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False">

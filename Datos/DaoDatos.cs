@@ -27,10 +27,14 @@ namespace Datos
             comando.Parameters.AddWithValue("@USERNAME", username);
             return datos.ObtenerIdUsuario(comando, consulta); 
         }
-
         public DataTable getTablaMedicos()
         {
             DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med,Id_Especialidad_Med ,CorreoElectronico_Med, Telefono_Med FROM Medicos WHERE Activo_Med = 1");
+            return tabla;
+        }
+        public DataTable getMedicosFiltrados(Medicos medicos)
+        {
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med,DNI_Med,Nombre_Med,Apellido_Med,Id_Especialidad_Med,CorreoElectronico_Med,Telefono_Med FROM Medicos WHERE Legajo_Med = '" + medicos.getLegajoMedico() + "'");
             return tabla;
         }
 
@@ -43,6 +47,12 @@ namespace Datos
         public DataTable getTablaPacientes()
         {
             DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes WHERE Activo_Paci = 1");
+            return tabla;
+        }
+
+        public DataTable getPacientesFiltrados(Pacientes pacientes)
+        {
+            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes WHERE DNI_Paci = " + pacientes.getDniPaciente());
             return tabla;
         }
 

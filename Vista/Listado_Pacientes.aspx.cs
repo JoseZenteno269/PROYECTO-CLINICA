@@ -1,6 +1,8 @@
-﻿using Negocio;
+﻿using Entidades;
+using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +13,7 @@ namespace Vista
     public partial class Listado_Pacientes : System.Web.UI.Page
     {
        NegocioClinica negocioClinica = new NegocioClinica();
+       Pacientes pacientes = new Pacientes();
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarPacientes();
@@ -35,6 +38,22 @@ namespace Vista
         {
             gvPacientes.DataSource = negocioClinica.getPacientes();
             gvPacientes.DataBind();
+        }
+
+        protected void btn_buscar_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = new DataTable();
+            int Dni = Convert.ToInt32(txt_buscar.Text);
+            pacientes.setDniPaciente(Dni);
+            dataTable = negocioClinica.getPacientesFiltrados(pacientes);
+            gvPacientes.DataSource = dataTable;
+            gvPacientes.DataBind();
+            txt_buscar.Text = string.Empty;
+        }
+
+        protected void btn_Mostrar_Click(object sender, EventArgs e)
+        {
+            CargarPacientes();
         }
     }
 }

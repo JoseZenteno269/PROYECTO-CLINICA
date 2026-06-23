@@ -7,6 +7,11 @@
 <link href="Css/Listado_Medicos.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 78px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -45,8 +50,11 @@
                     <td>
                         <asp:TextBox ID="txt_buscar" runat="server"></asp:TextBox>
                     </td>
-                    <td>
-                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" />
+                    <td class="auto-style1">
+                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" OnClick="btn_buscar_Click" />
+                    </td>
+                    <td style="padding-left: 20px ">
+                        <asp:Button ID="btn_Todos" runat="server" OnClick="btn_Todos_Click" Text="Mostrar Todos" />
                     </td>
                 </tr>
             </table>
