@@ -23,6 +23,11 @@ namespace Negocio
             return daoDatos.getIdMedico(legajo);    
         }
 
+        public String getIdUsuario(String username)
+        {
+            return daoDatos.getIdUsuario(username); 
+        }
+
         public DataTable getPacientes()
         {
             return daoDatos.getTablaPacientes();
@@ -103,6 +108,12 @@ namespace Negocio
             return filasafectadas == 1; 
         }
 
+        public Boolean CambioConstrasena(int idusuario, String contrasena)
+        {
+            int filasafectadas = daoDatos.CambioContrasena(idusuario, contrasena);
+            return filasafectadas == 1;
+        }
+
         public Boolean AgregarPacientes(int dni, String nombre, String apellido, String sexo, String nacionalidad, DateTime fecha, String direccion, int idprovincia, int idlocalidad, String mail,String telefono)
         {
             int Filasafectadas = 0;
@@ -137,11 +148,6 @@ namespace Negocio
             usuarios.setIdAdministrador(idadministrador); 
             usuarios.setUsername(username);
             usuarios.setPassword(password);
-
-            //if (daoDatos.ExisteUsuario(usuarios) == false)
-            //{
-            //    FilasAfectadas = daoDatos.AgregarUsuario(usuarios);
-            //}
 
             FilasAfectadas = daoDatos.AgregarUsuario(usuarios);
 

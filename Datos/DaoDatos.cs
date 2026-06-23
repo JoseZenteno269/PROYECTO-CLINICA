@@ -16,7 +16,16 @@ namespace Datos
         public String getIdMedico(String legajo)
         {
             String consulta = "SELECT Id_Medico_Med FROM Medicos WHERE Legajo_Med = " + "'" + legajo + "'"; 
+
             return datos.ObtenerMedico(consulta); 
+        }
+
+        public String getIdUsuario(String username)
+        {
+            String consulta = "SELECT * FROM Usuarios WHERE Username_Usu = @USERNAME";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@USERNAME", username);
+            return datos.ObtenerIdUsuario(comando, consulta); 
         }
 
         public DataTable getTablaMedicos()
@@ -51,9 +60,10 @@ namespace Datos
 
         public String MedicoAdministrador(String usuario, String constrasena)
         {
-            String consulta = "SELECT Username_Usu, Password_Usu, Id_Administrador_Usu, Id_Medico_Usu, CASE WHEN Id_Administrador_Usu IS NOT NULL THEN 'Administrador' WHEN Id_Medico_Usu IS NOT NULL THEN 'Medico' END AS Tipousuario FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = HASHBYTES('SHA2_256', @PASSWORD) AND Activo_Usu = 1";
+            String consulta = "SELECT Username_Usu, Password_Usu, Id_Administrador_Usu, Id_Medico_Usu, CASE WHEN Id_Administrador_Usu IS NOT NULL THEN 'Administrador' WHEN Id_Medico_Usu IS NOT NULL THEN 'Medico' END AS Tipousuario FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = HASHBYTES('SHA2_256', CONVERT(VARCHAR, @PASSWORD)) AND Activo_Usu = 1";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USUARIO", usuario.ToString().Trim());
+            //comando.Parameters.AddWithValue("@PASSWORD",System.Text.Encoding.ASCII.GetBytes(constrasena.ToString().Trim()));
             comando.Parameters.AddWithValue("@PASSWORD", constrasena.ToString().Trim());
             return datos.LoginMedicoAdministrador(comando, consulta);
         }
@@ -78,19 +88,35 @@ namespace Datos
 
         public Boolean ExisteMedico(Medicos medicos)
         {
-            string ConsultaSQL = "SELECT * FROM Medicos WHERE Id_Medico_Med = " + medicos.getDNIMedico();
-            return datos.Existe(ConsultaSQL);
+            String consulta = "SELECT * FROM Medicos WHERE DNI_Med = @DNI";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@DNI", medicos.getDNIMedico()); 
+            return datos.Existe(comando, consulta);
         }
 
         public Boolean ExistePaciente(Pacientes paciente)
         {
-            return datos.Existe("SELECT * FROM Pacientes WHERE Id_Paciente_Paci = " + paciente.getDniPaciente());
+            String consulta = "SELECT * FROM Pacientes WHERE DNI_Paci = @DNI";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@DNI", paciente.getDniPaciente()); 
+            return datos.Existe(comando, consulta);
         }
 
-        public Boolean ExisteTurno(Turnos tunro)
+        public Boolean ExisteTurno(Turnos turno)
         {
-            return datos.Existe("SELECT * FROM Turnos WHERE Id_Turno_Tur = " + tunro.getIdTurno());
+            String consulta = "SELECT * FROM Turnos WHERE Id_Turno_Tur = @IDTURNO";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@IDTURNO", turno.getIdTurno()); 
+            return datos.Existe(comando, consulta);
         }
+
+        //public Boolean ExisteUsuario(Usuarios usuario)
+        //{
+        //    String consulta = "SELECT * FROM Usuarios WHERE Username_Usu = @USERNAME";
+        //    SqlCommand comando = new SqlCommand();
+        //    comando.Parameters.AddWithValue("@USERNAME", usuario.getUsername()); 
+        //    return datos.Existe(comando, consulta); 
+        //}
 
         public int AgregarhoraXmedico(int idmedico, int dia, TimeSpan hora)
         {
@@ -99,6 +125,14 @@ namespace Datos
             comando.Parameters.AddWithValue("@DIASEMANA", dia);
             comando.Parameters.AddWithValue("@HORA", hora); 
             return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarHorariosMedico"); 
+        }
+
+        public int CambioContrasena(int idusuario, String contrasena)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@IDUSUARIO", idusuario);
+            comando.Parameters.AddWithValue("@PASSWORD", contrasena);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spCambioContrasena"); 
         }
 
         /// Medicos

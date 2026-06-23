@@ -77,12 +77,25 @@ namespace Datos
             return null;
         }
 
-        public String LoginMedicoAdministrador(SqlCommand comando, String consulta)
+        public String ObtenerIdUsuario(SqlCommand comando, String consulta)
         {
-            String tipoUsuario = "nada"; 
             SqlConnection conexion = ObtenerConexion();
             comando.Connection = conexion;
-            
+            comando.CommandText = consulta; 
+            SqlDataReader lectura = comando.ExecuteReader();
+            if (lectura.Read())
+            {
+                return lectura["Id_Usuario_Usu"].ToString();
+            }
+
+            return null;
+        }
+
+        public String LoginMedicoAdministrador(SqlCommand comando, String consulta)
+        {
+            String tipoUsuario = "ERROR - TIPO INEXISTENTE"; 
+            SqlConnection conexion = ObtenerConexion();
+            comando.Connection = conexion;
             comando.CommandText = consulta;
             SqlDataReader leer = comando.ExecuteReader();
             if (leer.Read())
@@ -103,10 +116,11 @@ namespace Datos
             return set.Tables[nombretabla];
         }
 
-        public Boolean Existe(String consulta)
+        public Boolean Existe(SqlCommand comando, String consulta)
         {
             SqlConnection conexion = ObtenerConexion();
-            SqlCommand comando = new SqlCommand(consulta, conexion);
+            comando.Connection = conexion;
+            comando.CommandText = consulta; 
             SqlDataReader leer = comando.ExecuteReader();
             bool existe = leer.Read();
             conexion.Close(); 

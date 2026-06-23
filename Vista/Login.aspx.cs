@@ -22,7 +22,6 @@ namespace Vista
             if(!string.IsNullOrEmpty(txt_usuario.Text.Trim()) && !string.IsNullOrEmpty(txt_contrasena.Text.Trim()))
             {
                 String tipo = negocio.getUsuarios(txt_usuario.Text.Trim(), txt_contrasena.Text.Trim());
-
                 if (tipo == "Medico" || tipo == "Administrador")
                 {
                     Session["Tipousuario"] = tipo;

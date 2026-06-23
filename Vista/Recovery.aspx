@@ -21,7 +21,7 @@
                     </td>
                     <td style="padding-left: 10px">
 
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_usuario" runat="server"></asp:TextBox>
 
                     </td>
                     <td>
@@ -34,7 +34,7 @@
                     </td>
                     <td  style="padding-left: 10px">
 
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_contrasena1" runat="server"></asp:TextBox>
 
                     </td>
                     <td>
@@ -47,7 +47,7 @@
                     </td>
                     <td  style="padding-left: 10px">
 
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_contrasena2" runat="server"></asp:TextBox>
 
                     </td>
                     <td>
@@ -56,7 +56,11 @@
                 </tr>
                 <tr>
                     <td colspan="3" align="center">
-                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar " />
+                        <asp:Label ID="lbl_mensaje" runat="server"></asp:Label></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar " OnClick="btn_confirmar_Click" />
                     </td>
                 </tr>
                 <tr>
