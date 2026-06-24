@@ -45,277 +45,141 @@
                         <asp:TextBox ID="txt_busqueda" runat="server"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" />
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" />
                     </td>
                 </tr>
             </table>
-            <asp:ListView ID="lv_medicos" runat="server" DataKeyNames="Id_Medico_Med" DataSourceID="sds_medicos" OnItemCanceling="lv_medicos_ItemCanceling" OnItemEditing="lv_medicos_ItemEditing" OnItemUpdating="lv_medicos_ItemUpdating">
-                <AlternatingItemTemplate>
-                    <span style="">Id_Medico_Med:
-                    <asp:Label ID="Id_Medico_MedLabel" runat="server" Text='<%# Eval("Id_Medico_Med") %>' />
-                    <br />
-                    Legajo_Med:
-                    <asp:Label ID="Legajo_MedLabel" runat="server" Text='<%# Eval("Legajo_Med") %>' />
-                    <br />
-                    Id_Provincia_Med:
-                    <asp:Label ID="Id_Provincia_MedLabel" runat="server" Text='<%# Eval("Id_Provincia_Med") %>' />
-                    <br />
-                    Id_Localidad_Med:
-                    <asp:Label ID="Id_Localidad_MedLabel" runat="server" Text='<%# Eval("Id_Localidad_Med") %>' />
-                    <br />
-                    Id_Especialidad_Med:
-                    <asp:Label ID="Id_Especialidad_MedLabel" runat="server" Text='<%# Eval("Id_Especialidad_Med") %>' />
-                    <br />
-                    DNI_Med:
-                    <asp:Label ID="DNI_MedLabel" runat="server" Text='<%# Eval("DNI_Med") %>' />
-                    <br />
-                    Nombre_Med:
-                    <asp:Label ID="Nombre_MedLabel" runat="server" Text='<%# Eval("Nombre_Med") %>' />
-                    <br />
-                    Apellido_Med:
-                    <asp:Label ID="Apellido_MedLabel" runat="server" Text='<%# Eval("Apellido_Med") %>' />
-                    <br />
-                    Sexo_Med:
-                    <asp:Label ID="Sexo_MedLabel" runat="server" Text='<%# Eval("Sexo_Med") %>' />
-                    <br />
-                    Nacionalidad_Med:
-                    <asp:Label ID="Nacionalidad_MedLabel" runat="server" Text='<%# Eval("Nacionalidad_Med") %>' />
-                    <br />
-                    FechaNacimiento_Med:
-                    <asp:Label ID="FechaNacimiento_MedLabel" runat="server" Text='<%# Eval("FechaNacimiento_Med") %>' />
-                    <br />
-                    Direccion_Med:
-                    <asp:Label ID="Direccion_MedLabel" runat="server" Text='<%# Eval("Direccion_Med") %>' />
-                    <br />
-                    CorreoElectronico_Med:
-                    <asp:Label ID="CorreoElectronico_MedLabel" runat="server" Text='<%# Eval("CorreoElectronico_Med") %>' />
-                    <br />
-                    Telefono_Med:
-                    <asp:Label ID="Telefono_MedLabel" runat="server" Text='<%# Eval("Telefono_Med") %>' />
-                    <br />
-                    <asp:CheckBox ID="Activo_MedCheckBox" runat="server" Checked='<%# Eval("Activo_Med") %>' Enabled="false" Text="Activo_Med" />
-                    <br />
-<br /></span>
-                </AlternatingItemTemplate>
-                <EditItemTemplate>
-                    <asp:Label ID="Id_Medico_MedLabel1" runat="server" Text='<%# Eval("Id_Medico_Med") %>'></asp:Label>
-                    <br />
-                    Legajo_Med:
-                    <asp:Label ID="lbl_Legajo_Med" runat="server" Text='<%# Bind("Legajo_Med") %>'></asp:Label>
-                    <br />
-                    Id_Provincia_Med:
-                    <asp:DropDownList ID="ddl_Id_Provincia_Med" runat="server" AutoPostBack="True"></asp:DropDownList>
-                    <br />
-                    Id_Localidad_Med:
-                    <asp:DropDownList ID="ddl_Id_Localidad_Med" runat="server"></asp:DropDownList>
-                    <br />
-                    Id_Especialidad_Med:
-                    <asp:DropDownList ID="ddl_Id_Especialidad_Med" runat="server" AutoPostBack="True"></asp:DropDownList>
-                    <br />
-                    DNI_Med:
-                    <asp:Label ID="lbl_DNI_Med" runat="server" Text='<%# Bind("DNI_Med") %>'></asp:Label>
-                    <br />
-                    Nombre_Med:
-                    <asp:TextBox ID="Nombre_MedTextBox" runat="server" Text='<%# Bind("Nombre_Med") %>'></asp:TextBox>
-                    <br />
-                    Apellido_Med:
-                    <asp:TextBox ID="Apellido_MedTextBox" runat="server" Text='<%# Bind("Apellido_Med") %>'></asp:TextBox>
-                    <br />
-                    Sexo_Med:
-                    <asp:DropDownList ID="ddl_Sexo_Med" runat="server" AutoPostBack="True">
-                        <asp:ListItem>Masculino</asp:ListItem>
-                        <asp:ListItem>Femenino</asp:ListItem>
-                    </asp:DropDownList>
-                    <br />
-                    Nacionalidad_Med:
-                    <asp:TextBox ID="Nacionalidad_MedTextBox" runat="server" Text='<%# Bind("Nacionalidad_Med") %>'></asp:TextBox>
-                    <br />
-                    FechaNacimiento_Med:
-                    <asp:TextBox ID="FechaNacimiento_MedTextBox" runat="server" Text='<%# Bind("FechaNacimiento_Med", "{0:d}") %>' TextMode="Date"></asp:TextBox>
-                    <br />
-                    Direccion_Med:
-                    <asp:TextBox ID="Direccion_MedTextBox" runat="server" Text='<%# Bind("Direccion_Med") %>'></asp:TextBox>
-                    <br />
-                    CorreoElectronico_Med:
-                    <asp:TextBox ID="CorreoElectronico_MedTextBox" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>'></asp:TextBox>
-                    <br />
-                    Telefono_Med:
-                    <asp:TextBox ID="Telefono_MedTextBox" runat="server" Text='<%# Bind("Telefono_Med") %>'></asp:TextBox>
-                    <br />
-                    <asp:CheckBox ID="Activo_MedCheckBox" runat="server" Checked='<%# Bind("Activo_Med") %>' Enabled="False" Text="Activo_Med" />
-                    <br />
-                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                    <span>
-                    </span>
-                    <div style="">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="1">
-                            <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                            </Fields>
-                        </asp:DataPager>
-                    </div>
-                </EditItemTemplate>
-                <EmptyDataTemplate>
-                    <span>No se han devuelto datos.</span>
-                </EmptyDataTemplate>
-                <InsertItemTemplate>
-                    <span style="">Legajo_Med:
-                    <asp:TextBox ID="Legajo_MedTextBox" runat="server" Text='<%# Bind("Legajo_Med") %>' />
-                    <br />Id_Provincia_Med:
-                    <asp:TextBox ID="Id_Provincia_MedTextBox" runat="server" Text='<%# Bind("Id_Provincia_Med") %>' />
-                    <br />Id_Localidad_Med:
-                    <asp:TextBox ID="Id_Localidad_MedTextBox" runat="server" Text='<%# Bind("Id_Localidad_Med") %>' />
-                    <br />Id_Especialidad_Med:
-                    <asp:TextBox ID="Id_Especialidad_MedTextBox" runat="server" Text='<%# Bind("Id_Especialidad_Med") %>' />
-                    <br />DNI_Med:
-                    <asp:TextBox ID="DNI_MedTextBox" runat="server" Text='<%# Bind("DNI_Med") %>' />
-                    <br />Nombre_Med:
-                    <asp:TextBox ID="Nombre_MedTextBox" runat="server" Text='<%# Bind("Nombre_Med") %>' />
-                    <br />Apellido_Med:
-                    <asp:TextBox ID="Apellido_MedTextBox" runat="server" Text='<%# Bind("Apellido_Med") %>' />
-                    <br />Sexo_Med:
-                    <asp:TextBox ID="Sexo_MedTextBox" runat="server" Text='<%# Bind("Sexo_Med") %>' />
-                    <br />Nacionalidad_Med:
-                    <asp:TextBox ID="Nacionalidad_MedTextBox" runat="server" Text='<%# Bind("Nacionalidad_Med") %>' />
-                    <br />FechaNacimiento_Med:
-                    <asp:TextBox ID="FechaNacimiento_MedTextBox" runat="server" Text='<%# Bind("FechaNacimiento_Med") %>' />
-                    <br />Direccion_Med:
-                    <asp:TextBox ID="Direccion_MedTextBox" runat="server" Text='<%# Bind("Direccion_Med") %>' />
-                    <br />CorreoElectronico_Med:
-                    <asp:TextBox ID="CorreoElectronico_MedTextBox" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>' />
-                    <br />Telefono_Med:
-                    <asp:TextBox ID="Telefono_MedTextBox" runat="server" Text='<%# Bind("Telefono_Med") %>' />
-                    <br />
-                    <asp:CheckBox ID="Activo_MedCheckBox" runat="server" Checked='<%# Bind("Activo_Med") %>' Text="Activo_Med" />
-                    <br />
-                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                    <br /><br /></span>
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    <span style="">Id_Medico_Med:
-                    <asp:Label ID="Id_Medico_MedLabel" runat="server" Text='<%# Eval("Id_Medico_Med") %>' />
-                    <br />
-                    Legajo_Med:
-                    <asp:Label ID="Legajo_MedLabel" runat="server" Text='<%# Eval("Legajo_Med") %>' />
-                    <br />
-                    Id_Provincia_Med:
-                    <asp:Label ID="Id_Provincia_MedLabel" runat="server" Text='<%# Eval("Id_Provincia_Med") %>' />
-                    <br />
-                    Id_Localidad_Med:
-                    <asp:Label ID="Id_Localidad_MedLabel" runat="server" Text='<%# Eval("Id_Localidad_Med") %>' />
-                    <br />
-                    Id_Especialidad_Med:
-                    <asp:Label ID="Id_Especialidad_MedLabel" runat="server" Text='<%# Eval("Id_Especialidad_Med") %>' />
-                    <br />
-                    DNI_Med:
-                    <asp:Label ID="DNI_MedLabel" runat="server" Text='<%# Eval("DNI_Med") %>' />
-                    <br />
-                    Nombre_Med:
-                    <asp:Label ID="Nombre_MedLabel" runat="server" Text='<%# Eval("Nombre_Med") %>' />
-                    <br />
-                    Apellido_Med:
-                    <asp:Label ID="Apellido_MedLabel" runat="server" Text='<%# Eval("Apellido_Med") %>' />
-                    <br />
-                    Sexo_Med:
-                    <asp:Label ID="Sexo_MedLabel" runat="server" Text='<%# Eval("Sexo_Med") %>' />
-                    <br />
-                    Nacionalidad_Med:
-                    <asp:Label ID="Nacionalidad_MedLabel" runat="server" Text='<%# Eval("Nacionalidad_Med") %>' />
-                    <br />
-                    FechaNacimiento_Med:
-                    <asp:Label ID="FechaNacimiento_MedLabel" runat="server" Text='<%# Eval("FechaNacimiento_Med", "{0:d}") %>' />
-                    <br />
-                    Direccion_Med:
-                    <asp:Label ID="Direccion_MedLabel" runat="server" Text='<%# Eval("Direccion_Med") %>' />
-                    <br />
-                    CorreoElectronico_Med:
-                    <asp:Label ID="CorreoElectronico_MedLabel" runat="server" Text='<%# Eval("CorreoElectronico_Med") %>' />
-                    <br />
-                    Telefono_Med:
-                    <asp:Label ID="Telefono_MedLabel" runat="server" Text='<%# Eval("Telefono_Med") %>' />
-                    <br />
-                    <asp:CheckBox ID="Activo_MedCheckBox" runat="server" Checked='<%# Eval("Activo_Med") %>' Enabled="False" Text="Activo_Med" />
-                    <br />
-                    <br /></span>
-                    <asp:LinkButton ID="lb_editar" runat="server" CommandName="Edit" Text="Editar" />
-                    <br />
-                    <br />
-                    <span>                   
-                    <div style="">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="1">
-                            <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                            </Fields>
-                        </asp:DataPager>
-                    </div>
-                        </span>
-                </ItemTemplate>
-                <LayoutTemplate>
-                    <div id="itemPlaceholderContainer" runat="server" style="">
-                        <span style="" />
-                        Id_Medico_Med: <span id="itemPlaceholder" runat="server"></span>
-                    </div>
-                    </span>
-                    </div>
-                </LayoutTemplate>
-                <SelectedItemTemplate>
-                    <span style="">Id_Medico_Med:
-                    <asp:Label ID="Id_Medico_MedLabel" runat="server" Text='<%# Eval("Id_Medico_Med") %>' />
-                    <br />
-                    Legajo_Med:
-                    <asp:Label ID="Legajo_MedLabel" runat="server" Text='<%# Eval("Legajo_Med") %>' />
-                    <br />
-                    Id_Provincia_Med:
-                    <asp:Label ID="Id_Provincia_MedLabel" runat="server" Text='<%# Eval("Id_Provincia_Med") %>' />
-                    <br />
-                    Id_Localidad_Med:
-                    <asp:Label ID="Id_Localidad_MedLabel" runat="server" Text='<%# Eval("Id_Localidad_Med") %>' />
-                    <br />
-                    Id_Especialidad_Med:
-                    <asp:Label ID="Id_Especialidad_MedLabel" runat="server" Text='<%# Eval("Id_Especialidad_Med") %>' />
-                    <br />
-                    DNI_Med:
-                    <asp:Label ID="DNI_MedLabel" runat="server" Text='<%# Eval("DNI_Med") %>' />
-                    <br />
-                    Nombre_Med:
-                    <asp:Label ID="Nombre_MedLabel" runat="server" Text='<%# Eval("Nombre_Med") %>' />
-                    <br />
-                    Apellido_Med:
-                    <asp:Label ID="Apellido_MedLabel" runat="server" Text='<%# Eval("Apellido_Med") %>' />
-                    <br />
-                    Sexo_Med:
-                    <asp:Label ID="Sexo_MedLabel" runat="server" Text='<%# Eval("Sexo_Med") %>' />
-                    <br />
-                    Nacionalidad_Med:
-                    <asp:Label ID="Nacionalidad_MedLabel" runat="server" Text='<%# Eval("Nacionalidad_Med") %>' />
-                    <br />
-                    FechaNacimiento_Med:
-                    <asp:Label ID="FechaNacimiento_MedLabel" runat="server" Text='<%# Eval("FechaNacimiento_Med") %>' />
-                    <br />
-                    Direccion_Med:
-                    <asp:Label ID="Direccion_MedLabel" runat="server" Text='<%# Eval("Direccion_Med") %>' />
-                    <br />
-                    CorreoElectronico_Med:
-                    <asp:Label ID="CorreoElectronico_MedLabel" runat="server" Text='<%# Eval("CorreoElectronico_Med") %>' />
-                    <br />
-                    Telefono_Med:
-                    <asp:Label ID="Telefono_MedLabel" runat="server" Text='<%# Eval("Telefono_Med") %>' />
-                    <br />
-                    <asp:CheckBox ID="Activo_MedCheckBox" runat="server" Checked='<%# Eval("Activo_Med") %>' Enabled="false" Text="Activo_Med" />
-                    <br />
-<br /></span>
-                </SelectedItemTemplate>
-            </asp:ListView>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-            <asp:SqlDataSource ID="sds_medicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" ProviderName="<%$ ConnectionStrings:BDClinicaConnectionString.ProviderName %>" SelectCommand="SELECT [Id_Medico_Med], [Legajo_Med], [Id_Provincia_Med], [Id_Localidad_Med], [Id_Especialidad_Med], [DNI_Med], [Nombre_Med], [Apellido_Med], [Sexo_Med], [Nacionalidad_Med], [FechaNacimiento_Med], [Direccion_Med], [CorreoElectronico_Med], [Telefono_Med], [Activo_Med] FROM [Medicos]">
-            </asp:SqlDataSource>
+            <br />
+            <div class="contenedor-grid">
+            <asp:GridView ID="gv_medicos" CssClass="gv" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gv_medicos_RowCancelingEdit" OnRowEditing="gv_medicos_RowEditing" OnRowUpdating="gv_medicos_RowUpdating">
+                <Columns>
+                    <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+                    <asp:TemplateField HeaderText="ID MEDICO">
+                        <EditItemTemplate>
+                            <asp:Label ID="lbl_idmedico" runat="server" Text='<%# Bind("Id_Medico_Med") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_idmedico" runat="server" Text='<%# Bind("Id_Medico_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Legajo">
+                        <EditItemTemplate>
+                            <asp:Label ID="lbl_legajo" runat="server" Text='<%# Bind("Legajo_Med") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_legajo" runat="server" Text='<%# Bind("Legajo_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="DNI">
+                        <EditItemTemplate>
+                            <asp:Label ID="lbl_dni" runat="server" Text='<%# Bind("DNI_Med") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_dni" runat="server" Text='<%# Bind("DNI_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nombre">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_nombre" runat="server" Text='<%# Bind("Nombre_Med") %>' Width="70"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_nombre" runat="server" Text='<%# Bind("Nombre_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Apellido">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_apellido" runat="server" Text='<%# Bind("Apellido_Med") %>' Width="70"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_apellido" runat="server" Text='<%# Bind("Apellido_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Provincia">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="ddl_provincias" runat="server" AutoPostBack="True" Width="80" OnSelectedIndexChanged="ddl_provincias_SelectedIndexChanged">
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_provincia" runat="server" Text='<%# Bind("Descripcion_Prov") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Localidad">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="ddl_localidad" runat="server" Width="100">
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_localidad" runat="server" Text='<%# Bind("Descripcion_Local") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Especialidad">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="ddl_especialidad" runat="server" AutoPostBack="True" Width="100">
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_especialidad" runat="server" Text='<%# Bind("Nombre_Espe") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Sexo">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
+                                <asp:ListItem>Masculino</asp:ListItem>
+                                <asp:ListItem>Femenino</asp:ListItem>
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_sexo" runat="server" Text='<%# Bind("Sexo_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nacionalidad">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_nacionalidad" runat="server" Text='<%# Bind("Nacionalidad_Med") %>' Width="100px"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_nacionalidad" runat="server" Text='<%# Bind("Nacionalidad_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Fecha de Nacimiento">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_fecha" runat="server" Text='<%# Bind("FechaNacimiento_Med") %>' TextMode="Date" Width="100px"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_fechanacimiento" runat="server" Text='<%# Bind("FechaNacimiento_Med", "{0:d}") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Direccion">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_direccion" runat="server" Text='<%# Bind("Direccion_Med") %>' Width="100px"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_direccion" runat="server" Text='<%# Bind("Direccion_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Correo">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_correo" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>' Width="100px"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_correo" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Telefono">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_telefono" runat="server" Text='<%# Bind("Telefono_Med") %>' Width="100px"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_telefono" runat="server" Text='<%# Bind("Telefono_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            </div>
         </div>
         <br />
         <br />
         <br />
-        <div class="divlogos">
+        <div class="divlogos" align="end">
             <table style="width: 100%">
                 <tr>
                     <td align="center">

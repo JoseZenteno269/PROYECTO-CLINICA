@@ -142,51 +142,6 @@
                 </table>
             </div>
         </div>
-        <%--<div id="contenedor1">
-            <div class="divs">
-                <table class="tablaABML">
-                    <tr>
-                        <td>
-                            <img src="Imagenes/Turnos.png" class="imagen" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <h2>Turnos</h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td">
-                            <asp:Button ID="btn_agregart" runat="server" Text="Asignar" CssClass="botones" OnClick="btn_agregart_Click" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td">
-                            <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="botones" OnClick="btn_cancelar_Click" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="divs">
-                <table class="tablaABML">
-                    <tr>
-                        <td>
-                            <img src="Imagenes/Informes.png" class="imagen" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <h2>Informes</h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td">
-                            <asp:Button ID="btn_informes" runat="server" Text="Mostrar Informes" CssClass="botones" OnClick="btn_informes_Click" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>--%>
         <br />
         <br />
         <br />

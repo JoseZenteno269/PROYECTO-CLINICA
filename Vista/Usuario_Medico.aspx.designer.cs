@@ -11,7 +11,7 @@ namespace Vista
 {
 
 
-    public partial class Modificacion_Medicos
+    public partial class UsuarioMedico
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace Vista
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lb_usuario_menu.
+        /// Control lbl_usuario_menu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lb_usuario_menu;
+        protected global::System.Web.UI.WebControls.LinkButton lbl_usuario_menu;
 
         /// <summary>
         /// Control lbl_usuario.
@@ -69,39 +69,57 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_cerrar_sesion;
 
         /// <summary>
-        /// Control btn_menu.
+        /// Control txt_usuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_menu;
+        protected global::System.Web.UI.WebControls.TextBox txt_usuario;
 
         /// <summary>
-        /// Control txt_busqueda.
+        /// Control txt_contrasena1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_busqueda;
+        protected global::System.Web.UI.WebControls.TextBox txt_contrasena1;
 
         /// <summary>
-        /// Control btn_Aceptar.
+        /// Control txt_contrasena2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Aceptar;
+        protected global::System.Web.UI.WebControls.TextBox txt_contrasena2;
 
         /// <summary>
-        /// Control gv_medicos.
+        /// Control lbl_mensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gv_medicos;
+        protected global::System.Web.UI.WebControls.Label lbl_mensaje;
+
+        /// <summary>
+        /// Control lbl_mensaje0.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_mensaje0;
+
+        /// <summary>
+        /// Control btn_aceptar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_aceptar;
     }
 }

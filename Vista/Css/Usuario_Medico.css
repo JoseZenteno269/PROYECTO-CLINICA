@@ -1,5 +1,5 @@
 ﻿body {
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
 }
 
 form {
@@ -9,31 +9,37 @@ form {
     align-items: center;
 }
 
-#contediv {
-    justify-content: initial;
-    align-items: initial;
-    width: 99%;
-    padding: 15px 15px 15px 15px;
-}
-.contenedor-grid {
-    width: 100%;
-    height: 900px;
-    margin: 20px auto;
-    overflow-y: auto; /* scroll vertical */
-    overflow-x: auto; /* scroll horizontal si la tabla es ancha */
+#contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100%
 }
 
-.gv{
-    
-}
-.gv td {
-    padding: 10px 5px 10px 5px;
-    text-align: center; 
+.divs {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.button {
-    width: 80px;
-    height: 25px;
+.tablausuario{
+    border: 1px solid #cccc; 
+    padding: 15px; 
+    border-radius: 10px; 
+}
+
+.tablausuario td{
+    padding: 10px; 
+}
+
+.tablaABML {
+    border-radius: 10px;
+    padding: 20px;
+    background: #cce4e3;
 }
 
 .tablamenu {
@@ -47,10 +53,38 @@ form {
     background: lightblue;
 }
 
+.botones {
+    width: 130px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+    .botones:hover {
+        background-color: #ddd;
+    }
+
+.td {
+    padding-bottom: 10px;
+}
+
+.bottoncerrarsesion {
+    text-align: center;
+    padding: 10px;
+    background-color: #be1717;
+    border-radius: 10px;
+    border: 0px;
+}
+
+    .bottoncerrarsesion:hover {
+        background-color: #fc0000;
+    }
+
+
 .usuario-container {
     position: relative;
     display: inline-block;
 }
+
 
 .btn-usuario {
     cursor: pointer;
@@ -62,6 +96,10 @@ form {
     text-decoration: none;
     color: black;
 }
+
+    .btn-usuario:hover {
+        background: #f0f0f0;
+    }
 
 .dropdown-panel {
     position: absolute;
@@ -87,23 +125,19 @@ form {
     text-align: left;
 }
 
+    .opcion-menu:hover {
+        background: #f5f5f5;
+    }
+
 .opcion-roja {
     color: red;
 }
 
-#divcontenedor {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-}
 
 .divlogos {
     width: 100%;
     height: 150px;
     background-color: #686868;
-    display: flex; 
     justify-content: center;
     align-items: center;
 }

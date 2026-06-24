@@ -63,7 +63,7 @@ namespace Vista
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Inicio.aspx");
         }
 
         protected void btn_horarios_Click(object sender, EventArgs e)
@@ -98,20 +98,13 @@ namespace Vista
 
             string usuario = generarusuario(txt_nombre_m.Text, txt_apellido_m.Text, txt_fecha.Text);
 
-            string contrasena = generaracontrasena(txt_nombre_m.Text, txt_apellido_m.Text); 
-
             if (negocio.AgregarMedico(txt_legajo_m.Text, Convert.ToInt32(ddl_provincia_m.SelectedValue), Convert.ToInt32(ddl_localidad_m.SelectedValue), Convert.ToInt32(ddl_especalidad_m.SelectedValue), Convert.ToInt32(txt_dni_m.Text), txt_nombre_m.Text, txt_apellido_m.Text, ddl_sexo_m.Text, txt_nacionalidad.Text, fecha , txt_direccion_m.Text, txt_correo_m.Text, txt_telefono_m.Text))
             {
                 lbl_mensaje.Text = "Medico cargado correctamente";
-
-                string idmedico = negocio.getIdMedico(txt_legajo_m.Text); 
-                if (idmedico != null)
-                {
-                    if (negocio.AgregarUsuarios(Convert.ToInt32(idmedico), null, usuario, contrasena))
-                    {
-                        lbl_mensaje0.Text = "Usuario creado correctamente. USUARIO: " + usuario.ToString() + " - " + "CONTRASEÑA: " + contrasena.ToString();  ;
-                    }
-                }
+                lbl_mensaje0.Text = "Redirigiendo...";
+                Response.AddHeader("REFRESH", "3;URL=Usuario_Medico.aspx");
+                Session["legajo"] = txt_legajo_m.Text;
+                Session["usuario"] = generarusuario(txt_nombre_m.Text, txt_apellido_m.Text, txt_fecha.Text).ToLower();
             }
             else
             {
@@ -145,6 +138,3 @@ namespace Vista
         }
     }
 }
-
-//usuario = Jtorto01
-//contrasena = tor91je

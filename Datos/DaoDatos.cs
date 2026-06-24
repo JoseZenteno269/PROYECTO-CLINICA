@@ -29,7 +29,11 @@ namespace Datos
         }
         public DataTable getTablaMedicos()
         {
-            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med,Id_Especialidad_Med ,CorreoElectronico_Med, Telefono_Med FROM Medicos WHERE Activo_Med = 1");
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med, Legajo_Med, Descripcion_Prov, Descripcion_Local, Id_Especialidad_Med, Nombre_Espe, DNI_Med, Nombre_Med, Apellido_Med, Sexo_Med, Nacionalidad_Med, FechaNacimiento_Med, Direccion_Med, CorreoElectronico_Med, Telefono_Med FROM Medicos " +
+                "INNER JOIN Provincias ON Id_Provincia_Med = Id_Provincia_Prov " +
+                "INNER JOIN Localidades  ON Id_Localidad_Med = Id_Localidad_Local " +
+                "INNER JOIN Especialidad ON Id_Especialidad_Med = Id_Especialidad_Espe WHERE Activo_Med = 1"); 
+            //DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med,Id_Especialidad_Med ,CorreoElectronico_Med, Telefono_Med FROM Medicos WHERE Activo_Med = 1");
             return tabla;
         }
         public DataTable getMedicosFiltrados(Medicos medicos)
