@@ -258,8 +258,8 @@
                             </td>
                         </tr>
                         <tr runat="server">
-                            <td runat="server" style="">
-                                <asp:DataPager ID="DataPager1" runat="server">
+                            <td runat="server" style="text-align:center">
+                                <asp:DataPager ID="DataPager1"  runat="server">
                                     <Fields>
                                         <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
                                         <asp:NumericPagerField />
@@ -319,7 +319,6 @@
   INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local
   INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe"></asp:SqlDataSource>
          </div>
-        </div>
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

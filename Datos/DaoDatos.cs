@@ -100,6 +100,12 @@ namespace Datos
             return tabla;
         }
 
+        public DataTable getTablaDisponibilidadMedica()
+        {
+            DataTable tabla = datos.ObtenerTabla("Disponibilidad_Medico", "SELECT Id_COD_DispMed, Id_Medico_DispMed, (CASE DiaSemana_DispMed WHEN 1 THEN 'Lunes' WHEN 2 THEN 'Martes' WHEN 3 THEN 'Miércoles' WHEN 4 THEN 'Jueves' WHEN 5 THEN 'Viernes' WHEN 6 THEN 'Sábado' WHEN 7 THEN 'Domingo' END + ' - ' + CAST(Horario_DispMed AS VARCHAR(5))) AS DiayHorario FROM Disponibilidad_Medico");
+            return tabla;
+        }
+
         public Boolean ExisteMedico(Medicos medicos)
         {
             String consulta = "SELECT * FROM Medicos WHERE DNI_Med = @DNI";

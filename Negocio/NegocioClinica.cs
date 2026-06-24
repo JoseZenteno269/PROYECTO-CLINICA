@@ -76,6 +76,11 @@ namespace Negocio
         {
             return daoDatos.getTablaLocalidades(); 
         }
+        
+        public DataTable getDropDownListDisponibilidadHoraria()
+        {
+            return daoDatos.getTablaDisponibilidadMedica();
+        }
 
         public DataTable getDropDownListEspecialidad()
         {

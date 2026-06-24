@@ -7,6 +7,11 @@
     <link href="Css/Asignar_Turnos.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 267px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -47,15 +52,15 @@
                     <tr>
                         <td>
                             <p>Seleccione un Medico:</p>
-                            <asp:DropDownList ID="ddl_medicos" runat="server"></asp:DropDownList></td>
+                            <asp:DropDownList ID="ddl_medicos" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_medicos_SelectedIndexChanged"></asp:DropDownList></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td align="center">
+                        <td align="center" class="auto-style1">
                             <p>Elija un dia</p>
                             <asp:Calendar ID="c_dias" runat="server"></asp:Calendar>
                         </td>
-                        <td></td>
+                        <td class="auto-style1"></td>
                     </tr>
                     <tr>
                         <td>

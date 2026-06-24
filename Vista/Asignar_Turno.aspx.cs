@@ -58,9 +58,26 @@ namespace Vista
             ddl_medicos.Items.Insert(0, new ListItem("--Seleccione un medico","0"));
         }
 
+
+        public void CargarDropDownListDisponibilidad()
+        {
+            DataTable tabla = negocio.getDropDownListDisponibilidadHoraria();
+            tabla.DefaultView.RowFilter = "Id_Medico_DispMed = " + ddl_medicos.SelectedValue;
+            ddl_horas.DataSource = tabla.DefaultView;
+            ddl_horas.DataTextField = "DiayHorario";
+            ddl_horas.DataValueField = "Id_COD_DispMed";
+            ddl_horas.DataBind();
+            ddl_horas.Items.Insert(0, new ListItem("--Seleccione un Horario", "0"));
+
+        }
+
         protected void ddl_especialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarDropDawnListMedicos();
+        }
+        protected void ddl_medicos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDropDownListDisponibilidad();
         }
 
         public void CargarGridviewPacientes()
@@ -87,5 +104,6 @@ namespace Vista
             c_dias.SelectedDate = DateTime.Now;
 
         }
+
     }
 }
