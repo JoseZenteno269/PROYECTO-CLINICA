@@ -96,21 +96,21 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btn_buscar;
 
         /// <summary>
-        /// Control btn_Todos.
+        /// Control lv_Medicos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Todos;
+        protected global::System.Web.UI.WebControls.ListView lv_Medicos;
 
         /// <summary>
-        /// Control gvMedicos.
+        /// Control SqlDataSourceMedicos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMedicos;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceMedicos;
     }
 }

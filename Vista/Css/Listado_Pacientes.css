@@ -113,3 +113,61 @@ form {
     width: 100px;
     height: 80px;
 }
+/* Contenedor general */
+.contenedor-lista {
+    width: 90%;
+    margin: 30px auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Tabla */
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+    /* Encabezado */
+    .tabla-datos thead tr {
+        background: linear-gradient(90deg, #6a11cb, #2575fc);
+        color: white;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+
+    .tabla-datos thead th {
+        padding: 14px 20px;
+    }
+
+    /* Filas */
+    .tabla-datos tbody tr {
+        text-align: center;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+        /* Filas alternadas */
+        .tabla-datos tbody tr:nth-child(even) {
+            background: linear-gradient(90deg, #f0f4ff, #e8f0fe);
+        }
+
+        .tabla-datos tbody tr:nth-child(odd) {
+            background: white;
+        }
+
+        /* Hover en filas */
+        .tabla-datos tbody tr:hover {
+            background: linear-gradient(90deg, #dce8ff, #c9d8ff);
+            transform: scale(1.01);
+            box-shadow: 0px 4px 10px rgba(37, 117, 252, 0.2);
+        }
+
+    .tabla-datos tbody td {
+        padding: 12px 20px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+

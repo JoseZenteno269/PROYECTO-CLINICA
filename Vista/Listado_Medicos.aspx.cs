@@ -16,10 +16,8 @@ namespace Vista
         Medicos medicos = new Medicos();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                CargarMedicos();
-            }
+            
+           
         }
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
@@ -37,26 +35,12 @@ namespace Vista
             Response.Redirect("Menu.aspx");
         }
 
-        public void CargarMedicos()
-        {
-            gvMedicos.DataSource = negocioClinica.getMedicos();
-            gvMedicos.DataBind();
-        }
-
         protected void btn_buscar_Click(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            string legajo = txt_buscar.Text;
-            medicos.setLegajoMedico(legajo);
-            dataTable = negocioClinica.getMedicosFiltrados(medicos);
-            gvMedicos.DataSource = dataTable;
-            gvMedicos.DataBind();
-            txt_buscar.Text = string.Empty;
-        }
-
-        protected void btn_Todos_Click(object sender, EventArgs e)
-        {
-            CargarMedicos();
+            SqlDataSourceMedicos.SelectCommand = "SELECT Legajo_Med AS Legajo, Descripcion_Prov AS Provincia, Descripcion_Local AS Localidad, Nombre_Espe AS Especialidad, DNI_Med AS Dni, (Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Sexo_Med AS Sexo, Nacionalidad_Med AS Nacionalidad, FechaNacimiento_Med AS [Fecha de Nacimiento], Direccion_Med AS Direccion, CorreoElectronico_Med AS Email, Telefono_Med AS Telefono FROM Medicos INNER JOIN Provincias ON Medicos.Id_Provincia_Med = Provincias.Id_Provincia_Prov INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE CONVERT(VARCHAR(20), Legajo_Med) LIKE @Legajo";
+            SqlDataSourceMedicos.SelectParameters.Clear();
+            SqlDataSourceMedicos.SelectParameters.Add("Legajo", "%" + txt_buscar.Text + "%");
+            lv_Medicos.DataBind();
         }
     }
 }

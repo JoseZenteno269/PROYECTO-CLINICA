@@ -16,7 +16,7 @@ namespace Vista
        Pacientes pacientes = new Pacientes();
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarPacientes();
+
         }
 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
@@ -34,26 +34,15 @@ namespace Vista
             Response.Redirect("Menu.aspx");
         }
 
-        private void CargarPacientes()
-        {
-            gvPacientes.DataSource = negocioClinica.getPacientes();
-            gvPacientes.DataBind();
-        }
+       
 
         protected void btn_buscar_Click(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            int Dni = Convert.ToInt32(txt_buscar.Text);
-            pacientes.setDniPaciente(Dni);
-            dataTable = negocioClinica.getPacientesFiltrados(pacientes);
-            gvPacientes.DataSource = dataTable;
-            gvPacientes.DataBind();
-            txt_buscar.Text = string.Empty;
-        }
+            SqlDataSourcePacientes.SelectCommand = "SELECT DNI_Paci AS DNI,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad,(Nombre_Paci + ' ' + Apellido_Paci) AS[Nombre y Apellido],Sexo_Paci,Nacionalidad_Paci,FechaNacimiento_Paci,Direccion_Paci,CorreoElectronico_Paci,Telefono_Paci FROM Pacientes INNER JOIN Provincias ON Pacientes.Id_Provincia_Paci = Provincias.Id_Provincia_Prov INNER JOIN Localidades ON Pacientes.Id_Localidad_Paci = Localidades.Id_Localidad_Local WHERE CAST(DNI_Paci AS VARCHAR(20)) LIKE @DNI ";
+            SqlDataSourcePacientes.SelectParameters.Clear();
+            SqlDataSourcePacientes.SelectParameters.Add("DNI", "%" + txt_buscar.Text + "%");
+            lv_pacientes.DataBind();
 
-        protected void btn_Mostrar_Click(object sender, EventArgs e)
-        {
-            CargarPacientes();
         }
     }
 }
