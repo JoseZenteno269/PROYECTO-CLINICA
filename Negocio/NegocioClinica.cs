@@ -32,6 +32,10 @@ namespace Negocio
         {
             return daoDatos.getTablaPacientes();
         }
+        public DataTable getPacientes(String consulta)
+        {
+            return daoDatos.getTablaPacientes(consulta);
+        }
         public DataTable getBajaPaciente()
         {
             return daoDatos.getTablaBajaPacientes();
@@ -45,6 +49,11 @@ namespace Negocio
         public DataTable getMedicos()
         {
             return daoDatos.getTablaMedicos();
+        }
+
+        public DataTable getMedicos(String consulta)
+        {
+            return daoDatos.getTablaMedicos(consulta);
         }
 
         public DataTable getBajaMedicos()
@@ -230,6 +239,24 @@ namespace Negocio
             medicos.setTelefonoMedico(telefono);
             int filasafecatdas = daoDatos.ModificarMedico(medicos);
             return filasafecatdas == 1; 
+        }
+
+        public Boolean ModificarPaciente(int idpaciente, int idprovincia, int idlocalidad, String nombre, String apellido, String sexo, String nacionalidad, DateTime fechanacimiento, String direccion, String email, String telefono)
+        {
+            Pacientes Paciente = new Pacientes();
+            Paciente.setIdPaciente(idpaciente);
+            Paciente.setIdProvincia(idprovincia);
+            Paciente.setIdLocalidad(idlocalidad);
+            Paciente.setNombrePaciente(nombre);
+            Paciente.setApellidoPaciente(apellido);
+            Paciente.setSexoPaciente(sexo);
+            Paciente.setNacionalidadPaciente(nacionalidad);
+            Paciente.setFechaNacimientoPaciente(fechanacimiento);
+            Paciente.setDireccionPaciente(direccion);
+            Paciente.setCorreoElectronicoPaciente(email);
+            Paciente.setTelefonoPaciente(telefono);
+            int filasafecatdas = daoDatos.ModificarPaciente(Paciente);
+            return filasafecatdas == 1;
         }
 
         public Boolean CancelarTurnos(int idTurno)

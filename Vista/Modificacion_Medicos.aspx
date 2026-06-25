@@ -45,13 +45,14 @@
                         <asp:TextBox ID="txt_busqueda" runat="server"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" />
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" />
                     </td>
                 </tr>
             </table>
+            <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
             <br />
             <div class="contenedor-grid">
-            <asp:GridView ID="gv_medicos" CssClass="gv" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gv_medicos_RowCancelingEdit" OnRowEditing="gv_medicos_RowEditing" OnRowUpdating="gv_medicos_RowUpdating">
+            <asp:GridView ID="gv_medicos" CssClass="gv" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gv_medicos_RowCancelingEdit" OnRowEditing="gv_medicos_RowEditing" OnRowUpdating="gv_medicos_RowUpdating" DataKeyNames="Id_Provincia_Med,Id_Localidad_Med,Id_Especialidad_Med">
                 <Columns>
                     <asp:CommandField ButtonType="Button" ShowEditButton="True" />
                     <asp:TemplateField HeaderText="ID MEDICO">
@@ -114,7 +115,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Especialidad">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddl_especialidad" runat="server" AutoPostBack="True" Width="100">
+                            <asp:DropDownList ID="ddl_especialidad" runat="server" Width="100">
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
@@ -123,7 +124,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Sexo">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="ddl_genero" runat="server">
                                 <asp:ListItem>Masculino</asp:ListItem>
                                 <asp:ListItem>Femenino</asp:ListItem>
                             </asp:DropDownList>
@@ -142,7 +143,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Fecha de Nacimiento">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txt_fecha" runat="server" Text='<%# Bind("FechaNacimiento_Med") %>' TextMode="Date" Width="100px"></asp:TextBox>
+                            <asp:TextBox ID="txt_fecha" runat="server" Text='<%# Bind("FechaNacimiento_Med", "{0:d}") %>' Width="100px"></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_fechanacimiento" runat="server" Text='<%# Bind("FechaNacimiento_Med", "{0:d}") %>'></asp:Label>

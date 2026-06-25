@@ -16,6 +16,24 @@ form {
     padding: 15px 15px 15px 15px;
 }
 
+input[type="text"] {
+    width: 100px; 
+
+}
+
+.gv td {
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+}
+
+select {
+    width: 100px;
+}
+
+.contenedor-grid{
+    height: 70vh; 
+}
+
 .button {
     width: 80px;
     height: 25px;
@@ -37,7 +55,6 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 70vh;
 }
 
 

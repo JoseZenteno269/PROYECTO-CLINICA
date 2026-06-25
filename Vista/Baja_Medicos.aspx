@@ -45,25 +45,27 @@
                         <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" /></td>
                     <td></td>
                 </tr>
-            </table>
-        </div>
-        <div class ="grupo-medico">
-            <table>
-                <tr>
-                    <td></td>
-                </tr>
                 <tr>
                     <td>
                         <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
                     </td>
                 </tr>
+            </table>
+        </div>
+        <div class ="grupo-medico">
+<%--            <table>
                 <tr>
+                    <td>
+                        
+                    </td>
+                </tr>
+             <tr>
                     <td>
                         <asp:Button ID="btn_Listar" runat="server" Text="Consultar Medicos" OnClick="btn_Listar_Click" />
                     </td>
-                </tr>
-                <tr>
-                    <td>
+                </tr>--%>
+<%--            </table>--%>
+            <br />
             <asp:GridView ID="gvMedicos" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:TemplateField HeaderText="Id Medico">
@@ -116,13 +118,6 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-            </table>
         </div>
         <div class="divlogos">
             <table style="width: 100%">

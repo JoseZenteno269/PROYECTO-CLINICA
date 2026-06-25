@@ -37,7 +37,7 @@ namespace Vista
             tabla.DefaultView.RowFilter = "Id_Provincia_Local = " + ddl_provincia_p.SelectedValue;
             ddl_localdiad_p.DataSource = tabla.DefaultView;
             ddl_localdiad_p.DataTextField = "Descripcion_Local";
-            ddl_localdiad_p.DataValueField = "Id_Provincia_Local";
+            ddl_localdiad_p.DataValueField = "Id_Localidad_Local";
             ddl_localdiad_p.DataBind();
             ddl_localdiad_p.Items.Insert(0, new ListItem("-- Seleccione una opcion --", "0"));
         }
@@ -54,7 +54,7 @@ namespace Vista
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Inicio.aspx");
         }
 
         /// Metodos Botones 
@@ -72,12 +72,12 @@ namespace Vista
             DateTime Fecha = Convert.ToDateTime(txt_fecha.Text);
             if(negocio.AgregarPacientes(Convert.ToInt32(txt_dni_p.Text),txt_nombre_p.Text,txt_apellido_p.Text,ddl_sexo_p.Text, txtNacionalidad.Text,Fecha,txt_direccion_p.Text,Convert.ToInt32(ddl_provincia_p.SelectedValue),Convert.ToInt32(ddl_localdiad_p.SelectedValue),txt_correo_p.Text,txt_telefono_p.Text))
             {
-                lbl_Mensaje.Text = "Exitoso";
+                lbl_Mensaje.Text = "Paciente Cargado Correctamente";
                 LimpiarCampos();
             }
             else
             {
-                lbl_Mensaje.Text = "No Exitoso";
+                lbl_Mensaje.Text = "Error al ingresar nuevo Paciente";
                 LimpiarCampos();
             }
         }

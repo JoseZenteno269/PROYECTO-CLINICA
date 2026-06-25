@@ -84,10 +84,10 @@
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="ddl_sexo_p" runat="server" AutoPostBack="True">
+                        <asp:DropDownList ID="ddl_sexo_p" runat="server">
                             <asp:ListItem Value="0">--Seleccione una opcion--</asp:ListItem>
-                            <asp:ListItem Value="1">Masculino</asp:ListItem>
-                            <asp:ListItem Value="2">Femenino</asp:ListItem>
+                            <asp:ListItem Value="Masculino">Masculino</asp:ListItem>
+                            <asp:ListItem Value="Femenino">Femenino</asp:ListItem>
                         </asp:DropDownList>
 
                     </td>
@@ -208,7 +208,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="3">
                         <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
                     </td>
                 </tr>

@@ -16,6 +16,10 @@ form {
     padding: 15px 15px 15px 15px;
 }
 
+.grupo-medico{
+    height: 70vh; 
+}
+
 .button {
     width: 80px;
     height: 25px;
@@ -81,7 +85,6 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 70vh;
 }
 
 .bottoneditar{

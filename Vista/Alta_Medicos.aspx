@@ -68,7 +68,7 @@
                 <tr>
                     <td>Sexo:</td>
                     <td>
-                        <asp:DropDownList ID="ddl_sexo_m" runat="server" AutoPostBack="True">
+                        <asp:DropDownList ID="ddl_sexo_m" runat="server">
                             <asp:ListItem>--Seleccione una opcion--</asp:ListItem>
                             <asp:ListItem>Masculino</asp:ListItem>
                             <asp:ListItem>Femenino</asp:ListItem>
@@ -119,7 +119,7 @@
                 <tr>
                     <td>Especialidad:</td>
                     <td>
-                        <asp:DropDownList ID="ddl_especalidad_m" runat="server" AutoPostBack="True">
+                        <asp:DropDownList ID="ddl_especalidad_m" runat="server">
                         </asp:DropDownList>
                     </td>
                     <td></td>

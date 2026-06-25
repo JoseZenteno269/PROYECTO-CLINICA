@@ -86,12 +86,6 @@ namespace Vista
             return nombre[0].ToString().ToUpper() + apellido.Substring(0, apellido.Length - 2).ToLower() + fecha.Substring(8);
         }
 
-        public string generaracontrasena(string nombre, string apellido)
-        {
-            Random rnd = new Random();
-            return apellido.Substring(0, (apellido.Length % 2 == 0 ? apellido.Length / 2 : (apellido.Length - 1) / 2)) + (rnd.Next(10, 100 + 1)).ToString() + nombre.Substring(0, 2);
-        }
-
         protected void btn_guardar_Click(object sender, EventArgs e)
         {
             DateTime fecha = Convert.ToDateTime(txt_fecha.Text);

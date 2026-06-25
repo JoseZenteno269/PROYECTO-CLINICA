@@ -46,20 +46,15 @@
                         <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" /></td>
                     <td></td>
                 </tr>
-            </table>
-        </div>
-        <div>
-            <table>
-                <tr>
-                    <td></td>
-                </tr>
                 <tr>
                     <td>
                         <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+            </table>
+        </div>
+        <div class="grupo-pacientes">
+            <br />
             <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:TemplateField HeaderText="ID Paciente">

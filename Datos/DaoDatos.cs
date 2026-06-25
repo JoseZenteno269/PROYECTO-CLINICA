@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System;
+using System.CodeDom;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -29,13 +30,23 @@ namespace Datos
         }
         public DataTable getTablaMedicos()
         {
-            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med, Legajo_Med, Descripcion_Prov, Descripcion_Local, Id_Especialidad_Med, Nombre_Espe, DNI_Med, Nombre_Med, Apellido_Med, Sexo_Med, Nacionalidad_Med, FechaNacimiento_Med, Direccion_Med, CorreoElectronico_Med, Telefono_Med FROM Medicos " +
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med, Legajo_Med, Id_Provincia_Med, Descripcion_Prov, Id_Localidad_Med, Descripcion_Local, Id_Especialidad_Med, Nombre_Espe, DNI_Med, Nombre_Med, Apellido_Med, Sexo_Med, Nacionalidad_Med, FechaNacimiento_Med, Direccion_Med, CorreoElectronico_Med, Telefono_Med FROM Medicos " +
                 "INNER JOIN Provincias ON Id_Provincia_Med = Id_Provincia_Prov " +
                 "INNER JOIN Localidades  ON Id_Localidad_Med = Id_Localidad_Local " +
                 "INNER JOIN Especialidad ON Id_Especialidad_Med = Id_Especialidad_Espe WHERE Activo_Med = 1"); 
+            return tabla;
+        }
+
+        public DataTable getTablaMedicos(String consulta)
+        {
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med, Legajo_Med, Id_Provincia_Med, Descripcion_Prov, Id_Localidad_Med, Descripcion_Local, Id_Especialidad_Med, Nombre_Espe, DNI_Med, Nombre_Med, Apellido_Med, Sexo_Med, Nacionalidad_Med, FechaNacimiento_Med, Direccion_Med, CorreoElectronico_Med, Telefono_Med FROM Medicos " +
+                "INNER JOIN Provincias ON Id_Provincia_Med = Id_Provincia_Prov " +
+                "INNER JOIN Localidades ON Id_Localidad_Med = Id_Localidad_Local " +
+                "INNER JOIN Especialidad ON Id_Especialidad_Med = Id_Especialidad_Espe WHERE Activo_Med = 1 " + consulta);
             //DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med,Id_Especialidad_Med ,CorreoElectronico_Med, Telefono_Med FROM Medicos WHERE Activo_Med = 1");
             return tabla;
         }
+
         public DataTable getMedicosFiltrados(Medicos medicos)
         {
             DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med,DNI_Med,Nombre_Med,Apellido_Med,Id_Especialidad_Med,CorreoElectronico_Med,Telefono_Med FROM Medicos WHERE Legajo_Med = '" + medicos.getLegajoMedico() + "'");
@@ -50,7 +61,16 @@ namespace Datos
 
         public DataTable getTablaPacientes()
         {
-            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes WHERE Activo_Paci = 1");
+            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Id_Provincia_Paci, Id_Localidad_Paci, Descripcion_Prov, Nacionalidad_Paci, FechaNacimiento_Paci, Descripcion_Local, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes " +
+                "INNER JOIN Provincias ON Id_Provincia_Paci = Id_Provincia_Prov " +
+                "INNER JOIN Localidades ON Id_Localidad_Paci = Id_Localidad_Local WHERE Activo_Paci = 1"); 
+            return tabla;
+        }
+        public DataTable getTablaPacientes(String consulta)
+        {
+            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Id_Provincia_Paci, Id_Localidad_Paci, Descripcion_Prov, Nacionalidad_Paci, FechaNacimiento_Paci, Descripcion_Local, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes " +
+                "INNER JOIN Provincias ON Id_Provincia_Paci = Id_Provincia_Prov " +
+                "INNER JOIN Localidades ON Id_Localidad_Paci = Id_Localidad_Local WHERE Activo_Paci = 1 " + consulta); 
             return tabla;
         }
 
@@ -90,7 +110,7 @@ namespace Datos
 
         public DataTable getTablaLocalidades()
         {
-            DataTable tabla = datos.ObtenerTabla("Localidades", "SELECT Id_Provincia_Local, Descripcion_Local FROM Localidades"); 
+            DataTable tabla = datos.ObtenerTabla("Localidades", "SELECT Id_Localidad_Local, Id_Provincia_Local, Descripcion_Local FROM Localidades"); 
             return tabla;
         }
 
@@ -185,6 +205,13 @@ namespace Datos
             return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarPaciente");
         }
 
+        public int ModificarPaciente(Pacientes paciente)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosPacientesModificar(ref comando, paciente);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spModificarPaciente");
+        }
+
         public int DarBajaPecientes(Pacientes pacientes)
         {
             SqlCommand comando = new SqlCommand();
@@ -263,6 +290,10 @@ namespace Datos
         public void ArmarParametrosMedicosModificar(ref SqlCommand comando, Medicos medicos)
         {
             SqlParameter sqlParameter = new SqlParameter();
+
+            sqlParameter = comando.Parameters.Add("@IDMEDICO", SqlDbType.Int);
+            sqlParameter.Value = medicos.getIdMedico(); 
+
             //ID PROVINCIA
 
             sqlParameter = comando.Parameters.Add("@IDPROVINCIA",SqlDbType.Int);
@@ -277,11 +308,6 @@ namespace Datos
 
             sqlParameter = comando.Parameters.Add("@IDESPECIALIDAD", SqlDbType.Int);
             sqlParameter.Value = medicos.getIdEspecialidad();
-
-            //DNI
-
-            sqlParameter = comando.Parameters.Add("@DNI", SqlDbType.Int);
-            sqlParameter.Value = medicos.getDNIMedico();
 
             //NOMBRE MEDICO
 
@@ -374,6 +400,9 @@ namespace Datos
         {
             SqlParameter sqlParameter = new SqlParameter();
 
+            sqlParameter = comando.Parameters.Add("@IDPACIENTE", SqlDbType.Int);
+            sqlParameter.Value = pacientes.getIdPaciente();
+
             //ID PROVINCIA
 
             sqlParameter = comando.Parameters.Add("@IDPROVINCIA", SqlDbType.Int);
@@ -383,11 +412,6 @@ namespace Datos
 
             sqlParameter = comando.Parameters.Add("@IDLOCALIDAD", SqlDbType.Int);
             sqlParameter.Value = pacientes.getIdLocalidad();
-
-            //DNI
-
-            sqlParameter = comando.Parameters.Add("@DNI", SqlDbType.Int);
-            sqlParameter.Value = pacientes.getDniPaciente();
 
             //NOMBRE PACIENTE
 

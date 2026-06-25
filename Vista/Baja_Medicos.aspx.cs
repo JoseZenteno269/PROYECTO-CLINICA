@@ -14,7 +14,10 @@ namespace Vista
         NegocioClinica negocio = new NegocioClinica();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!Page.IsPostBack)
+            {
+                CargarBajaMedicos(); 
+            }
         }
 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
@@ -39,10 +42,10 @@ namespace Vista
 
         }
 
-        protected void btn_Listar_Click(object sender, EventArgs e)
-        {
-            CargarBajaMedicos();
-        }
+        //protected void btn_Listar_Click(object sender, EventArgs e)
+        //{
+        //    CargarBajaMedicos();
+        //}
 
         protected void btn_Aceptar_Click(object sender, EventArgs e)
         {
