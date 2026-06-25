@@ -50,6 +50,7 @@ namespace Vista
             if(negocio.DarBajaPacientes(Convert.ToInt32(txt_IDPacientes.Text)))
             {
                 lbl_Mensaje.Text = "Operacion exitosa";
+                CargarBajaPacientes(); 
                 Limpiar();
             }
             else

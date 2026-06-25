@@ -52,6 +52,7 @@ namespace Vista
             if(negocio.DarBajaMedico(Convert.ToInt32(txt_IdMedico.Text)))
             {
                 lbl_Mensaje.Text = "Dado de baja con Exito";
+                CargarBajaMedicos(); 
                 Limpiar();
             }
             else
