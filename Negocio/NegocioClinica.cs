@@ -40,12 +40,6 @@ namespace Negocio
         {
             return daoDatos.getTablaBajaPacientes();
         }
-
-        public DataTable getPacientesFiltrados(Pacientes pacientes)
-        {
-            return daoDatos.getPacientesFiltrados(pacientes);
-        }
-
         public DataTable getMedicos()
         {
             return daoDatos.getTablaMedicos();
@@ -59,11 +53,6 @@ namespace Negocio
         public DataTable getBajaMedicos()
         {
             return daoDatos.getTablaBajaMedicos();
-        }
-
-        public DataTable getMedicosFiltrados(Medicos medicos)
-        {
-            return daoDatos.getMedicosFiltrados(medicos);
         }
 
         public DataTable getTurnos()

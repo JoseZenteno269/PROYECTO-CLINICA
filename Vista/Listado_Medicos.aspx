@@ -51,6 +51,25 @@
                     </tr>
             </table>
         </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Filtrado por Especialidad:</td><td>
+                    <asp:DropDownList ID="ddl_EspecialidadFiltro" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_EspecialidadFiltro_SelectedIndexChanged">
+                    </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Filtrado por Sexo:</td><td>
+                    <asp:DropDownList ID="ddl_SexoFiltrado" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_SexoFiltrado_SelectedIndexChanged">
+                    </asp:DropDownList>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div class="contenedor-lista" >
             <asp:ListView ID="lv_Medicos" runat="server" DataSourceID="SqlDataSourceMedicos">
                 <%--<AlternatingItemTemplate>

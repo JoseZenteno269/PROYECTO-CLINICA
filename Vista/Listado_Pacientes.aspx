@@ -7,6 +7,11 @@
 <link href="Css/Listado_Pacientes.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 27px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -41,6 +46,24 @@
                         <asp:TextBox ID="txt_buscar" runat="server"></asp:TextBox></td>
                     <td>
                         <asp:Button ID="btn_buscar" runat="server" Text="Buscar" OnClick="btn_buscar_Click" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Filtro de Nombre:</td>
+                    <td>
+                        <asp:DropDownList ID="ddl_Letras" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged"></asp:DropDownList></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1"></td><td class="auto-style1"></td>
+                </tr>
+                <tr>
+                    <td>Filtrado por provincia: </td><td>
+                    <asp:DropDownList ID="ddl_ProvinciasFiltro" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_ProvinciasFiltro_SelectedIndexChanged">
+                    </asp:DropDownList>
+                    </td>
                 </tr>
             </table>
         </div>

@@ -47,12 +47,6 @@ namespace Datos
             return tabla;
         }
 
-        public DataTable getMedicosFiltrados(Medicos medicos)
-        {
-            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med,DNI_Med,Nombre_Med,Apellido_Med,Id_Especialidad_Med,CorreoElectronico_Med,Telefono_Med FROM Medicos WHERE Legajo_Med = '" + medicos.getLegajoMedico() + "'");
-            return tabla;
-        }
-
         public DataTable getTablaBajaMedicos()
         {
             DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Legajo_Med, Id_Medico_Med, DNI_Med, Nombre_Med, Apellido_Med, FechaNacimiento_Med, CorreoElectronico_Med, Telefono_Med, Id_Especialidad_Med, Nombre_Espe, Activo_Med FROM Medicos INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE Activo_Med = 1");
@@ -71,12 +65,6 @@ namespace Datos
             DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Id_Provincia_Paci, Id_Localidad_Paci, Descripcion_Prov, Nacionalidad_Paci, FechaNacimiento_Paci, Descripcion_Local, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes " +
                 "INNER JOIN Provincias ON Id_Provincia_Paci = Id_Provincia_Prov " +
                 "INNER JOIN Localidades ON Id_Localidad_Paci = Id_Localidad_Local WHERE Activo_Paci = 1 " + consulta); 
-            return tabla;
-        }
-
-        public DataTable getPacientesFiltrados(Pacientes pacientes)
-        {
-            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes WHERE DNI_Paci = " + pacientes.getDniPaciente());
             return tabla;
         }
 
