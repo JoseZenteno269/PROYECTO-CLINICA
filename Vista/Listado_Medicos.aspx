@@ -234,7 +234,7 @@
                             <asp:Label ID="NacionalidadLabel0" runat="server" Text='<%# Eval("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Fecha_de_NacimientoLabel0" runat="server" Text='<%# Eval("[Fecha de Nacimiento]") %>' />
+                            <asp:Label ID="Fecha_de_NacimientoLabel0" runat="server" Text='<%# Eval("[Fecha de Nacimiento]", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:Label ID="DireccionLabel0" runat="server" Text='<%# Eval("Direccion") %>' />
@@ -311,7 +311,7 @@
                             <asp:Label ID="NacionalidadLabel1" runat="server" Text='<%# Eval("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Fecha_de_NacimientoLabel1" runat="server" Text='<%# Eval("[Fecha de Nacimiento]") %>' />
+                            <asp:Label ID="Fecha_de_NacimientoLabel1" runat="server" Text='<%# Eval("[Fecha de Nacimiento]", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:Label ID="DireccionLabel1" runat="server" Text='<%# Eval("Direccion") %>' />

@@ -33,6 +33,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_usuario;
 
         /// <summary>
+        /// Control rfv_usuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_usuario;
+
+        /// <summary>
         /// Control txt_contrasena1.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,24 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_contrasena1;
 
         /// <summary>
+        /// Control rfv_contrasena1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_contrasena1;
+
+        /// <summary>
+        /// Control cv_contrasena2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cv_contrasena2;
+
+        /// <summary>
         /// Control txt_contrasena2.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,24 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_contrasena2;
+
+        /// <summary>
+        /// Control rfv_contrasena2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_contrasena2;
+
+        /// <summary>
+        /// Control cv_contrasena1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cv_contrasena1;
 
         /// <summary>
         /// Control lbl_mensaje.

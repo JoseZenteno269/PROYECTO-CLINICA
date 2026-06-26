@@ -13,60 +13,57 @@
         <div id="contenedor">
             <table>
                 <tr style="text-align: center;">
-                    <td colspan="3"><h2>Recupera Contraseña</h2></td>
+                    <td colspan="3"><h2>Restablecer contraseña</h2></td>
                 </tr>
                 <tr>
-                    <td>
-                        Ingrese su Usuario: 
-                    </td>
-                    <td style="padding-left: 10px">
-
+                    <td colspan="3">
+                        <p>Ingrese su Usuario: </p>
                         <asp:TextBox ID="txt_usuario" runat="server"></asp:TextBox>
 
                     </td>
-                    <td>
-
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <asp:RequiredFieldValidator ID="rfv_usuario" runat="server" ErrorMessage="El campo es obligatorio" ControlToValidate="txt_usuario" CssClass="validador" ValidationGroup="grupo1"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Nueva contraseña:
-                    </td>
-                    <td  style="padding-left: 10px">
-
-                        <asp:TextBox ID="txt_contrasena1" runat="server"></asp:TextBox>
-
-                    </td>
-                    <td>
-
+                        <p>Nueva contraseña: </p>
+                        <asp:TextBox ID="txt_contrasena1" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Repita la contraseña:
+                        <asp:RequiredFieldValidator ID="rfv_contrasena1" runat="server" ErrorMessage="El campo es obligatorio" ControlToValidate="txt_contrasena1" CssClass="validador" ValidationGroup="grupo1"></asp:RequiredFieldValidator><br />
+                        <asp:CompareValidator ID="cv_contrasena2" runat="server" ErrorMessage="Contraseña incorrecta" ControlToCompare="txt_contrasena1" ControlToValidate="txt_contrasena2" CssClass="validador" ValidationGroup="grupo1"></asp:CompareValidator>
                     </td>
-                    <td  style="padding-left: 10px">
-
-                        <asp:TextBox ID="txt_contrasena2" runat="server"></asp:TextBox>
-
-                    </td>
+                </tr>
+                <tr>
                     <td>
+                        <p>Repita la contraseña: </p>
+                        <asp:TextBox ID="txt_contrasena2" runat="server" TextMode="Password"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_contrasena2" runat="server" ErrorMessage="El campo es obligatorio" ControlToValidate="txt_contrasena2" CssClass="validador" ValidationGroup="grupo1"></asp:RequiredFieldValidator><br />
+                        <asp:CompareValidator ID="cv_contrasena1" runat="server" ErrorMessage="Contraseña incorrecta" ControlToCompare="txt_contrasena2" ControlToValidate="txt_contrasena1" CssClass="validador" ValidationGroup="grupo1"></asp:CompareValidator>
 
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="center">
-                        <asp:Label ID="lbl_mensaje" runat="server"></asp:Label></td>
+                    <td colspan="3" style="padding: 10px 10px 10px 0">
+                        <asp:Label ID="lbl_mensaje" runat="server" Height="18px"></asp:Label></td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="center">
-                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar " OnClick="btn_confirmar_Click" />
+                    <td colspan="3" align="center" style="padding: 5px">
+                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar " OnClick="btn_confirmar_Click" ValidationGroup="grupo1" Width="100px" />
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" style="text-align: center;">
-                        Tenes una cuenta?
-                        <asp:HyperLink ID="hl_inicio_sesion" runat="server" NavigateUrl="~/Login.aspx">Iniciar Sesion</asp:HyperLink>
+                    <td colspan="3" style="padding: 5px 5px 5px 0">
+                        <asp:HyperLink ID="hl_inicio_sesion" runat="server" NavigateUrl="~/Login.aspx">¿Tenés una cuenta?</asp:HyperLink>
                     </td>
                 </tr>
             </table>

@@ -7,11 +7,6 @@
 <link href="Css/Listado_Pacientes.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 27px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -67,7 +62,7 @@
                 </tr>
             </table>
         </div>
-        <div class="tabla-datos">
+        <div class="tabla-datos" align="center">
 
             <asp:ListView ID="lv_pacientes" runat="server" DataSourceID="SqlDataSourcePacientes">
                <%-- <AlternatingItemTemplate>
@@ -208,7 +203,7 @@
                             <asp:Label ID="Nacionalidad_PaciLabel" runat="server" Text='<%# Eval("Nacionalidad_Paci") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci") %>' />
+                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:Label ID="Direccion_PaciLabel" runat="server" Text='<%# Eval("Direccion_Paci") %>' />

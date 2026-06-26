@@ -24,15 +24,6 @@ namespace Vista
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lbl_usuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_usuario;
-
-        /// <summary>
         /// Control txt_usuario.
         /// </summary>
         /// <remarks>
@@ -42,13 +33,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_usuario;
 
         /// <summary>
-        /// Control lbl_contasena.
+        /// Control rfv_usuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_contasena;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_usuario;
 
         /// <summary>
         /// Control txt_contrasena.
@@ -60,6 +51,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_contrasena;
 
         /// <summary>
+        /// Control rfv_contrasena.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_contrasena;
+
+        /// <summary>
         /// Control btn_iniciar.
         /// </summary>
         /// <remarks>
@@ -69,6 +69,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btn_iniciar;
 
         /// <summary>
+        /// Control lbl_mensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_mensaje;
+
+        /// <summary>
         /// Control hl_recovery.
         /// </summary>
         /// <remarks>
@@ -76,14 +85,5 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hl_recovery;
-
-        /// <summary>
-        /// Control Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

@@ -38,7 +38,7 @@ namespace Vista
                 }
                 else
                 {
-                    Label1.Text = "Usuarios y/o Constraseña incorrectos"; 
+                    lbl_mensaje.Text = "Usuarios y/o Constraseña incorrectos"; 
                 }
             }
         }
