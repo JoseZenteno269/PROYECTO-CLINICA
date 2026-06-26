@@ -16,9 +16,17 @@ namespace Vista
         {
             if (!Page.IsPostBack)
             {
-                CargarDropDownListProv();
-                CargarDropDownListLocal();
-                CargarDropDownListEspe(); 
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                    CargarDropDownListProv();
+                    CargarDropDownListLocal();
+                    CargarDropDownListEspe();
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 
@@ -37,7 +45,7 @@ namespace Vista
             tabla.DefaultView.RowFilter = "Id_Provincia_Local = " + ddl_provincia_m.SelectedValue;
             ddl_localidad_m.DataSource = tabla.DefaultView; 
             ddl_localidad_m.DataTextField = "Descripcion_Local";
-            ddl_localidad_m.DataValueField = "Id_Provincia_Local";
+            ddl_localidad_m.DataValueField = "Id_Localidad_Local";
             ddl_localidad_m.DataBind(); 
             ddl_localidad_m.Items.Insert(0, new ListItem("-- Seleccione una opcion --", "0"));
         }
@@ -64,6 +72,7 @@ namespace Vista
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
             Response.Redirect("Inicio.aspx");
+            Session["UsuarioAdmin"] = null;
         }
 
         protected void btn_horarios_Click(object sender, EventArgs e)
@@ -97,8 +106,8 @@ namespace Vista
                 lbl_mensaje.Text = "Medico cargado correctamente";
                 lbl_mensaje0.Text = "Redirigiendo...";
                 Response.AddHeader("REFRESH", "3;URL=Usuario_Medico.aspx");
-                Session["legajo"] = txt_legajo_m.Text;
-                Session["usuario"] = generarusuario(txt_nombre_m.Text, txt_apellido_m.Text, txt_fecha.Text).ToLower();
+                Session["Legajo"] = txt_legajo_m.Text;
+                Session["UsuarioMed"] = generarusuario(txt_nombre_m.Text, txt_apellido_m.Text, txt_fecha.Text).ToLower();
             }
             else
             {

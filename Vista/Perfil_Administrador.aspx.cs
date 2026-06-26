@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Vista
 {
-    public partial class Cancelar_Turno : System.Web.UI.Page
+    public partial class Perfil_Administrador : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,11 +22,6 @@ namespace Vista
                     Response.Redirect("Login.aspx");
                 }
             }
-        }
-
-        protected void btn_menu_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Menu.aspx");
         }
     }
 }

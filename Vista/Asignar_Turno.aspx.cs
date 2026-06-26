@@ -16,9 +16,17 @@ namespace Vista
         {
             if(!IsPostBack)
             {
-                CargarDropDawnListEspecialidades();
-                CargarDropDawnListMedicos();
-                CargarGridviewPacientes();
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                    CargarDropDawnListEspecialidades();
+                    CargarDropDawnListMedicos();
+                    CargarGridviewPacientes();
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 

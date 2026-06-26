@@ -23,6 +23,11 @@ namespace Negocio
             return daoDatos.getIdMedico(legajo);    
         }
 
+        public String getLegajoMedico(String usuario)
+        {
+            return daoDatos.getLegajoMedico(usuario); 
+        }
+
         public String getIdUsuario(String username)
         {
             return daoDatos.getIdUsuario(username); 

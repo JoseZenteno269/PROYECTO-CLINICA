@@ -16,7 +16,15 @@ namespace Vista
         {
             if (!Page.IsPostBack)
             {
-                CargarGridViewPacientes(); 
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                    CargarGridViewPacientes(); 
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 
@@ -73,14 +81,17 @@ namespace Vista
             
             DropDownList ddlprovincias = (DropDownList)gv_pacientes.Rows[e.NewEditIndex].FindControl("ddl_provincias"); 
             DropDownList ddllocalidades = (DropDownList)gv_pacientes.Rows[e.NewEditIndex].FindControl("ddl_localidades");
+            DropDownList ddlgenero = (DropDownList)gv_pacientes.Rows[e.NewEditIndex].FindControl("ddl_genero"); 
 
             int idprovincia = Convert.ToInt32(gv_pacientes.DataKeys[e.NewEditIndex]["Id_Provincia_Paci"]); 
-            int idlocalidad = Convert.ToInt32(gv_pacientes.DataKeys[e.NewEditIndex]["Id_Localidad_Paci"]); 
+            int idlocalidad = Convert.ToInt32(gv_pacientes.DataKeys[e.NewEditIndex]["Id_Localidad_Paci"]);
+            String genero = gv_pacientes.DataKeys[e.NewEditIndex]["Sexo_Paci"].ToString(); 
 
             CargarDropDownListProv(ddlprovincias);
             ddlprovincias.SelectedValue = idprovincia.ToString();
             CargarDropDownListLocal(ddllocalidades, ddlprovincias);
             ddllocalidades.SelectedValue = idlocalidad.ToString();
+            ddlgenero.SelectedValue = genero.ToString(); 
         }
 
         protected void gv_pacientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)

@@ -15,7 +15,15 @@ namespace Vista
         {
             if (!Page.IsPostBack)
             {
-                txt_usuario.Text = Session["usuario"].ToString(); 
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                    txt_usuario.Text = Session["UsuarioMed"].ToString();
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 
@@ -26,7 +34,8 @@ namespace Vista
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Inicio.aspx"); 
+            Response.Redirect("Inicio.aspx");
+            Session["UsuarioAdmin"] = null;
         }
 
         protected void btn_aceptar_Click(object sender, EventArgs e)

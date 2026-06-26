@@ -11,7 +11,17 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
+            }
         }
 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)

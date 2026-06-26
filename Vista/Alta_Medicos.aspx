@@ -69,7 +69,7 @@
                     <td>Sexo:</td>
                     <td>
                         <asp:DropDownList ID="ddl_sexo_m" runat="server">
-                            <asp:ListItem>--Seleccione una opcion--</asp:ListItem>
+                            <asp:ListItem Value="0">--Seleccione una opcion--</asp:ListItem>
                             <asp:ListItem>Masculino</asp:ListItem>
                             <asp:ListItem>Femenino</asp:ListItem>
                         </asp:DropDownList>

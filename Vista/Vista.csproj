@@ -82,6 +82,8 @@
     <Content Include="Css\Menu_Medicos.css" />
     <Content Include="Css\Modificacion_Medicos.css" />
     <Content Include="Css\Modificacion_Pacientes.css" />
+    <Content Include="Css\Perfil_Administrador.css" />
+    <Content Include="Css\Perfil_Medico.css" />
     <Content Include="Css\Usuario_Medico.css" />
     <Content Include="Horarios_Medicos.aspx" />
     <Content Include="Imagenes\Imagen2.png" />
@@ -121,6 +123,8 @@
     <Content Include="Menu_Medico.aspx" />
     <Content Include="Modificacion_Medicos.aspx" />
     <Content Include="Modificacion_Pacientes.aspx" />
+    <Content Include="Perfil_Administrador.aspx" />
+    <Content Include="Perfil_Medico.aspx" />
     <Content Include="Recovery.aspx" />
     <Content Include="Usuario_Medico.aspx" />
     <Content Include="Web.config" />
@@ -237,6 +241,20 @@
     </Compile>
     <Compile Include="Modificacion_Pacientes.aspx.designer.cs">
       <DependentUpon>Modificacion_Pacientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_Administrador.aspx.cs">
+      <DependentUpon>Perfil_Administrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_Administrador.aspx.designer.cs">
+      <DependentUpon>Perfil_Administrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_Medico.aspx.cs">
+      <DependentUpon>Perfil_Medico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_Medico.aspx.designer.cs">
+      <DependentUpon>Perfil_Medico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recovery.aspx.cs">

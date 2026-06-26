@@ -52,7 +52,7 @@
             <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
             <br />
             <div class="contenedor-grid">
-            <asp:GridView ID="gv_medicos" CssClass="gv" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gv_medicos_RowCancelingEdit" OnRowEditing="gv_medicos_RowEditing" OnRowUpdating="gv_medicos_RowUpdating" DataKeyNames="Id_Provincia_Med,Id_Localidad_Med,Id_Especialidad_Med">
+            <asp:GridView ID="gv_medicos" CssClass="gv" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gv_medicos_RowCancelingEdit" OnRowEditing="gv_medicos_RowEditing" OnRowUpdating="gv_medicos_RowUpdating" DataKeyNames="Id_Provincia_Med,Id_Localidad_Med,Id_Especialidad_Med,Sexo_Med">
                 <Columns>
                     <asp:CommandField ButtonType="Button" ShowEditButton="True" />
                     <asp:TemplateField HeaderText="ID MEDICO">
@@ -125,6 +125,7 @@
                     <asp:TemplateField HeaderText="Sexo">
                         <EditItemTemplate>
                             <asp:DropDownList ID="ddl_genero" runat="server">
+                                <asp:ListItem Value="0">--Opcion--</asp:ListItem>
                                 <asp:ListItem>Masculino</asp:ListItem>
                                 <asp:ListItem>Femenino</asp:ListItem>
                             </asp:DropDownList>

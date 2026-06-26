@@ -45,33 +45,29 @@ namespace Datos
             }
         }
 
-        private SqlDataReader ObtenerLectura(String consulta)
+        public String ObtenerIdMedico(SqlCommand comando, String consulta)
         {
-            SqlDataReader lectura; 
-            try
-            {
-                SqlCommand comando = new SqlCommand(consulta, ObtenerConexion());
-                return lectura = comando.ExecuteReader(); 
-            }
-            catch (Exception)
-            {
-                return null; 
-            }
-        }
-
-        public SqlDataReader ObtenerUsuarios(String consulta)
-        {
-            SqlDataReader lectura = ObtenerLectura(consulta); 
-            return lectura;
-        }
-
-        public String ObtenerMedico(String consulta)
-        {
-            SqlCommand comando = new SqlCommand(consulta, ObtenerConexion());
+            SqlConnection conexion = ObtenerConexion();
+            comando.Connection = conexion;
+            comando.CommandText = consulta; 
             SqlDataReader lectura = comando.ExecuteReader(); 
             if (lectura.Read())
             {
                 return lectura["Id_Medico_Med"].ToString();
+            }
+
+            return null;
+        }
+
+        public String ObtenerLegajoMedico(SqlCommand comando, String consulta)
+        {
+            SqlConnection conexion = ObtenerConexion();
+            comando.Connection = conexion;
+            comando.CommandText = consulta;
+            SqlDataReader lectura = comando.ExecuteReader();
+            if (lectura.Read())
+            {
+                return lectura["Legajo_Med"].ToString();
             }
 
             return null;

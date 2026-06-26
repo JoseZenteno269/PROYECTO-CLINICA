@@ -12,9 +12,9 @@ namespace Vista
         {
             if (!IsPostBack)
             {
-                if (Session["Usuario"] != null)
+                if (Session["UsuarioMed"] != null)
                 {
-                    lbl_usuario.Text = Session["Usuario"].ToString();
+                    lbl_usuario.Text = Session["UsuarioMed"].ToString();
                     CargarTurnos();
                 }
                 else
@@ -31,8 +31,8 @@ namespace Vista
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
-            Session["Usuario"] = null; 
+            Response.Redirect("Inicio.aspx");
+            Session["UsuarioMed"] = null; 
         }
 
         private void CargarTurnos()
@@ -46,6 +46,11 @@ namespace Vista
 
             DLTurnos.DataSource = lista;
             DLTurnos.DataBind();
+        }
+
+        protected void lb_perfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil_Medico.aspx"); 
         }
     }
 }

@@ -17,7 +17,15 @@ namespace Vista
         {
             if (!Page.IsPostBack)
             {
-                CargarGridViewMedicos(); 
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                    CargarGridViewMedicos(); 
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 
@@ -86,10 +94,12 @@ namespace Vista
             DropDownList ddlprovincia = (DropDownList)gv_medicos.Rows[e.NewEditIndex].FindControl("ddl_provincias");
             DropDownList ddllocalidad = (DropDownList)gv_medicos.Rows[e.NewEditIndex].FindControl("ddl_localidad"); 
             DropDownList ddlespecialidad = (DropDownList)gv_medicos.Rows[e.NewEditIndex].FindControl("ddl_especialidad");
+            DropDownList ddlgenero = (DropDownList)gv_medicos.Rows[e.NewEditIndex].FindControl("ddl_genero"); 
 
             int idProvincia = Convert.ToInt32(gv_medicos.DataKeys[e.NewEditIndex]["Id_Provincia_Med"]);
             int idLocalidad = Convert.ToInt32(gv_medicos.DataKeys[e.NewEditIndex]["Id_Localidad_Med"]);
             int idEspecialidad = Convert.ToInt32(gv_medicos.DataKeys[e.NewEditIndex]["Id_Especialidad_Med"]);
+            String genero = gv_medicos.DataKeys[e.NewEditIndex]["Sexo_Med"].ToString(); 
 
             CargarDropDownListProv(ddlprovincia); 
             CargarDropDownListEspe(ddlespecialidad);
@@ -97,6 +107,7 @@ namespace Vista
             CargarDropDownListLocal(ddllocalidad, ddlprovincia);
             ddllocalidad.SelectedValue = idLocalidad.ToString();
             ddlespecialidad.SelectedValue = idEspecialidad.ToString();
+            ddlgenero.SelectedValue = genero.ToString();
         }
 
         protected void gv_medicos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)

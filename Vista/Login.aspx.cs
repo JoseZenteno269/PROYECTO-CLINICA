@@ -24,15 +24,16 @@ namespace Vista
                 String tipo = negocio.getUsuarios(txt_usuario.Text.Trim(), txt_contrasena.Text.Trim());
                 if (tipo == "Medico" || tipo == "Administrador")
                 {
-                    Session["Tipousuario"] = tipo;
-                    Session["Usuario"] = txt_usuario.Text.Trim();
-
                     if (tipo == "Medico")
                     {
+                        Session["Tipousuario"] = tipo;
+                        Session["UsuarioMed"] = txt_usuario.Text.Trim();
                         Response.Redirect("Menu_Medico.aspx"); 
                     }
                     else
                     {
+                        Session["Tipousuario"] = tipo;
+                        Session["UsuarioAdmin"] = txt_usuario.Text.Trim();
                         Response.Redirect("Menu.aspx"); 
                     }
                 }

@@ -18,8 +18,16 @@ namespace Vista
         {
             if(!IsPostBack)
             {
-                CargarDropDownListEspecialidad();
-                CargarDropDownListSexo();
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                    CargarDropDownListEspecialidad();
+                    CargarDropDownListSexo();
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
            
         }

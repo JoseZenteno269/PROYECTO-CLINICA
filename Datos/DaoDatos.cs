@@ -16,9 +16,17 @@ namespace Datos
 
         public String getIdMedico(String legajo)
         {
-            String consulta = "SELECT Id_Medico_Med FROM Medicos WHERE Legajo_Med = " + "'" + legajo + "'"; 
-
-            return datos.ObtenerMedico(consulta); 
+            String consulta = "SELECT Id_Medico_Med FROM Medicos WHERE Legajo_Med = @LEGAJO";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@LEGAJO", legajo);
+            return datos.ObtenerIdMedico(comando, consulta); 
+        }
+        public String getLegajoMedico(String usuario)
+        {
+            String consulta = "SELECT Legajo_Med FROM Medicos INNER JOIN Usuarios ON Id_Medico_Med = Id_Medico_Usu WHERE Username_usu = @USERNAME";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@USERNAME", usuario);
+            return datos.ObtenerLegajoMedico(comando, consulta); 
         }
 
         public String getIdUsuario(String username)
@@ -43,7 +51,6 @@ namespace Datos
                 "INNER JOIN Provincias ON Id_Provincia_Med = Id_Provincia_Prov " +
                 "INNER JOIN Localidades ON Id_Localidad_Med = Id_Localidad_Local " +
                 "INNER JOIN Especialidad ON Id_Especialidad_Med = Id_Especialidad_Espe WHERE Activo_Med = 1 " + consulta);
-            //DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Id_Medico_Med,Legajo_Med, DNI_Med, Nombre_Med, Apellido_Med,Id_Especialidad_Med ,CorreoElectronico_Med, Telefono_Med FROM Medicos WHERE Activo_Med = 1");
             return tabla;
         }
 

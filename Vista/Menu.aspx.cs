@@ -13,9 +13,9 @@ namespace Vista
         {
             if (!Page.IsPostBack)
             {
-                if (Session["Usuario"] != null)
+                if (Session["UsuarioAdmin"] != null)
                 {
-                    lbl_usuario.Text = Session["Usuario"].ToString(); 
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString(); 
                 }
                 else
                 {
@@ -23,9 +23,6 @@ namespace Vista
                 }
             }
         }
-
-        String nombre = string.Empty;
-        String nombre2 = string.Empty; 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
         {
             p_panel.Visible = !p_panel.Visible; 
@@ -33,7 +30,8 @@ namespace Vista
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx"); 
+            Response.Redirect("Inicio.aspx");
+            Session["UsuarioAdmin"] = null;
         }
 
         protected void btn_agregarm_Click(object sender, EventArgs e)

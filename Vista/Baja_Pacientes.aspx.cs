@@ -15,7 +15,15 @@ namespace Vista
         {
             if(!IsPostBack)
             {
-                CargarBajaPacientes();
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                    CargarBajaPacientes();
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 

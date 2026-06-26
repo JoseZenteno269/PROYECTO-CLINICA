@@ -18,8 +18,16 @@ namespace Vista
         {
             if(!IsPostBack)
             {
-                CargarLetras();
-                CargarDropDownListProvincias();
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                    CargarLetras();
+                    CargarDropDownListProvincias();
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 
