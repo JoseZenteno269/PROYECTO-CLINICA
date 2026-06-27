@@ -43,8 +43,11 @@
                     <td>
                         <asp:TextBox ID="txt_IDPacientes" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" /></td>
-                    <td></td>
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" ValidationGroup="5" /></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Pacientes" runat="server" ControlToValidate="txt_IDPacientes" ErrorMessage="Ingrese un Id de paciente" ValidationGroup="5">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Pacientes" runat="server" ControlToValidate="txt_IDPacientes" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ValidationGroup="5">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -131,6 +134,7 @@
                 </tr>
             </table>
         </div>
+        <asp:ValidationSummary ID="VSBajaPacientes" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="5" />
     </form>
 </body>
 </html>

@@ -42,8 +42,11 @@
                     <td>
                         <asp:TextBox ID="txt_IdMedico" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" /></td>
-                    <td></td>
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" ValidationGroup="3" /></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_IdMedico" runat="server" ControlToValidate="txt_IdMedico" ErrorMessage="Ingrese un Id a dar de baja" ValidationGroup="3">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_IdMedico" runat="server" ControlToValidate="txt_IdMedico" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ValidationGroup="3">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -53,7 +56,7 @@
             </table>
         </div>
         <div class ="grupo-medico">
-<%--            <table>
+            <%--            <table>
                 <tr>
                     <td>
                         
@@ -63,8 +66,7 @@
                     <td>
                         <asp:Button ID="btn_Listar" runat="server" Text="Consultar Medicos" OnClick="btn_Listar_Click" />
                     </td>
-                </tr>--%>
-<%--            </table>--%>
+                </tr>--%><%--            </table>--%>
             <br />
             <asp:GridView ID="gvMedicos" runat="server" AutoGenerateColumns="False">
                 <Columns>
@@ -134,6 +136,7 @@
                 </tr>
             </table>
         </div>
+        <asp:ValidationSummary ID="VSBajaMedica" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="3" />
     </form>
 </body>
 </html>

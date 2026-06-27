@@ -45,25 +45,37 @@
                     <td>Legajo:</td>
                     <td>
                         <asp:TextBox ID="txt_legajo_m" runat="server"></asp:TextBox></td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Ingrese un Legajo" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Debe empezar con Med" ValidationExpression=" ^Med-\d{4}-\d+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Ingrese DNI:</td>
                     <td>
                         <asp:TextBox ID="txt_dni_m" runat="server"></asp:TextBox></td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_DNI" runat="server" ControlToValidate="txt_dni_m" ErrorMessage="Ingrese un DNI" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_DNI" runat="server" ControlToValidate="txt_dni_m" ErrorMessage="Ingrese solo Numeros" ValidationExpression="^[0-9]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Nombre:</td>
                     <td>
                         <asp:TextBox ID="txt_nombre_m" runat="server"></asp:TextBox></td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_nombre" runat="server" ControlToValidate="txt_nombre_m" ErrorMessage="Ingrese un Nombre" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Nombre" runat="server" ControlToValidate="txt_nombre_m" ErrorMessage="Ingrese solo letras" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Apellido:</td>
                     <td>
                         <asp:TextBox ID="txt_apellido_m" runat="server"></asp:TextBox></td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Apellido" runat="server" ControlToValidate="txt_apellido_m" ErrorMessage="Ingrese un Apellido" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Apellido" runat="server" ControlToValidate="txt_apellido_m" ErrorMessage="Ingrese solo letras" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Sexo:</td>
@@ -74,14 +86,19 @@
                             <asp:ListItem>Femenino</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Sexo" runat="server" ControlToValidate="ddl_sexo_m" ErrorMessage="Seleccione una opcion" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Nacionalidad:</td>
                     <td>
                         <asp:TextBox ID="txt_nacionalidad" runat="server"></asp:TextBox>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Nacionalidad" runat="server" ControlToValidate="txt_nacionalidad" ErrorMessage="Ingrese una Nacionalidad" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Nacionalidad" runat="server" ControlToValidate="txt_nacionalidad" ErrorMessage="Ingrese solo letras" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Fecha de nacimiento:</td>
@@ -92,13 +109,18 @@
                         <br />
                         <asp:Calendar ID="c_calendario_m" runat="server" CssClass="aspNetCalendar" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>--%>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="ref_Fecha" runat="server" ControlToValidate="txt_fecha" ErrorMessage="Ingresa una Fecha" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Direccion:</td>
                     <td>
                         <asp:TextBox ID="txt_direccion_m" runat="server"></asp:TextBox></td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Direccion" runat="server" ControlToValidate="txt_direccion_m" ErrorMessage="Ingrese una direccion" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Direccion" runat="server" ControlToValidate="txt_direccion_m" ErrorMessage="Ingrese una direccion valida" ValidationExpression="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                                 <tr>
                     <td>Provincia:</td>
@@ -106,7 +128,9 @@
                         <asp:DropDownList ID="ddl_provincia_m" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_provincia_m_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rev_Provincia" runat="server" ControlToValidate="ddl_provincia_m" ErrorMessage="Seleccione una Provincia" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                                    </td>
                 </tr>
                 <tr>
                     <td>Localidad:</td>
@@ -114,7 +138,9 @@
                         <asp:DropDownList ID="ddl_localidad_m" runat="server">
                         </asp:DropDownList>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Localidad" runat="server" ControlToValidate="ddl_localidad_m" ErrorMessage="Seleccione una localidad" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Especialidad:</td>
@@ -122,19 +148,27 @@
                         <asp:DropDownList ID="ddl_especalidad_m" runat="server">
                         </asp:DropDownList>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Especialidad" runat="server" ControlToValidate="ddl_especalidad_m" ErrorMessage="Seleccione una Especialdad" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Correo Electronico:</td>
                     <td>
                         <asp:TextBox ID="txt_correo_m" runat="server"></asp:TextBox></td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Correo" runat="server" ControlToValidate="txt_correo_m" ErrorMessage="Ingrese un Correo" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Email" runat="server" ControlToValidate="txt_correo_m" ErrorMessage="Ingrese un Email valido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Telefono:</td>
                     <td>
                         <asp:TextBox ID="txt_telefono_m" runat="server"></asp:TextBox></td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_Telefono" runat="server" ControlToValidate="txt_telefono_m" ErrorMessage="Ingrese un Telefono" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Telefono" runat="server" ControlToValidate="txt_telefono_m" ErrorMessage="Ingrese un telefono valido" ValidationExpression="^[0-9]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>ACTIVO:</td>
@@ -155,7 +189,7 @@
                 </tr>
                 <tr>
                     <td class="botones">
-                        <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" OnClick="btn_guardar_Click" />
+                        <asp:Button ID="btn_guardar" runat="server" Text="Guardar" CssClass="btn-guardar" OnClick="btn_guardar_Click" ValidationGroup="1" />
                         <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" CssClass="btn-cancelar" OnClick="btn_cancelar_Click" />
                     </td>
                     <td colspan="2" align="end">
@@ -165,6 +199,7 @@
                 <asp:Button ID="btn_Volver" runat="server" OnClick="btn_Volver_Click" Text="Volver a Menu" />
             </table>
         </div>
+        <asp:ValidationSummary ID="VSAltaMedicos" runat="server" DisplayMode="List" EnableTheming="True" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
         <br />
         <br />
         <br />

@@ -96,6 +96,24 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btn_Aceptar;
 
         /// <summary>
+        /// Control rfv_Pacientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Pacientes;
+
+        /// <summary>
+        /// Control rev_Pacientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_Pacientes;
+
+        /// <summary>
         /// Control lbl_Mensaje.
         /// </summary>
         /// <remarks>
@@ -112,5 +130,14 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvPacientes;
+
+        /// <summary>
+        /// Control VSBajaPacientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary VSBajaPacientes;
     }
 }

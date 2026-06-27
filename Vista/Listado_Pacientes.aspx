@@ -288,9 +288,10 @@
             </asp:ListView>
             <br />
 
-            <asp:SqlDataSource ID="SqlDataSourcePacientes" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaListadoPacientes %>" ProviderName="<%$ ConnectionStrings:BDClinicaListadoPacientes.ProviderName %>" SelectCommand= " SELECT DNI_Paci AS DNI,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad, (Nombre_Paci +' '+ Apellido_Paci) AS [Nombre y Apellido],Sexo_Paci,Nacionalidad_Paci,FechaNacimiento_Paci,Direccion_Paci,CorreoElectronico_Paci,Telefono_Paci 
+            <asp:SqlDataSource ID="SqlDataSourcePacientes" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaListadoPacientes %>" SelectCommand= " SELECT DNI_Paci AS DNI,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad, (Nombre_Paci +' '+ Apellido_Paci) AS [Nombre y Apellido],Sexo_Paci,Nacionalidad_Paci,FechaNacimiento_Paci,Direccion_Paci,CorreoElectronico_Paci,Telefono_Paci 
  FROM Pacientes INNER JOIN Provincias ON Pacientes.Id_Provincia_Paci = Provincias.Id_Provincia_Prov 
- INNER JOIN Localidades ON Pacientes.Id_Localidad_Paci = Localidades.Id_Localidad_Local "></asp:SqlDataSource>
+ INNER JOIN Localidades ON Pacientes.Id_Localidad_Paci = Localidades.Id_Localidad_Local
+WHERE Activo_Paci = 1"></asp:SqlDataSource>
         </div>
         <div class="divlogos">
             <table style="width: 100%">
