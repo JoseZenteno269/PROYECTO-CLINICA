@@ -233,6 +233,22 @@ namespace Negocio
             }
         }
 
+        public Boolean CancelarTurnos(int idTurno)
+        {
+            Turnos turnos = new Turnos();
+            turnos.setIdTurno(idTurno);
+            int filasafectadas = daoDatos.CancelarTurnos(turnos);
+            if(filasafectadas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;  
+            }
+        }
+
+        /// Modificar
         public Boolean ModificarMedico(int idMedico, int idprovincia, int idlocalidad, int idespecialidad, String nombre, String apellido, String sexo, String nacionalidad, DateTime fechanacimiento, String direccion, String email, String telefono)
         {
             Medicos medicos = new Medicos();
@@ -270,19 +286,5 @@ namespace Negocio
             return filasafecatdas == 1;
         }
 
-        public Boolean CancelarTurnos(int idTurno)
-        {
-            Turnos turnos = new Turnos();
-            turnos.setIdTurno(idTurno);
-            int filasafectadas = daoDatos.CancelarTurnos(turnos);
-            if(filasafectadas == 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;  
-            }
-        }
     }
 }
