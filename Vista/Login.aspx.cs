@@ -12,6 +12,7 @@ namespace Vista
     public partial class Login : System.Web.UI.Page
     {
         NegocioMedicos negocio = new NegocioMedicos();
+        NegocioUsuarios negocioUsuarios = new NegocioUsuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,9 +20,9 @@ namespace Vista
 
         protected void btn_iniciar_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(txt_usuario.Text.Trim()) && !string.IsNullOrEmpty(txt_contrasena.Text.Trim()))
+            if (!string.IsNullOrEmpty(txt_usuario.Text.Trim()) && !string.IsNullOrEmpty(txt_contrasena.Text.Trim()))
             {
-                String tipo = negocio.getUsuarios(txt_usuario.Text.Trim(), txt_contrasena.Text.Trim());
+                String tipo = negocioUsuarios.getUsuarios(txt_usuario.Text.Trim(), txt_contrasena.Text.Trim());
                 if (tipo == "Medico" || tipo == "Administrador")
                 {
                     if (tipo == "Medico")

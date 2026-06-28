@@ -12,6 +12,9 @@ namespace Vista
     public partial class Modificacion_Pacientes : System.Web.UI.Page
     {
         NegocioMedicos negocio = new NegocioMedicos();
+        NegocioPacientes negocioPacientes = new NegocioPacientes();
+        NegocioProvincias negocioProvincias = new NegocioProvincias();
+        NegocioLocalidades negocioLocalidades = new NegocioLocalidades();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -30,12 +33,12 @@ namespace Vista
 
         public void CargarGridViewPacientes()
         {
-            gv_pacientes.DataSource = negocio.getPacientes();
+            gv_pacientes.DataSource = negocioPacientes.getPacientes();
             gv_pacientes.DataBind(); 
         }
         public void CargarGridViewPacientes(String consulta)
         {
-            gv_pacientes.DataSource = negocio.getPacientes(consulta);
+            gv_pacientes.DataSource = negocioPacientes.getPacientes(consulta);
             gv_pacientes.DataBind(); 
         }
 
@@ -56,7 +59,7 @@ namespace Vista
 
         public void CargarDropDownListProv(DropDownList ddlprov)
         {
-            ddlprov.DataSource = negocio.getDropDownListProvincias();
+            ddlprov.DataSource = negocioProvincias.getDropDownListProvincias();
             ddlprov.DataTextField = "Descripcion_Prov";
             ddlprov.DataValueField = "Id_Provincia_Prov";
             ddlprov.DataBind();
@@ -65,7 +68,7 @@ namespace Vista
 
         public void CargarDropDownListLocal(DropDownList ddlloca, DropDownList ddlprov)
         {
-            DataTable tabla = negocio.getDropDownListLocalidades();
+            DataTable tabla = negocioLocalidades.getDropDownListLocalidades();
             tabla.DefaultView.RowFilter = "Id_Provincia_Local = " + ddlprov.SelectedValue;
             ddlloca.DataSource = tabla.DefaultView;
             ddlloca.DataTextField = "Descripcion_Local";
@@ -114,7 +117,7 @@ namespace Vista
             String email = ((TextBox)gv_pacientes.Rows[e.RowIndex].FindControl("txt_correo")).Text;
             String telefono = ((TextBox)gv_pacientes.Rows[e.RowIndex].FindControl("txt_telefono")).Text;
 
-            if (negocio.ModificarPaciente(idpaciente, idprovincia, idlocalidad, nombre, apellido, sexo, nacionalidad, fecha, direccion, email, telefono))
+            if (negocioPacientes.ModificarPaciente(idpaciente, idprovincia, idlocalidad, nombre, apellido, sexo, nacionalidad, fecha, direccion, email, telefono))
             {
                 lbl_mensaje.Text = "Cambios realizado correctamente ";
                 gv_pacientes.EditIndex = -1; 

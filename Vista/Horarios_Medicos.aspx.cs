@@ -10,7 +10,8 @@ namespace Vista
 {
     public partial class Horarios_Medicos : System.Web.UI.Page
     {
-        NegocioMedicos negocio = new NegocioMedicos(); 
+        NegocioMedicos negocioMedicos = new NegocioMedicos();
+        NegocioDisponibilidadMedico negocioDisponibilidad = new NegocioDisponibilidadMedico();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -74,7 +75,7 @@ namespace Vista
 
         protected void btn_aceptar_Click(object sender, EventArgs e)
         {
-            int? idmedico = negocio.getIdMedico(txt_legajo.Text.Trim());
+            int? idmedico = negocioMedicos.getIdMedico(txt_legajo.Text.Trim());
             if (idmedico == null)
             {
                 Label1.Text = "error al cargar";
@@ -105,7 +106,7 @@ namespace Vista
                 {
                     for (int j = 0; j < dia[i]; j++)
                     {
-                        if (negocio.AgregarHorarios(Convert.ToInt32(idmedico), (i + 1), TimeSpan.FromHours(horainicio[i] + j)))
+                        if (negocioDisponibilidad.AgregarHorarios(Convert.ToInt32(idmedico), (i + 1), TimeSpan.FromHours(horainicio[i] + j)))
                         {
                             Label1.Text = "horarios agregador con exito"; 
                         }

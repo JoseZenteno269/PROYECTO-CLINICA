@@ -9,43 +9,28 @@ namespace Datos
     public class DaoMedicos
     {
         AccesoDatos datos = new AccesoDatos();
-        public DaoMedicos() 
+        public DaoMedicos()
         {
             /// Constructor vacio
         }
 
         public int? getCantidadMedicos()
         {
-            return datos.EjecutarEscalarInt("SELECT COUNT(*) FROM Medicos"); 
+            return datos.EjecutarEscalarInt("SELECT COUNT(*) FROM Medicos");
         }
         public int? getIdMedico(String legajo)
         {
             String consulta = "SELECT Id_Medico_Med FROM Medicos WHERE Legajo_Med = @LEGAJO";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@LEGAJO", legajo);
-            return datos.EjecutarEscalarInt(comando, consulta); 
+            return datos.EjecutarEscalarInt(comando, consulta);
         }
         public String getLegajoMedico(String usuario)
         {
             String consulta = "SELECT Legajo_Med FROM Medicos INNER JOIN Usuarios ON Id_Medico_Med = Id_Medico_Usu WHERE Username_usu = @USERNAME";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USERNAME", usuario);
-            return datos.EjecutarEscalarString(comando, consulta); 
-        }
-        public int? getIdAdministrador(String usuario)
-        {
-            String consulta = "SELECT Id_Administrador_Admin FROM Administradores INNER JOIN Usuarios ON Id_Administrador_Usu = Id_Administrador_Admin WHERE Username_Usu = @USERNAME";
-            SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@USERNAME", usuario);
-            return datos.EjecutarEscalarInt(comando, consulta); 
-        }
-
-        public int? getIdUsuario(String username)
-        {
-            String consulta = "SELECT Id_Usuario_Usu FROM Usuarios WHERE Username_Usu = @USERNAME AND Id_Administrador_Usu = NULL";
-            SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@USERNAME", username);
-            return datos.EjecutarEscalarInt(comando, consulta); 
+            return datos.EjecutarEscalarString(comando, consulta);
         }
         public DataTable getTablaMedicos()
         {
@@ -76,111 +61,12 @@ namespace Datos
             return tabla;
         }
 
-        public DataTable getTablaPacientes()
-        {
-            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Id_Provincia_Paci, Id_Localidad_Paci, Descripcion_Prov, Nacionalidad_Paci, FechaNacimiento_Paci, Descripcion_Local, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes " +
-                "INNER JOIN Provincias ON Id_Provincia_Paci = Id_Provincia_Prov " +
-                "INNER JOIN Localidades ON Id_Localidad_Paci = Id_Localidad_Local WHERE Activo_Paci = 1"); 
-            return tabla;
-        }
-        public DataTable getTablaPacientes(String consulta)
-        {
-            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci, DNI_Paci, Id_Provincia_Paci, Id_Localidad_Paci, Descripcion_Prov, Nacionalidad_Paci, FechaNacimiento_Paci, Descripcion_Local, Nombre_Paci, Apellido_Paci, Sexo_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci FROM Pacientes " +
-                "INNER JOIN Provincias ON Id_Provincia_Paci = Id_Provincia_Prov " +
-                "INNER JOIN Localidades ON Id_Localidad_Paci = Id_Localidad_Local WHERE Activo_Paci = 1 " + consulta); 
-            return tabla;
-        }
-
-        public DataTable getTablaAltaPacientes()
-        {
-            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci,DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Nacionalidad_Paci, FechaNacimiento_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci, Activo_Paci FROM Pacientes WHERE Activo_Paci = 1");
-            return tabla;
-        }
-        public DataTable getTablaBajaPacientes()
-        {
-            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci,DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Nacionalidad_Paci, FechaNacimiento_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci, Activo_Paci FROM Pacientes WHERE Activo_Paci = 0");
-            return tabla;
-        }
-
-        public DataTable getTablaTurno()
-        {
-            DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, Id_Medico_Tur, Id_Especialidad_Tur, Id_Paciente_Tur, Id_EstadoPaciente_Tur, Id_EstadoTurno_Tur, Fecha_Tur, Horario_Tur, Descripcion_Tur, Activo_Tur FROM Turnos");
-            return tabla; 
-        }
-
-        public String MedicoAdministrador(String usuario, String constrasena)
-        {
-            String consulta = "SELECT CASE WHEN Id_Administrador_Usu IS NOT NULL THEN 'Administrador' WHEN Id_Medico_Usu IS NOT NULL THEN 'Medico' END AS Tipousuario FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = HASHBYTES('SHA2_256', CONVERT(VARCHAR, @PASSWORD)) AND Activo_Usu = 1";
-            SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@USUARIO", usuario.ToString().Trim());
-            //comando.Parameters.AddWithValue("@PASSWORD",System.Text.Encoding.ASCII.GetBytes(constrasena.ToString().Trim()));
-            comando.Parameters.AddWithValue("@PASSWORD", constrasena.ToString().Trim());
-            return datos.EjecutarEscalarString(comando, consulta);
-        }
-
-        public DataTable getTablaProvincia()
-        {
-            DataTable tabla = datos.ObtenerTabla("Provincias", "SELECT Id_Provincia_Prov, Descripcion_Prov FROM Provincias"); 
-            return tabla;
-        }
-
-        public DataTable getTablaLocalidades()
-        {
-            DataTable tabla = datos.ObtenerTabla("Localidades", "SELECT Id_Localidad_Local, Id_Provincia_Local, Descripcion_Local FROM Localidades"); 
-            return tabla;
-        }
-
-        public DataTable getTablaEspecialidad()
-        {
-            DataTable tabla = datos.ObtenerTabla("Especialidad", "SELECT Nombre_Espe, Id_Especialidad_Espe FROM Especialidad");
-            return tabla;
-        }
-
-        public DataTable getTablaDisponibilidadMedica()
-        {
-            DataTable tabla = datos.ObtenerTabla("Disponibilidad_Medico", "SELECT Id_COD_DispMed, Id_Medico_DispMed, (CASE DiaSemana_DispMed WHEN 1 THEN 'Lunes' WHEN 2 THEN 'Martes' WHEN 3 THEN 'Miércoles' WHEN 4 THEN 'Jueves' WHEN 5 THEN 'Viernes' WHEN 6 THEN 'Sábado' WHEN 7 THEN 'Domingo' END + ' - ' + CAST(Horario_DispMed AS VARCHAR(5))) AS DiayHorario FROM Disponibilidad_Medico");
-            return tabla;
-        }
-
         public Boolean ExisteMedico(Medicos medicos)
         {
             String consulta = "SELECT * FROM Medicos WHERE DNI_Med = @DNI";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@DNI", medicos.getDNIMedico()); 
             return datos.Existe(comando, consulta);
-        }
-
-        public Boolean ExistePaciente(Pacientes paciente)
-        {
-            String consulta = "SELECT * FROM Pacientes WHERE DNI_Paci = @DNI";
-            SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@DNI", paciente.getDniPaciente()); 
-            return datos.Existe(comando, consulta);
-        }
-
-        public Boolean ExisteTurno(Turnos turno)
-        {
-            String consulta = "SELECT * FROM Turnos WHERE Id_Turno_Tur = @IDTURNO";
-            SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@IDTURNO", turno.getIdTurno()); 
-            return datos.Existe(comando, consulta);
-        }
-
-        public int AgregarhoraXmedico(int idmedico, int dia, TimeSpan hora)
-        {
-            SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@IDMEDICO", idmedico);
-            comando.Parameters.AddWithValue("@DIASEMANA", dia);
-            comando.Parameters.AddWithValue("@HORA", hora); 
-            return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarHorariosMedico"); 
-        }
-
-        public int CambioContrasena(int idusuario, String contrasena)
-        {
-            SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@IDUSUARIO", idusuario);
-            comando.Parameters.AddWithValue("@PASSWORD", contrasena);
-            return datos.EjecutarProcedimientoAlmacenado(comando, "spCambioContrasena"); 
         }
 
         /// Medicos
@@ -203,52 +89,6 @@ namespace Datos
             SqlCommand comando = new SqlCommand();
             ArmarParametrosMedicosDarBaja(ref comando, medico);
             return datos.EjecutarProcedimientoAlmacenado(comando, "spBajaMedica");
-        }
-
-        /// Pacientes
-        public int AgregarPaciente(Pacientes pacientes)
-        {
-            SqlCommand comando = new SqlCommand();
-            ArmarParametrosPacientesAgregar(ref comando, pacientes);
-            return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarPaciente");
-        }
-
-        public int ModificarPaciente(Pacientes paciente)
-        {
-            SqlCommand comando = new SqlCommand();
-            ArmarParametrosPacientesModificar(ref comando, paciente);
-            return datos.EjecutarProcedimientoAlmacenado(comando, "spModificarPaciente");
-        }
-
-        public int DarBajaPecientes(Pacientes pacientes)
-        {
-            SqlCommand comando = new SqlCommand();
-            ArmarParametrosPacientesDarBaja(ref comando, pacientes);
-            return datos.EjecutarProcedimientoAlmacenado(comando, "spBajaPaciente");
-        }
-
-        /// Turnos
-        
-        public int AgregarTurnos(Turnos turnos)
-        {
-            SqlCommand comando = new SqlCommand();
-            ArmarParametrosTurnosAgregar(ref comando, turnos);
-            return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarTurnos");
-        }
-
-        public int CancelarTurnos(Turnos turnos)
-        {
-            SqlCommand comando = new SqlCommand();
-            ArmarParametrosTurnosCancelar(ref comando, turnos);
-            return datos.EjecutarProcedimientoAlmacenado(comando,"spCancelarTurnos");
-        }
-        /// Usuarios
-        
-        public int AgregarUsuario(Usuarios usuarios)
-        {
-            SqlCommand comando = new SqlCommand();
-            ArmarParametrosUsuarios(ref comando, usuarios);
-            return datos.EjecutarProcedimientoAlmacenado(comando, "spGenerarUsuario");
         }
 
         public void ArmarParametrosMedicosAgregar(ref SqlCommand comando, Medicos medicos)
@@ -363,165 +203,6 @@ namespace Datos
 
             parametros = comando.Parameters.Add("@IDMEDICO", SqlDbType.Int);
             parametros.Value = medicos.getIdMedico();
-        }
-
-        /// Parametros Pacientes
-        public void ArmarParametrosPacientesAgregar(ref SqlCommand comando, Pacientes pacientes)
-        {
-            SqlParameter parametros = new SqlParameter();
-            //ID PROVINCIA
-            parametros = comando.Parameters.Add("@IDPROVINCIA", SqlDbType.Int);
-            parametros.Value = pacientes.getIdProvincia();
-            //ID LOCALIDAD
-            parametros = comando.Parameters.Add("@IDLOCALIDAD", SqlDbType.Int);
-            parametros.Value = pacientes.getIdLocalidad();
-            //DNI
-            parametros = comando.Parameters.Add("@DNI", SqlDbType.Int);
-            parametros.Value = pacientes.getDniPaciente(); 
-            //NOMBRE PACIENTE
-            parametros = comando.Parameters.Add("@NOMBRE", SqlDbType.NVarChar);
-            parametros.Value = pacientes.getNombrePaciente(); 
-            //APELLIDO PACIENTE
-            parametros = comando.Parameters.Add("@APELLIDO", SqlDbType.NVarChar);
-            parametros.Value = pacientes.getApellidoPaciente(); 
-            //SEXO PACIENTE
-            parametros = comando.Parameters.Add("@SEXO", SqlDbType.NVarChar);
-            parametros.Value = pacientes.getSexoPaciente();
-            //NACIONALIDAD PACIENTE
-            parametros = comando.Parameters.Add("@NACIONALIDAD", SqlDbType.NVarChar);
-            parametros.Value = pacientes.getNacionalidadPaciente(); 
-            //FECHA NACIMIENTO PACIENTE
-            parametros = comando.Parameters.Add("@FECHANACIMIENTO", SqlDbType.Date);
-            parametros.Value = pacientes.getFechaNacionalidadPaciente(); 
-            //DIRECCION PACIENTE
-            parametros = comando.Parameters.Add("@DIRECCION", SqlDbType.NVarChar);
-            parametros.Value = pacientes.getDireccionPaciente(); 
-            //EMAIL PACIENTE
-            parametros = comando.Parameters.Add("@EMAIL", SqlDbType.NVarChar);
-            parametros.Value = pacientes.getCorreoElectronicoPaciente(); 
-            //TELEFONO PACIENTE
-            parametros = comando.Parameters.Add("@TELEFONO", SqlDbType.NVarChar);
-            parametros.Value = pacientes.getTelefonoPaciente(); 
-        }
-
-        public void ArmarParametrosPacientesModificar(ref SqlCommand comando, Pacientes pacientes)
-        {
-            SqlParameter sqlParameter = new SqlParameter();
-
-            sqlParameter = comando.Parameters.Add("@IDPACIENTE", SqlDbType.Int);
-            sqlParameter.Value = pacientes.getIdPaciente();
-
-            //ID PROVINCIA
-
-            sqlParameter = comando.Parameters.Add("@IDPROVINCIA", SqlDbType.Int);
-            sqlParameter.Value = pacientes.getIdProvincia();
-
-            //ID LOCALIDAD
-
-            sqlParameter = comando.Parameters.Add("@IDLOCALIDAD", SqlDbType.Int);
-            sqlParameter.Value = pacientes.getIdLocalidad();
-
-            //NOMBRE PACIENTE
-
-            sqlParameter = comando.Parameters.Add("@NOMBRE", SqlDbType.NVarChar);
-            sqlParameter.Value = pacientes.getNombrePaciente();
-
-            //APELLIDO PACIENTE
-
-            sqlParameter = comando.Parameters.Add("@APELLIDO", SqlDbType.NVarChar);
-            sqlParameter.Value = pacientes.getApellidoPaciente();
-
-            //SEXO PACIENTE
-
-            sqlParameter = comando.Parameters.Add("@SEXO", SqlDbType.NVarChar);
-            sqlParameter.Value = pacientes.getSexoPaciente();
-
-            //NACIONALIDAD PACIENTE
-
-            sqlParameter = comando.Parameters.Add("@NACIONALIDAD", SqlDbType.NVarChar);
-            sqlParameter.Value = pacientes.getNacionalidadPaciente();
-
-            //FECHA NACIMIENTO PACIENTE
-
-            sqlParameter = comando.Parameters.Add("@FECHANACIMIENTO", SqlDbType.Date);
-            sqlParameter.Value = pacientes.getFechaNacionalidadPaciente();
-
-            //DIRECCION PACIENTE
-
-            sqlParameter = comando.Parameters.Add("@DIRECCION", SqlDbType.NVarChar);
-            sqlParameter.Value = pacientes.getDireccionPaciente();
-
-            //EMAIL PACIENTE
-
-            sqlParameter = comando.Parameters.Add("@EMAIL", SqlDbType.NVarChar);
-            sqlParameter.Value = pacientes.getCorreoElectronicoPaciente();
-
-            //TELEFONO PACIENTE
-
-            sqlParameter = comando.Parameters.Add("@TELEFONO", SqlDbType.NVarChar);
-            sqlParameter.Value = pacientes.getTelefonoPaciente();
-        }
-        public void ArmarParametrosPacientesDarBaja(ref SqlCommand comando, Pacientes pacientes)
-        {
-            SqlParameter parametros = new SqlParameter();
-
-            parametros = comando.Parameters.Add("@IDPACIENTE", SqlDbType.Int);
-            parametros.Value = pacientes.getIdPaciente(); 
-        }
-
-        /// Parametros Turnos
-        public void ArmarParametrosTurnosAgregar(ref SqlCommand comando, Turnos turnos)
-        {
-            SqlParameter parametros = new SqlParameter();
-            //ID MEDICO
-            parametros = comando.Parameters.Add("@IDMEDICO", SqlDbType.Int);
-            parametros.Value = turnos.getIdMedicoTurno(); 
-            //ID ESPECIALIDAD
-            parametros = comando.Parameters.Add("@IDESPECIALIDAD", SqlDbType.Int);
-            parametros.Value = turnos.getIdEspecialidadTurno();
-            //ID PACIENTE
-            parametros = comando.Parameters.Add("@IDPACIENTE", SqlDbType.Int);
-            parametros.Value = turnos.getIdPacienteTurno(); 
-            //ID ESTADO PACIENTE
-            parametros = comando.Parameters.Add("@IDESTADOPACIENTE", SqlDbType.Int);
-            parametros.Value = turnos.getIdEstadoPacienteTurno(); 
-            //ID ESTADO TURNO
-            parametros = comando.Parameters.Add("@IDESTADOTURNO", SqlDbType.Int);
-            parametros.Value = turnos.getIdEstadoTurno(); 
-            //FECHA TURNO
-            parametros = comando.Parameters.Add("@FECHA", SqlDbType.Date);
-            parametros.Value = turnos.getFechaTurno(); 
-            //HORARIO TURNO
-            parametros = comando.Parameters.Add("@HORARIO", SqlDbType.Time);
-            parametros.Value = turnos.getHorarioTurno(); 
-            //DESCIPCION TURNO
-            parametros = comando.Parameters.Add("@DESCIPCION", SqlDbType.NVarChar);
-            parametros.Value = turnos.getDescripcionTurno(); 
-        }
-
-        public void ArmarParametrosTurnosCancelar(ref SqlCommand comando, Turnos turnos)
-        {
-            SqlParameter parametros = new SqlParameter();
-
-            parametros = comando.Parameters.Add("@IDTURNO", SqlDbType.Int);
-            parametros.Value = turnos.getIdTurno();
-        }
-
-        public void ArmarParametrosUsuarios(ref SqlCommand comando, Usuarios usuarios)
-        {
-            SqlParameter parametros = new SqlParameter();
-
-            parametros = comando.Parameters.Add("@IDMEDICO", SqlDbType.Int);
-            parametros.Value = usuarios.getIdMedico();
-
-            parametros = comando.Parameters.Add("@IDADMINISTRADOR", SqlDbType.Int);
-            parametros.Value = (object)usuarios.getIdAdministrador() ?? DBNull.Value;
-
-            parametros = comando.Parameters.Add("@USERNAME", SqlDbType.NVarChar);
-            parametros.Value = usuarios.getUsername();
-
-            parametros = comando.Parameters.Add("@PASSWORD", SqlDbType.NVarChar);
-            parametros.Value = usuarios.getPassword();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Vista
     public partial class Listado_Pacientes : System.Web.UI.Page
     {
        NegocioMedicos negocioClinica = new NegocioMedicos();
+       NegocioProvincias negocioProvincias = new NegocioProvincias();
        Pacientes pacientes = new Pacientes();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -84,7 +85,7 @@ namespace Vista
         
         public void CargarDropDownListProvincias()
         {
-            ddl_ProvinciasFiltro.DataSource = negocioClinica.getDropDownListProvincias();
+            ddl_ProvinciasFiltro.DataSource = negocioProvincias.getDropDownListProvincias();
             ddl_ProvinciasFiltro.DataTextField = "Descripcion_Prov";
             ddl_ProvinciasFiltro.DataValueField = "Id_Provincia_Prov";
             ddl_ProvinciasFiltro.DataBind();

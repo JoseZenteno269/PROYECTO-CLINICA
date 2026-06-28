@@ -11,6 +11,7 @@ namespace Vista
     public partial class Perfil_Administrador : System.Web.UI.Page
     {
         NegocioMedicos negocio = new NegocioMedicos();
+        NegocioAdministradores negocioAdministradores = new NegocioAdministradores();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -18,7 +19,7 @@ namespace Vista
                 if (Session["UsuarioAdmin"] != null)
                 {
                     lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
-                    int idadmin = Convert.ToInt32(negocio.getIdAdministrador(Session["UsuarioAdmin"].ToString()));
+                    int idadmin = Convert.ToInt32(negocioAdministradores.getIdAdministrador(Session["UsuarioAdmin"].ToString()));
                     sds_administrador.SelectCommand = "SELECT [Id_Administrador_Admin], [DNI_Admin], [Nombre_Admin], [CorreoElectronico_Admin], [Apellido_Admin], [Telefono_Admin], [Activo_Admin] FROM [Administradores] WHERE Id_Administrador_Admin = " + idadmin; 
                 }
                 else

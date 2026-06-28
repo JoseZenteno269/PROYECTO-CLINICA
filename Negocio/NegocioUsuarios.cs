@@ -15,12 +15,20 @@ namespace Negocio
         public NegocioUsuarios()
         {
         }
-
+        public String getUsuarios(String usuario, String constrasena)
+        {
+            return daoUsuarios.MedicoAdministrador(usuario, constrasena);
+        }
         public int? getIdUsuario(String username)
         {
             return daoUsuarios.getIdUsuario(username);
         }
 
+        public Boolean CambioConstrasena(int idusuario, String contrasena)
+        {
+            int filasafectadas = daoUsuarios.CambioContrasena(idusuario, contrasena);
+            return filasafectadas == 1;
+        }
         public Boolean AgregarUsuarios(int idmedico, int? idadministrador, String username, String password)
         {
             int FilasAfectadas = 0;

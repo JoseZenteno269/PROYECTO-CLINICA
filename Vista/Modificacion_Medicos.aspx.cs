@@ -12,7 +12,10 @@ namespace Vista
 {
     public partial class Modificacion_Medicos : System.Web.UI.Page
     {
-        NegocioMedicos negocio = new NegocioMedicos(); 
+        NegocioMedicos negocio = new NegocioMedicos();
+        NegocioProvincias negocioProvincias = new NegocioProvincias();
+        NegocioLocalidades negocioLocalidades = new NegocioLocalidades();
+        NegocioEspecialidad negocioEspecialidad = new NegocioEspecialidad();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -58,7 +61,7 @@ namespace Vista
 
         public void CargarDropDownListProv(DropDownList ddlprov)
         {
-            ddlprov.DataSource = negocio.getDropDownListProvincias();
+            ddlprov.DataSource = negocioProvincias.getDropDownListProvincias();
             ddlprov.DataTextField = "Descripcion_Prov";
             ddlprov.DataValueField = "Id_Provincia_Prov";
             ddlprov.DataBind();
@@ -67,7 +70,7 @@ namespace Vista
 
         public void CargarDropDownListLocal(DropDownList ddlloca, DropDownList ddlprov)
         {
-            DataTable tabla = negocio.getDropDownListLocalidades();
+            DataTable tabla = negocioLocalidades.getDropDownListLocalidades();
             tabla.DefaultView.RowFilter = "Id_Provincia_Local = " + ddlprov.SelectedValue;
             ddlloca.DataSource = tabla.DefaultView;
             ddlloca.DataTextField = "Descripcion_Local";
@@ -78,7 +81,7 @@ namespace Vista
 
         public void CargarDropDownListEspe(DropDownList ddlespe)
         {
-            ddlespe.DataSource = negocio.getDropDownListEspecialidad();
+            ddlespe.DataSource = negocioEspecialidad.getDropDownListEspecialidad();
             ddlespe.DataTextField = "Nombre_Espe";
             ddlespe.DataValueField = "Id_Especialidad_Espe";
             ddlespe.DataBind();

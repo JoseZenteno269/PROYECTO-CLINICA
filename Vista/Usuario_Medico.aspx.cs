@@ -11,6 +11,7 @@ namespace Vista
     public partial class UsuarioMedico : System.Web.UI.Page
     {
         NegocioMedicos negocio = new NegocioMedicos(); 
+        NegocioUsuarios negocioUsuarios = new NegocioUsuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -43,7 +44,7 @@ namespace Vista
             int? idmedico = negocio.getIdMedico(Session["legajo"].ToString());
             if (idmedico != null)
             {
-                if (negocio.AgregarUsuarios(Convert.ToInt32(idmedico), null, txt_usuario.Text.Trim(), txt_contrasena1.Text.Trim()))
+                if (negocioUsuarios.AgregarUsuarios(Convert.ToInt32(idmedico), null, txt_usuario.Text.Trim(), txt_contrasena1.Text.Trim()))
                 {
                     lbl_mensaje.Text = "Usuario creado correctamente";
                     lbl_mensaje0.Text = "Redirigiendo...";

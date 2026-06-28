@@ -10,7 +10,7 @@ namespace Vista
 {
     public partial class Baja_Pacientes : System.Web.UI.Page
     {
-        NegocioMedicos negocio = new NegocioMedicos();
+        NegocioPacientes negocio = new NegocioPacientes();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)

@@ -11,6 +11,7 @@ namespace Vista
     public partial class Recovery : System.Web.UI.Page
     {
         NegocioMedicos negocio = new NegocioMedicos();
+        NegocioUsuarios negocioUsuarios = new NegocioUsuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,14 +21,14 @@ namespace Vista
         {
             if (!string.IsNullOrEmpty(txt_usuario.Text.Trim()) && !string.IsNullOrEmpty(txt_contrasena1.Text.Trim()) && !string.IsNullOrEmpty(txt_contrasena2.Text.Trim()))
             {
-                int? idusuario = negocio.getIdUsuario(txt_usuario.Text.Trim());
+                int? idusuario = negocioUsuarios.getIdUsuario(txt_usuario.Text.Trim());
                 if(idusuario == null)
                 {
                     lbl_mensaje.Text = "Usuario inexistente";
                     return; 
                 }
 
-                if(negocio.CambioConstrasena(Convert.ToInt32(idusuario), txt_contrasena1.Text.Trim()))
+                if(negocioUsuarios.CambioConstrasena(Convert.ToInt32(idusuario), txt_contrasena1.Text.Trim()))
                 {
                     lbl_mensaje.Text = "Contraseña actualizada correctamente. Redirigiendo...";
                     Response.AddHeader("REFRESH", "3;URL=Login.aspx");

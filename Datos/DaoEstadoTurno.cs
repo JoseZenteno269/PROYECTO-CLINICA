@@ -8,6 +8,10 @@ namespace Datos
 {
     public class DaoEstadoTurno
     {
-
+        AccesoDatos datos = new AccesoDatos();
+        public DaoEstadoTurno() 
+        {
+            // VACIO
+        }
     }
 }

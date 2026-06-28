@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 
 namespace Datos
 {
-    class AccesoDatos
+    public class AccesoDatos
     {
         String Ruta = @"Data Source=localhost\sqlexpress;Initial Catalog=BDClinica;Integrated Security=True;Encrypt=False";
 
