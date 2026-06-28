@@ -45,7 +45,7 @@ namespace Datos
             }
         }
 
-        public int? Consulta(String consulta)
+        public int? EjecutarEscalarInt(String consulta)
         { 
             SqlConnection conexion = ObtenerConexion();
             SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -55,7 +55,7 @@ namespace Datos
             return null;
         }
 
-        public int? Consulta(SqlCommand comando, String consulta)
+        public int? EjecutarEscalarInt(SqlCommand comando, String consulta)
         {
             SqlConnection conexion = ObtenerConexion();
             comando.Connection = conexion;
@@ -64,26 +64,18 @@ namespace Datos
             if (resutado != null) return 
                     Convert.ToInt32(resutado);
             return null;
-            //SqlDataReader lectura = comando.ExecuteReader(); 
-            //if (lectura.Read())
-            //{
-            //    return lectura["Id_Medico_Med"].ToString();
-            //}
-
-            //return null;
         }
 
-        public String ObtenerLegajoMedico(SqlCommand comando, String consulta)
+        public String EjecutarEscalarString(SqlCommand comando, String consulta)
         {
             SqlConnection conexion = ObtenerConexion();
             comando.Connection = conexion;
             comando.CommandText = consulta;
-            SqlDataReader lectura = comando.ExecuteReader();
-            if (lectura.Read())
+            object resultado = comando.ExecuteScalar();
+            if (resultado != null)
             {
-                return lectura["Legajo_Med"].ToString();
+                return resultado.ToString();
             }
-
             return null;
         }
 
@@ -101,20 +93,20 @@ namespace Datos
         //    return null;
         //}
 
-        public String LoginMedicoAdministrador(SqlCommand comando, String consulta)
-        {
-            String tipoUsuario = "ERROR - TIPO INEXISTENTE"; 
-            SqlConnection conexion = ObtenerConexion();
-            comando.Connection = conexion;
-            comando.CommandText = consulta;
-            SqlDataReader leer = comando.ExecuteReader();
-            if (leer.Read())
-            {
-                tipoUsuario = leer["Tipousuario"].ToString();  
-            }
-            conexion.Close();
-            return tipoUsuario; 
-        }
+        //public String LoginMedicoAdministrador(SqlCommand comando, String consulta)
+        //{
+        //    String tipoUsuario = "ERROR - TIPO INEXISTENTE"; 
+        //    SqlConnection conexion = ObtenerConexion();
+        //    comando.Connection = conexion;
+        //    comando.CommandText = consulta;
+        //    SqlDataReader leer = comando.ExecuteReader();
+        //    if (leer.Read())
+        //    {
+        //        tipoUsuario = leer["Tipousuario"].ToString();  
+        //    }
+        //    conexion.Close();
+        //    return tipoUsuario; 
+        //}
 
         public DataTable ObtenerTabla(String nombretabla, String consulta)
         {

@@ -11,7 +11,10 @@ namespace Vista
 {
     public partial class Asignar_Turno : System.Web.UI.Page
     {
-        NegocioClinica negocio = new NegocioClinica();
+        NegocioMedicos negocioMedicos = new NegocioMedicos();
+        NegocioPacientes NegocioPacientes = new NegocioPacientes();
+        NegocioEspecialidad NegocioEspecialidad = new NegocioEspecialidad();
+        NegocioDisponibilidadMedico NegocioDisponibilidadMedico = new NegocioDisponibilidadMedico(); 
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -48,7 +51,7 @@ namespace Vista
 
         public void CargarDropDawnListEspecialidades()
         {
-            ddl_especialidad.DataSource = negocio.getDropDownListEspecialidad();
+            ddl_especialidad.DataSource = NegocioEspecialidad.getDropDownListEspecialidad();
             ddl_especialidad.DataTextField = "Nombre_Espe";
             ddl_especialidad.DataValueField = "Id_Especialidad_Espe";
             ddl_especialidad.DataBind();
@@ -57,7 +60,7 @@ namespace Vista
 
         public void CargarDropDawnListMedicos()
         {
-            DataTable tabla = negocio.getMedicos();
+            DataTable tabla = negocioMedicos.getMedicos();
             tabla.DefaultView.RowFilter = "Id_Especialidad_Med = " + ddl_especialidad.SelectedValue;
             ddl_medicos.DataSource = tabla.DefaultView;
             ddl_medicos.DataTextField = "Nombre_Med";
@@ -69,7 +72,7 @@ namespace Vista
 
         public void CargarDropDownListDisponibilidad()
         {
-            DataTable tabla = negocio.getDropDownListDisponibilidadHoraria();
+            DataTable tabla = NegocioDisponibilidadMedico.getDropDownListDisponibilidadHoraria();
             tabla.DefaultView.RowFilter = "Id_Medico_DispMed = " + ddl_medicos.SelectedValue;
             ddl_horas.DataSource = tabla.DefaultView;
             ddl_horas.DataTextField = "DiayHorario";
@@ -90,7 +93,7 @@ namespace Vista
 
         public void CargarGridviewPacientes()
         {
-            gvPacientesSeleccion.DataSource = negocio.getPacientes();
+            gvPacientesSeleccion.DataSource = NegocioPacientes.getPacientes();
             gvPacientesSeleccion.DataBind();
         }
 

@@ -11,7 +11,9 @@ namespace Vista
 {
     public partial class ABML_Pacientes : System.Web.UI.Page
     {
-        NegocioClinica negocio = new NegocioClinica();
+        NegocioPacientes NegocioPacientes = new NegocioPacientes(); 
+        NegocioProvincias NegocioProvincias = new NegocioProvincias();
+        NegocioLocalidades NegocioLocalidades = new NegocioLocalidades();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -32,7 +34,7 @@ namespace Vista
         /// Metodos DropDawnList
         public void CargarDropDownListProv()
         {
-            ddl_provincia_p.DataSource = negocio.getDropDownListProvincias();
+            ddl_provincia_p.DataSource = NegocioProvincias.getDropDownListProvincias();
             ddl_provincia_p.DataTextField = "Descripcion_Prov";
             ddl_provincia_p.DataValueField = "Id_Provincia_Prov";
             ddl_provincia_p.DataBind();
@@ -41,7 +43,7 @@ namespace Vista
 
         public void CargarDropDownListLocal()
         {
-            DataTable tabla = negocio.getDropDownListLocalidades();
+            DataTable tabla = NegocioLocalidades.getDropDownListLocalidades();
             tabla.DefaultView.RowFilter = "Id_Provincia_Local = " + ddl_provincia_p.SelectedValue;
             ddl_localdiad_p.DataSource = tabla.DefaultView;
             ddl_localdiad_p.DataTextField = "Descripcion_Local";
@@ -78,7 +80,7 @@ namespace Vista
         protected void btn_guardar_Click(object sender, EventArgs e)
         {
             DateTime Fecha = Convert.ToDateTime(txt_fecha.Text);
-            if(negocio.AgregarPacientes(Convert.ToInt32(txt_dni_p.Text),txt_nombre_p.Text,txt_apellido_p.Text,ddl_sexo_p.Text, txtNacionalidad.Text,Fecha,txt_direccion_p.Text,Convert.ToInt32(ddl_provincia_p.SelectedValue),Convert.ToInt32(ddl_localdiad_p.SelectedValue),txt_correo_p.Text,txt_telefono_p.Text))
+            if(NegocioPacientes.AgregarPacientes(Convert.ToInt32(txt_dni_p.Text),txt_nombre_p.Text,txt_apellido_p.Text,ddl_sexo_p.Text, txtNacionalidad.Text,Fecha,txt_direccion_p.Text,Convert.ToInt32(ddl_provincia_p.SelectedValue),Convert.ToInt32(ddl_localdiad_p.SelectedValue),txt_correo_p.Text,txt_telefono_p.Text))
             {
                 lbl_Mensaje.Text = "Paciente Cargado Correctamente";
                 LimpiarCampos();

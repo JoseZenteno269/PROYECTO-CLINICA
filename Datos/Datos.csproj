@@ -42,7 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
-    <Compile Include="DaoDatos.cs" />
+    <Compile Include="DaoAdministradores.cs" />
+    <Compile Include="DaoDisponibilidadMedico.cs" />
+    <Compile Include="DaoEspecialidad.cs" />
+    <Compile Include="DaoEstadoPaciente.cs" />
+    <Compile Include="DaoEstadoTurno.cs" />
+    <Compile Include="DaoLocalidades.cs" />
+    <Compile Include="DaoMedicos.cs" />
+    <Compile Include="DaoPacientes.cs" />
+    <Compile Include="DaoProvincias.cs" />
+    <Compile Include="DaoTurnos.cs" />
+    <Compile Include="DaoUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ namespace Vista
 {
     public partial class Modificacion_Pacientes : System.Web.UI.Page
     {
-        NegocioClinica negocio = new NegocioClinica();
+        NegocioMedicos negocio = new NegocioMedicos();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)

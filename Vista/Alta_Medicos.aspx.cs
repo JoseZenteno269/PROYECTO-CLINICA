@@ -11,7 +11,11 @@ namespace Vista
 {
     public partial class ABML_Medicos : System.Web.UI.Page
     {
-        NegocioClinica negocio = new NegocioClinica(); 
+        NegocioMedicos negocioMedicos = new NegocioMedicos(); 
+        NegocioProvincias NegocioProvincias = new NegocioProvincias();
+        NegocioLocalidades NegocioLocalidades = new NegocioLocalidades();
+        NegocioEspecialidad NegocioEspecialidad = new NegocioEspecialidad();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -23,7 +27,7 @@ namespace Vista
                     CargarDropDownListLocal();
                     CargarDropDownListEspe();
                     int anio = DateTime.Now.Year;
-                    txt_legajo_m.Text = "MED-" + anio + "-" + (negocio.getCantidadMedicos() + 1); 
+                    txt_legajo_m.Text = "MED-" + anio + "-" + (negocioMedicos.getCantidadMedicos() + 1); 
                 }
                 else
                 {
@@ -34,7 +38,7 @@ namespace Vista
 
         public void CargarDropDownListProv()
         {
-            ddl_provincia_m.DataSource = negocio.getDropDownListProvincias();
+            ddl_provincia_m.DataSource = NegocioProvincias.getDropDownListProvincias();
             ddl_provincia_m.DataTextField = "Descripcion_Prov";
             ddl_provincia_m.DataValueField = "Id_Provincia_Prov";
             ddl_provincia_m.DataBind();
@@ -43,7 +47,7 @@ namespace Vista
 
         public void CargarDropDownListLocal()
         {
-            DataTable tabla = negocio.getDropDownListLocalidades();
+            DataTable tabla = NegocioLocalidades.getDropDownListLocalidades();
             tabla.DefaultView.RowFilter = "Id_Provincia_Local = " + ddl_provincia_m.SelectedValue;
             ddl_localidad_m.DataSource = tabla.DefaultView; 
             ddl_localidad_m.DataTextField = "Descripcion_Local";
@@ -59,7 +63,7 @@ namespace Vista
 
         public void CargarDropDownListEspe()
         {
-            ddl_especalidad_m.DataSource = negocio.getDropDownListEspecialidad();
+            ddl_especalidad_m.DataSource = NegocioEspecialidad.getDropDownListEspecialidad();
             ddl_especalidad_m.DataTextField = "Nombre_Espe";
             ddl_especalidad_m.DataValueField = "Id_Especialidad_Espe";
             ddl_especalidad_m.DataBind();
@@ -98,7 +102,7 @@ namespace Vista
 
             string usuario = generarusuario(txt_nombre_m.Text, txt_apellido_m.Text, txt_fecha.Text);
 
-            if (negocio.AgregarMedico(txt_legajo_m.Text, Convert.ToInt32(ddl_provincia_m.SelectedValue), Convert.ToInt32(ddl_localidad_m.SelectedValue), Convert.ToInt32(ddl_especalidad_m.SelectedValue), Convert.ToInt32(txt_dni_m.Text), txt_nombre_m.Text, txt_apellido_m.Text, ddl_sexo_m.Text, txt_nacionalidad.Text, fecha , txt_direccion_m.Text, txt_correo_m.Text, txt_telefono_m.Text))
+            if (negocioMedicos.AgregarMedico(txt_legajo_m.Text, Convert.ToInt32(ddl_provincia_m.SelectedValue), Convert.ToInt32(ddl_localidad_m.SelectedValue), Convert.ToInt32(ddl_especalidad_m.SelectedValue), Convert.ToInt32(txt_dni_m.Text), txt_nombre_m.Text, txt_apellido_m.Text, ddl_sexo_m.Text, txt_nacionalidad.Text, fecha , txt_direccion_m.Text, txt_correo_m.Text, txt_telefono_m.Text))
             {
                 lbl_mensaje.Text = "Medico cargado correctamente";
                 lbl_mensaje0.Text = "Redirigiendo...";

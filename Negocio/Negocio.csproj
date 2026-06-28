@@ -41,7 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NegocioClinica.cs" />
+    <Compile Include="NegocioAdministradores.cs" />
+    <Compile Include="NegocioDisponibilidadMedico.cs" />
+    <Compile Include="NegocioEspecialidad.cs" />
+    <Compile Include="NegocioEstadoPaciente.cs" />
+    <Compile Include="NegocioEstadoTurno.cs" />
+    <Compile Include="NegocioLocalidades.cs" />
+    <Compile Include="NegocioMedicos.cs" />
+    <Compile Include="NegocioPacientes.cs" />
+    <Compile Include="NegocioProvincias.cs" />
+    <Compile Include="NegocioTurnos.cs" />
+    <Compile Include="NegocioUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

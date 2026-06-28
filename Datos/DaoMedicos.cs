@@ -6,38 +6,38 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class DaoDatos
+    public class DaoMedicos
     {
         AccesoDatos datos = new AccesoDatos();
-        public DaoDatos() 
+        public DaoMedicos() 
         {
             /// Constructor vacio
         }
 
-        public int? ConsultaUnica()
+        public int? getCantidadMedicos()
         {
-            return datos.Consulta("SELECT COUNT(*) FROM Medicos"); 
+            return datos.EjecutarEscalarInt("SELECT COUNT(*) FROM Medicos"); 
         }
         public int? getIdMedico(String legajo)
         {
             String consulta = "SELECT Id_Medico_Med FROM Medicos WHERE Legajo_Med = @LEGAJO";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@LEGAJO", legajo);
-            return datos.Consulta(comando, consulta); 
+            return datos.EjecutarEscalarInt(comando, consulta); 
         }
         public String getLegajoMedico(String usuario)
         {
             String consulta = "SELECT Legajo_Med FROM Medicos INNER JOIN Usuarios ON Id_Medico_Med = Id_Medico_Usu WHERE Username_usu = @USERNAME";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USERNAME", usuario);
-            return datos.ObtenerLegajoMedico(comando, consulta); 
+            return datos.EjecutarEscalarString(comando, consulta); 
         }
         public int? getIdAdministrador(String usuario)
         {
             String consulta = "SELECT Id_Administrador_Admin FROM Administradores INNER JOIN Usuarios ON Id_Administrador_Usu = Id_Administrador_Admin WHERE Username_Usu = @USERNAME";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USERNAME", usuario);
-            return datos.Consulta(comando, consulta); 
+            return datos.EjecutarEscalarInt(comando, consulta); 
         }
 
         public int? getIdUsuario(String username)
@@ -45,7 +45,7 @@ namespace Datos
             String consulta = "SELECT Id_Usuario_Usu FROM Usuarios WHERE Username_Usu = @USERNAME AND Id_Administrador_Usu = NULL";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USERNAME", username);
-            return datos.Consulta(comando, consulta); 
+            return datos.EjecutarEscalarInt(comando, consulta); 
         }
         public DataTable getTablaMedicos()
         {
@@ -110,12 +110,12 @@ namespace Datos
 
         public String MedicoAdministrador(String usuario, String constrasena)
         {
-            String consulta = "SELECT Username_Usu, Password_Usu, Id_Administrador_Usu, Id_Medico_Usu, CASE WHEN Id_Administrador_Usu IS NOT NULL THEN 'Administrador' WHEN Id_Medico_Usu IS NOT NULL THEN 'Medico' END AS Tipousuario FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = HASHBYTES('SHA2_256', CONVERT(VARCHAR, @PASSWORD)) AND Activo_Usu = 1";
+            String consulta = "SELECT CASE WHEN Id_Administrador_Usu IS NOT NULL THEN 'Administrador' WHEN Id_Medico_Usu IS NOT NULL THEN 'Medico' END AS Tipousuario FROM Usuarios WHERE Username_Usu = @USUARIO AND Password_Usu = HASHBYTES('SHA2_256', CONVERT(VARCHAR, @PASSWORD)) AND Activo_Usu = 1";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USUARIO", usuario.ToString().Trim());
             //comando.Parameters.AddWithValue("@PASSWORD",System.Text.Encoding.ASCII.GetBytes(constrasena.ToString().Trim()));
             comando.Parameters.AddWithValue("@PASSWORD", constrasena.ToString().Trim());
-            return datos.LoginMedicoAdministrador(comando, consulta);
+            return datos.EjecutarEscalarString(comando, consulta);
         }
 
         public DataTable getTablaProvincia()
@@ -165,14 +165,6 @@ namespace Datos
             comando.Parameters.AddWithValue("@IDTURNO", turno.getIdTurno()); 
             return datos.Existe(comando, consulta);
         }
-
-        //public Boolean ExisteUsuario(Usuarios usuario)
-        //{
-        //    String consulta = "SELECT * FROM Usuarios WHERE Username_Usu = @USERNAME";
-        //    SqlCommand comando = new SqlCommand();
-        //    comando.Parameters.AddWithValue("@USERNAME", usuario.getUsername()); 
-        //    return datos.Existe(comando, consulta); 
-        //}
 
         public int AgregarhoraXmedico(int idmedico, int dia, TimeSpan hora)
         {

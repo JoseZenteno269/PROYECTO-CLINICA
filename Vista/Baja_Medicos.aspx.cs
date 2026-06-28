@@ -11,7 +11,7 @@ namespace Vista
 {
     public partial class Baja_Medicos : System.Web.UI.Page
     {
-        NegocioClinica negocio = new NegocioClinica();
+        NegocioMedicos negocioMedicos = new NegocioMedicos();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -45,18 +45,18 @@ namespace Vista
 
         public void CargarActivosMedicos()
         {
-          gvMedicos.DataSource =  negocio.getActivosMedicos();
+          gvMedicos.DataSource =  negocioMedicos.getActivosMedicos();
           gvMedicos.DataBind();  
         }
         public void CargarInactivosMedicos()
         {
-          gvMedicos.DataSource =  negocio.getInactivosMedicos();
+          gvMedicos.DataSource =  negocioMedicos.getInactivosMedicos();
           gvMedicos.DataBind();  
         }
 
         protected void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            if(negocio.DarBajaMedico(Convert.ToInt32(txt_IdMedico.Text)))
+            if(negocioMedicos.DarBajaMedico(Convert.ToInt32(txt_IdMedico.Text)))
             {
                 lbl_Mensaje.Text = "Dado de baja con Exito";
                 CargarActivosMedicos(); 

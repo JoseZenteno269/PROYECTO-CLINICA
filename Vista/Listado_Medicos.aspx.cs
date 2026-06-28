@@ -12,7 +12,7 @@ namespace Vista
 {
     public partial class Listado_Medicos : System.Web.UI.Page
     {
-        NegocioClinica negocioClinica = new NegocioClinica();
+        NegocioMedicos negocioClinica = new NegocioMedicos();
         Medicos medicos = new Medicos();
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -10,101 +10,101 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public class NegocioClinica
+    public class NegocioMedicos
     {
-        DaoDatos daoDatos = new DaoDatos();
-        public NegocioClinica()
+        DaoMedicos daoMedicos = new DaoMedicos();
+        public NegocioMedicos()
         {
             // Constructor Vacío
         }
 
         public int? getCantidadMedicos()
         {
-            return daoDatos.ConsultaUnica(); 
+            return daoMedicos.getCantidadMedicos(); 
         }
 
         public int? getIdMedico(String legajo)
         {
-            return daoDatos.getIdMedico(legajo);    
+            return daoMedicos.getIdMedico(legajo);    
         }
 
         public String getLegajoMedico(String usuario)
         {
-            return daoDatos.getLegajoMedico(usuario); 
+            return daoMedicos.getLegajoMedico(usuario); 
         }
         public int? getIdAdministrador(String usuario)
         {
-            return daoDatos.getIdAdministrador(usuario); 
+            return daoMedicos.getIdAdministrador(usuario); 
         }
 
         public int? getIdUsuario(String username)
         {
-            return daoDatos.getIdUsuario(username); 
+            return daoMedicos.getIdUsuario(username); 
         }
 
         public DataTable getPacientes()
         {
-            return daoDatos.getTablaPacientes();
+            return daoMedicos.getTablaPacientes();
         }
         public DataTable getPacientes(String consulta)
         {
-            return daoDatos.getTablaPacientes(consulta);
+            return daoMedicos.getTablaPacientes(consulta);
         }
         public DataTable getActivosPaciente()
         {
-            return daoDatos.getTablaAltaPacientes();
+            return daoMedicos.getTablaAltaPacientes();
         }
         public DataTable getInactivosPaciente()
         {
-            return daoDatos.getTablaBajaPacientes();
+            return daoMedicos.getTablaBajaPacientes();
         }
         public DataTable getMedicos()
         {
-            return daoDatos.getTablaMedicos();
+            return daoMedicos.getTablaMedicos();
         }
 
         public DataTable getMedicos(String consulta)
         {
-            return daoDatos.getTablaMedicos(consulta);
+            return daoMedicos.getTablaMedicos(consulta);
         }
 
         public DataTable getActivosMedicos()
         {
-            return daoDatos.getTablaAltaMedicos();
+            return daoMedicos.getTablaAltaMedicos();
         }
         public DataTable getInactivosMedicos()
         {
-            return daoDatos.getTablaBajaMedicos();
+            return daoMedicos.getTablaBajaMedicos();
         }
 
         public DataTable getTurnos()
         {
-            return daoDatos.getTablaTurno();
+            return daoMedicos.getTablaTurno();
         }
 
         public String getUsuarios(String usuario, String constrasena)
         {
-            return daoDatos.MedicoAdministrador(usuario, constrasena); 
+            return daoMedicos.MedicoAdministrador(usuario, constrasena); 
         }
 
         public DataTable getDropDownListProvincias()
         {
-            return daoDatos.getTablaProvincia(); 
+            return daoMedicos.getTablaProvincia(); 
         }
 
         public DataTable getDropDownListLocalidades()
         {
-            return daoDatos.getTablaLocalidades(); 
+            return daoMedicos.getTablaLocalidades(); 
         }
         
         public DataTable getDropDownListDisponibilidadHoraria()
         {
-            return daoDatos.getTablaDisponibilidadMedica();
+            return daoMedicos.getTablaDisponibilidadMedica();
         }
 
         public DataTable getDropDownListEspecialidad()
         {
-            return daoDatos.getTablaEspecialidad(); 
+            return daoMedicos.getTablaEspecialidad(); 
         }
 
         /// AGREGAR
@@ -127,9 +127,9 @@ namespace Negocio
             medicos.setEmailMedico(mail); 
             medicos.setTelefonoMedico(telefono);
 
-            if (daoDatos.ExisteMedico(medicos) == false)
+            if (daoMedicos.ExisteMedico(medicos) == false)
             {
-                filasafectadas = daoDatos.AgregarMedico(medicos);
+                filasafectadas = daoMedicos.AgregarMedico(medicos);
             }
 
             return filasafectadas == 1;
@@ -137,14 +137,14 @@ namespace Negocio
 
         public Boolean AgregarHorarios(int idmedico, int dia, TimeSpan hora)
         {
-            int filasafectadas = daoDatos.AgregarhoraXmedico(idmedico, dia, hora);
+            int filasafectadas = daoMedicos.AgregarhoraXmedico(idmedico, dia, hora);
 
             return filasafectadas == 1; 
         }
 
         public Boolean CambioConstrasena(int idusuario, String contrasena)
         {
-            int filasafectadas = daoDatos.CambioContrasena(idusuario, contrasena);
+            int filasafectadas = daoMedicos.CambioContrasena(idusuario, contrasena);
             return filasafectadas == 1;
         }
 
@@ -165,9 +165,9 @@ namespace Negocio
             pacientes.setCorreoElectronicoPaciente(mail);
             pacientes.setTelefonoPaciente(telefono);
 
-            if (daoDatos.ExistePaciente(pacientes) == false)
+            if (daoMedicos.ExistePaciente(pacientes) == false)
             {
-                Filasafectadas = daoDatos.AgregarPaciente(pacientes);
+                Filasafectadas = daoMedicos.AgregarPaciente(pacientes);
             }
 
             return Filasafectadas == 1;
@@ -183,7 +183,7 @@ namespace Negocio
             usuarios.setUsername(username);
             usuarios.setPassword(password);
 
-            FilasAfectadas = daoDatos.AgregarUsuario(usuarios);
+            FilasAfectadas = daoMedicos.AgregarUsuario(usuarios);
 
             return FilasAfectadas == 1; 
         }
@@ -198,7 +198,7 @@ namespace Negocio
             turnos.setFechaTurno(fecha);
             turnos.setIdPacienteTurno(paciente);
 
-            filasafectadas = daoDatos.AgregarTurnos(turnos);
+            filasafectadas = daoMedicos.AgregarTurnos(turnos);
             return filasafectadas == 1;
         }
 
@@ -207,7 +207,7 @@ namespace Negocio
         {
             Medicos medicos = new Medicos();
             medicos.setIdMedico(idMedico);
-            int filasafectadas = daoDatos.DarBajaMedico(medicos);
+            int filasafectadas = daoMedicos.DarBajaMedico(medicos);
             if(filasafectadas == 1)
             {
                 return true;
@@ -222,7 +222,7 @@ namespace Negocio
         {
             Pacientes pacientes = new Pacientes();
             pacientes.setIdPaciente(idPaciente);
-            int filasafectadas = daoDatos.DarBajaPecientes(pacientes);
+            int filasafectadas = daoMedicos.DarBajaPecientes(pacientes);
             if(filasafectadas == 1)
             {
                 return true;
@@ -237,7 +237,7 @@ namespace Negocio
         {
             Turnos turnos = new Turnos();
             turnos.setIdTurno(idTurno);
-            int filasafectadas = daoDatos.CancelarTurnos(turnos);
+            int filasafectadas = daoMedicos.CancelarTurnos(turnos);
             if(filasafectadas == 1)
             {
                 return true;
@@ -264,7 +264,7 @@ namespace Negocio
             medicos.setDireccionMedico(direccion);
             medicos.setEmailMedico(email);
             medicos.setTelefonoMedico(telefono);
-            int filasafecatdas = daoDatos.ModificarMedico(medicos);
+            int filasafecatdas = daoMedicos.ModificarMedico(medicos);
             return filasafecatdas == 1; 
         }
 
@@ -282,7 +282,7 @@ namespace Negocio
             Paciente.setDireccionPaciente(direccion);
             Paciente.setCorreoElectronicoPaciente(email);
             Paciente.setTelefonoPaciente(telefono);
-            int filasafecatdas = daoDatos.ModificarPaciente(Paciente);
+            int filasafecatdas = daoMedicos.ModificarPaciente(Paciente);
             return filasafecatdas == 1;
         }
 
