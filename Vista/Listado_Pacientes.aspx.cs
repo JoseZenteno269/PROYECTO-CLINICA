@@ -27,7 +27,7 @@ namespace Vista
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("Inicio.aspx");
                 }
             }
         }
@@ -39,12 +39,7 @@ namespace Vista
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
-        }
-
-        protected void btn_menu_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Menu.aspx");
+            Response.Redirect("Inicio.aspx");
         }
 
         protected void btn_buscar_Click(object sender, EventArgs e)
@@ -100,6 +95,16 @@ namespace Vista
             SqlDataSourcePacientes.SelectParameters.Add("Provincias", Provincias);
             lv_pacientes.DataBind();
 
+        }
+
+        protected void lb_perfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil_Administrador.aspx"); 
+        }
+
+        protected void lb_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx"); 
         }
     }
 }

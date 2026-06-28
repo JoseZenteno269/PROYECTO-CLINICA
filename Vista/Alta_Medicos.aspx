@@ -25,7 +25,8 @@
                             </asp:LinkButton>
                             <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
 
-                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server" OnClick="lb_perfil_Click">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_menu" CssClass="opcion-menu" runat="server" OnClick="lb_menu_Click" >Menu</asp:LinkButton>
                                 <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
                         </div>
@@ -34,10 +35,10 @@
             </table>
         </div>
         <div class="div">
-            <div>
+<%--            <div>
                 <br />
                 <asp:Button ID="btn_Volver" runat="server" OnClick="btn_Volver_Click" Text="Menu" CssClass="btn_volver" />
-            </div>
+            </div>--%>
             <table class="div-medicos">
                 <tr>
                     <td colspan="3">Medicos</td>

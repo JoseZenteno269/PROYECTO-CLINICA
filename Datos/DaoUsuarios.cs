@@ -19,7 +19,7 @@ namespace Datos
         }
         public int? getIdUsuario(String username)
         {
-            String consulta = "SELECT Id_Usuario_Usu FROM Usuarios WHERE Username_Usu = @USERNAME AND Id_Administrador_Usu = NULL";
+            String consulta = "SELECT Id_Usuario_Usu FROM Usuarios WHERE Username_Usu = @USERNAME AND Id_Administrador_Usu IS NULL AND Activo_Usu = 1";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USERNAME", username);
             return datos.EjecutarEscalarInt(comando, consulta);

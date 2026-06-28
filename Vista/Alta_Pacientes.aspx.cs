@@ -107,5 +107,19 @@ namespace Vista
             ddl_localdiad_p.SelectedIndex = 0;
          }
 
+        protected void lb_perfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil_Administrador.aspx"); 
+        }
+
+        protected void lb_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx"); 
+        }
+
+        protected void lb_cerrar_sesion_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx"); 
+        }
     }
 }

@@ -38,11 +38,6 @@ namespace Vista
             Response.Redirect("Login.aspx"); 
         }
 
-        protected void btn_menu_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Menu.aspx");
-        }
-
         public void CargarActivosMedicos()
         {
           gvMedicos.DataSource =  negocioMedicos.getActivosMedicos();
@@ -82,6 +77,16 @@ namespace Vista
         protected void btn_activos_Click(object sender, EventArgs e)
         {
             CargarActivosMedicos(); 
+        }
+
+        protected void lb_perfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil_Administrador.aspx"); 
+        }
+
+        protected void lb_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx"); 
         }
     }
 }

@@ -23,62 +23,77 @@ namespace Vista
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("Inicio.aspx");
                 }
             }
-        }
-
-        protected void btn_menu_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Menu.aspx");
         }
 
         protected void cb_lunes_CheckedChanged(object sender, EventArgs e)
         {
             horainiciol.Enabled = !horainiciol.Enabled;
             horafinl.Enabled = !horafinl.Enabled;
+            rfv_horainiciol.Enabled = !rfv_horainiciol.Enabled; 
+            rfv_horafinl.Enabled = !rfv_horafinl.Enabled; 
         }
 
         protected void cb_martes_CheckedChanged(object sender, EventArgs e)
         {
             horainiciom.Enabled = !horainiciom.Enabled;
             horafinm.Enabled = !horafinm.Enabled;
+            rfv_horainiciom.Enabled = !rfv_horainiciom.Enabled; 
+            rfv_horafinm.Enabled = ! rfv_horafinm.Enabled;
         }
 
         protected void cb_miercoles_CheckedChanged(object sender, EventArgs e)
         {
             horainiciomi.Enabled = !horainiciomi.Enabled;
             horafinmi.Enabled = !horafinmi.Enabled;
+            rfv_horainiciomi.Enabled = !rfv_horainiciomi.Enabled; 
+            rfv_horafinmi.Enabled = !rfv_horafinmi.Enabled; 
         }
 
         protected void cb_jueves_CheckedChanged(object sender, EventArgs e)
         {
             horainicioj.Enabled = !horainicioj.Enabled;
             horafinj.Enabled = !horafinj.Enabled;
+            rfv_horainicioj.Enabled = !rfv_horainicioj.Enabled; 
+            rfv_horafinj.Enabled = !rfv_horafinj.Enabled; 
         }
 
         protected void cb_viernes_CheckedChanged(object sender, EventArgs e)
         {
             horainiciov.Enabled = !horainiciov.Enabled;
             horafinv.Enabled = !horafinv.Enabled;
+            rfv_horainiciov.Enabled = !rfv_horainiciov.Enabled; 
+            rfv_horafinv.Enabled = !rfv_horafinv.Enabled;
         }
         protected void cb_sabado_CheckedChanged(object sender, EventArgs e)
         {
             horainicios.Enabled = !horainicios.Enabled;
             horafins.Enabled = !horafins.Enabled;
+            rfv_horainicios.Enabled = !rfv_horainicios.Enabled;
+            rfv_horafins.Enabled = !rfv_horafins.Enabled;
         }
         protected void cb_domingo_CheckedChanged(object sender, EventArgs e)
         {
             horainiciod.Enabled = !horainiciod.Enabled;
             horafind.Enabled = !horafind.Enabled;
+            rfv_horainiciod.Enabled = !rfv_horainiciod.Enabled; 
+            rfv_horafind.Enabled = !rfv_horafind.Enabled; 
         }
 
         protected void btn_aceptar_Click(object sender, EventArgs e)
         {
+            if(!cb_lunes.Checked && !cb_martes.Checked && !cb_miercoles.Checked && !cb_jueves.Checked && !cb_viernes.Checked && !cb_sabado.Checked && !cb_domingo.Checked)
+            {
+                lbl_mensaje.Text = "Debe de Seleccionar un dia para empezar"; 
+                return; 
+            }
+
             int? idmedico = negocioMedicos.getIdMedico(txt_legajo.Text.Trim());
             if (idmedico == null)
             {
-                Label1.Text = "error al cargar";
+                lbl_mensaje.Text = "Medico inexistente";
                 return;
             }
 
@@ -108,11 +123,26 @@ namespace Vista
                     {
                         if (negocioDisponibilidad.AgregarHorarios(Convert.ToInt32(idmedico), (i + 1), TimeSpan.FromHours(horainicio[i] + j)))
                         {
-                            Label1.Text = "horarios agregador con exito"; 
+                            lbl_mensaje.Text = "horarios agregador con exito"; 
                         }
                     }
                 }
             }
+        }
+
+        protected void lb_perfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil_Administrador.aspx"); 
+        }
+
+        protected void lb_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx"); 
+        }
+
+        protected void lb_usuario_menu_Click(object sender, EventArgs e)
+        {
+            p_panel.Visible = !p_panel.Visible;
         }
     }
 }

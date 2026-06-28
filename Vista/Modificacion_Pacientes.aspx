@@ -25,17 +25,14 @@
                             </asp:LinkButton>
                             <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
 
-                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server" OnClick="lb_perfil_Click">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_menu" CssClass="opcion-menu" runat="server" OnClick="lb_menu_Click">Menu</asp:LinkButton>
                                 <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
                         </div>
                     </td>
                 </tr>
             </table>
-        </div>
-        <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
-            <br />
         </div>
         <div id="divcontenedor">
             <table>
@@ -55,9 +52,9 @@
             <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
         </div>
         <div class="contenedor-grid">
-            <asp:GridView ID="gv_pacientes" CssClass="gv" runat="server" AutoGenerateColumns="False" DataKeyNames="Id_Provincia_Paci,Id_Localidad_Paci,Sexo_Paci" OnRowCancelingEdit="gv_pacientes_RowCancelingEdit" OnRowEditing="gv_pacientes_RowEditing" OnRowUpdating="gv_pacientes_RowUpdating" GridLines="None" BorderStyle="None" BorderWidth="0" CellSpacing="0" CellPadding="0">
+            <asp:GridView ID="gv_pacientes" CssClass="gv" runat="server" AutoGenerateColumns="False" DataKeyNames="Id_Provincia_Paci,Id_Localidad_Paci,Sexo_Paci" OnRowCancelingEdit="gv_pacientes_RowCancelingEdit" OnRowEditing="gv_pacientes_RowEditing" OnRowUpdating="gv_pacientes_RowUpdating" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
                 <Columns>
-                    <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+                    <asp:CommandField ButtonType="Button" ShowEditButton="True" ValidationGroup="1" />
                     <asp:TemplateField HeaderText="ID PACIENTE">
                         <EditItemTemplate>
                             <asp:Label ID="lbl_idpaciente" runat="server" Text='<%# Bind("Id_Paciente_Paci") %>'></asp:Label>
@@ -141,6 +138,7 @@
                         <EditItemTemplate>
                             <asp:TextBox ID="txt_fecha" runat="server" Text='<%# Bind("FechaNacimiento_Paci", "{0:d}") %>'></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfv_Fecha" runat="server" ControlToValidate="txt_fecha" ErrorMessage="Ingrese una fecha" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev_fecha" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_fecha" ValidationExpression="^\d{1,2}[/-]\d{1,2}[/-]\d{4}$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_fecha" runat="server" Text='<%# Bind("FechaNacimiento_Paci", "{0:d}") %>'></asp:Label>

@@ -7,6 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="Css/Usuario_Medico.css" rel="stylesheet" type="text/css" />
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 67px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -34,27 +39,47 @@
             </table>
         </div>
         <div id="contenedor">
-            <table class="tablausuario">
+            <table class="table-usuario">
                 <tr>
                     <td colspan="3" align="center"><h1>Crear Usuario Medico</h1></td>
                 </tr>
                 <tr>
-                    <td>Usuario: </td>
-                    <td>
+                    <td colspan="3">Usuario: </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
                         <asp:TextBox ID="txt_usuario" runat="server"></asp:TextBox></td>
-                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <asp:RequiredFieldValidator ID="rfv_usuario" runat="server" ErrorMessage="El campo es obligatorio" ControlToValidate="txt_usuario" ValidationGroup="1" CssClass="validador"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Contraseña: </td>
+                </tr>
+                <tr>
                     <td>
-                        <asp:TextBox ID="txt_contrasena1" runat="server"></asp:TextBox></td>
-                    <td></td>
+                        <asp:TextBox ID="txt_contrasena1" runat="server" TextMode="Password"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_contrasena1" runat="server" ErrorMessage="El campo es obligatorio" ControlToValidate="txt_contrasena1" ValidationGroup="1" CssClass="validador"></asp:RequiredFieldValidator><br />
+                        <asp:CompareValidator ID="cv_contrasena" runat="server" ErrorMessage="Contraseña incorrecta" ControlToCompare="txt_contrasena1" ControlToValidate="txt_contrasena2" CssClass="validador"></asp:CompareValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Repita Contraseña: </td>
+                </tr>
+                <tr>
                     <td>
-                        <asp:TextBox ID="txt_contrasena2" runat="server"></asp:TextBox></td>
-                    <td></td>
+                        <asp:TextBox ID="txt_contrasena2" runat="server" TextMode="Password"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_contrasena2" runat="server" ErrorMessage="El campo es obligatorio" ControlToValidate="txt_contrasena2" ValidationGroup="1" CssClass="validador"></asp:RequiredFieldValidator><br />
+                        <asp:CompareValidator ID="cv_contrasena2" runat="server" ErrorMessage="Contraseña incorrecta" ControlToCompare="txt_contrasena2" ControlToValidate="txt_contrasena1" ValidationGroup="1" CssClass="validador"></asp:CompareValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="3">
@@ -65,8 +90,8 @@
                         <asp:Label ID="lbl_mensaje0" runat="server"></asp:Label></td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="center">
-                        <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" /></td>
+                    <td colspan="3" align="center" class="auto-style1">
+                        <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" ValidationGroup="1" Width="100px" /></td>
                 </tr>
             </table>
         </div>

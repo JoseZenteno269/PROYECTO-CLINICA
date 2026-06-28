@@ -61,8 +61,8 @@ namespace Datos
             comando.Connection = conexion;
             comando.CommandText = consulta; 
             object resutado = comando.ExecuteScalar();
-            if (resutado != null) return 
-                    Convert.ToInt32(resutado);
+            if (resutado != null)
+                    return Convert.ToInt32(resutado);
             return null;
         }
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Horarios_Medicos.aspx.cs" Inherits="Vista.Horarios_Medicos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Horarios_Medicos.aspx.cs" Inherits="Vista.Horarios_Medicos" MaintainScrollPositionOnPostback="true"  %>
 
 <!DOCTYPE html>
 
@@ -19,13 +19,14 @@
                     <td></td>
                     <td align="end" style="padding-right: 20px">
                         <div class="usuario-container">
-                            <asp:LinkButton ID="lb_usuario_menu" CssClass="btn-usuario" runat="server">
+                            <asp:LinkButton ID="lb_usuario_menu" CssClass="btn-usuario" runat="server" OnClick="lb_usuario_menu_Click">
                                 👤
                                 <asp:Label runat="server" ID="lbl_usuario" Text="usuario"></asp:Label>
                             </asp:LinkButton>
                             <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
 
-                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server" OnClick="lb_perfil_Click">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_menu" CssClass="opcion-menu" runat="server" OnClick="lb_menu_Click">Menu</asp:LinkButton>
                                 <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
                         </div>
@@ -33,15 +34,19 @@
                 </tr>
             </table>
         </div>
-                <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click"/>
-        </div>
-        <div align="center">
+        <div align="center" class="contenedor-horarios">
             <table class="tableshoras">
                 <tr>
+                    <td align="center" colspan="6">
+                        <h1>Carga Horarios</h1>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan="6" align="center">
-                        <p>Ingrese Legajo</p>
-                        <asp:TextBox ID="txt_legajo" runat="server" Width="100px"></asp:TextBox></td>
+                        <p>Legajo</p>
+                        <asp:TextBox ID="txt_legajo" runat="server" Width="100px"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="rfv_legajo" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_legajo" ValidationGroup="1"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -50,12 +55,19 @@
                     <td>
                         <asp:TextBox ID="horainiciol" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
+                    <td>
+
+                        <asp:RequiredFieldValidator ID="rfv_horainiciol" runat="server" ControlToValidate="horainiciol" ErrorMessage="Campo obligatorio" ValidationGroup="1" Enabled="False">*</asp:RequiredFieldValidator>
+                        </td>
                     <td>Hora Fin:</td>
                     <td>
                         <asp:TextBox ID="horafinl" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
+
+                        <asp:RequiredFieldValidator ID="rfv_horafinl" runat="server" ControlToValidate="horafinl" ErrorMessage="Campo obligatorio" ValidationGroup="1" Enabled="False">*</asp:RequiredFieldValidator>
+
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -64,11 +76,16 @@
                     <td>
                         <asp:TextBox ID="horainiciom" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
+                              <td>
+                        <asp:RequiredFieldValidator ID="rfv_horainiciom" runat="server" ErrorMessage="Campo Obligatorio" ControlToValidate="horainiciom" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        </td>
                     <td>Hora Fin:</td>
                     <td>
                         <asp:TextBox ID="horafinm" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_horafinm" runat="server" ErrorMessage="Campo Obligatorio" ControlToValidate="horafinm" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -77,11 +94,16 @@
                     <td>
                         <asp:TextBox ID="horainiciomi" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
+                              <td>
+                        <asp:RequiredFieldValidator ID="rfv_horainiciomi" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainiciomi" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        </td>
                     <td>Hora Fin:</td>
                     <td>
                         <asp:TextBox ID="horafinmi" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_horafinmi" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafinmi" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -90,11 +112,16 @@
                     <td>
                         <asp:TextBox ID="horainicioj" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
+                              <td>
+                        <asp:RequiredFieldValidator ID="rfv_horainicioj" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainicioj" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        </td>
                     <td>Hora Fin:</td>
                     <td>
                         <asp:TextBox ID="horafinj" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_horafinj" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafinj" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -103,11 +130,16 @@
                     <td>
                         <asp:TextBox ID="horainiciov" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
+                              <td>
+                        <asp:RequiredFieldValidator ID="rfv_horainiciov" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainiciov" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        </td>
                     <td>Hora Fin:</td>
                     <td>
                         <asp:TextBox ID="horafinv" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_horafinv" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafinv" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -117,11 +149,16 @@
                     <td>
                         <asp:TextBox ID="horainicios" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
+                              <td>
+                        <asp:RequiredFieldValidator ID="rfv_horainicios" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainicios" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        </td>
                     <td>Hora Fin:</td>
                     <td>
                         <asp:TextBox ID="horafins" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_horafins" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafins" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -131,17 +168,28 @@
                     <td>
                         <asp:TextBox ID="horainiciod" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
+                              <td>
+                        <asp:RequiredFieldValidator ID="rfv_horainiciod" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainiciod" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        </td>
                     <td>Hora Fin:</td>
                     <td>
                         <asp:TextBox ID="horafind" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfv_horafind" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafind" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="6" align="center">
-                        <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" /></td>
+                        <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" CssClass="btnAceptar" ValidationGroup="1" /></td>
                 </tr>
             </table>
+            <asp:ValidationSummary ID="vs_errores" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
         </div>
         <br />
         <br />

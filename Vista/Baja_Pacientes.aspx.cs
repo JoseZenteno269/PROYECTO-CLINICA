@@ -22,7 +22,7 @@ namespace Vista
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("Inicio.aspx");
                 }
             }
         }
@@ -34,17 +34,7 @@ namespace Vista
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx"); 
-        }
-
-        protected void btn_menu_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Menu.aspx"); 
-        }
-
-        protected void btn_menu_Click1(object sender, EventArgs e)
-        {
-            Response.Redirect("Menu.aspx"); 
+            Response.Redirect("Inicio.aspx"); 
         }
 
         public void CargarActivosPacientes()
@@ -85,6 +75,16 @@ namespace Vista
         protected void btn_inactivos_Click(object sender, EventArgs e)
         {
             CargarInactivosPacientes(); 
+        }
+
+        protected void lb_perfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil_Administrador.aspx"); 
+        }
+
+        protected void lb_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx"); 
         }
     }
 }

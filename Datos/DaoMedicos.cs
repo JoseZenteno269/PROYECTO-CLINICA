@@ -20,7 +20,7 @@ namespace Datos
         }
         public int? getIdMedico(String legajo)
         {
-            String consulta = "SELECT Id_Medico_Med FROM Medicos WHERE Legajo_Med = @LEGAJO";
+            String consulta = "SELECT Id_Medico_Med FROM Medicos WHERE Legajo_Med = @LEGAJO AND Activo_Med = 1";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@LEGAJO", legajo);
             return datos.EjecutarEscalarInt(comando, consulta);

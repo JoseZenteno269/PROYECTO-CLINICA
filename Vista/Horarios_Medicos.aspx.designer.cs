@@ -60,6 +60,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_perfil;
 
         /// <summary>
+        /// Control lb_menu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lb_menu;
+
+        /// <summary>
         /// Control lb_cerrar_sesion.
         /// </summary>
         /// <remarks>
@@ -69,15 +78,6 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_cerrar_sesion;
 
         /// <summary>
-        /// Control btn_menu.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_menu;
-
-        /// <summary>
         /// Control txt_legajo.
         /// </summary>
         /// <remarks>
@@ -85,6 +85,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_legajo;
+
+        /// <summary>
+        /// Control rfv_legajo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_legajo;
 
         /// <summary>
         /// Control cb_lunes.
@@ -105,6 +114,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox horainiciol;
 
         /// <summary>
+        /// Control rfv_horainiciol.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horainiciol;
+
+        /// <summary>
         /// Control horafinl.
         /// </summary>
         /// <remarks>
@@ -114,13 +132,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox horafinl;
 
         /// <summary>
-        /// Control Label1.
+        /// Control rfv_horafinl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horafinl;
 
         /// <summary>
         /// Control cb_martes.
@@ -141,6 +159,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox horainiciom;
 
         /// <summary>
+        /// Control rfv_horainiciom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horainiciom;
+
+        /// <summary>
         /// Control horafinm.
         /// </summary>
         /// <remarks>
@@ -148,6 +175,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox horafinm;
+
+        /// <summary>
+        /// Control rfv_horafinm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horafinm;
 
         /// <summary>
         /// Control cb_miercoles.
@@ -168,6 +204,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox horainiciomi;
 
         /// <summary>
+        /// Control rfv_horainiciomi.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horainiciomi;
+
+        /// <summary>
         /// Control horafinmi.
         /// </summary>
         /// <remarks>
@@ -175,6 +220,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox horafinmi;
+
+        /// <summary>
+        /// Control rfv_horafinmi.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horafinmi;
 
         /// <summary>
         /// Control cb_jueves.
@@ -195,6 +249,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox horainicioj;
 
         /// <summary>
+        /// Control rfv_horainicioj.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horainicioj;
+
+        /// <summary>
         /// Control horafinj.
         /// </summary>
         /// <remarks>
@@ -202,6 +265,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox horafinj;
+
+        /// <summary>
+        /// Control rfv_horafinj.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horafinj;
 
         /// <summary>
         /// Control cb_viernes.
@@ -222,6 +294,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox horainiciov;
 
         /// <summary>
+        /// Control rfv_horainiciov.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horainiciov;
+
+        /// <summary>
         /// Control horafinv.
         /// </summary>
         /// <remarks>
@@ -229,6 +310,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox horafinv;
+
+        /// <summary>
+        /// Control rfv_horafinv.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horafinv;
 
         /// <summary>
         /// Control cb_sabado.
@@ -249,6 +339,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox horainicios;
 
         /// <summary>
+        /// Control rfv_horainicios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horainicios;
+
+        /// <summary>
         /// Control horafins.
         /// </summary>
         /// <remarks>
@@ -256,6 +355,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox horafins;
+
+        /// <summary>
+        /// Control rfv_horafins.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horafins;
 
         /// <summary>
         /// Control cb_domingo.
@@ -276,6 +384,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox horainiciod;
 
         /// <summary>
+        /// Control rfv_horainiciod.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horainiciod;
+
+        /// <summary>
         /// Control horafind.
         /// </summary>
         /// <remarks>
@@ -285,6 +402,24 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox horafind;
 
         /// <summary>
+        /// Control rfv_horafind.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horafind;
+
+        /// <summary>
+        /// Control lbl_mensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_mensaje;
+
+        /// <summary>
         /// Control btn_aceptar.
         /// </summary>
         /// <remarks>
@@ -292,5 +427,14 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_aceptar;
+
+        /// <summary>
+        /// Control vs_errores.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vs_errores;
     }
 }

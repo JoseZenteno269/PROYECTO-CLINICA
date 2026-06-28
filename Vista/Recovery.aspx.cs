@@ -10,7 +10,6 @@ namespace Vista
 {
     public partial class Recovery : System.Web.UI.Page
     {
-        NegocioMedicos negocio = new NegocioMedicos();
         NegocioUsuarios negocioUsuarios = new NegocioUsuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,24 +18,26 @@ namespace Vista
 
         protected void btn_confirmar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txt_usuario.Text.Trim()) && !string.IsNullOrEmpty(txt_contrasena1.Text.Trim()) && !string.IsNullOrEmpty(txt_contrasena2.Text.Trim()))
+            if (txt_contrasena1.Text.Trim() != txt_contrasena2.Text.Trim())
             {
-                int? idusuario = negocioUsuarios.getIdUsuario(txt_usuario.Text.Trim());
-                if(idusuario == null)
-                {
-                    lbl_mensaje.Text = "Usuario inexistente";
-                    return; 
-                }
+                lbl_mensaje.Text = "Las contraseñas no coinciden";
+                return;
+            }
+            int? idusuario = negocioUsuarios.getIdUsuario(txt_usuario.Text.Trim());
+            if(idusuario == null)
+            {
+                lbl_mensaje.Text = "Usuario inexistente";
+                return; 
+            }
 
-                if(negocioUsuarios.CambioConstrasena(Convert.ToInt32(idusuario), txt_contrasena1.Text.Trim()))
-                {
-                    lbl_mensaje.Text = "Contraseña actualizada correctamente. Redirigiendo...";
-                    Response.AddHeader("REFRESH", "3;URL=Login.aspx");
-                }
-                else
-                {
-                    lbl_mensaje.Text = "Ocurrio un Error intentelo mas tarde"; 
-                }
+            if(negocioUsuarios.CambioConstrasena(Convert.ToInt32(idusuario), txt_contrasena1.Text.Trim()))
+            {
+                lbl_mensaje.Text = "Contraseña actualizada correctamente. Redirigiendo...";
+                Response.AddHeader("REFRESH", "3;URL=Login.aspx");
+            }
+            else
+            {
+                lbl_mensaje.Text = "Ocurrio un Error intentelo mas tarde"; 
             }
         }
     }

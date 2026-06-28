@@ -41,6 +41,12 @@ namespace Vista
 
         protected void btn_aceptar_Click(object sender, EventArgs e)
         {
+            if(txt_contrasena1.Text.Trim() != txt_contrasena2.Text.Trim())
+            {
+                lbl_mensaje.Text = "Las contraseñas no coinciden";
+                return; 
+            }
+
             int? idmedico = negocio.getIdMedico(Session["legajo"].ToString());
             if (idmedico != null)
             {

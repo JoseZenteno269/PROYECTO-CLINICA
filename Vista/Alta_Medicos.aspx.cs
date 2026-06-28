@@ -140,5 +140,15 @@ namespace Vista
             lbl_mensaje.Text = string.Empty;
             lbl_mensaje0.Text = string.Empty; 
         }
+
+        protected void lb_perfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil_Administrador.aspx"); 
+        }
+
+        protected void lb_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx"); 
+        }
     }
 }
