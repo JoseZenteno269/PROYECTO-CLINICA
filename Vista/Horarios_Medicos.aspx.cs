@@ -86,7 +86,7 @@ namespace Vista
         {
             if(!cb_lunes.Checked && !cb_martes.Checked && !cb_miercoles.Checked && !cb_jueves.Checked && !cb_viernes.Checked && !cb_sabado.Checked && !cb_domingo.Checked)
             {
-                lbl_mensaje.Text = "Debe de Seleccionar un dia para empezar"; 
+                lbl_mensaje.Text = "Debe de Seleccionar un dia para empezar "; 
                 return; 
             }
 

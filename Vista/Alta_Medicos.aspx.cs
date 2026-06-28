@@ -104,6 +104,7 @@ namespace Vista
 
             if (negocioMedicos.AgregarMedico(txt_legajo_m.Text, Convert.ToInt32(ddl_provincia_m.SelectedValue), Convert.ToInt32(ddl_localidad_m.SelectedValue), Convert.ToInt32(ddl_especalidad_m.SelectedValue), Convert.ToInt32(txt_dni_m.Text), txt_nombre_m.Text, txt_apellido_m.Text, ddl_sexo_m.Text, txt_nacionalidad.Text, fecha , txt_direccion_m.Text, txt_correo_m.Text, txt_telefono_m.Text))
             {
+                LimpiarCampos(); 
                 lbl_mensaje.Text = "Medico cargado correctamente";
                 lbl_mensaje0.Text = "Redirigiendo...";
                 Response.AddHeader("REFRESH", "3;URL=Usuario_Medico.aspx");
