@@ -74,7 +74,7 @@ namespace Vista
 
         protected void btn_aceptar_Click(object sender, EventArgs e)
         {
-            string idmedico = negocio.getIdMedico(txt_legajo.Text.Trim());
+            int? idmedico = negocio.getIdMedico(txt_legajo.Text.Trim());
             if (idmedico == null)
             {
                 Label1.Text = "error al cargar";

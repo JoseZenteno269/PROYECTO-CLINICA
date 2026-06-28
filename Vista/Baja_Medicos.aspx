@@ -16,7 +16,6 @@
                     <td align="initial" style="padding-left: 20px" width="85%">
                         <h1>Clinica Medica</h1>
                     </td>
-                    <td></td>
                     <td align="end" style="padding-right: 20px">
                         <div class="usuario-container">
                             <asp:LinkButton ID="lb_usuario_menu" CssClass="btn-usuario" runat="server" OnClick="lb_usuario_menu_Click">
@@ -33,42 +32,38 @@
             </table>
         </div>
         <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click"/>
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="btn_volver" OnClick="btn_menu_Click"/>
         </div>
         <div id="divcontenedor">
-            <table>
+            <table class="tabla-inicio">
                 <tr>
                     <td>Ingrese ID del Medico: </td>
                     <td>
-                        <asp:TextBox ID="txt_IdMedico" runat="server"></asp:TextBox></td>
-                    <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" ValidationGroup="3" /></td>
+                        <asp:TextBox ID="txt_IdMedico" runat="server" TextMode="Search"></asp:TextBox>
+                    </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_IdMedico" runat="server" ControlToValidate="txt_IdMedico" ErrorMessage="Ingrese un Id a dar de baja" ValidationGroup="3">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_IdMedico" runat="server" ControlToValidate="txt_IdMedico" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ValidationGroup="3">*</asp:RegularExpressionValidator>
                     </td>
+                    <td>
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" ValidationGroup="3" CssClass="btn_volver" /></td>
+                    <td>
+                        <asp:Button ID="btn_activos" runat="server" Text="Activos" CssClass="btn_volver" OnClick="btn_activos_Click"/>
+                    </td>
+                    <td>
+                        <asp:Button ID="btn_inactivos" runat="server" Text="Inactivos" CssClass="btn_volver" OnClick="btn_inactivos_Click" />
+                    </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="6">
                         <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
                     </td>
                 </tr>
             </table>
         </div>
         <div class ="grupo-medico">
-            <%--            <table>
-                <tr>
-                    <td>
-                        
-                    </td>
-                </tr>
-             <tr>
-                    <td>
-                        <asp:Button ID="btn_Listar" runat="server" Text="Consultar Medicos" OnClick="btn_Listar_Click" />
-                    </td>
-                </tr>--%><%--            </table>--%>
             <br />
-            <asp:GridView ID="gvMedicos" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gvMedicos" runat="server" AutoGenerateColumns="False" CssClass="gv" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
                 <Columns>
                     <asp:TemplateField HeaderText="Id Medico">
                         <ItemTemplate>
@@ -110,12 +105,15 @@
                             <asp:Label ID="lbl_it_Especialidad" runat="server" Text='<%# Bind("Nombre_Espe") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="ACTIVO">
+                    <asp:TemplateField HeaderText="Estado">
                         <EditItemTemplate>
                             <asp:CheckBox ID="chk_NuevoEstado" runat="server" AutoPostBack="True" Checked='<%# Bind("Activo_Med") %>' />
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:CheckBox ID="chk_Estado" runat="server" Checked='<%# Bind("Activo_Med") %>' Enabled="False" />
+                            <span class='<%# Convert.ToBoolean(Eval("Activo_Med")) ? "estado activo" : "estado inactivo" %>'>
+                                <%# Convert.ToBoolean(Eval("Activo_Med")) ? "Activo" : "Inactivo" %>
+                            </span>
+<%--                            <asp:CheckBox ID="chk_Estado" runat="server" Checked='<%# Bind("Activo_Med") %>' Enabled="False" />--%>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

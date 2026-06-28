@@ -40,7 +40,7 @@ namespace Vista
 
         protected void btn_aceptar_Click(object sender, EventArgs e)
         {
-            string idmedico = negocio.getIdMedico(Session["legajo"].ToString());
+            int? idmedico = negocio.getIdMedico(Session["legajo"].ToString());
             if (idmedico != null)
             {
                 if (negocio.AgregarUsuarios(Convert.ToInt32(idmedico), null, txt_usuario.Text.Trim(), txt_contrasena1.Text.Trim()))
@@ -51,8 +51,12 @@ namespace Vista
                 }
                 else
                 {
-                    lbl_mensaje.Text = "Error a generar el usuario"; 
+                    lbl_mensaje.Text = "Error al generar el usuario"; 
                 }
+            }
+            else
+            {
+                lbl_mensaje0.Text = "Error ID no encontrado";
             }
         }
     }

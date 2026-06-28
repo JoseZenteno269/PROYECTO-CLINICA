@@ -33,10 +33,11 @@
                 </tr>
             </table>
         </div>
-        <%--        <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
-        </div>--%>
         <div class="div">
+            <div>
+                <br />
+                <asp:Button ID="btn_Volver" runat="server" OnClick="btn_Volver_Click" Text="Menu" CssClass="btn_volver" />
+            </div>
             <table class="div-medicos">
                 <tr>
                     <td colspan="3">Medicos</td>
@@ -47,7 +48,7 @@
                         <asp:TextBox ID="txt_legajo_m" runat="server"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Ingrese un Legajo" ValidationGroup="1">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="rev_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Debe empezar con Med" ValidationExpression=" ^Med-\d{4}-\d+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="rev_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Debe empezar con Med" ValidationExpression="^MED-\d{4}-\d+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -122,7 +123,7 @@
                         <asp:RegularExpressionValidator ID="rev_Direccion" runat="server" ControlToValidate="txt_direccion_m" ErrorMessage="Ingrese una direccion valida" ValidationExpression="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
-                                <tr>
+                <tr>
                     <td>Provincia:</td>
                     <td>
                         <asp:DropDownList ID="ddl_provincia_m" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_provincia_m_SelectedIndexChanged">
@@ -130,7 +131,7 @@
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rev_Provincia" runat="server" ControlToValidate="ddl_provincia_m" ErrorMessage="Seleccione una Provincia" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
-                                    </td>
+                    </td>
                 </tr>
                 <tr>
                     <td>Localidad:</td>
@@ -155,10 +156,10 @@
                 <tr>
                     <td>Correo Electronico:</td>
                     <td>
-                        <asp:TextBox ID="txt_correo_m" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_correo_m" runat="server" TextMode="Email"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Correo" runat="server" ControlToValidate="txt_correo_m" ErrorMessage="Ingrese un Correo" ValidationGroup="1">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="rev_Email" runat="server" ControlToValidate="txt_correo_m" ErrorMessage="Ingrese un Email valido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                        <%--<asp:RegularExpressionValidator ID="rev_Email" runat="server" ControlToValidate="txt_correo_m" ErrorMessage="Ingrese un Email valido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="1">*</asp:RegularExpressionValidator>--%>
                     </td>
                 </tr>
                 <tr>
@@ -179,7 +180,7 @@
                 <tr>
                     <td colspan="3">
                         <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
-                        
+
                     </td>
                 </tr>
                 <tr>
@@ -196,7 +197,6 @@
                         <asp:Button ID="btn_horarios" runat="server" Text="Horarios" CssClass="btn-cancelar" OnClick="btn_horarios_Click" />
                     </td>
                 </tr>
-                <asp:Button ID="btn_Volver" runat="server" OnClick="btn_Volver_Click" Text="Volver a Menu" />
             </table>
         </div>
         <asp:ValidationSummary ID="VSAltaMedicos" runat="server" DisplayMode="List" EnableTheming="True" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />

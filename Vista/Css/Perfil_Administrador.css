@@ -1,5 +1,6 @@
 ﻿body {
     font-family: 'Roboto', sans-serif;
+    background: linear-gradient(180deg,#F8FCFF,#EDF6FB);
 }
 
 form {
@@ -9,6 +10,24 @@ form {
     align-items: center;
 }
 
+#contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.tabla-listview {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    border: none;
+}
+
+    .tabla-listview td {
+        padding: 10px;
+    }
 
 .tablamenu {
     width: 100%;

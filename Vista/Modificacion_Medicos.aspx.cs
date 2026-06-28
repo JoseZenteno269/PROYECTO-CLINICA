@@ -94,12 +94,12 @@ namespace Vista
             DropDownList ddlprovincia = (DropDownList)gv_medicos.Rows[e.NewEditIndex].FindControl("ddl_provincias");
             DropDownList ddllocalidad = (DropDownList)gv_medicos.Rows[e.NewEditIndex].FindControl("ddl_localidad"); 
             DropDownList ddlespecialidad = (DropDownList)gv_medicos.Rows[e.NewEditIndex].FindControl("ddl_especialidad");
-            DropDownList ddlgenero = (DropDownList)gv_medicos.Rows[e.NewEditIndex].FindControl("ddl_genero"); 
+            DropDownList ddlgenero = (DropDownList)gv_medicos.Rows[e.NewEditIndex].FindControl("ddl_genero");
 
             int idProvincia = Convert.ToInt32(gv_medicos.DataKeys[e.NewEditIndex]["Id_Provincia_Med"]);
             int idLocalidad = Convert.ToInt32(gv_medicos.DataKeys[e.NewEditIndex]["Id_Localidad_Med"]);
             int idEspecialidad = Convert.ToInt32(gv_medicos.DataKeys[e.NewEditIndex]["Id_Especialidad_Med"]);
-            String genero = gv_medicos.DataKeys[e.NewEditIndex]["Sexo_Med"].ToString(); 
+            String genero = gv_medicos.DataKeys[e.NewEditIndex]["Sexo_Med"].ToString();
 
             CargarDropDownListProv(ddlprovincia); 
             CargarDropDownListEspe(ddlespecialidad);

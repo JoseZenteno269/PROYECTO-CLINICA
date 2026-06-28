@@ -18,7 +18,7 @@ namespace Vista
                 if (Session["UsuarioAdmin"] != null)
                 {
                     lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
-                    CargarBajaPacientes();
+                    CargarActivosPacientes();
                 }
                 else
                 {
@@ -47,9 +47,14 @@ namespace Vista
             Response.Redirect("Menu.aspx"); 
         }
 
-        public void CargarBajaPacientes()
+        public void CargarActivosPacientes()
         {
-            gvPacientes.DataSource = negocio.getBajaPaciente();
+            gvPacientes.DataSource = negocio.getActivosPaciente();
+            gvPacientes.DataBind();
+        }
+        public void CargarInactivosPacientes()
+        {
+            gvPacientes.DataSource = negocio.getInactivosPaciente();
             gvPacientes.DataBind();
         }
 
@@ -58,7 +63,7 @@ namespace Vista
             if(negocio.DarBajaPacientes(Convert.ToInt32(txt_IDPacientes.Text)))
             {
                 lbl_Mensaje.Text = "Operacion exitosa";
-                CargarBajaPacientes(); 
+                CargarActivosPacientes(); 
                 Limpiar();
             }
             else
@@ -70,6 +75,16 @@ namespace Vista
         public void Limpiar()
         {
             txt_IDPacientes.Text = string.Empty;
+        }
+
+        protected void btn_activos_Click(object sender, EventArgs e)
+        {
+            CargarActivosPacientes(); 
+        }
+
+        protected void btn_inactivos_Click(object sender, EventArgs e)
+        {
+            CargarInactivosPacientes(); 
         }
     }
 }

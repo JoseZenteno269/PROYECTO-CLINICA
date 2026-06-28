@@ -22,6 +22,8 @@ namespace Vista
                     CargarDropDownListProv();
                     CargarDropDownListLocal();
                     CargarDropDownListEspe();
+                    int anio = DateTime.Now.Year;
+                    txt_legajo_m.Text = "MED-" + anio + "-" + (negocio.getCantidadMedicos() + 1); 
                 }
                 else
                 {
@@ -79,11 +81,6 @@ namespace Vista
         {
             Response.Redirect("Horarios_Medicos.aspx"); 
         }
-
-        //protected void btn_menu_Click(object sender, EventArgs e)
-        //{
-            
-        //}
 
         protected void btn_cancelar_Click(object sender, EventArgs e)
         {

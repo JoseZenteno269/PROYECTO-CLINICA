@@ -87,15 +87,6 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_IDPacientes;
 
         /// <summary>
-        /// Control btn_Aceptar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Aceptar;
-
-        /// <summary>
         /// Control rfv_Pacientes.
         /// </summary>
         /// <remarks>
@@ -112,6 +103,33 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_Pacientes;
+
+        /// <summary>
+        /// Control btn_Aceptar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Aceptar;
+
+        /// <summary>
+        /// Control btn_activos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_activos;
+
+        /// <summary>
+        /// Control btn_inactivos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_inactivos;
 
         /// <summary>
         /// Control lbl_Mensaje.

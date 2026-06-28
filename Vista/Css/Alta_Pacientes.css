@@ -1,7 +1,7 @@
 ﻿body {
     font-family: Arial, sans-serif;
     font-size: 15px;
-    background-color: #f4f4f4;
+    background: linear-gradient(180deg,#F8FCFF,#EDF6FB);
 }
 
 form {
@@ -67,6 +67,16 @@ form {
 
 /* Inputs de texto */
 input[type="text"] {
+    width: 80%;
+    max-width: 400px;
+    height: 26px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+input[type="email"] {
     width: 80%;
     max-width: 400px;
     height: 26px;

@@ -34,7 +34,7 @@
             </table>
         </div>
         <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="btn_volver" OnClick="btn_menu_Click" />
         </div>
         <div id="divcontenedor">
             <table>
@@ -52,9 +52,9 @@
             <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
             <br />
             <div class="contenedor-grid">
-            <asp:GridView ID="gv_medicos" CssClass="gv" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gv_medicos_RowCancelingEdit" OnRowEditing="gv_medicos_RowEditing" OnRowUpdating="gv_medicos_RowUpdating" DataKeyNames="Id_Provincia_Med,Id_Localidad_Med,Id_Especialidad_Med,Sexo_Med">
+            <asp:GridView ID="gv_medicos" CssClass="gv" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gv_medicos_RowCancelingEdit" OnRowEditing="gv_medicos_RowEditing" OnRowUpdating="gv_medicos_RowUpdating" DataKeyNames="Id_Provincia_Med,Id_Localidad_Med,Id_Especialidad_Med,Sexo_Med,FechaNacimiento_Med" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
                 <Columns>
-                    <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+                    <asp:CommandField ButtonType="Button" ShowEditButton="True" ValidationGroup="1" />
                     <asp:TemplateField HeaderText="ID MEDICO">
                         <EditItemTemplate>
                             <asp:Label ID="lbl_idmedico" runat="server" Text='<%# Bind("Id_Medico_Med") %>'></asp:Label>
@@ -82,6 +82,8 @@
                     <asp:TemplateField HeaderText="Nombre">
                         <EditItemTemplate>
                             <asp:TextBox ID="txt_nombre" runat="server" Text='<%# Bind("Nombre_Med") %>' Width="70"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_nombre" runat="server" ErrorMessage="Campo Incompleto" ControlToValidate="txt_nombre" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev_nombre" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_nombre" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_nombre" runat="server" Text='<%# Bind("Nombre_Med") %>'></asp:Label>
@@ -90,6 +92,8 @@
                     <asp:TemplateField HeaderText="Apellido">
                         <EditItemTemplate>
                             <asp:TextBox ID="txt_apellido" runat="server" Text='<%# Bind("Apellido_Med") %>' Width="70"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_apellido" runat="server" ErrorMessage="Campo incompleto" ValidationGroup="1" ControlToValidate="txt_apellido">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev_apellido" runat="server" ErrorMessage="Caracteres invalidos" ValidationGroup="1" ControlToValidate="txt_apellido" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$">*</asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_apellido" runat="server" Text='<%# Bind("Apellido_Med") %>'></asp:Label>
@@ -99,6 +103,7 @@
                         <EditItemTemplate>
                             <asp:DropDownList ID="ddl_provincias" runat="server" AutoPostBack="True" Width="80" OnSelectedIndexChanged="ddl_provincias_SelectedIndexChanged">
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rfv_provincia" runat="server" ErrorMessage="Eleccion invalida" ControlToValidate="ddl_provincias" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_provincia" runat="server" Text='<%# Bind("Descripcion_Prov") %>'></asp:Label>
@@ -108,6 +113,7 @@
                         <EditItemTemplate>
                             <asp:DropDownList ID="ddl_localidad" runat="server" Width="100">
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rfv_localidad" runat="server" ErrorMessage="Eleccion invalida" ControlToValidate="ddl_localidad" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_localidad" runat="server" Text='<%# Bind("Descripcion_Local") %>'></asp:Label>
@@ -117,6 +123,7 @@
                         <EditItemTemplate>
                             <asp:DropDownList ID="ddl_especialidad" runat="server" Width="100">
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rfv_especialidad" runat="server" ErrorMessage="Eleccion invalida" ControlToValidate="ddl_especialidad" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_especialidad" runat="server" Text='<%# Bind("Nombre_Espe") %>'></asp:Label>
@@ -129,6 +136,7 @@
                                 <asp:ListItem>Masculino</asp:ListItem>
                                 <asp:ListItem>Femenino</asp:ListItem>
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rfv_genero" runat="server" ErrorMessage="Eleccion invalida" ControlToValidate="ddl_genero" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_sexo" runat="server" Text='<%# Bind("Sexo_Med") %>'></asp:Label>
@@ -137,6 +145,8 @@
                     <asp:TemplateField HeaderText="Nacionalidad">
                         <EditItemTemplate>
                             <asp:TextBox ID="txt_nacionalidad" runat="server" Text='<%# Bind("Nacionalidad_Med") %>' Width="100px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_nacionalidad" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_nacionalidad" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev_nacionalidad" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_nacionalidad" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_nacionalidad" runat="server" Text='<%# Bind("Nacionalidad_Med") %>'></asp:Label>
@@ -145,6 +155,8 @@
                     <asp:TemplateField HeaderText="Fecha de Nacimiento">
                         <EditItemTemplate>
                             <asp:TextBox ID="txt_fecha" runat="server" Text='<%# Bind("FechaNacimiento_Med", "{0:d}") %>' Width="100px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_fecha" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_fecha" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev_fecha" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_fecha" ValidationExpression="^\d{1,2}[/-]\d{1,2}[/-]\d{4}$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_fechanacimiento" runat="server" Text='<%# Bind("FechaNacimiento_Med", "{0:d}") %>'></asp:Label>
@@ -153,6 +165,8 @@
                     <asp:TemplateField HeaderText="Direccion">
                         <EditItemTemplate>
                             <asp:TextBox ID="txt_direccion" runat="server" Text='<%# Bind("Direccion_Med") %>' Width="100px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_direccion" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_direccion" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev_direccion" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_direccion" ValidationExpression="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_direccion" runat="server" Text='<%# Bind("Direccion_Med") %>'></asp:Label>
@@ -161,6 +175,7 @@
                     <asp:TemplateField HeaderText="Correo">
                         <EditItemTemplate>
                             <asp:TextBox ID="txt_correo" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>' Width="100px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_correo" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_correo" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_correo" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>'></asp:Label>
@@ -169,6 +184,8 @@
                     <asp:TemplateField HeaderText="Telefono">
                         <EditItemTemplate>
                             <asp:TextBox ID="txt_telefono" runat="server" Text='<%# Bind("Telefono_Med") %>' Width="100px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_telefono" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_telefono" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev_telefono" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_telefono" ValidationExpression="^[0-9]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_telefono" runat="server" Text='<%# Bind("Telefono_Med") %>'></asp:Label>
@@ -176,6 +193,7 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
             </div>
         </div>
         <br />

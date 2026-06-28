@@ -18,7 +18,12 @@ namespace Negocio
             // Constructor Vacío
         }
 
-        public String getIdMedico(String legajo)
+        public int? getCantidadMedicos()
+        {
+            return daoDatos.ConsultaUnica(); 
+        }
+
+        public int? getIdMedico(String legajo)
         {
             return daoDatos.getIdMedico(legajo);    
         }
@@ -27,8 +32,12 @@ namespace Negocio
         {
             return daoDatos.getLegajoMedico(usuario); 
         }
+        public int? getIdAdministrador(String usuario)
+        {
+            return daoDatos.getIdAdministrador(usuario); 
+        }
 
-        public String getIdUsuario(String username)
+        public int? getIdUsuario(String username)
         {
             return daoDatos.getIdUsuario(username); 
         }
@@ -41,7 +50,11 @@ namespace Negocio
         {
             return daoDatos.getTablaPacientes(consulta);
         }
-        public DataTable getBajaPaciente()
+        public DataTable getActivosPaciente()
+        {
+            return daoDatos.getTablaAltaPacientes();
+        }
+        public DataTable getInactivosPaciente()
         {
             return daoDatos.getTablaBajaPacientes();
         }
@@ -55,7 +68,11 @@ namespace Negocio
             return daoDatos.getTablaMedicos(consulta);
         }
 
-        public DataTable getBajaMedicos()
+        public DataTable getActivosMedicos()
+        {
+            return daoDatos.getTablaAltaMedicos();
+        }
+        public DataTable getInactivosMedicos()
         {
             return daoDatos.getTablaBajaMedicos();
         }

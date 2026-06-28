@@ -20,7 +20,7 @@ namespace Vista
         {
             if (!string.IsNullOrEmpty(txt_usuario.Text.Trim()) && !string.IsNullOrEmpty(txt_contrasena1.Text.Trim()) && !string.IsNullOrEmpty(txt_contrasena2.Text.Trim()))
             {
-                String idusuario = negocio.getIdUsuario(txt_usuario.Text.Trim());
+                int? idusuario = negocio.getIdUsuario(txt_usuario.Text.Trim());
                 if(idusuario == null)
                 {
                     lbl_mensaje.Text = "Usuario inexistente";

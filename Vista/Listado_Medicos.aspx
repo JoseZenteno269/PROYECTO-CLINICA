@@ -34,42 +34,41 @@
             </table>
         </div>
                 <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click"/>
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="btn_volver" OnClick="btn_menu_Click"/>
         </div>
         <div id="divcontenedor">
             <table>
                 <tr>
+                    <td colspan="2"><h1>Buscar Médicos</h1></td>
+                </tr>
+                <tr>
+                    <td>Buscar por Legajo</td>
+                </tr>
+                <tr>
                     <td>
-                    Ingrese Legajo: 
+                        <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="txt_buscar" runat="server"></asp:TextBox>
-                    </td>
-                    <td class="auto-style1">
-                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" OnClick="btn_buscar_Click" />
+                        <asp:Button ID="btn_buscar" runat="server" CssClass="btn_volver" Text="Buscar" OnClick="btn_buscar_Click" />
                     </td>
                     </tr>
-            </table>
-        </div>
-        <div>
-            <table>
                 <tr>
-                    <td>Filtrado por Especialidad:</td><td>
+                    <td colspan="2">Filtrar por Especialidad <br />
                     <asp:DropDownList ID="ddl_EspecialidadFiltro" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_EspecialidadFiltro_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td></td><td></td>
-                </tr>
-                <tr>
-                    <td>Filtrado por Sexo:</td><td>
+                    <td colspan="2">Filtrar por Sexo <br />
                     <asp:DropDownList ID="ddl_SexoFiltrado" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_SexoFiltrado_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
                 </tr>
             </table>
         </div>
+        <br />
+        <br />
+        <br />
         <div class="contenedor-lista" >
             <asp:ListView ID="lv_Medicos" runat="server" DataSourceID="SqlDataSourceMedicos">
                 <%--<AlternatingItemTemplate>
@@ -328,12 +327,16 @@
              <br />
 
             <br />
-            <asp:SqlDataSource ID="SqlDataSourceMedicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaListadoMedicos %>" SelectCommand="  SELECT Legajo_Med AS Legajo,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad, Nombre_Espe AS Especialidad,DNI_Med AS Dni,(Nombre_Med + Apellido_Med) AS [Nombre y Apellido], Sexo_Med AS Sexo,Nacionalidad_Med AS Nacionalidad,FechaNacimiento_Med AS [Fecha de Nacimiento],Direccion_Med AS Direccion,CorreoElectronico_Med AS Email,Telefono_Med AS Telefono
-  FROM Medicos INNER JOIN Provincias ON Medicos.Id_Provincia_Med = Provincias.Id_Provincia_Prov 
-  INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local
-  INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe
+            <asp:SqlDataSource ID="SqlDataSourceMedicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand="SELECT Legajo_Med AS Legajo,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad, Nombre_Espe AS Especialidad,DNI_Med AS Dni,(Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Sexo_Med AS Sexo,Nacionalidad_Med AS Nacionalidad,FechaNacimiento_Med AS [Fecha de Nacimiento],Direccion_Med AS Direccion,CorreoElectronico_Med AS Email,Telefono_Med AS Telefono
+FROM Medicos INNER JOIN Provincias ON Medicos.Id_Provincia_Med = Provincias.Id_Provincia_Prov 
+INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local
+INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe
 WHERE Activo_Med = 1"></asp:SqlDataSource>
          </div>
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

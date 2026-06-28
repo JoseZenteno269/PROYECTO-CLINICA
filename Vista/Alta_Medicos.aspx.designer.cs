@@ -69,6 +69,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_cerrar_sesion;
 
         /// <summary>
+        /// Control btn_Volver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Volver;
+
+        /// <summary>
         /// Control txt_legajo_m.
         /// </summary>
         /// <remarks>
@@ -339,15 +348,6 @@ namespace Vista
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Correo;
 
         /// <summary>
-        /// Control rev_Email.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_Email;
-
-        /// <summary>
         /// Control txt_telefono_m.
         /// </summary>
         /// <remarks>
@@ -427,15 +427,6 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_horarios;
-
-        /// <summary>
-        /// Control btn_Volver.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Volver;
 
         /// <summary>
         /// Control VSAltaMedicos.

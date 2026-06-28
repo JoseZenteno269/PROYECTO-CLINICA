@@ -1,5 +1,6 @@
 ﻿body {
     font-family: 'Roboto', sans-serif;
+    background: linear-gradient(180deg,#F8FCFF,#EDF6FB);
 }
 
 form {
@@ -25,10 +26,40 @@ form {
     padding: 15px 15px 15px 15px;
 }
 
-.button {
-    width: 80px;
-    height: 25px;
+.btn_volver {
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    width: auto;
+    background-color: lightblue;
+    color: #ffffff;
 }
+
+.tabla-filtros {
+    padding: 20px;
+}
+
+    .tabla-filtros td {
+        padding: 15px;
+    }
+
+input[type=search] {
+    width: 160px;
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+select {
+    padding: 8px 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+}
+
 
 .tablamenu {
     width: 100%;
@@ -58,6 +89,10 @@ form {
     color: black;
 }
 
+    .btn-usuario:hover {
+        background: #f0f0f0;
+    }
+
 .dropdown-panel {
     position: absolute;
     top: 180%;
@@ -81,6 +116,10 @@ form {
     font-size: 14px;
     text-align: left;
 }
+
+    .opcion-menu:hover {
+        background: #f5f5f5;
+    }
 
 .opcion-roja {
     color: red;
@@ -153,7 +192,6 @@ form {
     white-space: nowrap;
 }
 
-.contenedor-lista{
-    height: 70vh; 
+.contenedor-lista{ 
 
 }

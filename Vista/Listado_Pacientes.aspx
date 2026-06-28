@@ -30,38 +30,37 @@
             </table>
         </div>
                 <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click"/>
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="btn_volver" OnClick="btn_menu_Click"/>
         </div>
         <div id="divcontenedor">
             <table>
                 <tr>
-                    <td>Ingrese DNI: 
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txt_buscar" runat="server"></asp:TextBox></td>
-                    <td>
-                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" OnClick="btn_buscar_Click" /></td>
+                    <td colspan="2"><h1>Buscar Pacientes</h1></td>
                 </tr>
-            </table>
-        </div>
-        <div>
-            <table>
                 <tr>
-                    <td>Filtro de Nombre:</td>
+                    <td>Buscar por DNI </td>
+                </tr>
+                <tr>
                     <td>
+                        <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search"></asp:TextBox></td>
+                    <td>
+                        <asp:Button ID="btn_buscar" runat="server" CssClass="btn_volver" Text="Buscar" OnClick="btn_buscar_Click" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Filtrar por inicial <br />
                         <asp:DropDownList ID="ddl_Letras" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged"></asp:DropDownList></td>
                 </tr>
                 <tr>
-                    <td class="auto-style1"></td><td class="auto-style1"></td>
-                </tr>
-                <tr>
-                    <td>Filtrado por provincia: </td><td>
+                    <td colspan="2">Filtrar por provincia <br />
                     <asp:DropDownList ID="ddl_ProvinciasFiltro" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_ProvinciasFiltro_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
                 </tr>
             </table>
         </div>
+        <br />
+        <br />
+        <br />
         <div class="tabla-datos" align="center">
 
             <asp:ListView ID="lv_pacientes" runat="server" DataSourceID="SqlDataSourcePacientes">
@@ -288,11 +287,15 @@
             </asp:ListView>
             <br />
 
-            <asp:SqlDataSource ID="SqlDataSourcePacientes" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaListadoPacientes %>" SelectCommand= " SELECT DNI_Paci AS DNI,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad, (Nombre_Paci +' '+ Apellido_Paci) AS [Nombre y Apellido],Sexo_Paci,Nacionalidad_Paci,FechaNacimiento_Paci,Direccion_Paci,CorreoElectronico_Paci,Telefono_Paci 
+            <asp:SqlDataSource ID="SqlDataSourcePacientes" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand= "SELECT DNI_Paci AS DNI,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad, (Nombre_Paci +' '+ Apellido_Paci) AS [Nombre y Apellido],Sexo_Paci,Nacionalidad_Paci,FechaNacimiento_Paci,Direccion_Paci,CorreoElectronico_Paci,Telefono_Paci 
  FROM Pacientes INNER JOIN Provincias ON Pacientes.Id_Provincia_Paci = Provincias.Id_Provincia_Prov 
  INNER JOIN Localidades ON Pacientes.Id_Localidad_Paci = Localidades.Id_Localidad_Local
 WHERE Activo_Paci = 1"></asp:SqlDataSource>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

@@ -17,7 +17,7 @@
                         <h1>Clinica Medica</h1>
                     </td>
                     <td></td>
-                    <td align="end" style="padding-right: 20px">
+                    <td style="padding-right: 20px" align="end">
                         <div class="usuario-container">
                             <asp:LinkButton ID="lb_usuario_menu" CssClass="btn-usuario" runat="server" OnClick="lb_usuario_menu_Click">
                                 👤
@@ -34,23 +34,29 @@
             </table>
         </div>
         <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click1"/>
+            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="btn_volver" OnClick="btn_menu_Click1" />
         </div>
         <div id="divcontenedor">
             <table>
                 <tr>
                     <td>Ingrese ID del Paciente: </td>
                     <td>
-                        <asp:TextBox ID="txt_IDPacientes" runat="server"></asp:TextBox></td>
-                    <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" ValidationGroup="5" /></td>
+                        <asp:TextBox ID="txt_IDPacientes" runat="server" TextMode="Search"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Pacientes" runat="server" ControlToValidate="txt_IDPacientes" ErrorMessage="Ingrese un Id de paciente" ValidationGroup="5">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_Pacientes" runat="server" ControlToValidate="txt_IDPacientes" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ValidationGroup="5">*</asp:RegularExpressionValidator>
                     </td>
+                    <td>
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" ValidationGroup="5" CssClass="btn_volver" /></td>
+                    <td>
+                        <asp:Button ID="btn_activos" runat="server" Text="Activos" CssClass="btn_volver" OnClick="btn_activos_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="btn_inactivos" runat="server" Text="Inactivos" CssClass="btn_volver" OnClick="btn_inactivos_Click" />
+                    </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="6">
                         <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
                     </td>
                 </tr>
@@ -58,7 +64,7 @@
         </div>
         <div class="grupo-pacientes">
             <br />
-            <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False" CssClass="gv" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
                 <Columns>
                     <asp:TemplateField HeaderText="ID Paciente">
                         <ItemTemplate>
@@ -105,19 +111,18 @@
                             <asp:Label ID="lbl_it_Telefono" runat="server" Text='<%# Bind("Telefono_Paci") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="ACTIVO">
+                    <asp:TemplateField HeaderText="Estado">
                         <EditItemTemplate>
                             <asp:CheckBox ID="chk_NuevoEstado" runat="server" AutoPostBack="True" Checked='<%# Bind("Activo_Paci") %>' />
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:CheckBox ID="chk_Estado" runat="server" Checked='<%# Bind("Activo_Paci") %>' Enabled="False" />
+                            <span class='<%# Convert.ToBoolean(Eval("Activo_Paci")) ? "estado activo" : "estado inactivo" %>'>
+                                <%# Convert.ToBoolean(Eval("Activo_Paci")) ? "Activo" : "Inactivo" %>
+                            </span>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-                    </td>
-                </tr>
-            </table>
         </div>
         <div class="divlogos">
             <table style="width: 100%">

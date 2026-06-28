@@ -46,8 +46,6 @@ namespace Vista
             Response.Redirect("Menu.aspx");
         }
 
-       
-
         protected void btn_buscar_Click(object sender, EventArgs e)
         {
             SqlDataSourcePacientes.SelectCommand = "SELECT DNI_Paci AS DNI,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad,(Nombre_Paci + ' ' + Apellido_Paci) AS[Nombre y Apellido],Sexo_Paci,Nacionalidad_Paci,FechaNacimiento_Paci,Direccion_Paci,CorreoElectronico_Paci,Telefono_Paci FROM Pacientes INNER JOIN Provincias ON Pacientes.Id_Provincia_Paci = Provincias.Id_Provincia_Prov INNER JOIN Localidades ON Pacientes.Id_Localidad_Paci = Localidades.Id_Localidad_Local WHERE CAST(DNI_Paci AS VARCHAR(20)) LIKE @DNI ";

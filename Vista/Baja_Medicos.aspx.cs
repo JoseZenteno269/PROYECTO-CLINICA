@@ -19,7 +19,7 @@ namespace Vista
                 if (Session["UsuarioAdmin"] != null)
                 {
                     lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
-                    CargarBajaMedicos(); 
+                    CargarActivosMedicos(); 
                 }
                 else
                 {
@@ -43,24 +43,23 @@ namespace Vista
             Response.Redirect("Menu.aspx");
         }
 
-        public void CargarBajaMedicos()
+        public void CargarActivosMedicos()
         {
-          gvMedicos.DataSource =  negocio.getBajaMedicos();
+          gvMedicos.DataSource =  negocio.getActivosMedicos();
           gvMedicos.DataBind();  
-
         }
-
-        //protected void btn_Listar_Click(object sender, EventArgs e)
-        //{
-        //    CargarBajaMedicos();
-        //}
+        public void CargarInactivosMedicos()
+        {
+          gvMedicos.DataSource =  negocio.getInactivosMedicos();
+          gvMedicos.DataBind();  
+        }
 
         protected void btn_Aceptar_Click(object sender, EventArgs e)
         {
             if(negocio.DarBajaMedico(Convert.ToInt32(txt_IdMedico.Text)))
             {
                 lbl_Mensaje.Text = "Dado de baja con Exito";
-                CargarBajaMedicos(); 
+                CargarActivosMedicos(); 
                 Limpiar();
             }
             else
@@ -73,6 +72,16 @@ namespace Vista
         public void Limpiar()
         {
             txt_IdMedico.Text = string.Empty;
+        }
+
+        protected void btn_inactivos_Click(object sender, EventArgs e)
+        {
+            CargarInactivosMedicos(); 
+        }
+
+        protected void btn_activos_Click(object sender, EventArgs e)
+        {
+            CargarActivosMedicos(); 
         }
     }
 }

@@ -45,18 +45,32 @@ namespace Datos
             }
         }
 
-        public String ObtenerIdMedico(SqlCommand comando, String consulta)
+        public int? Consulta(String consulta)
+        { 
+            SqlConnection conexion = ObtenerConexion();
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            object resultado = comando.ExecuteScalar(); 
+            if(resultado != null)
+                return Convert.ToInt32(resultado);
+            return null;
+        }
+
+        public int? Consulta(SqlCommand comando, String consulta)
         {
             SqlConnection conexion = ObtenerConexion();
             comando.Connection = conexion;
             comando.CommandText = consulta; 
-            SqlDataReader lectura = comando.ExecuteReader(); 
-            if (lectura.Read())
-            {
-                return lectura["Id_Medico_Med"].ToString();
-            }
-
+            object resutado = comando.ExecuteScalar();
+            if (resutado != null) return 
+                    Convert.ToInt32(resutado);
             return null;
+            //SqlDataReader lectura = comando.ExecuteReader(); 
+            //if (lectura.Read())
+            //{
+            //    return lectura["Id_Medico_Med"].ToString();
+            //}
+
+            //return null;
         }
 
         public String ObtenerLegajoMedico(SqlCommand comando, String consulta)
@@ -73,19 +87,19 @@ namespace Datos
             return null;
         }
 
-        public String ObtenerIdUsuario(SqlCommand comando, String consulta)
-        {
-            SqlConnection conexion = ObtenerConexion();
-            comando.Connection = conexion;
-            comando.CommandText = consulta; 
-            SqlDataReader lectura = comando.ExecuteReader();
-            if (lectura.Read())
-            {
-                return lectura["Id_Usuario_Usu"].ToString();
-            }
+        //public String ObtenerIdUsuario(SqlCommand comando, String consulta)
+        //{
+        //    SqlConnection conexion = ObtenerConexion();
+        //    comando.Connection = conexion;
+        //    comando.CommandText = consulta; 
+        //    SqlDataReader lectura = comando.ExecuteReader();
+        //    if (lectura.Read())
+        //    {
+        //        return lectura["Id_Usuario_Usu"].ToString();
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
 
         public String LoginMedicoAdministrador(SqlCommand comando, String consulta)
         {

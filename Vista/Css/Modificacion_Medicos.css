@@ -1,5 +1,6 @@
 ﻿body {
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(180deg,#F8FCFF,#EDF6FB);
 }
 
 form {
@@ -23,19 +24,71 @@ form {
     overflow-x: auto; /* scroll horizontal si la tabla es ancha */
 }
 
-.gv{
-    
-}
-.gv td {
-    padding: 10px 5px 10px 5px;
-    text-align: center; 
-}
-
-.button {
-    width: 80px;
-    height: 25px;
+.gv {
+    width: 100%;
+    border: none !important;
+    border-collapse: collapse !important;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
 }
 
+    /* ENCABEZADO */
+
+    .gv th {
+        background: linear-gradient(90deg,#5b86e5,#36d1dc);
+        color: white;
+        padding: 12px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        border: none !important;
+        outline: none;
+    }
+
+    /* CELDAS */
+
+    .gv td {
+        padding: 10px 8px;
+        text-align: center;
+        font-size: 13px;
+        white-space: nowrap;
+        border: none !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+    }
+
+    /* FILAS */
+
+    .gv tr {
+        background: white;
+        transition: background .2s ease, transform .2s ease;
+    }
+
+        .gv tr:hover {
+            background: #f3f7ff;
+            transform: scale(1.002);
+        }
+
+        /* QUITAR LA LÍNEA DE LA ÚLTIMA FILA */
+
+        .gv tr:last-child td {
+            border-bottom: none !important;
+        }
+
+.btn_volver {
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    width: auto;
+    background-color: lightblue;
+    color: #ffffff;
+}
 .tablamenu {
     width: 100%;
 }
@@ -52,6 +105,7 @@ form {
     display: inline-block;
 }
 
+
 .btn-usuario {
     cursor: pointer;
     padding: 13px 56px;
@@ -62,6 +116,10 @@ form {
     text-decoration: none;
     color: black;
 }
+
+    .btn-usuario:hover {
+        background: #f0f0f0;
+    }
 
 .dropdown-panel {
     position: absolute;
@@ -86,6 +144,10 @@ form {
     font-size: 14px;
     text-align: left;
 }
+
+    .opcion-menu:hover {
+        background: #f5f5f5;
+    }
 
 .opcion-roja {
     color: red;

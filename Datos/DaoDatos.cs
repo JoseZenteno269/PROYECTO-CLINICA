@@ -14,12 +14,16 @@ namespace Datos
             /// Constructor vacio
         }
 
-        public String getIdMedico(String legajo)
+        public int? ConsultaUnica()
+        {
+            return datos.Consulta("SELECT COUNT(*) FROM Medicos"); 
+        }
+        public int? getIdMedico(String legajo)
         {
             String consulta = "SELECT Id_Medico_Med FROM Medicos WHERE Legajo_Med = @LEGAJO";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@LEGAJO", legajo);
-            return datos.ObtenerIdMedico(comando, consulta); 
+            return datos.Consulta(comando, consulta); 
         }
         public String getLegajoMedico(String usuario)
         {
@@ -28,13 +32,20 @@ namespace Datos
             comando.Parameters.AddWithValue("@USERNAME", usuario);
             return datos.ObtenerLegajoMedico(comando, consulta); 
         }
-
-        public String getIdUsuario(String username)
+        public int? getIdAdministrador(String usuario)
         {
-            String consulta = "SELECT * FROM Usuarios WHERE Username_Usu = @USERNAME";
+            String consulta = "SELECT Id_Administrador_Admin FROM Administradores INNER JOIN Usuarios ON Id_Administrador_Usu = Id_Administrador_Admin WHERE Username_Usu = @USERNAME";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@USERNAME", usuario);
+            return datos.Consulta(comando, consulta); 
+        }
+
+        public int? getIdUsuario(String username)
+        {
+            String consulta = "SELECT Id_Usuario_Usu FROM Usuarios WHERE Username_Usu = @USERNAME AND Id_Administrador_Usu = NULL";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@USERNAME", username);
-            return datos.ObtenerIdUsuario(comando, consulta); 
+            return datos.Consulta(comando, consulta); 
         }
         public DataTable getTablaMedicos()
         {
@@ -54,9 +65,14 @@ namespace Datos
             return tabla;
         }
 
-        public DataTable getTablaBajaMedicos()
+        public DataTable getTablaAltaMedicos()
         {
             DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Legajo_Med, Id_Medico_Med, DNI_Med, Nombre_Med, Apellido_Med, FechaNacimiento_Med, CorreoElectronico_Med, Telefono_Med, Id_Especialidad_Med, Nombre_Espe, Activo_Med FROM Medicos INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE Activo_Med = 1");
+            return tabla;
+        }
+        public DataTable getTablaBajaMedicos()
+        {
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT Legajo_Med, Id_Medico_Med, DNI_Med, Nombre_Med, Apellido_Med, FechaNacimiento_Med, CorreoElectronico_Med, Telefono_Med, Id_Especialidad_Med, Nombre_Espe, Activo_Med FROM Medicos INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE Activo_Med = 0");
             return tabla;
         }
 
@@ -75,9 +91,14 @@ namespace Datos
             return tabla;
         }
 
-        public DataTable getTablaBajaPacientes()
+        public DataTable getTablaAltaPacientes()
         {
             DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci,DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Nacionalidad_Paci, FechaNacimiento_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci, Activo_Paci FROM Pacientes WHERE Activo_Paci = 1");
+            return tabla;
+        }
+        public DataTable getTablaBajaPacientes()
+        {
+            DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci,DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Nacionalidad_Paci, FechaNacimiento_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci, Activo_Paci FROM Pacientes WHERE Activo_Paci = 0");
             return tabla;
         }
 
