@@ -7,11 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="Css/Usuario_Medico.css" rel="stylesheet" type="text/css" />
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 67px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
