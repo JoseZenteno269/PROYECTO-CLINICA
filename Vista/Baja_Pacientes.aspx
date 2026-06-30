@@ -34,6 +34,9 @@
                 </tr>
             </table>
         </div>
+        <br />
+        <br />
+        <br />
         <div id="divcontenedor">
             <table>
                 <tr>

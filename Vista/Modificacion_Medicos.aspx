@@ -34,16 +34,19 @@
                 </tr>
             </table>
         </div>
+        <br />
+        <br />
+        <br />
         <div id="divcontenedor">
             <table>
                 <tr>
                     <td>Ingrese Legajo, DNI, Nombre o Apellido: 
                     </td>
                     <td>
-                        <asp:TextBox ID="txt_busqueda" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_busqueda" runat="server" TextMode="Search"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" />
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" CssClass="btn_volver" />
                     </td>
                 </tr>
             </table>

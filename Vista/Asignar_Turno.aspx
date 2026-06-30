@@ -24,7 +24,8 @@
                         <asp:Label runat="server" ID="lbl_usuario" Text="usuario"></asp:Label>
                             </asp:LinkButton>
                             <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
-                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server" OnClick="lb_perfil_Click">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_menu" CssClass="opcion-menu" runat="server" OnClick="lb_menu_Click">Menu</asp:LinkButton>
                                 <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
                         </div>
@@ -32,44 +33,50 @@
                 </tr>
             </table>
         </div>
-        <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
-        </div>
+        <br />
+        <br />
+        <br />
         <div id="divrow">
-            <div class="divfila">
+            <div class="divfila" style="width: 30%">
                 <table class="tableturnos">
                     <tr>
                         <td>
-                            <p>Seleccione una Especilidad:</p>
+                            <p>Especilidad</p>
                             <asp:DropDownList ID="ddl_especialidad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_especialidad_SelectedIndexChanged"></asp:DropDownList></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Seleccione un Medico:</p>
-                            <asp:DropDownList ID="ddl_medicos" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_medicos_SelectedIndexChanged"></asp:DropDownList></td>
+                            <p>Medico</p>
+                            <asp:DropDownList ID="ddl_medicos" runat="server" AutoPostBack="True"></asp:DropDownList></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td align="center" class="auto-style1">
-                            <p>Elija un dia</p>
-                            <asp:Calendar ID="c_dias" runat="server"></asp:Calendar>
+                        <td align="center">
+                            <p>Fecha</p>
+                            <asp:Calendar ID="c_calendario" runat="server" OnSelectionChanged="c_calendario_SelectionChanged"></asp:Calendar>
                         </td>
-                        <td class="auto-style1"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Seleccione un Horario:</p>
+                            <p>Horario</p>
                             <asp:DropDownList ID="ddl_horas" runat="server"></asp:DropDownList>
                         </td>
                         <td></td>
                     </tr>
                 </table>
             </div>
-            <div class="divfila">
-                <asp:GridView ID="gvPacientesSeleccion" runat="server" AutoGenerateColumns="False">
+            <div class="divfila" style="width: 40%">
+
+                <asp:GridView ID="gvPacientesSeleccion" runat="server" AutoGenerateColumns="False" CssClass="gv" OnSelectedIndexChanging="gvPacientesSeleccion_SelectedIndexChanging">
                     <Columns>
                         <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                        <asp:TemplateField HeaderText="ID Paciente">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_it_idpaciente" runat="server" Text='<%# Eval("Id_Paciente_Paci") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="DNI">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
@@ -78,6 +85,16 @@
                         <asp:TemplateField HeaderText="Nombre y Apellido">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Paci") + " " + Eval("Apellido_Paci") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Genero">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_it_genero" runat="server" Text='<%# Eval("Sexo_Paci") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Fecha de Nacimiento">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_it_fecha" runat="server" Text='<%# Eval("FechaNacimiento_Paci", "{0:d}") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Telefono">
@@ -91,16 +108,17 @@
             </div>
         </div>
         <div>
-            <table style="width: 100%">
+            <table>
                 <tr>
                     <td align="center">
                         <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar" OnClick="btn_confirmar_Click" />
                     </td>
                     <td align="center">
-                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" OnClick="btn_cancelar_Click" />
+                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" />
                     </td>
                 </tr>
             </table>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
         <br />
         <br />

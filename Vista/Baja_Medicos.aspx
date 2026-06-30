@@ -32,6 +32,9 @@
                 </tr>
             </table>
         </div>
+        <br />
+        <br />
+        <br />
         <div id="divcontenedor">
             <table class="tabla-inicio">
                 <tr>

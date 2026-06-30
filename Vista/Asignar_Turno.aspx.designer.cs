@@ -60,6 +60,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_perfil;
 
         /// <summary>
+        /// Control lb_menu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lb_menu;
+
+        /// <summary>
         /// Control lb_cerrar_sesion.
         /// </summary>
         /// <remarks>
@@ -67,15 +76,6 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lb_cerrar_sesion;
-
-        /// <summary>
-        /// Control btn_menu.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_menu;
 
         /// <summary>
         /// Control ddl_especialidad.
@@ -96,13 +96,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList ddl_medicos;
 
         /// <summary>
-        /// Control c_dias.
+        /// Control c_calendario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar c_dias;
+        protected global::System.Web.UI.WebControls.Calendar c_calendario;
 
         /// <summary>
         /// Control ddl_horas.
@@ -139,5 +139,14 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_cancelar;
+
+        /// <summary>
+        /// Control Label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

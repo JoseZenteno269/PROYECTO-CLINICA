@@ -59,7 +59,7 @@ namespace Datos
             parametros.Value = turnos.getIdPacienteTurno();
             //ID ESTADO PACIENTE
             parametros = comando.Parameters.Add("@IDESTADOPACIENTE", SqlDbType.Int);
-            parametros.Value = turnos.getIdEstadoPacienteTurno();
+            parametros.Value = (object)turnos.getIdEstadoPacienteTurno() ?? DBNull.Value;
             //ID ESTADO TURNO
             parametros = comando.Parameters.Add("@IDESTADOTURNO", SqlDbType.Int);
             parametros.Value = turnos.getIdEstadoTurno();
@@ -70,8 +70,8 @@ namespace Datos
             parametros = comando.Parameters.Add("@HORARIO", SqlDbType.Time);
             parametros.Value = turnos.getHorarioTurno();
             //DESCIPCION TURNO
-            parametros = comando.Parameters.Add("@DESCIPCION", SqlDbType.NVarChar);
-            parametros.Value = turnos.getDescripcionTurno();
+            //parametros = comando.Parameters.Add("@DESCIPCION", SqlDbType.NVarChar);
+            //parametros.Value = (object)turnos.getDescripcionTurno() ?? DBNull.Value;
         }
 
         public void ArmarParametrosTurnosCancelar(ref SqlCommand comando, Turnos turnos)

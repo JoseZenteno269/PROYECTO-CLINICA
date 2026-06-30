@@ -11,6 +11,7 @@ namespace Vista
 {
     public partial class Asignar_Turno : System.Web.UI.Page
     {
+        NegocioTurnos NegocioTurnos = new NegocioTurnos();
         NegocioMedicos negocioMedicos = new NegocioMedicos();
         NegocioPacientes NegocioPacientes = new NegocioPacientes();
         NegocioEspecialidad NegocioEspecialidad = new NegocioEspecialidad();
@@ -19,17 +20,17 @@ namespace Vista
         {
             if(!IsPostBack)
             {
-                if (Session["UsuarioAdmin"] != null)
-                {
-                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
-                    CargarDropDawnListEspecialidades();
-                    CargarDropDawnListMedicos();
-                    CargarGridviewPacientes();
-                }
-                else
-                {
-                    Response.Redirect("Login.aspx");
-                }
+                //if (Session["UsuarioAdmin"] != null)
+                //{
+                //    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                CargarDropDawnListEspecialidades();
+                CargarDropDawnListMedicos();
+                CargarGridviewPacientes();
+                //}
+                //else
+                //{
+                //    Response.Redirect("Inicio.aspx");
+                //}
             }
         }
 
@@ -40,13 +41,8 @@ namespace Vista
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Inicio.aspx");
 
-        }
-
-        protected void btn_menu_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Menu.aspx");
         }
 
         public void CargarDropDawnListEspecialidades()
@@ -70,12 +66,12 @@ namespace Vista
         }
 
 
-        public void CargarDropDownListDisponibilidad()
+        public void CargarDropDownListDisponibilidad(int dia)
         {
-            DataTable tabla = NegocioDisponibilidadMedico.getDropDownListDisponibilidadHoraria();
+            DataTable tabla = NegocioDisponibilidadMedico.getDropDownListDisponibilidadHoraria(dia);
             tabla.DefaultView.RowFilter = "Id_Medico_DispMed = " + ddl_medicos.SelectedValue;
             ddl_horas.DataSource = tabla.DefaultView;
-            ddl_horas.DataTextField = "DiayHorario";
+            ddl_horas.DataTextField = "Horario_DispMed";
             ddl_horas.DataValueField = "Id_COD_DispMed";
             ddl_horas.DataBind();
             ddl_horas.Items.Insert(0, new ListItem("--Seleccione un Horario", "0"));
@@ -86,10 +82,11 @@ namespace Vista
         {
             CargarDropDawnListMedicos();
         }
-        protected void ddl_medicos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CargarDropDownListDisponibilidad();
-        }
+        //protected void ddl_medicos_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    //int dia = (int)sender; 
+        //    //CargarDropDownListDisponibilidad(dia);
+        //}
 
         public void CargarGridviewPacientes()
         {
@@ -97,24 +94,50 @@ namespace Vista
             gvPacientesSeleccion.DataBind();
         }
 
-        protected void btn_confirmar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btn_cancelar_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
-
         public void LimpiarCampos()
         {
             ddl_especialidad.SelectedIndex = 0;
             ddl_medicos.SelectedIndex = 0;
             ddl_horas.SelectedIndex = 0;
-            c_dias.SelectedDate = DateTime.Now;
+            c_calendario.SelectedDate = DateTime.Now;
 
         }
 
+        protected void lb_perfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil_Administrador.aspx"); 
+        }
+
+        protected void lb_menu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx"); 
+        }
+
+        protected void c_calendario_SelectionChanged(object sender, EventArgs e)
+        {
+            DateTime fecha = c_calendario.SelectedDate;
+            DayOfWeek diasemana = fecha.DayOfWeek;
+            int numerodia = (int)fecha.DayOfWeek; 
+            String nombredia = fecha.ToString("dddd");
+            CargarDropDownListDisponibilidad(numerodia); 
+        }
+
+        protected void gvPacientesSeleccion_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            String idpaciente = ((Label)gvPacientesSeleccion.Rows[e.NewSelectedIndex].FindControl("lbl_it_idpaciente")).Text; 
+            String dni = ((Label)gvPacientesSeleccion.Rows[e.NewSelectedIndex].FindControl("lbl_it_DNI")).Text;
+            String nombre_apellido = ((Label)gvPacientesSeleccion.Rows[e.NewSelectedIndex].FindControl("lbl_it_NombreApellido")).Text;
+
+            Session["IdPaciente"] = idpaciente; 
+        }
+
+        protected void btn_confirmar_Click(object sender, EventArgs e)
+        {
+            DateTime fecha = c_calendario.SelectedDate; 
+            if(NegocioTurnos.AgregarTurno(Convert.ToInt32(ddl_especialidad.SelectedValue), Convert.ToInt32(ddl_medicos.SelectedValue), fecha, TimeSpan.Parse(ddl_horas.SelectedItem.Text), Convert.ToInt32(Session["IdPaciente"]), 1))
+            {
+                Label1.Text = "datos" + fecha.ToString("dd-MM-yyyy") + "-" + ddl_especialidad.Text + "-" + ddl_medicos.Text; 
+            }
+        }
     }
 }

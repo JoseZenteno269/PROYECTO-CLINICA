@@ -34,16 +34,19 @@
                 </tr>
             </table>
         </div>
+        <br />
+        <br />
+        <br />
         <div id="divcontenedor">
             <table>
                 <tr>
                     <td>Ingrese DNI, Nombre o Apellido: 
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" TextMode="Search"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" ValidationGroup="2" />
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" ValidationGroup="2" CssClass="btn_volver" />
                         <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ControlToValidate="TextBox1" ErrorMessage="Ingresar DNI, Nombre o Apellido" ValidationGroup="2">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_Busqueda" runat="server" ControlToValidate="TextBox1" ErrorMessage="Ingrese DNI, nombre o apellido valido" ValidationExpression="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+$" ValidationGroup="2">*</asp:RegularExpressionValidator>
                     </td>

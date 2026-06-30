@@ -22,7 +22,7 @@ namespace Negocio
         {
             return daoTurnos.getTablaTurno();
         }
-        public Boolean AgregarTurno(int idEspecialidad, int idMedico, DateTime fecha, TimeSpan Hora, int paciente)
+        public Boolean AgregarTurno(int idEspecialidad, int idMedico, DateTime fecha, TimeSpan Hora, int idpaciente, int idestadoturno)
         {
             int filasafectadas = 0;
 
@@ -30,7 +30,9 @@ namespace Negocio
             turnos.setIdEspecialidadTurno(idEspecialidad);
             turnos.setIdMedicoTurno(idMedico);
             turnos.setFechaTurno(fecha);
-            turnos.setIdPacienteTurno(paciente);
+            turnos.setIdPacienteTurno(idpaciente);
+            turnos.setIdEstadoTurno(idestadoturno);
+            turnos.setHorarioTurno(Hora);
 
             filasafectadas = daoTurnos.AgregarTurnos(turnos);
             return filasafectadas == 1;

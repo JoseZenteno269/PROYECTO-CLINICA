@@ -17,10 +17,13 @@ form {
     padding: 15px 15px 15px 15px;
 }
 
-input[type="text"] {
-    width: 100px; 
-
+input[type=search] {
+    padding-left: 5px;
+    font-size: 15px;
+    width: 100px;
+    height: 30px;
 }
+
 
 .btn_volver {
     font-size: 14px;

@@ -17,9 +17,9 @@ namespace Negocio
 
         }
 
-        public DataTable getDropDownListDisponibilidadHoraria()
+        public DataTable getDropDownListDisponibilidadHoraria(int dia)
         {
-            return daoDisponibilidadMedico.getTablaDisponibilidadMedica();
+            return daoDisponibilidadMedico.getTablaDisponibilidadMedica(dia);
         }
 
         public Boolean AgregarHorarios(int idmedico, int dia, TimeSpan hora)

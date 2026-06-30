@@ -12,7 +12,7 @@ namespace Entidades
         private int IdMedicoTurno;
 	    private int IdEspecialidadTurno;
         private int IdPacienteTurno;
-	    private int IdEstadoPacienteTurno;
+	    private int? IdEstadoPacienteTurno;
 	    private int IdEstadoTurno;
         private DateTime FechaTurno;
 	    private TimeSpan HorarioTurno;
@@ -60,12 +60,12 @@ namespace Entidades
             return IdPacienteTurno;
         }
 
-        public void setIdEstadoPacienteTurno(int idEstadoPacienteTurno)
+        public void setIdEstadoPacienteTurno(int? idEstadoPacienteTurno)
         {
             IdEstadoPacienteTurno = idEstadoPacienteTurno;
         }
 
-        public int getIdEstadoPacienteTurno()
+        public int? getIdEstadoPacienteTurno()
         {
             return IdEstadoPacienteTurno; 
         }
