@@ -11,6 +11,7 @@ namespace Vista
     {
 
         NegocioTurnos negocioTurnos = new NegocioTurnos();
+        NegocioMedicos NegocioMedicos = new NegocioMedicos();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -18,7 +19,8 @@ namespace Vista
                 if (Session["UsuarioMed"] != null)
                 {
                     lbl_usuario.Text = Session["UsuarioMed"].ToString();
-                    
+                    int? idmedico = NegocioMedicos.getIdMedico(NegocioMedicos.getLegajoMedico(Session["UsuarioMed"].ToString()));
+                    SqlDataSourceMedico.SelectCommand = $"SELECT Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Id_Medico_Tur = {idmedico}"; 
                 }
                 else
                 {
