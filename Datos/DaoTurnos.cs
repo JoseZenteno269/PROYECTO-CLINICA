@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +22,12 @@ namespace Datos
         public DataTable getTablaTurno()
         {
             DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, Id_Medico_Tur, Id_Especialidad_Tur, Id_Paciente_Tur, Id_EstadoPaciente_Tur, Id_EstadoTurno_Tur, Fecha_Tur, Horario_Tur, Descripcion_Tur, Activo_Tur FROM Turnos");
+            return tabla;
+        }
+
+        public DataTable getTablaCancelarTurno()
+        {
+            DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, (Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Nombre_Espe, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur, Descripcion_EsTur FROM Turnos INNER JOIN Medicos ON Turnos.Id_Medico_Tur = Medicos.Id_Medico_Med INNER JOIN Especialidad ON Turnos.Id_Especialidad_Tur = Especialidad.Id_Especialidad_Espe INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Activo_Tur = 1");
             return tabla;
         }
 

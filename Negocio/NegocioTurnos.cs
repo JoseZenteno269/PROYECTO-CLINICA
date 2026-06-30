@@ -22,6 +22,11 @@ namespace Negocio
         {
             return daoTurnos.getTablaTurno();
         }
+
+        public DataTable getTurnosCancelar()
+        {
+            return daoTurnos.getTablaCancelarTurno();
+        }
         public Boolean AgregarTurno(int idEspecialidad, int idMedico, DateTime fecha, TimeSpan Hora, int idpaciente, int idestadoturno)
         {
             int filasafectadas = 0;

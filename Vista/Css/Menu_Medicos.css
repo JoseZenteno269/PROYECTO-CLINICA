@@ -130,3 +130,21 @@ form {
     width: 100px;
     height: 80px;
 }
+.tarjeta-turno {
+    overflow-y: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px 25px;
+    margin-bottom: 10px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+    .tarjeta-turno span {
+        flex: 1;
+        white-space: nowrap;
+    }

@@ -7,6 +7,11 @@
     <link href="Css/Menu_Medicos.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 285px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -48,36 +53,42 @@
             <br />
             <table>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <div class="contenedor-turnos">
-                            <asp:DataList ID="DLTurnos" runat="server" CellPadding="4" ForeColor="#333333">
-                                <AlternatingItemStyle BackColor="White" />
-                                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                                <ItemStyle/>
+                            <asp:DataList ID="DLMedico" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="SqlDataSourceMedico" ForeColor="Black" GridLines="Horizontal" RepeatDirection="Horizontal" RepeatColumns="4">
+                                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                                 <ItemTemplate>
-                                    <td class="tditemtemplate">
-                                        <asp:Label ID="lbl_estado" runat="server" Text='<%# Eval("Estado") %>'></asp:Label>
-                                    </td>
-                                    <td class="tditemtemplate">
-                                        <asp:Label ID="lbl_fecha" runat="server" Text='<%# Eval("Fecha") %>'></asp:Label>
-                                    </td>
-                                    <td class="tditemtemplate">
-                                        <asp:Label ID="lbl_hora" runat="server" Text='<%# Eval("Hora") %>'></asp:Label></td>
-                                    <td class="tditemtemplate">
-                                        <asp:Label ID="lbl_paciente" runat="server" Text='<%# Eval("Paciente") %>'></asp:Label></td>
-                                    <td class="tditemtemplate">
-                                        <asp:Label ID="lbl_medico" runat="server" Text='<%# Eval("Medico") %>'></asp:Label></td>
-                                    <td class="tditemtemplate">
-                                        <asp:DropDownList ID="ddlPresentismo" runat="server">
-                                            <asp:ListItem Value="1">Presente</asp:ListItem>
-                                            <asp:ListItem Value="0">Ausente</asp:ListItem>
-                                        </asp:DropDownList></td>
-                                </ItemTemplate>
-                                <SelectedItemStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+    <div class="tarjeta-turno">
+        <span><strong>Medico:</strong> <asp:Label ID="MedicoLabel" runat="server" Text='<%# Eval("Medico") %>' /></span>
+        <span><strong>Especialidad:</strong> <asp:Label ID="EspecialidadLabel" runat="server" Text='<%# Eval("Especialidad") %>' /></span>
+        <span><strong>Horario:</strong> <asp:Label ID="HorarioLabel" runat="server" Text='<%# Eval("Horario") %>' /></span>
+        <span><strong>Fecha:</strong> <asp:Label ID="FechaLabel" runat="server" Text='<%# Eval("Fecha") %>' /></span>
+        <span><strong>Asistencia:</strong>
+            <asp:DropDownList ID="ddlAsistencia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlAsistencia_SelectedIndexChanged">
+                <asp:ListItem Value="0">-- Elegir una opcion --</asp:ListItem>
+                <asp:ListItem Value="1">Presente</asp:ListItem>
+                <asp:ListItem Value="2">Ausente</asp:ListItem>
+            </asp:DropDownList>
+        Observacion:<br />
+        </span>
+        <asp:TextBox ID="txtObservaciones" runat="server" Enabled="False" TextMode="MultiLine"></asp:TextBox>
+    </div>
+</ItemTemplate>
+                                <SelectedItemStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                             </asp:DataList>
+                            <br />
+                            <asp:SqlDataSource ID="SqlDataSourceMedico" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaDataList %>" ProviderName="<%$ ConnectionStrings:BDClinicaDataList.ProviderName %>" SelectCommand="SELECT  (Nombre_Med + ' ' + Apellido_Med) AS Medico, Nombre_Espe AS Especialidad, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha
+FROM Turnos 
+INNER JOIN Medicos ON Turnos.Id_Medico_Tur = Medicos.Id_Medico_Med 
+INNER JOIN Especialidad ON Turnos.Id_Especialidad_Tur = Especialidad.Id_Especialidad_Espe
+"></asp:SqlDataSource>
                         </div>
                     </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">
+                        &nbsp;</td>
                 </tr>
             </table>
         </div>

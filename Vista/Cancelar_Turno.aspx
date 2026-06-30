@@ -43,48 +43,55 @@
                     <td>
                         <asp:TextBox ID="txt_id" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" /></td>
+                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" OnClick="btn_buscar_Click" /></td>
                 </tr>
             </table>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+        </div>
+         <div>
+             <table>
+                    <tr>
+                        <td>
+            <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:TemplateField HeaderText="ID Turno">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_it_IdTurno" runat="server" Text='<%# Bind("Id_Turno_Tur") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Medico">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_it_Medico" runat="server" Text='<%# Eval("Nombre_Med") + "  " + Eval("Apellido_Med") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Especialidad">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_it_Especialidad" runat="server" Text='<%# Bind("Nombre_Espe") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Hora">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_it_Horario" runat="server" Text='<%# Bind("Horario_Tur") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Fecha">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_it_Fecha" runat="server" Text='<%# Bind("Fecha_Tur") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Estado del Turno">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_it_EstadoTurno" runat="server" Text='<%# Bind("Descripcion_EsTur") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                  <asp:TemplateField HeaderText="ID Turno">
+    <ItemTemplate>
+        <asp:Label ID="lbl_it_IdTurno" runat="server" Text='<%# Bind("Id_Turno_Tur") %>'></asp:Label>
+    </ItemTemplate>
+</asp:TemplateField>
+<asp:TemplateField HeaderText="Medico">
+    <ItemTemplate>
+        <asp:Label ID="lbl_it_Medico" runat="server" Text='<%# Eval("[Nombre y Apellido]") %>'></asp:Label>
+    </ItemTemplate>
+</asp:TemplateField>
+<asp:TemplateField HeaderText="Especialidad">
+    <ItemTemplate>
+        <asp:Label ID="lbl_it_Especialidad" runat="server" Text='<%# Bind("Nombre_Espe") %>'></asp:Label>
+    </ItemTemplate>
+</asp:TemplateField>
+<asp:TemplateField HeaderText="Hora">
+    <ItemTemplate>
+        <asp:Label ID="lbl_it_Horario" runat="server" Text='<%# Eval("Horario") %>'></asp:Label>
+    </ItemTemplate>
+</asp:TemplateField>
+<asp:TemplateField HeaderText="Fecha">
+    <ItemTemplate>
+        <asp:Label ID="lbl_it_Fecha" runat="server" Text='<%# Bind("Fecha_Tur") %>'></asp:Label>
+    </ItemTemplate>
+</asp:TemplateField>
+<asp:TemplateField HeaderText="Estado del Turno">
+    <ItemTemplate>
+        <asp:Label ID="lbl_it_EstadoTurno" runat="server" Text='<%# Bind("Descripcion_EsTur") %>'></asp:Label>
+    </ItemTemplate>
+</asp:TemplateField>
                 </Columns>
 
             </asp:GridView>
-        </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
                 <br />
-<br />
-<br />
+        <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>
