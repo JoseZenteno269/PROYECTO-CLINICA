@@ -48,12 +48,36 @@
             </table>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:CommandField ButtonType="Button" CancelText="No" EditText="Cancelar" ShowEditButton="True" UpdateText="Si" />
-                    <asp:TemplateField HeaderText="ID Turno"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Medico"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Especialidad"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Hora"></asp:TemplateField>
-                    <asp:TemplateField HeaderText="Estado"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="ID Turno">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_IdTurno" runat="server" Text='<%# Bind("Id_Turno_Tur") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Medico">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Medico" runat="server" Text='<%# Eval("Nombre_Med") + "  " + Eval("Apellido_Med") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Especialidad">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Especialidad" runat="server" Text='<%# Bind("Nombre_Espe") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Hora">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Horario" runat="server" Text='<%# Bind("Horario_Tur") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Fecha">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Fecha" runat="server" Text='<%# Bind("Fecha_Tur") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Estado del Turno">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_EstadoTurno" runat="server" Text='<%# Bind("Descripcion_EsTur") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
 
             </asp:GridView>

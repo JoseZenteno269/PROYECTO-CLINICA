@@ -20,17 +20,17 @@ namespace Vista
         {
             if(!IsPostBack)
             {
-                //if (Session["UsuarioAdmin"] != null)
-                //{
-                //    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
-                CargarDropDawnListEspecialidades();
-                CargarDropDawnListMedicos();
-                CargarGridviewPacientes();
-                //}
-                //else
-                //{
-                //    Response.Redirect("Inicio.aspx");
-                //}
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                    CargarDropDawnListEspecialidades();
+                    CargarDropDawnListMedicos();
+                    CargarGridviewPacientes();
+                }
+                else
+                {
+                    Response.Redirect("Inicio.aspx");
+                }
             }
         }
 
