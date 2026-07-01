@@ -96,6 +96,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_fecha_fin;
 
         /// <summary>
+        /// Control btn_aceptar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_aceptar;
+
+        /// <summary>
         /// Control lbl_turnos.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_turnos;
+
+        /// <summary>
+        /// Control lbl_porcentajes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_porcentajes;
 
         /// <summary>
         /// Control txt_fecha_inicio1.
@@ -123,13 +141,22 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_fecha_fin1;
 
         /// <summary>
-        /// Control DropDownList1.
+        /// Control ddl_especialidades.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_especialidades;
+
+        /// <summary>
+        /// Control btn_aceptar1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_aceptar1;
 
         /// <summary>
         /// Control lbl_turnosXespecialidad.

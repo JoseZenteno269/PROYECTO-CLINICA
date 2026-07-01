@@ -37,9 +37,9 @@
             <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
         </div>
         <div id="contenedor1">
-                <div style="width: 50%">
+                <div style="width: 50%" align="center">
                     <br />
-                    <table>
+                    <table class="table-informes">
                         <tr>
                             <td colspan="2">
                                 <h2>Informe 1</h2>
@@ -47,68 +47,34 @@
                         </tr>
                         <tr>
                             <td>
+                                <p>Periodo Inicio</p>
                                 <asp:TextBox ID="txt_fecha_inicio" runat="server" TextMode="Date"></asp:TextBox>
-                                <%--<div class="link-contenedor">
-                                    <asp:LinkButton ID="lb_panel_fecha_inicial" CssClass="btn-link" runat="server" OnClick="lb_panel_fecha_Click">
-                                        <asp:Label ID="lbl_fecha_inicio" runat="server" Text="Periodo Inicio"></asp:Label>
-                                    </asp:LinkButton>
-                                    <asp:Panel ID="p_fecha_inicio" runat="server" Visible="False" CssClass="panel-calendario">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <asp:DropDownList ID="ddl_mes_inicio" runat="server"></asp:DropDownList></td>
-                                                <td>
-                                                    <asp:DropDownList ID="ddl_anio_inicio" runat="server"></asp:DropDownList></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <asp:Calendar ID="calendario1" runat="server" ShowTitle="False" ShowGridLines="True" Width="50%"></asp:Calendar>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </asp:Panel>
-                                </div>--%>
                             </td>
                             <td>
+                                <p>Periodo Fin</p>
                                 <asp:TextBox ID="txt_fecha_fin" runat="server" TextMode="Date"></asp:TextBox>
-                                <%--<div class="link-contenedor">
-                                    <asp:LinkButton ID="lb_panel_fecha_final" CssClass="btn-link" runat="server" OnClick="lb_panel_fecha_final_Click">
-                                        <asp:Label ID="lbl_fecha_fin" runat="server" Text="Periodo Fin"></asp:Label>
-                                    </asp:LinkButton>
-                                    <asp:Panel ID="p_fecha_fin" runat="server" CssClass="panel-calendario" Visible="false">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <asp:DropDownList ID="ddl_mes_fin" runat="server"></asp:DropDownList></td>
-                                                <td>
-                                                    <asp:DropDownList ID="ddl_anio_fin" runat="server"></asp:DropDownList></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <asp:Calendar ID="calendario2" runat="server" ShowTitle="False" ShowGridLines="True" Width="50%"></asp:Calendar>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </asp:Panel>
-                                </div>--%>
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding: 80px 0 0 10px" colspan="3" align="initial">
-                                <asp:Label ID="lbl_turnos" runat="server" Text="Total de Turnos"></asp:Label>
+                            <td colspan="2" align="center">
+                                <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" />
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding: 80px 0 0 10px" colspan="3" align="initial">Porcentaje de presentes y ausentes</td>
+                            <td colspan="3" align="initial">
+                                <asp:Label ID="lbl_turnos" runat="server"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding: 80px 0 0 10px" colspan="3" align="initial">lista de pacientes</td>
+                            <td colspan="3" align="initial">
+                                <asp:Label ID="lbl_porcentajes" runat="server"></asp:Label>
+                            </td>
                         </tr>
                     </table>
                 </div>
-                <div style="width: 50%">
+                <div style="width: 50%" align="center">
                     <br />
-                    <table>
+                    <table class="table-informes">
                         <tr>
                             <td colspan="3">
                                 <h2>Informe 2</h2>
@@ -116,71 +82,34 @@
                         </tr>
                         <tr>
                             <td>
+                                <p>Periodo Inicio</p>
                                 <asp:TextBox ID="txt_fecha_inicio1" runat="server" TextMode="Date"></asp:TextBox>
-                                <%--<div class="link-contenedor">
-                                    <asp:LinkButton ID="lb_fecha_inicio2" CssClass="btn-link" runat="server" OnClick="lb_fecha_inicio2_Click">
-                                        <asp:Label ID="lbl_periodo_inicio" runat="server" Text="Periodo Inicio"></asp:Label>
-                                    </asp:LinkButton>
-                                    <asp:Panel ID="p_fecha_inicio_2" runat="server" Visible="False" CssClass="panel-calendario">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <asp:DropDownList ID="ddl_mes2" runat="server"></asp:DropDownList></td>
-                                                <td>
-                                                    <asp:DropDownList ID="ddl_anio2" runat="server"></asp:DropDownList></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <asp:Calendar ID="c_calendario2" runat="server" ShowTitle="False" ShowGridLines="True" Width="50%"></asp:Calendar>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </asp:Panel>
-                                </div>--%>
                             </td>
                             <td>
+                                <p>Periodo Fin</p>
                                 <asp:TextBox ID="txt_fecha_fin1" runat="server" TextMode="Date"></asp:TextBox>
-                                <%--<div class="link-contenedor">
-                                    <asp:LinkButton ID="lb_fecha_inicio_2" CssClass="btn-link" runat="server" OnClick="lb_fecha_inicio_2_Click">
-                                        <asp:Label ID="lbl_periodo_fin_2" runat="server" Text="Periodo Fin"></asp:Label>
-                                    </asp:LinkButton>
-                                    <asp:Panel ID="p_fecha_fin_2" runat="server" CssClass="panel-calendario" Visible="false">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <asp:DropDownList ID="ddl_mes_3" runat="server"></asp:DropDownList></td>
-                                                <td>
-                                                    <asp:DropDownList ID="ddl_anio3" runat="server"></asp:DropDownList></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <asp:Calendar ID="c_calendario_3" runat="server" ShowTitle="False" ShowGridLines="True" Width="50%"></asp:Calendar>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </asp:Panel>
-                                </div>--%>
                             </td>
-                            <td>Seleccione Especialidad
-                                    <br />
-                                <asp:DropDownList ID="DropDownList1" runat="server">
-                                    <asp:ListItem>--Seleccione una especialidad--</asp:ListItem>
-                                    <asp:ListItem>Pediatra</asp:ListItem>
-                                    <asp:ListItem>Cirujano</asp:ListItem>
-                                    <asp:ListItem>Neo-Cirujano</asp:ListItem>
+                            <td>
+                                <p>Seleccione Especialidad</p>
+                                <asp:DropDownList ID="ddl_especialidades" runat="server">
                                 </asp:DropDownList>
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding: 80px 0 0 10px" colspan="3" align="initial">
-                                <asp:Label ID="lbl_turnosXespecialidad" runat="server" Text="turnos"></asp:Label>
+                            <td colspan="3">
+                                <asp:Button ID="btn_aceptar1" runat="server" Text="Aceptar" OnClick="btn_aceptar1_Click" />
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding: 80px 0 0 10px" colspan="3" align="initial">Especialida mas demandada</td>
+                            <td colspan="3">
+                                <asp:Label ID="lbl_turnosXespecialidad" runat="server"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="padding: 80px 0 0 10px" colspan="3" align="initial">promedio de turnos x mes</td>
+                            <td colspan="3">Especialida mas demandada</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">promedio de turnos x mes</td>
                         </tr>
                     </table>
                 </div>
@@ -197,36 +126,6 @@
                         <td>
                             <p>Mes</p>
                             <asp:TextBox ID="TextBox1" runat="server" TextMode="Month"></asp:TextBox>
-<%--                            <asp:DropDownList ID="ddl_mes" runat="server">
-                                <asp:ListItem>--Seleccione un Mes</asp:ListItem>
-                                <asp:ListItem>Enero</asp:ListItem>
-                                <asp:ListItem>Febrero</asp:ListItem>
-                                <asp:ListItem>Marzo</asp:ListItem>
-                                <asp:ListItem>Abril</asp:ListItem>
-                                <asp:ListItem>Mayo</asp:ListItem>
-                                <asp:ListItem>Junio</asp:ListItem>
-                                <asp:ListItem>Julio</asp:ListItem>
-                                <asp:ListItem>Agosto</asp:ListItem>
-                                <asp:ListItem>Septiembre</asp:ListItem>
-                                <asp:ListItem>Octubre</asp:ListItem>
-                                <asp:ListItem>Noviembre</asp:ListItem>
-                                <asp:ListItem>Diciembre</asp:ListItem>
-                            </asp:DropDownList>--%>
-
-                        </td>
-                        <td>
-                            <p>Año</p>
-<%--                            <asp:DropDownList ID="DropDownList2" runat="server">
-                                <asp:ListItem>--Seleccione Año--</asp:ListItem>
-                                <asp:ListItem>2020</asp:ListItem>
-                                <asp:ListItem>2021</asp:ListItem>
-                                <asp:ListItem>2022</asp:ListItem>
-                                <asp:ListItem>2023</asp:ListItem>
-                                <asp:ListItem>2024</asp:ListItem>
-                                <asp:ListItem>2025</asp:ListItem>
-                                <asp:ListItem>2026</asp:ListItem>
-                            </asp:DropDownList>--%>
-
                         </td>
                         <td>
                             <p>Medico</p>
@@ -248,57 +147,51 @@
                 </asp:GridView>
             </div>
         </div>
-        <div id="contenedor4">
+        <div id="contenedor4" align="center">
             <div style="width: 50%">
-                <table>
+                <table class="table-datos">
                     <tr>
-                        <td colspan="3">
+                        <td colspan="2"  align="center">
                             <h2>Informe 4</h2>
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>
+                        <td style="width: 90%" colspan="2" align="center">
                             <p>Mes</p>
                             <asp:DropDownList ID="ddl_mes_4" runat="server"></asp:DropDownList></td>
-                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>
+                        <td colspan="2"  align="center">
                             <p>Año</p>
                             <asp:DropDownList ID="ddl_anio_4" runat="server"></asp:DropDownList></td>
-                        <td></td>
                     </tr>
-                </table>
-                <table>
                     <tr>
-                        <td style="width: 25px">Lunes</td>
+                        <td style="width: 10%">Lunes</td>
                         <td colspan="2" style="padding: 20px">
                             <asp:Button ID="barra1" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td style="width: 25px">Martes</td>
+                        <td style="width: 10%">Martes</td>
                         <td colspan="2" style="padding: 20px">
                             <asp:Button ID="barra2" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td style="width: 25px">Miercoles</td>
+                        <td style="width: 10%">Miercoles</td>
                         <td colspan="2" style="padding: 20px">
                             <asp:Button ID="barra3" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td style="width: 25px">Jueves</td>
+                        <td style="width: 10%">Jueves</td>
                         <td colspan="2" style="padding: 20px">
                             <asp:Button ID="barra4" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td style="width: 25px">Viernes</td>
+                        <td style="width: 10%">Viernes</td>
                         <td colspan="2" style="padding: 20px">
                             <asp:Button ID="barra5" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td colspan="3" align="initial">
+                        <td colspan="2" align="initial">
                             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>

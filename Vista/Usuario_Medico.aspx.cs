@@ -10,7 +10,7 @@ namespace Vista
 {
     public partial class UsuarioMedico : System.Web.UI.Page
     {
-        NegocioMedicos negocio = new NegocioMedicos(); 
+        NegocioMedicos negocio = new NegocioMedicos();
         NegocioUsuarios negocioUsuarios = new NegocioUsuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,13 +41,14 @@ namespace Vista
 
         protected void btn_aceptar_Click(object sender, EventArgs e)
         {
-            if(txt_contrasena1.Text.Trim() != txt_contrasena2.Text.Trim())
+            if (txt_contrasena1.Text.Trim() != txt_contrasena2.Text.Trim())
             {
                 lbl_mensaje.Text = "Las contraseñas no coinciden";
-                return; 
+                return;
             }
 
-            int? idmedico = negocio.getIdMedico(Session["legajo"].ToString());
+            int? idmedico = negocio.getIdMedico(Session["Legajo"].ToString().Trim());
+            lbl_mensaje0.Text = "ID medico: " + idmedico.ToString();
             if (idmedico != null)
             {
                 if (negocioUsuarios.AgregarUsuarios(Convert.ToInt32(idmedico), null, txt_usuario.Text.Trim(), txt_contrasena1.Text.Trim()))
@@ -58,7 +59,7 @@ namespace Vista
                 }
                 else
                 {
-                    lbl_mensaje.Text = "Error al generar el usuario"; 
+                    lbl_mensaje.Text = "Error al generar el usuario";
                 }
             }
             else

@@ -19,6 +19,24 @@ namespace Datos
 
         }
 
+        public int? CantidadTurnos(String fechainicio, String fechafin)
+        {
+            String consulta = "SELECT COUNT(*) FROM Turnos WHERE Activo_Tur = 1 AND Fecha_Tur BETWEEN @FECHAINICIO AND @FECHAFIN";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@FECHAINICIO", fechainicio);
+            comando.Parameters.AddWithValue("@FECHAFIN", fechafin);
+            return datos.EjecutarEscalarInt(comando, consulta);
+        }
+
+        public String ConsultaPorcentajePresentes(String fechainicio, String fechafin)
+        {
+            String consulta = "SELECT (COUNT(CASE WHEN Id_EstadoPaciente_Tur = 1 THEN 1 END) * 100.0) / NULLIF(COUNT(*), 0) AS Porcentaje_presentes FROM Turnos WHERE Activo_Tur = 1 AND Fecha_Tur BETWEEN @FECHAINICIO AND @FECHAFIN";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@FECHAINICIO", fechainicio);
+            comando.Parameters.AddWithValue("@FECHAFIN", fechafin);
+            return datos.EjecutarEscalarString(comando, consulta);
+        }
+
         public DataTable getTablaTurno()
         {
             DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, Id_Medico_Tur, Id_Especialidad_Tur, Id_Paciente_Tur, Id_EstadoPaciente_Tur, Id_EstadoTurno_Tur, Fecha_Tur, Horario_Tur, Descripcion_Tur, Activo_Tur FROM Turnos");

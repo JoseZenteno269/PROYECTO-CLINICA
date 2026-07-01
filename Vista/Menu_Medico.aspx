@@ -7,11 +7,6 @@
     <link href="Css/Menu_Medicos.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 34px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">

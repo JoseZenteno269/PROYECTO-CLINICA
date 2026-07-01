@@ -17,6 +17,15 @@ namespace Negocio
         {
 
         }
+        public int? CantidadTurnos(String fechainicio, String fechafin)
+        {
+            return daoTurnos.CantidadTurnos(fechainicio, fechafin);
+        }
+
+        public String ConsultaPorcentajePresentes(String fechainicio, String fechafin)
+        {
+            return daoTurnos.ConsultaPorcentajePresentes(fechainicio, fechafin);
+        }
 
         public DataTable getTurnos()
         {

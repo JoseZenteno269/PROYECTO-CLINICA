@@ -20,7 +20,7 @@ namespace Vista
                 {
                     lbl_usuario.Text = Session["UsuarioMed"].ToString();
                     int? idmedico = NegocioMedicos.getIdMedico(NegocioMedicos.getLegajoMedico(Session["UsuarioMed"].ToString()));
-                    SqlDataSourceMedico.SelectCommand = $"SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Id_Medico_Tur = {idmedico} AND Fecha_Tur >= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1 AND Horario_Tur >= CAST(GETDATE() AS TIME)";
+                    SqlDataSourceMedico.SelectCommand = $"SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Id_Medico_Tur = {idmedico} AND Fecha_Tur >= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1";
                 }
                 else
                 {
@@ -37,12 +37,12 @@ namespace Vista
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
             Response.Redirect("Inicio.aspx");
-            Session["UsuarioMed"] = null; 
+            Session["UsuarioMed"] = null;
         }
 
         protected void lb_perfil_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Perfil_Medico.aspx"); 
+            Response.Redirect("Perfil_Medico.aspx");
         }
 
         protected void ddlAsistencia_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace Vista
             {
                 txtObs.Enabled = true;
             }
-            else if(ddl.SelectedValue == "2")
+            else if (ddl.SelectedValue == "2")
             {
                 txtObs.Enabled = false;
                 negocioTurnos.AgregarAsistenciaObservacion(idTurno, 2, String.Empty);
@@ -81,7 +81,7 @@ namespace Vista
 
         protected void btn_actualizar_Click(object sender, EventArgs e)
         {
-            DLMedico.DataBind(); 
+            DLMedico.DataBind();
         }
     }
 }
