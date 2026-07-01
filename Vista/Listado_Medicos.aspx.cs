@@ -104,7 +104,8 @@ namespace Vista
 
         protected void lb_perfil_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Perfil_Administrador.aspx"); 
+            Response.Redirect("Perfil_Administrador.aspx");
+            string id;
         }
     }
 }
