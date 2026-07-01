@@ -88,19 +88,19 @@ form {
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
-    height: 70vh; 
+    height: 60vh; 
 }
 
 .tditemtemplate{
     padding: 10px; 
 }
 .contenedor-turnos {
-    height: 400px; /* altura máxima visible */
-    overflow-y: auto; /* scrollbar vertical automática */
-/*    border: 1px solid #ccc;*/
+    height: 400px;  /*altura máxima visible */
+    overflow-y: auto;  /*scrollbar vertical automática */
+    border: 1px solid #ccc;
     border-radius: 6px;
     padding: 5px;
-    width: auto; 
+    width: 910px; 
 }
 
 .divlogos {
@@ -137,11 +137,10 @@ form {
     gap: 30px;
 /*    border: 1px solid #ccc;*/
     border-radius: 10px;
-    padding: 15px 25px;
     margin-bottom: 10px;
     background: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    width: 100%;
+    width: 900px; 
 }
 
     .tarjeta-turno span {
@@ -153,3 +152,22 @@ form {
     border: none !important;
     border-collapse: collapse !important;
 }
+
+.tabla-turnos{
+    text-align: center; 
+    width: 100%; 
+}
+    .tabla-turnos td {
+        text-align: center;
+        font-size: 15px; 
+        padding: 5px 15px;  
+    }
+
+.tabla-titulos {
+    font-size: 15px;
+    width: 100%; 
+}
+
+    .tabla-titulos td{
+        padding: 10px; 
+    }

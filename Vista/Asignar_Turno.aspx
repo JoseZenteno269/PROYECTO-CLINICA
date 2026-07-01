@@ -118,7 +118,7 @@
                     </td>
                 </tr>
             </table>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
         </div>
         <br />
         <br />

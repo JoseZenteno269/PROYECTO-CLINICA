@@ -38,6 +38,13 @@ namespace Datos
             return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarTurnos");
         }
 
+        public int AgregarAsistenciaObservacion(Turnos turnos)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosTurnosAsistenciaObservacion(ref comando, turnos);
+            return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarEstado_Observacion");
+        }
+
         public int CancelarTurnos(Turnos turnos)
         {
             SqlCommand comando = new SqlCommand();
@@ -76,9 +83,20 @@ namespace Datos
             //HORARIO TURNO
             parametros = comando.Parameters.Add("@HORARIO", SqlDbType.Time);
             parametros.Value = turnos.getHorarioTurno();
+        }
+
+        public void ArmarParametrosTurnosAsistenciaObservacion(ref SqlCommand comando, Turnos turnos)
+        {
+            SqlParameter parametros = new SqlParameter();
+            //ID TURNO
+            parametros = comando.Parameters.Add("@IDTURNO", SqlDbType.Int);
+            parametros.Value = turnos.getIdTurno();
+            //ID ESTADO PACIENTE
+            parametros = comando.Parameters.Add("@IDESTADOPACIENTE", SqlDbType.Int);
+            parametros.Value = (object)turnos.getIdEstadoPacienteTurno() ?? DBNull.Value;
             //DESCIPCION TURNO
-            //parametros = comando.Parameters.Add("@DESCIPCION", SqlDbType.NVarChar);
-            //parametros.Value = (object)turnos.getDescripcionTurno() ?? DBNull.Value;
+            parametros = comando.Parameters.Add("@DESCRIPCION", SqlDbType.NVarChar);
+            parametros.Value = turnos.getDescripcionTurno();
         }
 
         public void ArmarParametrosTurnosCancelar(ref SqlCommand comando, Turnos turnos)

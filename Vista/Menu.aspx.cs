@@ -15,11 +15,11 @@ namespace Vista
             {
                 if (Session["UsuarioAdmin"] != null)
                 {
-                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString(); 
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx"); 
+                    Response.Redirect("Login.aspx");
                 }
             }
         }

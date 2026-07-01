@@ -119,7 +119,16 @@ namespace Vista
             DayOfWeek diasemana = fecha.DayOfWeek;
             int numerodia = (int)fecha.DayOfWeek; 
             String nombredia = fecha.ToString("dddd");
-            CargarDropDownListDisponibilidad(numerodia); 
+            if(fecha < DateTime.Now)
+            {
+                lbl_mensaje.Text = "La fecha seleccionada es invalida";
+                return;
+            }
+            else
+            {
+                CargarDropDownListDisponibilidad(numerodia);
+            }
+             
         }
 
         protected void gvPacientesSeleccion_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -134,9 +143,10 @@ namespace Vista
         protected void btn_confirmar_Click(object sender, EventArgs e)
         {
             DateTime fecha = c_calendario.SelectedDate; 
-            if(NegocioTurnos.AgregarTurno(Convert.ToInt32(ddl_especialidad.SelectedValue), Convert.ToInt32(ddl_medicos.SelectedValue), fecha, TimeSpan.Parse(ddl_horas.SelectedItem.Text), Convert.ToInt32(Session["IdPaciente"]), 1))
+
+            if (NegocioTurnos.AgregarTurno(Convert.ToInt32(ddl_especialidad.SelectedValue), Convert.ToInt32(ddl_medicos.SelectedValue), fecha, TimeSpan.Parse(ddl_horas.SelectedItem.Text), Convert.ToInt32(Session["IdPaciente"]), 1))
             {
-                Label1.Text = "datos" + fecha.ToString("dd-MM-yyyy") + "-" + ddl_especialidad.Text + "-" + ddl_medicos.Text; 
+                lbl_mensaje.Text = "datos" + fecha.ToString("dd-MM-yyyy") + "-" + ddl_especialidad.Text + "-" + ddl_medicos.Text; 
             }
         }
     }

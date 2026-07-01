@@ -43,6 +43,19 @@ namespace Negocio
             return filasafectadas == 1;
         }
 
+        public Boolean AgregarAsistenciaObservacion(int idTurno, int idEstadoPaciente, string descripcion)
+        {
+            int filasafectadas = 0;
+
+            Turnos turnos = new Turnos();
+            turnos.setIdTurno(idTurno);
+            turnos.setIdEstadoPacienteTurno(idEstadoPaciente);
+            turnos.setDescripcionTurno(descripcion);
+
+            filasafectadas = daoTurnos.AgregarAsistenciaObservacion(turnos);
+            return filasafectadas == 1;
+        }
+
         public Boolean CancelarTurnos(int idTurno)
         {
             Turnos turnos = new Turnos();
