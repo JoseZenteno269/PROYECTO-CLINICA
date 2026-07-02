@@ -34,79 +34,153 @@
             </table>
         </div>
                 <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click"/>
-        </div>
-        <div id="contenedor">
-            <table>
-                <tr>
-                    <td>Ingrese ID de Turno:</td>
-                    <td>
-                        <asp:TextBox ID="txt_id" runat="server"></asp:TextBox></td>
-                    <td>
-                        <asp:Button ID="btn_buscar" runat="server" Text="Buscar" OnClick="btn_buscar_Click" /></td>
-                </tr>
-            </table>
-        </div>
-         <div>
-             <table>
-                    <tr>
-                        <td>
-            <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False">
-                <Columns>
-                  <asp:TemplateField HeaderText="ID Turno">
-    <ItemTemplate>
-        <asp:Label ID="lbl_it_IdTurno" runat="server" Text='<%# Bind("Id_Turno_Tur") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
-<asp:TemplateField HeaderText="Medico">
-    <ItemTemplate>
-        <asp:Label ID="lbl_it_Medico" runat="server" Text='<%# Eval("[Nombre y Apellido]") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
-<asp:TemplateField HeaderText="Especialidad">
-    <ItemTemplate>
-        <asp:Label ID="lbl_it_Especialidad" runat="server" Text='<%# Bind("Nombre_Espe") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
-<asp:TemplateField HeaderText="Hora">
-    <ItemTemplate>
-        <asp:Label ID="lbl_it_Horario" runat="server" Text='<%# Eval("Horario") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
-<asp:TemplateField HeaderText="Fecha">
-    <ItemTemplate>
-        <asp:Label ID="lbl_it_Fecha" runat="server" Text='<%# Bind("Fecha_Tur") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
-<asp:TemplateField HeaderText="Estado del Turno">
-    <ItemTemplate>
-        <asp:Label ID="lbl_it_EstadoTurno" runat="server" Text='<%# Bind("Descripcion_EsTur") %>'></asp:Label>
-    </ItemTemplate>
-</asp:TemplateField>
-                </Columns>
+    <asp:Button 
+        ID="btn_menu" 
+        runat="server" 
+        Text="Menu" 
+        CssClass="button" 
+        OnClick="btn_menu_Click"/>
+</div>
 
-            </asp:GridView>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-                <br />
-        <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
-        <div class="divlogos">
-            <table style="width: 100%">
-                <tr>
-                    <td align="center">
-                        <img src="Imagenes/Logo.png" class="logo" />
-                    </td>
-                    <td align="center">
-                        <img src="Imagenes/Logo1.png" class="logo1" /></td>
-                    <td align="center">
-                        <img src="Imagenes/Logo2.png" class="logo2" /></td>
-                    <td align="center">
-                        <img src="Imagenes/Logo3.png" class="logo3" /></td>
-                </tr>
-            </table>
-        </div>
+
+<div id="contenedor">
+
+    <div class="busqueda">
+
+        <label>Ingrese ID de Turno:</label>
+
+        <asp:TextBox 
+            ID="txt_id" 
+            runat="server"
+            CssClass="textbox">
+        </asp:TextBox>
+
+        <asp:Button 
+            ID="btn_buscar" 
+            runat="server" 
+            Text="Buscar"
+            CssClass="btn-buscar"
+            OnClick="btn_buscar_Click" />
+
+    </div>
+
+</div>
+
+<div class="contenedor-grid">
+
+    <asp:GridView 
+        ID="gvTurnos" 
+        runat="server" 
+        CssClass="tabla-datos" 
+        AutoGenerateColumns="False">
+
+        <Columns>
+
+            <asp:TemplateField HeaderText="ID Turno">
+                <ItemTemplate>
+                    <asp:Label 
+                        ID="lbl_it_IdTurno" 
+                        runat="server" 
+                        Text='<%# Bind("Id_Turno_Tur") %>'>
+                    </asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+
+            <asp:TemplateField HeaderText="Medico">
+                <ItemTemplate>
+                    <asp:Label 
+                        ID="lbl_it_Medico" 
+                        runat="server" 
+                        Text='<%# Eval("[Nombre y Apellido]") %>'>
+                    </asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+
+            <asp:TemplateField HeaderText="Especialidad">
+                <ItemTemplate>
+                    <asp:Label 
+                        ID="lbl_it_Especialidad" 
+                        runat="server" 
+                        Text='<%# Bind("Nombre_Espe") %>'>
+                    </asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+
+            <asp:TemplateField HeaderText="Hora">
+                <ItemTemplate>
+                    <asp:Label 
+                        ID="lbl_it_Horario" 
+                        runat="server" 
+                        Text='<%# Eval("Horario") %>'>
+                    </asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+
+            <asp:TemplateField HeaderText="Fecha">
+                <ItemTemplate>
+                    <asp:Label 
+                        ID="lbl_it_Fecha" 
+                        runat="server" 
+                        Text='<%# Bind("Fecha_Tur") %>'>
+                    </asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+
+            <asp:TemplateField HeaderText="Estado del Turno">
+                <ItemTemplate>
+                    <asp:Label 
+                        ID="lbl_it_EstadoTurno" 
+                        runat="server" 
+                        Text='<%# Bind("Descripcion_EsTur") %>'>
+                    </asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+        </Columns>
+
+    </asp:GridView>
+
+</div>
+
+
+<br />
+
+<asp:Label 
+    ID="lbl_Mensaje" 
+    runat="server">
+</asp:Label>
+
+
+<div class="divlogos">
+
+    <table style="width: 100%">
+        <tr>
+
+            <td align="center">
+                <img src="Imagenes/Logo.png" class="logo" />
+            </td>
+
+            <td align="center">
+                <img src="Imagenes/Logo1.png" class="logo1" />
+            </td>
+
+            <td align="center">
+                <img src="Imagenes/Logo2.png" class="logo2" />
+            </td>
+
+            <td align="center">
+                <img src="Imagenes/Logo3.png" class="logo3" />
+            </td>
+
+        </tr>
+    </table>
+
+</div>
     </form>
 </body>
 </html>

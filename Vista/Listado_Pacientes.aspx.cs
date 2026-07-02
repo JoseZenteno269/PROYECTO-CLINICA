@@ -106,5 +106,11 @@ namespace Vista
         {
             Response.Redirect("Menu.aspx"); 
         }
+
+        protected void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            ddl_Letras.SelectedIndex = 0;
+            ddl_ProvinciasFiltro.SelectedIndex = 0;
+        }
     }
 }

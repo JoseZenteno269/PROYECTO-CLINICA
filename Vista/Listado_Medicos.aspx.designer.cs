@@ -96,6 +96,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btn_buscar;
 
         /// <summary>
+        /// Control btn_Limpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Limpiar;
+
+        /// <summary>
         /// Control ddl_EspecialidadFiltro.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_SexoFiltrado;
+
+        /// <summary>
+        /// Control ddl_Provincias.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_Provincias;
 
         /// <summary>
         /// Control lv_Medicos.

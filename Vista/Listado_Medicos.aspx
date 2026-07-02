@@ -7,6 +7,11 @@
 <link href="Css/Listado_Medicos.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -34,36 +39,62 @@
                 </tr>
             </table>
         </div>
-        <div id="divcontenedor">
-            <table>
-                <tr>
-                    <td colspan="2"><h1>Buscar Médicos</h1></td>
-                </tr>
-                <tr>
-                    <td>Buscar por Legajo</td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search"></asp:TextBox>
-                    </td>
-                    <td>
-                        <asp:Button ID="btn_buscar" runat="server" CssClass="btn_volver" Text="Buscar" OnClick="btn_buscar_Click" />
-                    </td>
-                    </tr>
-                <tr>
-                    <td colspan="2">Filtrar por Especialidad <br />
-                    <asp:DropDownList ID="ddl_EspecialidadFiltro" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_EspecialidadFiltro_SelectedIndexChanged">
-                    </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">Filtrar por Sexo <br />
-                    <asp:DropDownList ID="ddl_SexoFiltrado" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_SexoFiltrado_SelectedIndexChanged">
-                    </asp:DropDownList>
-                    </td>
-                </tr>
-            </table>
-        </div>
+       <div id="divcontenedor">
+
+    <table>
+        <tr>
+            <td colspan="2" class="auto-style1">
+                <h1>Buscar Médicos</h1>
+            </td>
+        </tr>
+
+        <!-- BUSCADOR -->
+        <tr>
+            <td>Buscar por Legajo</td>
+        </tr>
+
+        <tr>
+            <td>
+                <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search"></asp:TextBox>
+            </td>
+
+            <td>
+                <asp:Button ID="btn_buscar" runat="server"
+                    CssClass="btn_volver"
+                    Text="Buscar"
+                    OnClick="btn_buscar_Click" />
+            </td>
+            <td>
+                <asp:Button ID="btn_Limpiar" runat="server" CssClass="btn_volver" Text="Limpiar Filtros" OnClick="btn_Limpiar_Click" />
+            </td>
+        </tr>
+
+        <!-- FILTRO ESPECIALIDAD -->
+        <tr>
+            <td style="padding-right:60px;">
+                Filtrar por Especialidad
+                <asp:DropDownList ID="ddl_EspecialidadFiltro" runat="server"
+                    AutoPostBack="True"
+                    OnSelectedIndexChanged="ddl_EspecialidadFiltro_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
+
+            <td>
+                Filtrar por Sexo
+                <asp:DropDownList ID="ddl_SexoFiltrado" runat="server"
+                    AutoPostBack="True"
+                    OnSelectedIndexChanged="ddl_SexoFiltrado_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
+            <td>Filtrar por Provincia</td> <td>
+            <asp:DropDownList ID="ddl_Provincias" runat="server" AutoPostBack="True">
+            </asp:DropDownList>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
         <br />
         <br />
         <br />
@@ -164,83 +195,83 @@
                     <tr style="">
                         <td>
                             <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                            <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
                         </td>
                         <td>
-                            <asp:TextBox ID="LegajoTextBox0" runat="server" Text='<%# Bind("Legajo") %>' />
+                            <asp:TextBox ID="LegajoTextBox" runat="server" Text='<%# Bind("Legajo") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="ProvinciaTextBox0" runat="server" Text='<%# Bind("Provincia") %>' />
+                            <asp:TextBox ID="ProvinciaTextBox" runat="server" Text='<%# Bind("Provincia") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="LocalidadTextBox0" runat="server" Text='<%# Bind("Localidad") %>' />
+                            <asp:TextBox ID="LocalidadTextBox" runat="server" Text='<%# Bind("Localidad") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="EspecialidadTextBox0" runat="server" Text='<%# Bind("Especialidad") %>' />
+                            <asp:TextBox ID="EspecialidadTextBox" runat="server" Text='<%# Bind("Especialidad") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="DniTextBox0" runat="server" Text='<%# Bind("Dni") %>' />
+                            <asp:TextBox ID="DniTextBox" runat="server" Text='<%# Bind("Dni") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="Nombre_y_ApellidoTextBox0" runat="server" Text='<%# Bind("[Nombre y Apellido]") %>' />
+                            <asp:TextBox ID="Nombre_y_ApellidoTextBox" runat="server" Text='<%# Bind("[Nombre y Apellido]") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="SexoTextBox0" runat="server" Text='<%# Bind("Sexo") %>' />
+                            <asp:TextBox ID="SexoTextBox" runat="server" Text='<%# Bind("Sexo") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="NacionalidadTextBox0" runat="server" Text='<%# Bind("Nacionalidad") %>' />
+                            <asp:TextBox ID="NacionalidadTextBox" runat="server" Text='<%# Bind("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="Fecha_de_NacimientoTextBox0" runat="server" Text='<%# Bind("[Fecha de Nacimiento]") %>' />
+                            <asp:TextBox ID="Fecha_de_NacimientoTextBox" runat="server" Text='<%# Bind("[Fecha de Nacimiento]") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="DireccionTextBox0" runat="server" Text='<%# Bind("Direccion") %>' />
+                            <asp:TextBox ID="DireccionTextBox" runat="server" Text='<%# Bind("Direccion") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="EmailTextBox0" runat="server" Text='<%# Bind("Email") %>' />
+                            <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="TelefonoTextBox0" runat="server" Text='<%# Bind("Telefono") %>' />
+                            <asp:TextBox ID="TelefonoTextBox" runat="server" Text='<%# Bind("Telefono") %>' />
                         </td>
                     </tr>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <tr style="">
                         <td>
-                            <asp:Label ID="LegajoLabel0" runat="server" Text='<%# Eval("Legajo") %>' />
+                            <asp:Label ID="LegajoLabel" runat="server" Text='<%# Eval("Legajo") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="ProvinciaLabel0" runat="server" Text='<%# Eval("Provincia") %>' />
+                            <asp:Label ID="ProvinciaLabel" runat="server" Text='<%# Eval("Provincia") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="LocalidadLabel0" runat="server" Text='<%# Eval("Localidad") %>' />
+                            <asp:Label ID="LocalidadLabel" runat="server" Text='<%# Eval("Localidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="EspecialidadLabel0" runat="server" Text='<%# Eval("Especialidad") %>' />
+                            <asp:Label ID="EspecialidadLabel" runat="server" Text='<%# Eval("Especialidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="DniLabel0" runat="server" Text='<%# Eval("Dni") %>' />
+                            <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Nombre_y_ApellidoLabel0" runat="server" Text='<%# Eval("[Nombre y Apellido]") %>' />
+                            <asp:Label ID="Nombre_y_ApellidoLabel" runat="server" Text='<%# Eval("[Nombre y Apellido]") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="SexoLabel0" runat="server" Text='<%# Eval("Sexo") %>' />
+                            <asp:Label ID="SexoLabel" runat="server" Text='<%# Eval("Sexo") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="NacionalidadLabel0" runat="server" Text='<%# Eval("Nacionalidad") %>' />
+                            <asp:Label ID="NacionalidadLabel" runat="server" Text='<%# Eval("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Fecha_de_NacimientoLabel0" runat="server" Text='<%# Eval("[Fecha de Nacimiento]", "{0:d}") %>' />
+                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="DireccionLabel0" runat="server" Text='<%# Eval("Direccion") %>' />
+                            <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="EmailLabel0" runat="server" Text='<%# Eval("Email") %>' />
+                            <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="TelefonoLabel0" runat="server" Text='<%# Eval("Telefono") %>' />
+                            <asp:Label ID="TelefonoLabel" runat="server" Text='<%# Eval("Telefono") %>' />
                         </td>
                     </tr>
                 </ItemTemplate>
@@ -248,7 +279,7 @@
                     <table runat="server">
                         <tr runat="server">
                             <td runat="server">
-                                <table class="tabla-datos" runat="server">
+                                <table runat="server" id="itemPlaceholderContainer" class="tabla-datos" border="0" >
                                     <tr runat="server" style="">
                                         <th runat="server">Legajo</th>
                                         <th runat="server">Provincia</th>
@@ -263,14 +294,14 @@
                                         <th runat="server">Email</th>
                                         <th runat="server">Telefono</th>
                                     </tr>
-                                    <tr id="itemPlaceholder" runat="server">
+                                    <tr runat="server" id="itemPlaceholder">
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr runat="server">
-                            <td runat="server" style="text-align:center">
-                                <asp:DataPager ID="DataPager1"  runat="server">
+                            <td runat="server" style="">
+                                <asp:DataPager ID="DataPager1" runat="server">
                                     <Fields>
                                         <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
                                         <asp:NumericPagerField />
@@ -284,40 +315,40 @@
                 <SelectedItemTemplate>
                     <tr style="">
                         <td>
-                            <asp:Label ID="LegajoLabel1" runat="server" Text='<%# Eval("Legajo") %>' />
+                            <asp:Label ID="LegajoLabel" runat="server" Text='<%# Eval("Legajo") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="ProvinciaLabel1" runat="server" Text='<%# Eval("Provincia") %>' />
+                            <asp:Label ID="ProvinciaLabel" runat="server" Text='<%# Eval("Provincia") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="LocalidadLabel1" runat="server" Text='<%# Eval("Localidad") %>' />
+                            <asp:Label ID="LocalidadLabel" runat="server" Text='<%# Eval("Localidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="EspecialidadLabel1" runat="server" Text='<%# Eval("Especialidad") %>' />
+                            <asp:Label ID="EspecialidadLabel" runat="server" Text='<%# Eval("Especialidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="DniLabel1" runat="server" Text='<%# Eval("Dni") %>' />
+                            <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Nombre_y_ApellidoLabel1" runat="server" Text='<%# Eval("[Nombre y Apellido]") %>' />
+                            <asp:Label ID="Nombre_y_ApellidoLabel" runat="server" Text='<%# Eval("[Nombre y Apellido]") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="SexoLabel1" runat="server" Text='<%# Eval("Sexo") %>' />
+                            <asp:Label ID="SexoLabel" runat="server" Text='<%# Eval("Sexo") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="NacionalidadLabel1" runat="server" Text='<%# Eval("Nacionalidad") %>' />
+                            <asp:Label ID="NacionalidadLabel" runat="server" Text='<%# Eval("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Fecha_de_NacimientoLabel1" runat="server" Text='<%# Eval("[Fecha de Nacimiento]", "{0:d}") %>' />
+                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="DireccionLabel1" runat="server" Text='<%# Eval("Direccion") %>' />
+                            <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="EmailLabel1" runat="server" Text='<%# Eval("Email") %>' />
+                            <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="TelefonoLabel1" runat="server" Text='<%# Eval("Telefono") %>' />
+                            <asp:Label ID="TelefonoLabel" runat="server" Text='<%# Eval("Telefono") %>' />
                         </td>
                     </tr>
                 </SelectedItemTemplate>

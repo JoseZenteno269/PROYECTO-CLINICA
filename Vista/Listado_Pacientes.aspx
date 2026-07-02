@@ -7,7 +7,7 @@
 <link href="Css/Listado_Pacientes.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
         <div class="divmenu">
@@ -30,35 +30,62 @@
                 </tr>
             </table>
         </div>
-        <div id="divcontenedor">
-            <table>
-                <tr>
-                    <td colspan="2"><h1>Buscar Pacientes</h1></td>
-                </tr>
-                <tr>
-                    <td>Buscar por DNI </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search"></asp:TextBox></td>
-                    <td>
-                        <asp:Button ID="btn_buscar" runat="server" CssClass="btn_volver" Text="Buscar" OnClick="btn_buscar_Click" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2">Filtrar por inicial <br />
-                        <asp:DropDownList ID="ddl_Letras" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged"></asp:DropDownList></td>
-                </tr>
-                <tr>
-                    <td colspan="2">Filtrar por provincia <br />
-                    <asp:DropDownList ID="ddl_ProvinciasFiltro" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_ProvinciasFiltro_SelectedIndexChanged">
-                    </asp:DropDownList>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <br />
-        <br />
-        <br />
+   <div id="divcontenedor">
+
+    <h1>Buscar Pacientes</h1>
+
+    <!-- BUSCADOR -->
+    <table>
+        <tr>
+            <td>Buscar por DNI</td>
+        </tr>
+
+        <tr>
+            <td>
+                <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search"></asp:TextBox>
+            </td>
+
+            <td>
+                <asp:Button ID="btn_buscar" runat="server"
+                    CssClass="btn_volver"
+                    Text="Buscar"
+                    OnClick="btn_buscar_Click" />
+            </td>
+
+            <td>
+                <asp:Button ID="btn_limpiar" runat="server"
+                    CssClass="btn_volver"
+                    Text="Limpiar Filtros"
+                    OnClick="btn_limpiar_Click" />
+            </td>
+        </tr>
+    </table>
+
+    <br />
+
+    <!-- FILTROS (DDL AL LADO DEL TEXTO) -->
+    <table>
+        <tr>
+            <td style="padding-right:60px;">
+                Filtrar por inicial
+                <asp:DropDownList ID="ddl_Letras" runat="server"
+                    AutoPostBack="True"
+                    OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
+
+            <td>
+                Filtrar por provincia
+                <asp:DropDownList ID="ddl_ProvinciasFiltro" runat="server"
+                    AutoPostBack="True"
+                    OnSelectedIndexChanged="ddl_ProvinciasFiltro_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
+        </tr>
+    </table>
+
+</div>
+        
         <div class="tabla-datos" align="center">
 
             <asp:ListView ID="lv_pacientes" runat="server" DataSourceID="SqlDataSourcePacientes">
@@ -96,6 +123,40 @@
                         </td>
                     </tr>
                 </AlternatingItemTemplate>--%>
+                <AlternatingItemTemplate>
+                    <tr style="">
+                        <td>
+                            <asp:Label ID="DNILabel" runat="server" Text='<%# Eval("DNI") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="ProvinciaLabel" runat="server" Text='<%# Eval("Provincia") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="LocalidadLabel" runat="server" Text='<%# Eval("Localidad") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="Nombre_y_ApellidoLabel" runat="server" Text='<%# Eval("[Nombre y Apellido]") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="Sexo_PaciLabel" runat="server" Text='<%# Eval("Sexo_Paci") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="Nacionalidad_PaciLabel" runat="server" Text='<%# Eval("Nacionalidad_Paci") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="Direccion_PaciLabel" runat="server" Text='<%# Eval("Direccion_Paci") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="CorreoElectronico_PaciLabel" runat="server" Text='<%# Eval("CorreoElectronico_Paci") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="Telefono_PaciLabel" runat="server" Text='<%# Eval("Telefono_Paci") %>' />
+                        </td>
+                    </tr>
+                </AlternatingItemTemplate>
                 <EditItemTemplate>
                     <tr style="">
                         <td>
@@ -200,7 +261,7 @@
                             <asp:Label ID="Nacionalidad_PaciLabel" runat="server" Text='<%# Eval("Nacionalidad_Paci") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci", "{0:d}") %>' />
+                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci") %>' />
                         </td>
                         <td>
                             <asp:Label ID="Direccion_PaciLabel" runat="server" Text='<%# Eval("Direccion_Paci") %>' />
@@ -217,7 +278,7 @@
                     <table runat="server">
                         <tr runat="server">
                             <td runat="server">
-                                <table class="tabla-datos" runat="server">
+                                <table runat="server" id="itemPlaceholderContainer" class="tabla-datos" border="0">
                                     <tr runat="server" style="">
                                         <th runat="server">DNI</th>
                                         <th runat="server">Provincia</th>
@@ -230,7 +291,7 @@
                                         <th runat="server">CorreoElectronico_Paci</th>
                                         <th runat="server">Telefono_Paci</th>
                                     </tr>
-                                    <tr id="itemPlaceholder" runat="server">
+                                    <tr runat="server" id="itemPlaceholder">
                                     </tr>
                                 </table>
                             </td>

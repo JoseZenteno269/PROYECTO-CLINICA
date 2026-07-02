@@ -79,9 +79,21 @@ namespace Vista
             }
         }
 
+
+
         protected void btn_actualizar_Click(object sender, EventArgs e)
         {
             DLMedico.DataBind();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            int dni = Convert.ToInt32(txtBuscar.Text);
+            SqlDataSourceMedico.SelectCommand = "SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Fecha_Tur >= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1 AND Horario_Tur >= CAST(GETDATE() AS TIME) AND CONVERT(VARCHAR(20), DNI_Paci) LIKE @DNI";
+            SqlDataSourceMedico.SelectParameters.Clear();
+            SqlDataSourceMedico.SelectParameters.Add("DNI", dni + "%");
+            DLMedico.DataBind();
+
         }
     }
 }

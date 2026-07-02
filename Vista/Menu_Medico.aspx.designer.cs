@@ -96,6 +96,24 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btn_actualizar;
 
         /// <summary>
+        /// Control rfv_Busqueda.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_Busqueda;
+
+        /// <summary>
+        /// Control rev_Buscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_Buscar;
+
+        /// <summary>
         /// Control DLMedico.
         /// </summary>
         /// <remarks>
@@ -112,5 +130,14 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceMedico;
+
+        /// <summary>
+        /// Control VSBusquedaMedica.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary VSBusquedaMedica;
     }
 }

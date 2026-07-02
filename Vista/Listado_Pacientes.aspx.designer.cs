@@ -96,6 +96,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btn_buscar;
 
         /// <summary>
+        /// Control btn_limpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_limpiar;
+
+        /// <summary>
         /// Control ddl_Letras.
         /// </summary>
         /// <remarks>

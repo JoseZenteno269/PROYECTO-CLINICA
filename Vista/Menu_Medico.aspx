@@ -43,10 +43,12 @@
                         <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" />
+                        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="1" />
                     </td>
                     <td>
                         <asp:Button ID="btn_actualizar" runat="server" Text="Actualizar" OnClick="btn_actualizar_Click" />
+                        <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ErrorMessage="Ingrese un DNI" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Buscar" runat="server" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]{7,8}$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </table>
@@ -124,6 +126,7 @@
                 <asp:SqlDataSource ID="SqlDataSourceMedico" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand="SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Fecha_Tur &gt;= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1 AND Horario_Tur &gt;= CAST(GETDATE() AS TIME)"></asp:SqlDataSource>
             </div>
         </div>
+        <asp:ValidationSummary ID="VSBusquedaMedica" runat="server" ValidationGroup="1" />
         <br />
         <br />
         <br />
