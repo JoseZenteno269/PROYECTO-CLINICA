@@ -47,8 +47,8 @@
                     </td>
                     <td>
                         <asp:Button ID="btn_actualizar" runat="server" Text="Actualizar" OnClick="btn_actualizar_Click" />
-                        <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ErrorMessage="Ingrese un DNI" ValidationGroup="1">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="rev_Buscar" runat="server" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]{7,8}$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ErrorMessage="Ingrese un DNI" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Buscar" runat="server" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]{7,8}$" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </table>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Modificacion_Medicos.aspx.cs" Inherits="Vista.Modificacion_Medicos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Modificacion_Medicos.aspx.cs" Inherits="Vista.Modificacion_Medicos" MaintainScrollPositionOnPostback="true"  %>
 
 <!DOCTYPE html>
 
