@@ -48,13 +48,27 @@
                     <td>
                         <asp:Button ID="btn_actualizar" runat="server" Text="Actualizar" OnClick="btn_actualizar_Click" />
                         <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ErrorMessage="Ingrese un DNI" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="rev_Buscar" runat="server" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]{7,8}$" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="rev_Buscar" runat="server" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </table>
-            <br />
-            <br />
-            <br />
+          <div>
+              <table>
+                  <tr>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>Filtrado por Inicial:</td><td>
+                      <asp:DropDownList ID="ddl_Letras" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged">
+                      </asp:DropDownList>
+                      </td>
+                      <td style="padding-left:20px"></td><td>Filtrado por Estado de Turno:</td><td>
+                      <asp:DropDownList ID="ddl_EstadoTurno" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_EstadoTurno_SelectedIndexChanged">
+                      </asp:DropDownList>
+                      </td>
+                  </tr>
+              </table>
+          </div>
             <div class="contenedor-turnos">
                     <table class="tabla-titulos">
                         <tr> 

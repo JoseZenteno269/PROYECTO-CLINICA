@@ -114,6 +114,24 @@ namespace Vista
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_Buscar;
 
         /// <summary>
+        /// Control ddl_Letras.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_Letras;
+
+        /// <summary>
+        /// Control ddl_EstadoTurno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_EstadoTurno;
+
+        /// <summary>
         /// Control DLMedico.
         /// </summary>
         /// <remarks>
