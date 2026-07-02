@@ -33,8 +33,13 @@ input[type=search]{
     height: 30px; 
 }
 
+.grupo-medico {
+    height: 60vh;
+    margin: 0 auto;
+    overflow-y: auto; /* scroll vertical */
+    overflow-x: auto; /* scroll horizontal si la tabla es ancha */
+}
 .gv {
-    width: 100%;
     border: none !important;
     border-collapse: collapse !important;
     border-spacing: 0;
@@ -87,9 +92,6 @@ input[type=search]{
             border-bottom: none !important;
         }
 
-.grupo-medico{
-    height: 70vh; 
-}
 
 .btn_volver {
     font-size: 14px;

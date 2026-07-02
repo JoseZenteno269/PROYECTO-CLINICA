@@ -35,10 +35,6 @@
             </table>
         </div>
         <div class="div">
-<%--            <div>
-                <br />
-                <asp:Button ID="btn_Volver" runat="server" OnClick="btn_Volver_Click" Text="Menu" CssClass="btn_volver" />
-            </div>--%>
             <table class="div-medicos">
                 <tr>
                     <td colspan="3">Medicos</td>
@@ -106,10 +102,6 @@
                     <td>Fecha de nacimiento:</td>
                     <td>
                         <asp:TextBox ID="txt_fecha" runat="server" TextMode="Date"></asp:TextBox>
-                        <%--                        <asp:DropDownList ID="ddl_mes_m" runat="server"></asp:DropDownList>
-                        <asp:DropDownList ID="ddl_anio_m" runat="server"></asp:DropDownList>
-                        <br />
-                        <asp:Calendar ID="c_calendario_m" runat="server" CssClass="aspNetCalendar" ShowGridLines="True" ShowNextPrevMonth="False" ShowTitle="False"></asp:Calendar>--%>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="ref_Fecha" runat="server" ControlToValidate="txt_fecha" ErrorMessage="Ingresa una Fecha" ValidationGroup="1">*</asp:RequiredFieldValidator>
@@ -160,7 +152,6 @@
                         <asp:TextBox ID="txt_correo_m" runat="server" TextMode="Email"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Correo" runat="server" ControlToValidate="txt_correo_m" ErrorMessage="Ingrese un Correo" ValidationGroup="1">*</asp:RequiredFieldValidator>
-                        <%--<asp:RegularExpressionValidator ID="rev_Email" runat="server" ControlToValidate="txt_correo_m" ErrorMessage="Ingrese un Email valido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="1">*</asp:RegularExpressionValidator>--%>
                     </td>
                 </tr>
                 <tr>

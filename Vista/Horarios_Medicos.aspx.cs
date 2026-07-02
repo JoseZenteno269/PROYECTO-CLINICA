@@ -128,6 +128,8 @@ namespace Vista
                     }
                 }
             }
+
+            LimpiarCampos(); 
         }
 
         protected void lb_perfil_Click(object sender, EventArgs e)
@@ -143,6 +145,32 @@ namespace Vista
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
         {
             p_panel.Visible = !p_panel.Visible;
+        }
+
+        public void LimpiarCampos()
+        {
+            txt_legajo.Text = String.Empty;
+            horainiciol.Text = String.Empty;
+            horafinl.Text = String.Empty;
+            horainiciom.Text = String.Empty;
+            horafinm.Text = String.Empty;
+            horainiciomi.Text = String.Empty;
+            horafinmi.Text = String.Empty;
+            horainicioj.Text = String.Empty;
+            horafinj.Text = String.Empty;
+            horainiciov.Text = String.Empty;
+            horafinv.Text = String.Empty;
+            horainicios.Text = String.Empty;
+            horafins.Text = String.Empty;
+            horainiciod.Text = String.Empty;
+            horafind.Text = String.Empty;
+            cb_lunes.Checked = false;
+            cb_martes.Checked = false;
+            cb_miercoles.Checked = false;
+            cb_jueves.Checked = false;
+            cb_viernes.Checked = false;
+            cb_sabado.Checked = false;
+            cb_domingo.Checked = false;
         }
     }
 }

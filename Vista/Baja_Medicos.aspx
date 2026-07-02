@@ -62,8 +62,8 @@
                 </tr>
             </table>
         </div>
-        <div class ="grupo-medico">
-            <br />
+        <br />
+        <div class ="grupo-medico" align="center">
             <asp:GridView ID="gvMedicos" runat="server" AutoGenerateColumns="False" CssClass="gv" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
                 <Columns>
                     <asp:TemplateField HeaderText="Id Medico">
@@ -120,6 +120,10 @@
                 </Columns>
             </asp:GridView>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

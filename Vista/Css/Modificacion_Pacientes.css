@@ -24,6 +24,19 @@ input[type=search] {
     height: 30px;
 }
 
+input[type=text] {
+    padding-left: 5px;
+    font-size: 12px;
+    width: 80px;
+    height: 15px;
+}
+
+select {
+    font-size: 12px;
+    width: 100px;
+    height: 22px;
+}
+
 
 .btn_volver {
     font-size: 14px;
@@ -37,29 +50,25 @@ input[type=search] {
     color: #ffffff;
 }
 
-.gv td {
+/*.gv td {
     padding: 10px 5px 10px 5px;
     text-align: center;
-}
+}*/
 
-select {
-    width: 100px;
-}
 
 .contenedor-grid {
     height: 70vh;
-    width: 95%;
     margin: 0 auto;
-    overflow-x: auto;
+    overflow-y: auto; /* scroll vertical */
+    overflow-x: auto; /* scroll horizontal si la tabla es ancha */
 }
 
 .gv {
-    width: 100%;
     border: none !important;
     border-collapse: collapse !important;
     border-spacing: 0;
     border-radius: 12px;
-    overflow: visible;
+    overflow: hidden;
     background: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,.08);
 }
@@ -69,7 +78,7 @@ select {
     .gv th {
         background: linear-gradient(90deg,#5b86e5,#36d1dc);
         color: white;
-        padding: 12px;
+        padding: 8px;
         text-align: center;
         font-size: 13px;
         font-weight: 600;
@@ -81,11 +90,12 @@ select {
     /* CELDAS */
 
     .gv td {
-        padding: 10px 8px;
+        padding: 8px 5px;
         text-align: center;
-        font-size: 13px;
+        font-size: 12px;
         white-space: nowrap;
         border: none !important;
+
         border-bottom: 1px solid #f0f0f0 !important;
     }
 

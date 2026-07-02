@@ -37,7 +37,7 @@
         <br />
         <br />
         <div id="divrow">
-            <div class="divfila" style="width: 30%">
+            <div class="divfila"  style="width: 50%" align="center">
                 <table class="tableturnos">
                     <tr>
                         <td>
@@ -48,26 +48,26 @@
                     <tr>
                         <td>
                             <p>Medico</p>
-                            <asp:DropDownList ID="ddl_medicos" runat="server" AutoPostBack="True"></asp:DropDownList></td>
+                            <asp:DropDownList ID="ddl_medicos" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_medicos_SelectedIndexChanged"></asp:DropDownList></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td align="center">
                             <p>Fecha</p>
-                            <asp:Calendar ID="c_calendario" runat="server" OnSelectionChanged="c_calendario_SelectionChanged"></asp:Calendar>
+                            <asp:Calendar ID="c_calendario" runat="server" OnSelectionChanged="c_calendario_SelectionChanged" EnableTheming="True" OnDayRender="c_calendario_DayRender" OnVisibleMonthChanged="c_calendario_VisibleMonthChanged" ShowGridLines="True"></asp:Calendar>
                         </td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>
                             <p>Horario</p>
-                            <asp:DropDownList ID="ddl_horas" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddl_horas" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_horas_SelectedIndexChanged"></asp:DropDownList>
                         </td>
                         <td></td>
                     </tr>
                 </table>
             </div>
-            <div class="divfila" style="width: 40%">
+            <div class="divfila"  style="width: 50%" align="center">
 
                 <asp:GridView ID="gvPacientesSeleccion" runat="server" AutoGenerateColumns="False" CssClass="gv" OnSelectedIndexChanging="gvPacientesSeleccion_SelectedIndexChanging">
                     <Columns>

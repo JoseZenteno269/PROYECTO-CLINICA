@@ -63,7 +63,8 @@
                 </tr>
             </table>
         </div>
-        <div class="grupo-pacientes">
+        <br />
+        <div class="grupo-pacientes" align="center">
             <br />
             <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False" CssClass="gv" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
                 <Columns>

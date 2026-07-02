@@ -54,7 +54,8 @@
             </table>
             <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
         </div>
-        <div class="contenedor-grid">
+        <br />
+        <div class="contenedor-grid" align="center">
             <asp:GridView ID="gv_pacientes" CssClass="gv" runat="server" AutoGenerateColumns="False" DataKeyNames="Id_Provincia_Paci,Id_Localidad_Paci,Sexo_Paci" OnRowCancelingEdit="gv_pacientes_RowCancelingEdit" OnRowEditing="gv_pacientes_RowEditing" OnRowUpdating="gv_pacientes_RowUpdating" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
                 <Columns>
                     <asp:CommandField ButtonType="Button" ShowEditButton="True" ValidationGroup="1" />

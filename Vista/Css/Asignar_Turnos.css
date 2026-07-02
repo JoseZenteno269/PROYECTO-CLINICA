@@ -21,8 +21,23 @@ form {
     height: 25px;
 }
 
+#divrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 100%
+}
+
+.divfila {
+    height: 50vh;
+    margin: 0 auto;
+    overflow-y: auto; /* scroll vertical */
+    overflow-x: auto; /* scroll horizontal si la tabla es ancha */
+}
+
 .gv {
-    width: 100%;
     border: none !important;
     border-collapse: collapse !important;
     border-spacing: 0;
@@ -75,25 +90,10 @@ form {
             border-bottom: none !important;
         }
 
-#divrow {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-    width: 100%
-}
 
-.divfila{
-    justify-content: center; 
-    align-items: center; 
-    
-    text-align: center; 
-}
 
 .tableturnos{
     text-align: center; 
-    width: 100%; 
 }
 
 .tablamenu {

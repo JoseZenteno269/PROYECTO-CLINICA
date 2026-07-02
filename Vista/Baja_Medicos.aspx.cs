@@ -19,7 +19,7 @@ namespace Vista
                 if (Session["UsuarioAdmin"] != null)
                 {
                     lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
-                    CargarActivosMedicos(); 
+                    CargarActivosMedicos();
                 }
                 else
                 {

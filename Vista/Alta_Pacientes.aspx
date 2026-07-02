@@ -121,7 +121,6 @@
                     <td><asp:TextBox ID="txt_correo_p" runat="server" TextMode="Email"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Correo" runat="server" ControlToValidate="txt_correo_p" ErrorMessage="Ingrese un Correo" ValidationGroup="2">*</asp:RequiredFieldValidator>
-                        <%--<asp:RegularExpressionValidator ID="rev_Correo" runat="server" ControlToValidate="txt_correo_p" ErrorMessage="Ingrese un correo valido" ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" ValidationGroup="2">*</asp:RegularExpressionValidator>--%>
                     </td>
                 </tr>
                 <tr>

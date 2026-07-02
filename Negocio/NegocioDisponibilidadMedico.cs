@@ -17,6 +17,11 @@ namespace Negocio
 
         }
 
+        public String getDiasXMedico(int idmedico)
+        {
+            return daoDisponibilidadMedico.getDiasXMedico(idmedico);
+        }
+
         public DataTable getDropDownListDisponibilidadHoraria(int dia)
         {
             return daoDisponibilidadMedico.getTablaDisponibilidadMedica(dia);

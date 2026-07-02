@@ -18,9 +18,16 @@ namespace Datos
 
         }
 
+        public String getDiasXMedico(int idmedico)
+        {
+            String consulta = "SELECT STRING_AGG(CAST(DiaSemana_DispMed AS NVARCHAR(MAX)), ',') FROM ( SELECT DISTINCT DiaSemana_DispMed FROM Disponibilidad_Medico WHERE Id_Medico_DispMed = @IDMEDICO) AS D";
+            SqlCommand comando = new SqlCommand(); 
+            comando.Parameters.AddWithValue("@IDMEDICO", idmedico);
+            return datos.EjecutarEscalarString(comando, consulta);
+        }
+
         public DataTable getTablaDisponibilidadMedica(int dia)
         {
-            //DataTable tabla = datos.ObtenerTabla("Disponibilidad_Medico", "SELECT Id_COD_DispMed, Id_Medico_DispMed, (CASE DiaSemana_DispMed WHEN 1 THEN 'Lunes' WHEN 2 THEN 'Martes' WHEN 3 THEN 'Miércoles' WHEN 4 THEN 'Jueves' WHEN 5 THEN 'Viernes' WHEN 6 THEN 'Sábado' WHEN 7 THEN 'Domingo' END + ' - ' + CAST(Horario_DispMed AS VARCHAR(5))) AS DiayHorario FROM Disponibilidad_Medico");
             DataTable tabla = datos.ObtenerTabla("Disponibilidad_Medico", $"SELECT Id_COD_DispMed, Id_Medico_DispMed, Horario_DispMed FROM Disponibilidad_Medico WHERE DiaSemana_DispMed = {dia}"); 
             return tabla;
         }

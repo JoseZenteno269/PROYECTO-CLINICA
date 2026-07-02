@@ -11,7 +11,6 @@ namespace Vista
 {
     public partial class Modificacion_Pacientes : System.Web.UI.Page
     {
-        NegocioMedicos negocio = new NegocioMedicos();
         NegocioPacientes negocioPacientes = new NegocioPacientes();
         NegocioProvincias negocioProvincias = new NegocioProvincias();
         NegocioLocalidades negocioLocalidades = new NegocioLocalidades();
@@ -22,7 +21,7 @@ namespace Vista
                 if (Session["UsuarioAdmin"] != null)
                 {
                     lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
-                    CargarGridViewPacientes(); 
+                    CargarGridViewPacientes();
                 }
                 else
                 {

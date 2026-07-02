@@ -18,7 +18,6 @@ form {
 }
 
 .gv {
-    width: 100%;
     border: none !important;
     border-collapse: collapse !important;
     border-spacing: 0;
@@ -71,8 +70,11 @@ form {
             border-bottom: none !important;
         }
 
-.grupo-pacientes{
-    height: 70vh; 
+.grupo-pacientes {
+    height: 60vh;
+    margin: 0 auto;
+    overflow-y: auto; /* scroll vertical */
+    overflow-x: auto; /* scroll horizontal si la tabla es ancha */
 }
 
 .tabla-inicio {

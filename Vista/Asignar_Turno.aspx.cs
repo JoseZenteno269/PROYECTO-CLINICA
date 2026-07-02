@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Sockets;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,7 +19,7 @@ namespace Vista
         NegocioDisponibilidadMedico NegocioDisponibilidadMedico = new NegocioDisponibilidadMedico(); 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 if (Session["UsuarioAdmin"] != null)
                 {
@@ -32,6 +33,7 @@ namespace Vista
                     Response.Redirect("Inicio.aspx");
                 }
             }
+
         }
 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
@@ -82,16 +84,27 @@ namespace Vista
         {
             CargarDropDawnListMedicos();
         }
-        //protected void ddl_medicos_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    //int dia = (int)sender; 
-        //    //CargarDropDownListDisponibilidad(dia);
-        //}
+        protected void ddl_medicos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDiasDisponibles();
+            c_calendario.DataBind(); 
+        }
 
         public void CargarGridviewPacientes()
         {
             gvPacientesSeleccion.DataSource = NegocioPacientes.getPacientes();
             gvPacientesSeleccion.DataBind();
+        }
+        protected void c_calendario_VisibleMonthChanged(object sender, MonthChangedEventArgs e)
+        {
+            CargarDiasDisponibles();
+            c_calendario.DataBind();
+        }
+
+        protected void ddl_horas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDiasDisponibles();
+            c_calendario.DataBind(); 
         }
 
         public void LimpiarCampos()
@@ -118,7 +131,9 @@ namespace Vista
             DateTime fecha = c_calendario.SelectedDate;
             DayOfWeek diasemana = fecha.DayOfWeek;
             int numerodia = (int)fecha.DayOfWeek; 
+            int diasemanaentero = (numerodia == 0) ? 7 : numerodia;
             String nombredia = fecha.ToString("dddd");
+
             if(fecha < DateTime.Now)
             {
                 lbl_mensaje.Text = "La fecha seleccionada es invalida";
@@ -126,7 +141,8 @@ namespace Vista
             }
             else
             {
-                CargarDropDownListDisponibilidad(numerodia);
+                CargarDropDownListDisponibilidad(diasemanaentero);
+                CargarDiasDisponibles();
             }
              
         }
@@ -149,5 +165,34 @@ namespace Vista
                 lbl_mensaje.Text = "datos" + fecha.ToString("dd-MM-yyyy") + "-" + ddl_especialidad.Text + "-" + ddl_medicos.Text; 
             }
         }
+
+        private List<int> diasdisponibles = new List<int>(); 
+
+        public void CargarDiasDisponibles()
+        {
+            string diasString = NegocioDisponibilidadMedico.getDiasXMedico(Convert.ToInt32(ddl_medicos.SelectedValue));
+            int[] dias = diasString.Split(',').Select(int.Parse).ToArray();
+
+            foreach(int i in dias)
+            {
+                diasdisponibles.Add(i);
+            }
+        }
+
+        protected void c_calendario_DayRender(object sender, DayRenderEventArgs e)
+        {
+            int diaSemana = (int)e.Day.Date.DayOfWeek; 
+            int diasSenamanas = (diaSemana == 0) ? 7 : diaSemana;
+
+            if (diasdisponibles.Contains(diasSenamanas))
+            {
+                e.Cell.BackColor = System.Drawing.Color.Green;
+            }
+            if (!diasdisponibles.Contains(diasSenamanas))
+            {
+                e.Day.IsSelectable = false;
+            }
+        }
+
     }
 }

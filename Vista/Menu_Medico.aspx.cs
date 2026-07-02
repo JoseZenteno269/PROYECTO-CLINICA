@@ -53,7 +53,7 @@ namespace Vista
 
             TextBox txtObs = (TextBox)item.FindControl("txtObservaciones");
 
-            if (ddl.SelectedValue == "1") // Presente
+            if (ddl.SelectedValue == "1")
             {
                 txtObs.Enabled = true;
             }
@@ -78,8 +78,6 @@ namespace Vista
                 }
             }
         }
-
-
 
         protected void btn_actualizar_Click(object sender, EventArgs e)
         {
