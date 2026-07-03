@@ -159,13 +159,22 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btn_aceptar1;
 
         /// <summary>
-        /// Control lbl_turnosXespecialidad.
+        /// Control gv_TurnosXEspecialidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_turnosXespecialidad;
+        protected global::System.Web.UI.WebControls.GridView gv_TurnosXEspecialidad;
+
+        /// <summary>
+        /// Control lbl_especialidadmayor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_especialidadmayor;
 
         /// <summary>
         /// Control TextBox1.
@@ -213,13 +222,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList ddl_anio_4;
 
         /// <summary>
-        /// Control barra1.
+        /// Control barr1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button barra1;
+        protected global::System.Web.UI.WebControls.Button barr1;
 
         /// <summary>
         /// Control barra2.

@@ -27,11 +27,33 @@ namespace Vista
                     CargarGridViewPacientes();
                     CargarDropDownListProvincias();
                     CargarGridViewEdad();
+                    CargarDropDownListAños();
+                    CargarDropDownListMeses();
                 }
                 else
                 {
                     Response.Redirect("Login.aspx");
                 }
+            }
+        }
+
+        public void CargarDropDownListMeses()
+        {
+            String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+            ddl_mes_4.Items.Add(new ListItem("-- Meses --", "0"));
+            for (int i = 0; i < meses.Length; i++)
+            {
+                ddl_mes_4.Items.Add(new ListItem(meses[i].ToString(), (i + 1).ToString()));
+            }
+        }
+
+        public void CargarDropDownListAños()
+        {
+            int anio = DateTime.Now.Year;
+            ddl_anio_4.Items.Add(new ListItem("-- Años --", "0")); 
+            for(int i = anio; i >= 1900; i--)
+            {
+                ddl_anio_4.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
         }
 
@@ -59,6 +81,7 @@ namespace Vista
             ddl_especialidades.Items.Insert(0, new ListItem("-- Seleccione una opcion --", "0"));
         }
 
+        //Informe 1
         protected void btn_aceptar_Click(object sender, EventArgs e)
         {
             DateTime fechainiico = Convert.ToDateTime(txt_fecha_inicio.Text);
@@ -79,24 +102,44 @@ namespace Vista
             lbl_porcentajes.Text = "Presentes: " + porcentajePresentes.ToString("F2") + "%" + "<br />" + "Ausentes: " + porcentajeAusentes.ToString("F2") + "%";
         }
 
+        //Informe 2
         protected void btn_aceptar1_Click(object sender, EventArgs e)
         {
             DateTime fechainicio = Convert.ToDateTime(txt_fecha_inicio1.Text);
             DateTime fechafin = Convert.ToDateTime(txt_fecha_fin1.Text);
-            int idEspecialidad = Convert.ToInt32(ddl_especialidades.SelectedValue);
+            String Especialidad = ddl_especialidades.SelectedItem.Text;
 
             if (fechainicio > fechafin)
             {
-                lbl_turnosXespecialidad.Text = "La fecha de inicio no puede ser mayor a la fecha de fin.";
+
                 return;
             }
 
+            if(ddl_especialidades.SelectedValue == "0")
+            {
+                CargarGridViewTurnosXEspecialiadades(fechainicio.ToString("yyyy-MM-dd"), fechafin.ToString("yyyy-MM-dd")); 
+            }
+            else
+            {
+                CargarGridViewTurnosXEspecialiadades(fechainicio.ToString("yyyy-MM-dd"), fechafin.ToString("yyyy-MM-dd"), Especialidad); 
+            }
 
+            lbl_especialidadmayor.Text = negocioTurnos.ConsutaMaxEspecialidad().ToString(); 
+        }
+        public void CargarGridViewTurnosXEspecialiadades(String fechainicio, String fechafin, String Especialidad)
+        {
+            gv_TurnosXEspecialidad.DataSource = negocioTurnos.ConsultaTurnosXEspecialidad(fechainicio, fechafin, Especialidad);
+            gv_TurnosXEspecialidad.DataBind(); 
         }
 
+        public void CargarGridViewTurnosXEspecialiadades(String fechainicio, String fechafin)
+        {
+            gv_TurnosXEspecialidad.DataSource = negocioTurnos.ConsultaTurnosXEspecialidad(fechainicio, fechafin);
+            gv_TurnosXEspecialidad.DataBind();
+        }
 
         /// Informe 5
-        
+
         public void CargarGridViewPacientes()
         {
             gv_PacientesInforme5.DataSource = negocioPacientes.getPacientes();
@@ -178,5 +221,6 @@ namespace Vista
             gvEdad.DataSource = negocioPacientes.getPacientesEdad(min, max);
             gvEdad.DataBind();
         }
+
     }
 }

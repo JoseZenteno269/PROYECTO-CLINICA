@@ -134,7 +134,7 @@ namespace Vista
             int diasemanaentero = (numerodia == 0) ? 7 : numerodia;
             String nombredia = fecha.ToString("dddd");
 
-            if(fecha < DateTime.Now)
+            if(fecha <= DateTime.Now)
             {
                 lbl_mensaje.Text = "La fecha seleccionada es invalida";
                 return;
@@ -196,10 +196,11 @@ namespace Vista
 
         protected void btn_cancelar_Click(object sender, EventArgs e)
         {
-            ddl_especialidad.SelectedIndex = 0;
-            ddl_medicos.SelectedIndex = 0;
-            ddl_horas.SelectedIndex = 0;
-            c_calendario.SelectedDate = DateTime.Now;
+            LimpiarCampos(); 
+            //ddl_especialidad.SelectedIndex = 0;
+            //ddl_medicos.SelectedIndex = 0;
+            //ddl_horas.SelectedIndex = 0;
+            //c_calendario.SelectedDate = DateTime.Now;
         }
     }
 }

@@ -7,11 +7,6 @@
 <link href="Css/Listado_Medicos.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 50px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -262,7 +257,7 @@
                             <asp:Label ID="NacionalidadLabel" runat="server" Text='<%# Eval("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]") %>' />
+                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />

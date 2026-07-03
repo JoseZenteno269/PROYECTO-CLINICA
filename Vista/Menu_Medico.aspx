@@ -91,6 +91,7 @@
                                     <td>
                                         <span>
                                             <asp:Label ID="EstadoLabel" runat="server" Text='<%# Eval("Estado") %>'></asp:Label>
+                                            <asp:HiddenField ID="hf_estadoturno" runat="server" Value='<%# Eval("EstadoTurno") %>' />
                                         </span>
                                     </td>
                                     <td>
@@ -115,7 +116,7 @@
                                     </td>
                                     <td>
                                         <span>
-                                            <asp:DropDownList ID="ddlAsistencia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlAsistencia_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlAsistencia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlAsistencia_SelectedIndexChanged" SelectedValue='<%# Eval("EstadoPaciente") %>'>
                                                 <asp:ListItem Value="0">-- Asistencia --</asp:ListItem>
                                                 <asp:ListItem Value="1">Presente</asp:ListItem>
                                                 <asp:ListItem Value="2">Ausente</asp:ListItem>
@@ -125,7 +126,7 @@
                                     <td>
                                         <span>
                                             <asp:Panel ID="panel1" runat="server" DefaultButton="btnGuardarObs">
-                                                <asp:TextBox ID="txtObservaciones" runat="server" Enabled="False" Width="120px"></asp:TextBox>
+                                                <asp:TextBox ID="txtObservaciones" runat="server" Enabled="False" Width="120px" Text='<%# Eval("Observacion") %>'></asp:TextBox>
                                                 <asp:LinkButton ID="btnGuardarObs" runat="server" style="display: none" CommandName="GuardarObservacion" CommandArgument='<%# Eval("Id_Turno_Tur")%>'></asp:LinkButton>
                                             </asp:Panel>
                                         </span>
@@ -137,7 +138,9 @@
                     <SelectedItemStyle Font-Bold="True" />
                 </asp:DataList>
                 <br />
-                <asp:SqlDataSource ID="SqlDataSourceMedico" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand="SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Fecha_Tur &gt;= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1 AND Horario_Tur &gt;= CAST(GETDATE() AS TIME)"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSourceMedico" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand="SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Fecha_Tur &gt;= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1 AND Horario_Tur &gt;= CAST(GETDATE() AS TIME)
+
+"></asp:SqlDataSource>
             </div>
         </div>
         <asp:ValidationSummary ID="VSBusquedaMedica" runat="server" ValidationGroup="1" />

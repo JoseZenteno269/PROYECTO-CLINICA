@@ -37,6 +37,32 @@ namespace Datos
             return datos.EjecutarEscalarString(comando, consulta);
         }
 
+        public DataTable ConsultaTurnosXEspecialidad(String fechainicio, String fechafin)
+        {
+            String consulta = "SELECT Especialidad.Nombre_Espe AS ESPECIALIDAD, COUNT(Id_Especialidad_Tur) AS TOTAL_TURNOS FROM Turnos INNER JOIN Especialidad ON Id_Especialidad_Tur = Id_Especialidad_Espe  WHERE Activo_Tur = 1 AND Fecha_Tur BETWEEN @FECHAINICIO AND @FECHAFIN GROUP BY Nombre_Espe";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@FECHAINICIO", fechainicio);
+            comando.Parameters.AddWithValue("@FECHAFIN", fechafin);
+            return datos.ObtenerTablaComando(comando, "Turnos", consulta);
+        }
+
+        public DataTable ConsultaTurnosXEspecialidad(String fechainicio, String fechafin, String especialidad)
+        {
+            String consulta = "SELECT Especialidad.Nombre_Espe AS ESPECIALIDAD, COUNT(Id_Especialidad_Tur) AS TOTAL_TURNOS FROM Turnos INNER JOIN Especialidad ON Id_Especialidad_Tur = Id_Especialidad_Espe  WHERE Activo_Tur = 1 AND Fecha_Tur BETWEEN @FECHAINICIO AND @FECHAFIN AND Nombre_Espe = @ESPECIALIDAD GROUP BY Nombre_Espe";
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@FECHAINICIO", fechainicio);
+            comando.Parameters.AddWithValue("@FECHAFIN", fechafin);
+            comando.Parameters.AddWithValue("@ESPECIALIDAD", especialidad);
+            return datos.ObtenerTablaComando(comando, "Turnos", consulta);
+        }
+
+        public String ConsutaMaxEspecialidad()
+        {
+            String consulta = "SELECT TOP 1 CONCAT(Especialidad.Nombre_Espe, ' ', COUNT(Id_Especialidad_Tur)) AS RESULTADO FROM Turnos INNER JOIN Especialidad ON Id_Especialidad_Espe = Id_Especialidad_Tur WHERE Activo_Tur = 1  GROUP BY Nombre_Espe ORDER BY COUNT(Id_Medico_Tur) DESC";
+            SqlCommand comando = new SqlCommand();
+            return datos.EjecutarEscalarString(comando, consulta); 
+        }
+
         public DataTable getTablaTurno()
         {
             DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, Id_Medico_Tur, Id_Especialidad_Tur, Id_Paciente_Tur, Id_EstadoPaciente_Tur, Id_EstadoTurno_Tur, Fecha_Tur, Horario_Tur, Descripcion_Tur, Activo_Tur FROM Turnos");
@@ -109,6 +135,9 @@ namespace Datos
             //ID TURNO
             parametros = comando.Parameters.Add("@IDTURNO", SqlDbType.Int);
             parametros.Value = turnos.getIdTurno();
+            //ID ESTADO TURNO
+            parametros = comando.Parameters.Add("@IDESTADOTURNO", SqlDbType.Int);
+            parametros.Value = turnos.getIdEstadoTurno();
             //ID ESTADO PACIENTE
             parametros = comando.Parameters.Add("@IDESTADOPACIENTE", SqlDbType.Int);
             parametros.Value = (object)turnos.getIdEstadoPacienteTurno() ?? DBNull.Value;

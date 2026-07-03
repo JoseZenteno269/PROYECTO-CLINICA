@@ -1,5 +1,6 @@
 ﻿using Datos;
 using Entidades;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,6 +28,21 @@ namespace Negocio
             return daoTurnos.ConsultaPorcentajePresentes(fechainicio, fechafin);
         }
 
+        public DataTable ConsultaTurnosXEspecialidad(String fechainicio, String fechafin)
+        {
+            return daoTurnos.ConsultaTurnosXEspecialidad(fechainicio, fechafin);
+        }
+
+        public DataTable ConsultaTurnosXEspecialidad(String fechainicio, String fechafin, String especialidad)
+        {
+            return daoTurnos.ConsultaTurnosXEspecialidad(fechainicio, fechafin, especialidad); 
+        }
+
+        public String ConsutaMaxEspecialidad()
+        {
+            return daoTurnos.ConsutaMaxEspecialidad(); 
+        }
+
         public DataTable getTurnos()
         {
             return daoTurnos.getTablaTurno();
@@ -36,6 +52,7 @@ namespace Negocio
         {
             return daoTurnos.getTablaCancelarTurno();
         }
+
         public Boolean AgregarTurno(int idEspecialidad, int idMedico, DateTime fecha, TimeSpan Hora, int idpaciente, int idestadoturno)
         {
             int filasafectadas = 0;
@@ -52,12 +69,13 @@ namespace Negocio
             return filasafectadas == 1;
         }
 
-        public Boolean AgregarAsistenciaObservacion(int idTurno, int idEstadoPaciente, string descripcion)
+        public Boolean AgregarAsistenciaObservacion(int idTurno,int idestadoturno, int idEstadoPaciente, string descripcion)
         {
             int filasafectadas = 0;
 
             Turnos turnos = new Turnos();
             turnos.setIdTurno(idTurno);
+            turnos.setIdEstadoTurno(idestadoturno); 
             turnos.setIdEstadoPacienteTurno(idEstadoPaciente);
             turnos.setDescripcionTurno(descripcion);
 

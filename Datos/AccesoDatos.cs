@@ -122,16 +122,25 @@ namespace Datos
         {
             SqlConnection conexion = ObtenerConexion();
             cmd.Connection = conexion;
-
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-
             DataTable dt = new DataTable();
             da.Fill(dt);
-
             conexion.Close();
-
             return dt;
         }
+
+        public DataTable ObtenerTablaComando(SqlCommand comando, String nombretabla, String consulta)
+        {
+            DataSet set = new DataSet();
+            SqlConnection conexion = ObtenerConexion();
+            comando.Connection = conexion;
+            comando.CommandText = consulta;
+            SqlDataAdapter adaptador = new SqlDataAdapter(comando); 
+            adaptador.Fill(set, nombretabla);
+            conexion.Close();
+            return set.Tables[nombretabla];
+        }
+
         public Boolean Existe(SqlCommand comando, String consulta)
         {
             SqlConnection conexion = ObtenerConexion();

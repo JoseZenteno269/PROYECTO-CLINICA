@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informes.aspx.cs" Inherits="Vista.Informes" MaintainScrollPositionOnPostBack="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informes.aspx.cs" Inherits="Vista.Informes" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Css/Informes.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
 <body>
@@ -37,86 +37,98 @@
             <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
         </div>
         <div id="contenedor1">
-                <div style="width: 50%" align="center">
-                    <br />
-                    <table class="table-informes">
-                        <tr>
-                            <td colspan="2">
-                                <h2>Informe 1</h2>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Periodo Inicio</p>
-                                <asp:TextBox ID="txt_fecha_inicio" runat="server" TextMode="Date"></asp:TextBox>
-                            </td>
-                            <td>
-                                <p>Periodo Fin</p>
-                                <asp:TextBox ID="txt_fecha_fin" runat="server" TextMode="Date"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" align="center">
-                                <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" align="initial">
-                                <asp:Label ID="lbl_turnos" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" align="initial">
-                                <asp:Label ID="lbl_porcentajes" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div style="width: 50%" align="center">
-                    <br />
-                    <table class="table-informes">
-                        <tr>
-                            <td colspan="3">
-                                <h2>Informe 2</h2>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Periodo Inicio</p>
-                                <asp:TextBox ID="txt_fecha_inicio1" runat="server" TextMode="Date"></asp:TextBox>
-                            </td>
-                            <td>
-                                <p>Periodo Fin</p>
-                                <asp:TextBox ID="txt_fecha_fin1" runat="server" TextMode="Date"></asp:TextBox>
-                            </td>
-                            <td>
-                                <p>Seleccione Especialidad</p>
-                                <asp:DropDownList ID="ddl_especialidades" runat="server">
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <asp:Button ID="btn_aceptar1" runat="server" Text="Aceptar" OnClick="btn_aceptar1_Click" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <asp:Label ID="lbl_turnosXespecialidad" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">Especialida mas demandada</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">promedio de turnos x mes</td>
-                        </tr>
-                    </table>
-                </div>
+            <div style="width: 50%" align="center">
+                <br />
+                <table class="table-informes">
+                    <tr>
+                        <td colspan="2">
+                            <h2>Informe 1</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Periodo Inicio</p>
+                            <asp:TextBox ID="txt_fecha_inicio" runat="server" TextMode="Date"></asp:TextBox>
+                        </td>
+                        <td>
+                            <p>Periodo Fin</p>
+                            <asp:TextBox ID="txt_fecha_fin" runat="server" TextMode="Date"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="initial">
+                            <asp:Label ID="lbl_turnos" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="initial">
+                            <asp:Label ID="lbl_porcentajes" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="width: 50%" align="center">
+                <br />
+                <table class="table-informes">
+                    <tr>
+                        <td colspan="3">
+                            <h2>Informe 2</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Periodo Inicio</p>
+                            <asp:TextBox ID="txt_fecha_inicio1" runat="server" TextMode="Date"></asp:TextBox>
+                        </td>
+                        <td>
+                            <p>Periodo Fin</p>
+                            <asp:TextBox ID="txt_fecha_fin1" runat="server" TextMode="Date"></asp:TextBox>
+                        </td>
+                        <td>
+                            <p>Seleccione Especialidad</p>
+                            <asp:DropDownList ID="ddl_especialidades" runat="server">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <asp:Button ID="btn_aceptar1" runat="server" Text="Aceptar" OnClick="btn_aceptar1_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="center">
+                            <asp:GridView ID="gv_TurnosXEspecialidad" runat="server" AutoGenerateColumns="False">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Especialidad">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lbl_especialidad" runat="server" Text='<%# Eval("ESPECIALIDAD") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Total Turnos">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lbl_turnos" runat="server" Text='<%# Eval("TOTAL_TURNOS") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <asp:Label ID="lbl_especialidadmayor" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div id="contenedor2">
             <div>
-                <table>
+                <table class="table-informes">
                     <tr>
                         <td colspan="3">
                             <h2>Informe 3</h2>
@@ -148,27 +160,28 @@
             </div>
         </div>
         <div id="contenedor4" align="center">
-            <div style="width: 50%">
-                <table class="table-datos">
+            <div align="center" style="width: 50%">
+                <table class="table-informes" style="width: 350px;">
                     <tr>
-                        <td colspan="2"  align="center">
+                        <td colspan="2" align="center">
                             <h2>Informe 4</h2>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width: 90%" colspan="2" align="center">
+                        <td colspan="2" align="center">
                             <p>Mes</p>
                             <asp:DropDownList ID="ddl_mes_4" runat="server"></asp:DropDownList></td>
                     </tr>
                     <tr>
-                        <td colspan="2"  align="center">
+                        <td colspan="2" align="center">
                             <p>Año</p>
                             <asp:DropDownList ID="ddl_anio_4" runat="server"></asp:DropDownList></td>
                     </tr>
                     <tr>
                         <td style="width: 10%">Lunes</td>
                         <td colspan="2" style="padding: 20px">
-                            <asp:Button ID="barra1" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
+                            <asp:Button ID="barr1" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" />
+                        </td>
                     </tr>
                     <tr>
                         <td style="width: 10%">Martes</td>
@@ -197,85 +210,88 @@
                     </tr>
                 </table>
             </div>
-            <div style="width: 50%">
-                <table>
+            <div align="center" style="width: 50%; flex-direction: row; display: flex">
+                
+                <table class="table-informes" align="center">
                     <tr>
-                        <td colspan="3">
+                        <td colspan="2">
                             <h2>Informe 5</h2>
                         </td>
                     </tr>
                     <tr>
-                        <td>Seleccione una provincia:</td>
                         <td>
+                            <p>Seleccione una provincia:</p>
                             <asp:DropDownList ID="ddl_ProvinciaInforme5" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_ProvinciaInforme5_SelectedIndexChanged">
-                                <asp:ListItem>--Seleccione una provincia--</asp:ListItem>
-                                <asp:ListItem>Buenos Aires</asp:ListItem>
-                                <asp:ListItem>Tucuman</asp:ListItem>
-                                <asp:ListItem>Santa Fe</asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                        <td></td>
                     </tr>
                     <tr>
-                        <td>Pacientes por Provincia</td>
+                        <td align="center">
+                            <p>Pacientes por Provincia</p>
+                            <div class="contenedor-grid">
+                                <asp:GridView ID="gv_PacientesInforme5" runat="server" AutoGenerateColumns="False">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="DNI">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Nombre y Apellido">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Paci") + " " + Eval("Apellido_Paci") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table-informes">
+                    <tr>
                         <td>
-                            <asp:GridView ID="gv_PacientesInforme5" runat="server" AutoGenerateColumns="False">
-                                <Columns>
-                                    <asp:TemplateField HeaderText="DNI">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Nombre y Apellido">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Paci") + " " + Eval("Apellido_Paci") %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-                            </asp:GridView>
-                        </td>
-                        <td class="auto-style1"></td>
-                    </tr>
-                    <tr>
-                        <td>Seleccione un Rango de edad:</td><td>
-                        <asp:DropDownList ID="ddl_RangosEdad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_RangosEdad_SelectedIndexChanged">
-                            <asp:ListItem Value="0">--Seleccione un rango de Edad -- </asp:ListItem>
-                            <asp:ListItem Value="1">0 a 18</asp:ListItem>
-                            <asp:ListItem Value="2">18 a 30</asp:ListItem>
-                            <asp:ListItem Value="3">30 a 60</asp:ListItem>
-                            <asp:ListItem Value="4">60 +</asp:ListItem>
-                        </asp:DropDownList>
+                            <p>Seleccione un Rango de edad:</p>
+                            <asp:DropDownList ID="ddl_RangosEdad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_RangosEdad_SelectedIndexChanged">
+                                <asp:ListItem Value="0">--Seleccione un rango de Edad -- </asp:ListItem>
+                                <asp:ListItem Value="1">0 a 18</asp:ListItem>
+                                <asp:ListItem Value="2">18 a 30</asp:ListItem>
+                                <asp:ListItem Value="3">30 a 60</asp:ListItem>
+                                <asp:ListItem Value="4">60 +</asp:ListItem>
+                            </asp:DropDownList>
                         </td>
                     </tr>
                     <tr>
-                        <td>Pacientes:</td><td>
-                        <asp:GridView ID="gvEdad" runat="server" AutoGenerateColumns="False">
-                            <Columns>
-                                <asp:TemplateField HeaderText="DNI">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Nombre y Apellido">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Paci") + " " + Eval("Apellido_Paci") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Fecha Nacimiento">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_FechaNacimiento" runat="server" Text='<%# Bind("FechaNacimiento_Paci") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
+                        <td align="center">
+                            <p>Pacientes:</p>
+                            <div class="contenedor-grid">
+                                <asp:GridView ID="gvEdad" runat="server" AutoGenerateColumns="False">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="DNI">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Nombre y Apellido">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Paci") + " " + Eval("Apellido_Paci") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Fecha Nacimiento">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_it_FechaNacimiento" runat="server" Text='<%# Bind("FechaNacimiento_Paci", "{0:d}") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
-                <br />
-<br />
-<br />
+        <br />
+        <br />
+        <br />
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>
