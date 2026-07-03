@@ -21,5 +21,10 @@ namespace Negocio
         {
             return daoProvincias.getTablaProvincia();
         }
+
+        public DataTable FiltradoProvincias(int idProvincia)
+        {
+            return daoProvincias.FiltrarProvincia(idProvincia);
+        }
     }
 }

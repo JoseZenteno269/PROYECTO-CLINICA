@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informes.aspx.cs" Inherits="Vista.Informes" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informes.aspx.cs" Inherits="Vista.Informes" MaintainScrollPositionOnPostBack="true" %>
 
 <!DOCTYPE html>
 
@@ -207,7 +207,7 @@
                     <tr>
                         <td>Seleccione una provincia:</td>
                         <td>
-                            <asp:DropDownList ID="ddl_Informe5" runat="server">
+                            <asp:DropDownList ID="ddl_ProvinciaInforme5" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_ProvinciaInforme5_SelectedIndexChanged">
                                 <asp:ListItem>--Seleccione una provincia--</asp:ListItem>
                                 <asp:ListItem>Buenos Aires</asp:ListItem>
                                 <asp:ListItem>Tucuman</asp:ListItem>
@@ -219,49 +219,31 @@
                     <tr>
                         <td>Pacientes por Provincia</td>
                         <td>
-                            <asp:GridView ID="gvInforme5" runat="server" AutoGenerateColumns="False">
+                            <asp:GridView ID="gv_PacientesInforme5" runat="server" AutoGenerateColumns="False">
                                 <Columns>
-                                    <asp:TemplateField HeaderText="DNI"></asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
+                                    <asp:TemplateField HeaderText="DNI">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Nombre y Apellido">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Paci") + " " + Eval("Apellido_Paci") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </td>
                         <td class="auto-style1"></td>
                     </tr>
                     <tr>
-                        <td>Seleccione una disponibilidad:</td>
-                        <td>
-                            <asp:DropDownList ID="ddlInforme5" runat="server">
-                                <asp:ListItem>--Seleccione una Disponibilidad Horaria--</asp:ListItem>
-                                <asp:ListItem>De 08 a 16 HS</asp:ListItem>
-                                <asp:ListItem>De 10 a 19 HS</asp:ListItem>
-                                <asp:ListItem>De 15 a 23 HS</asp:ListItem>
-                            </asp:DropDownList>
-                        </td>
-                        <td class="auto-style1"></td>
-                    </tr>
-                    <tr>
-                        <td>Medicos sin disponibilidad:</td><td>
-                        <asp:GridView ID="gv_Informe5" runat="server" AutoGenerateColumns="False">
-                            <Columns>
-                                <asp:TemplateField HeaderText="Legajo"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Especialidad"></asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Seleccione un Rango de edad:</td><td>
-                        <asp:DropDownList ID="ddlRangos" runat="server">
-                            <asp:ListItem>--Seleccione un rango de Edad--</asp:ListItem>
-                            <asp:ListItem>0 a 18 Años</asp:ListItem>
-                            <asp:ListItem>19 a 30</asp:ListItem>
-                            <asp:ListItem>31 a 50</asp:ListItem>
-                            <asp:ListItem>51 a 59</asp:ListItem>
-                            <asp:ListItem>60 +</asp:ListItem>
+                        <asp:DropDownList ID="ddl_RangosEdad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_RangosEdad_SelectedIndexChanged">
+                            <asp:ListItem Value="0">--Seleccione un rango de Edad -- </asp:ListItem>
+                            <asp:ListItem Value="1">0 a 18</asp:ListItem>
+                            <asp:ListItem Value="2">18 a 30</asp:ListItem>
+                            <asp:ListItem Value="3">30 a 60</asp:ListItem>
+                            <asp:ListItem Value="4">60 +</asp:ListItem>
                         </asp:DropDownList>
                         </td>
                     </tr>
@@ -269,10 +251,21 @@
                         <td>Pacientes:</td><td>
                         <asp:GridView ID="gvEdad" runat="server" AutoGenerateColumns="False">
                             <Columns>
-                                <asp:TemplateField HeaderText="DNI"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Nombre"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Fecha Nacimiento"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="DNI">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI_Paci") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Nombre y Apellido">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_NombreApellido" runat="server" Text='<%# Eval("Nombre_Paci") + " " + Eval("Apellido_Paci") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Fecha Nacimiento">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_FechaNacimiento" runat="server" Text='<%# Bind("FechaNacimiento_Paci") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
                         </td>

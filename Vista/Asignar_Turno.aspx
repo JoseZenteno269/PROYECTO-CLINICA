@@ -42,13 +42,13 @@
                     <tr>
                         <td>
                             <p>Especilidad</p>
-                            <asp:DropDownList ID="ddl_especialidad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_especialidad_SelectedIndexChanged"></asp:DropDownList></td>
+                            <asp:DropDownList ID="ddl_especialidad" class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_especialidad_SelectedIndexChanged"></asp:DropDownList></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>
                             <p>Medico</p>
-                            <asp:DropDownList ID="ddl_medicos" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_medicos_SelectedIndexChanged"></asp:DropDownList></td>
+                            <asp:DropDownList ID="ddl_medicos" class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_medicos_SelectedIndexChanged"></asp:DropDownList></td>
                         <td></td>
                     </tr>
                     <tr>
@@ -61,7 +61,7 @@
                     <tr>
                         <td>
                             <p>Horario</p>
-                            <asp:DropDownList ID="ddl_horas" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_horas_SelectedIndexChanged"></asp:DropDownList>
+                            <asp:DropDownList ID="ddl_horas" CssClass="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_horas_SelectedIndexChanged"></asp:DropDownList>
                         </td>
                         <td></td>
                     </tr>
@@ -114,7 +114,7 @@
                         <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar" OnClick="btn_confirmar_Click" />
                     </td>
                     <td align="center">
-                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" />
+                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" OnClick="btn_cancelar_Click" />
                     </td>
                 </tr>
             </table>

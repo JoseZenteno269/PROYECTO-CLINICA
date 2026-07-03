@@ -194,5 +194,12 @@ namespace Vista
             }
         }
 
+        protected void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            ddl_especialidad.SelectedIndex = 0;
+            ddl_medicos.SelectedIndex = 0;
+            ddl_horas.SelectedIndex = 0;
+            c_calendario.SelectedDate = DateTime.Now;
+        }
     }
 }

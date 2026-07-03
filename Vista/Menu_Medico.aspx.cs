@@ -86,6 +86,7 @@ namespace Vista
         {
             ddl_EstadoTurno.SelectedIndex = 0;
             ddl_Letras.SelectedIndex = 0;
+            txtBuscar.Text = string.Empty;
 
             SqlDataSourceMedico.SelectParameters.Clear();
 
@@ -98,11 +99,11 @@ namespace Vista
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             int dni = Convert.ToInt32(txtBuscar.Text);
-            SqlDataSourceMedico.SelectCommand = "SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Fecha_Tur >= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1 AND Horario_Tur >= CAST(GETDATE() AS TIME) AND CONVERT(VARCHAR(20), DNI_Paci) LIKE @DNI";
+            SqlDataSourceMedico.SelectCommand = "SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) AND Id_EstadoTurno_Tur = 1 AND CONVERT(VARCHAR(20), DNI_Paci) LIKE @DNI"; 
             SqlDataSourceMedico.SelectParameters.Clear();
             SqlDataSourceMedico.SelectParameters.Add("DNI", dni + "%");
             DLMedico.DataBind();
-
+            txtBuscar.Text = string.Empty;
         }
 
 
@@ -126,27 +127,38 @@ namespace Vista
             ddl_EstadoTurno.DataBind();
             ddl_EstadoTurno.Items.Insert(0, new ListItem("-- Seleccione un Estado -- ", "0"));
         }
-        protected void ddl_Letras_SelectedIndexChanged(object sender, EventArgs e)
+        public void FiltrarTurnos()
         {
             string letras = ddl_Letras.SelectedValue;
+            string estado = ddl_EstadoTurno.SelectedValue;
 
-            SqlDataSourceMedico.SelectCommand = "SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) AND Id_EstadoTurno_Tur = 1 AND Nombre_Paci LIKE @Letra";
+            string consulta = "SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME)))";
+
             SqlDataSourceMedico.SelectParameters.Clear();
-            SqlDataSourceMedico.SelectParameters.Add("Letra", letras + "%");
-            DLMedico.DataBind();
 
+            if (estado != "0")
+            {
+                consulta += " AND Id_EstadoTurno_Tur = @Estado";
+                SqlDataSourceMedico.SelectParameters.Add("Estado", estado);
+            }
+
+            if (letras != "%")
+            {
+                consulta += " AND Nombre_Paci LIKE @Letra";
+                SqlDataSourceMedico.SelectParameters.Add("Letra", letras + "%");
+            }
+
+            SqlDataSourceMedico.SelectCommand = consulta;
+            DLMedico.DataBind();
+        }
+        protected void ddl_Letras_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           FiltrarTurnos();
         }
 
         protected void ddl_EstadoTurno_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string Estado = ddl_EstadoTurno.SelectedValue;
-
-            SqlDataSourceMedico.SelectCommand = "SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) AND Id_EstadoTurno_Tur = @Estado"; 
-            SqlDataSourceMedico.SelectParameters.Clear();
-            SqlDataSourceMedico.SelectParameters.Add("Estado", Estado);
-            DLMedico.DataBind();
-
-
+            FiltrarTurnos();
         }
     }
 }

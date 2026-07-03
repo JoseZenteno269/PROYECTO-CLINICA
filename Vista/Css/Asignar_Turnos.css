@@ -187,3 +187,25 @@ form {
     width: 100px;
     height: 80px;
 }
+
+.ddl-estilo {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    width: 200px;
+    transition: 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='10' viewBox='0 0 24 24' width='10' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+    .ddl-estilo:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 5px rgba(74,144,226,0.4);
+    }

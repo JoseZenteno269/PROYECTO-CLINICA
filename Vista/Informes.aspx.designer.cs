@@ -267,49 +267,31 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control ddl_Informe5.
+        /// Control ddl_ProvinciaInforme5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_Informe5;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_ProvinciaInforme5;
 
         /// <summary>
-        /// Control gvInforme5.
+        /// Control gv_PacientesInforme5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvInforme5;
+        protected global::System.Web.UI.WebControls.GridView gv_PacientesInforme5;
 
         /// <summary>
-        /// Control ddlInforme5.
+        /// Control ddl_RangosEdad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlInforme5;
-
-        /// <summary>
-        /// Control gv_Informe5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gv_Informe5;
-
-        /// <summary>
-        /// Control ddlRangos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRangos;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_RangosEdad;
 
         /// <summary>
         /// Control gvEdad.

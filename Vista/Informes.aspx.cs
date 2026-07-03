@@ -11,8 +11,10 @@ namespace Vista
     public partial class Informes : System.Web.UI.Page
     {
         NegocioTurnos negocioTurnos = new NegocioTurnos();
-        NegocioPacientes NegocioPacientes = new NegocioPacientes();
+        NegocioPacientes negocioPacientes = new NegocioPacientes();
+        NegocioMedicos negocioMedicos = new NegocioMedicos();
         NegocioEspecialidad NegocioEspecialidad = new NegocioEspecialidad();
+        NegocioProvincias negocioProvincias = new NegocioProvincias();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -22,6 +24,9 @@ namespace Vista
                 {
                     lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
                     CargarEspecialidades();
+                    CargarGridViewPacientes();
+                    CargarDropDownListProvincias();
+                    CargarGridViewEdad();
                 }
                 else
                 {
@@ -87,6 +92,91 @@ namespace Vista
             }
 
 
+        }
+
+
+        /// Informe 5
+        
+        public void CargarGridViewPacientes()
+        {
+            gv_PacientesInforme5.DataSource = negocioPacientes.getPacientes();
+            gv_PacientesInforme5.DataBind();
+        }
+
+        public void CargarGridViewPacientesPorEdad()
+        {
+            gvEdad.DataSource = negocioPacientes.getPacientes();
+            gvEdad.DataBind();
+        }
+
+        public void CargarGridViewEdad()
+        {
+            gvEdad.DataSource = negocioPacientes.getPacientes();
+            gvEdad.DataBind();
+        }
+
+        public void CargarDropDownListProvincias()
+        {
+            ddl_ProvinciaInforme5.DataSource = negocioProvincias.getDropDownListProvincias();
+            ddl_ProvinciaInforme5.DataTextField = "Descripcion_Prov";
+            ddl_ProvinciaInforme5.DataValueField = "Id_Provincia_Prov";
+            ddl_ProvinciaInforme5.DataBind();
+            ddl_ProvinciaInforme5.Items.Insert(0, new ListItem("-- Seleccione una opcion --", "0"));
+        }
+
+        protected void ddl_ProvinciaInforme5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddl_ProvinciaInforme5.SelectedValue == "0")
+            {
+                gv_PacientesInforme5.DataSource = negocioPacientes.getPacientes();
+                gv_PacientesInforme5.DataBind();
+                return;
+            }
+
+            int provincia = Convert.ToInt32(ddl_ProvinciaInforme5.SelectedValue);
+
+            gv_PacientesInforme5.DataSource = negocioProvincias.FiltradoProvincias(provincia);
+            gv_PacientesInforme5.DataBind();
+        }
+
+        protected void ddl_RangosEdad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int min = 0;
+            int max = 0;
+
+            if(ddl_RangosEdad.SelectedValue == "1")
+            {
+                min = 0;
+                max = 18;
+            }
+
+            else if (ddl_RangosEdad.SelectedValue == "2")
+            {
+                min = 18;
+                max = 30;
+            }
+
+           else if (ddl_RangosEdad.SelectedValue == "3")
+            {
+                min = 30;
+                max = 60;
+            }
+
+            else if(ddl_RangosEdad.SelectedValue == "4")
+            {
+                min = 60;
+                max = 99;
+            }
+
+            else if(ddl_RangosEdad.SelectedValue == "0")
+            {
+                gvEdad.DataSource = negocioPacientes.getPacientes();
+                gvEdad.DataBind();
+                return;
+            }
+
+            gvEdad.DataSource = negocioPacientes.getPacientesEdad(min, max);
+            gvEdad.DataBind();
         }
     }
 }

@@ -118,6 +118,20 @@ namespace Datos
             return set.Tables[nombretabla];
         }
 
+        public DataTable ObtenerTablaFiltros(SqlCommand cmd, string nombreTabla)
+        {
+            SqlConnection conexion = ObtenerConexion();
+            cmd.Connection = conexion;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            conexion.Close();
+
+            return dt;
+        }
         public Boolean Existe(SqlCommand comando, String consulta)
         {
             SqlConnection conexion = ObtenerConexion();

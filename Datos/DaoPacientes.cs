@@ -40,6 +40,18 @@ namespace Datos
             DataTable tabla = datos.ObtenerTabla("Pacientes", "SELECT Id_Paciente_Paci,DNI_Paci, Nombre_Paci, Apellido_Paci, Sexo_Paci, Nacionalidad_Paci, FechaNacimiento_Paci, Direccion_Paci, CorreoElectronico_Paci, Telefono_Paci, Activo_Paci FROM Pacientes WHERE Activo_Paci = 0");
             return tabla;
         }
+
+        public DataTable FiltrarPorEdad(int min, int max)
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "SELECT Nombre_Paci, Apellido_Paci, FechaNacimiento_Paci, DNI_paci FROM Pacientes WHERE DATEDIFF(YEAR, FechaNacimiento_Paci, GETDATE()) BETWEEN @MIN AND @MAX";
+
+            cmd.Parameters.AddWithValue("@MIN", min);
+            cmd.Parameters.AddWithValue("@MAX", max);
+
+            return datos.ObtenerTablaFiltros(cmd, "Pacientes");
+        }
         public Boolean ExistePaciente(Pacientes paciente)
         {
             String consulta = "SELECT * FROM Pacientes WHERE DNI_Paci = @DNI";

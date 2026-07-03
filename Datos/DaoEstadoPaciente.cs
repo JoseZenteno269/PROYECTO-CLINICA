@@ -15,7 +15,11 @@ namespace Datos
             /// Vacio
         }
 
-
+        public DataTable getEstadoPaciente()
+        {
+            DataTable tabla = datos.ObtenerTabla("EstadoPaciente", "SELECT Id_EstadoPaciente_EsPa, Descripcion_EsPa FROM EstadoPaciente");
+            return tabla;
+        }
     }
 
 }

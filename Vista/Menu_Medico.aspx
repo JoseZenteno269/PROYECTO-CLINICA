@@ -36,34 +36,34 @@
         <br />
         <br />
         <div id="divcontenerdor">
-            <table>
+            <table class="buscador">
                 <tr>
                     <td>Buscar por DNI:</td>
                     <td>
                         <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="1" />
+                        <asp:Button ID="btnBuscar" runat="server" class="btn buscar" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="1" />
                     </td>
                     <td>
-                        <asp:Button ID="btn_actualizar" runat="server" Text="Actualizar" OnClick="btn_actualizar_Click" />
+                        <asp:Button ID="btn_actualizar" runat="server" class="btn actualizar" Text="Actualizar" OnClick="btn_actualizar_Click" />
                         <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ErrorMessage="Ingrese un DNI" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_Buscar" runat="server" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </table>
-          <div>
+          <div class="campo">
               <table>
                   <tr>
                       <td></td>
                   </tr>
                   <tr>
                       <td>Filtrado por Inicial:</td><td>
-                      <asp:DropDownList ID="ddl_Letras" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged">
+                      <asp:DropDownList ID="ddl_Letras"  class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged">
                       </asp:DropDownList>
                       </td>
                       <td style="padding-left:20px"></td><td>Filtrado por Estado de Turno:</td><td>
-                      <asp:DropDownList ID="ddl_EstadoTurno" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_EstadoTurno_SelectedIndexChanged">
+                      <asp:DropDownList ID="ddl_EstadoTurno" class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_EstadoTurno_SelectedIndexChanged">
                       </asp:DropDownList>
                       </td>
                   </tr>

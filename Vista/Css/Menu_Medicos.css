@@ -74,6 +74,15 @@ form {
     color: red;
 }
 
+.contenedor-turnos {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 5px;
+    width: auto; 
+}
+
 #divcontenerdor{
     display: flex; 
     flex-direction: column; 
@@ -86,7 +95,7 @@ form {
     padding: 10px; 
 }
 .contenedor-turnos {
-    height: 700px;  /*altura máxima visible */
+    height: 400px;  /*altura máxima visible */
     overflow-y: auto;  /*scrollbar vertical automática */
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -161,4 +170,114 @@ form {
 
     .tabla-titulos td{
         padding: 10px; 
+    }
+
+.buscador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+    .buscador label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .buscador input {
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+        transition: 0.2s;
+        width: 200px;
+    }
+
+        .buscador input:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 5px rgba(74,144,226,0.4);
+        }
+
+.btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+    .btn.buscar {
+        background-color: #4a90e2;
+        color: white;
+    }
+
+        .btn.buscar:hover {
+            background-color: #357ab8;
+        }
+
+    .btn.actualizar {
+        background-color: #28a745;
+        color: white;
+    }
+
+        .btn.actualizar:hover {
+            background-color: #1e7e34;
+        }
+
+
+.campo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+}
+
+    .campo label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .campo select {
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: white;
+        cursor: pointer;
+        outline: none;
+        width: 200px;
+        transition: 0.2s;
+        appearance: none; /* quita estilo nativo */
+        background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='10' viewBox='0 0 24 24' width='10' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+    }
+
+        .campo select:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 5px rgba(74,144,226,0.4);
+        }
+
+.ddl-estilo {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    width: 200px;
+    transition: 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='10' viewBox='0 0 24 24' width='10' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+    .ddl-estilo:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 5px rgba(74,144,226,0.4);
     }

@@ -33,6 +33,11 @@ namespace Negocio
         {
             return daoPacientes.getTablaBajaPacientes();
         }
+
+        public DataTable getPacientesEdad(int min, int max)
+        {
+            return daoPacientes.FiltrarPorEdad(min, max);
+        }
         public Boolean AgregarPacientes(int dni, String nombre, String apellido, String sexo, String nacionalidad, DateTime fecha, String direccion, int idprovincia, int idlocalidad, String mail, String telefono)
         {
             int Filasafectadas = 0;
