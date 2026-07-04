@@ -5,7 +5,6 @@
 
 
 form {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -121,12 +120,12 @@ form {
 
 
 .textbox {
-    width: 180px;
-    height: 32px;
+    width: 100px;
+    height: 25px;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding-left: 10px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
@@ -137,7 +136,7 @@ form {
 
 
 .btn-buscar {
-    height: 35px;
+    height: 25px;
     padding: 0px 20px;
     border: none;
     border-radius: 8px;
@@ -152,13 +151,13 @@ form {
         background: #2385e8;
     }
 
-
-
 /* GridView */
 .contenedor-grid {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    border-radius: 12px;
+    height: 70vh;
+    margin: 0 auto;
+    overflow-y: auto; /* scroll vertical */
+    overflow-x: auto; /* scroll horizontal si la tabla es ancha */
 }
 
 
@@ -192,15 +191,18 @@ form {
     }
 
 
-
-/* Sponsors abajo */
 .divlogos {
-    width: 100%;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 10px;
+    /*    left: ;*/
+    width: 99%;
     height: 150px;
     background-color: #686868;
-    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 .logo {
     width: 100px;

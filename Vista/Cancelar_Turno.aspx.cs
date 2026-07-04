@@ -22,12 +22,12 @@ namespace Vista
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("Inicio.aspx");
                 }
             }
         }
 
-        protected void btn_menu_Click(object sender, EventArgs e)
+        protected void lb_menu_Click(object sender, EventArgs e)
         {
             Response.Redirect("Menu.aspx");
         }
@@ -50,6 +50,21 @@ namespace Vista
             {
                 lbl_Mensaje.Text = "Ocurrio un error, no se pudo cancelar el turno... ";
             }
+        }
+
+        protected void lb_usuario_menu_Click(object sender, EventArgs e)
+        {
+            p_panel.Visible = !p_panel.Visible; 
+        }
+
+        protected void lb_perfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil_Administrador.aspx"); 
+        }
+
+        protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
         }
     }
 }

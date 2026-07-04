@@ -60,6 +60,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_perfil;
 
         /// <summary>
+        /// Control lb_menu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lb_menu;
+
+        /// <summary>
         /// Control lb_cerrar_sesion.
         /// </summary>
         /// <remarks>
@@ -67,15 +76,6 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lb_cerrar_sesion;
-
-        /// <summary>
-        /// Control btn_menu.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_menu;
 
         /// <summary>
         /// Control txt_id.
@@ -96,15 +96,6 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btn_buscar;
 
         /// <summary>
-        /// Control gvTurnos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTurnos;
-
-        /// <summary>
         /// Control lbl_Mensaje.
         /// </summary>
         /// <remarks>
@@ -112,5 +103,14 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Mensaje;
+
+        /// <summary>
+        /// Control gvTurnos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvTurnos;
     }
 }
