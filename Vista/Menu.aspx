@@ -144,7 +144,6 @@
         </div>
         <br />
         <br />
-        <br />
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

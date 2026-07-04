@@ -39,16 +39,18 @@
         <br />
         <div id="divcontenedor">
             <table>
+                <tr><td colspan="2" align="center">DNI - Nombre - Apellido</td></tr>
                 <tr>
-                    <td>Ingrese DNI, Nombre o Apellido: 
+                    <td>
+                        <asp:TextBox ID="txt_busqueda" runat="server" TextMode="Search" placeholder="Buscar..."></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ControlToValidate="txt_busqueda" ErrorMessage="Ingresar DNI, Nombre o Apellido" ValidationGroup="2">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Busqueda" runat="server" ControlToValidate="txt_busqueda" ErrorMessage="Ingrese DNI, nombre o apellido valido" ValidationExpression="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+$" ValidationGroup="2">*</asp:RegularExpressionValidator>
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox1" runat="server" TextMode="Search"></asp:TextBox>
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" ValidationGroup="2" CssClass="btn_volver" OnClick="btn_Aceptar_Click" />
                     </td>
                     <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" ValidationGroup="2" CssClass="btn_volver" />
-                        <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ControlToValidate="TextBox1" ErrorMessage="Ingresar DNI, Nombre o Apellido" ValidationGroup="2">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="rev_Busqueda" runat="server" ControlToValidate="TextBox1" ErrorMessage="Ingrese DNI, nombre o apellido valido" ValidationExpression="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+$" ValidationGroup="2">*</asp:RegularExpressionValidator>
+                        <asp:Button ID="btn_Todos" runat="server" Text="Mostrar Todos" CssClass="btn_volver" OnClick="btn_Todos_Click" />
                     </td>
                 </tr>
             </table>

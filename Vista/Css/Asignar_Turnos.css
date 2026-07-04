@@ -21,6 +21,18 @@ form {
     height: 25px;
 }
 
+.btn_volver {
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    width: auto;
+    background-color: lightblue;
+    color: #ffffff;
+}
+
 #divrow {
     display: flex;
     flex-direction: row;
@@ -90,7 +102,50 @@ form {
             border-bottom: none !important;
         }
 
+p{
+    font-size: 12px; 
+}
 
+.calendario {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+}
+
+    .calendario table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .calendario th {
+        background: #0d6efd;
+        color: white;
+        font-weight: bold;
+        padding: 3px;
+    }
+
+    .calendario td {
+        text-align: center;
+        padding: 2px;
+    }
+
+        .calendario td a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 2px;
+        }
+
+            .calendario td a:hover {
+                background: #e9ecef;
+                border-radius: 3px;
+            }
+
+    .calendario .aspNetDisabled {
+        color: #bbb;
+    }
 
 .tableturnos{
     text-align: center; 
@@ -160,10 +215,16 @@ form {
     color: red;
 }
 
+
 .divlogos {
-    width: 100%;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 10px;
+    /*    left: ;*/
+    width: 99%;
     height: 150px;
     background-color: #686868;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -189,7 +250,7 @@ form {
 }
 
 .ddl-estilo {
-    padding: 8px 10px;
+    padding: 6px 8px;
     border: 1px solid #ccc;
     border-radius: 6px;
     background-color: white;

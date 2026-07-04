@@ -35,18 +35,18 @@
             </table>
         </div>
         <br />
-        <br />
-        <br />
         <div id="divcontenedor">
             <table>
+                <tr><td colspan="3" align="center"><p>Legajo - DNI - Nombre - Apellido</p></td></tr>
                 <tr>
-                    <td>Ingrese Legajo, DNI, Nombre o Apellido: 
+                    <td>
+                        <asp:TextBox ID="txt_busqueda" runat="server" TextMode="Search" placeholder="Buscar..."></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfv_busqueda" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_busqueda" ValidationGroup="2">*</asp:RequiredFieldValidator>                    </td>
+                    <td>
+                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" CssClass="btn_volver" ValidationGroup="2" />
                     </td>
                     <td>
-                        <asp:TextBox ID="txt_busqueda" runat="server" TextMode="Search"></asp:TextBox>
-                    </td>
-                    <td>
-                        <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" CssClass="btn_volver" />
+                        <asp:Button ID="btn_Todos" runat="server" Text="Mostrar Todos" CssClass="btn_volver" OnClick="btn_Todos_Click" />
                     </td>
                 </tr>
             </table>
@@ -167,7 +167,7 @@
                         <EditItemTemplate>
                             <asp:TextBox ID="txt_direccion" runat="server" Text='<%# Bind("Direccion_Med") %>' Width="100px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfv_direccion" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_direccion" ValidationGroup="1">*</asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="rev_direccion" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_direccion" ValidationExpression="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="rev_direccion" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_direccion" ValidationExpression="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s._\-]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_direccion" runat="server" Text='<%# Bind("Direccion_Med") %>'></asp:Label>
@@ -196,8 +196,8 @@
             </asp:GridView>
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
             </div>
+            <asp:ValidationSummary ID="vs_errores" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="2" />
         </div>
-        <br />
         <br />
         <br />
         <div class="divlogos" align="end">

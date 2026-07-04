@@ -42,7 +42,7 @@
                 <tr>
                     <td>Legajo:</td>
                     <td>
-                        <asp:TextBox ID="txt_legajo_m" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_legajo_m" runat="server" placeholder="MED-0000-0" MaxLength="50"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Ingrese un Legajo" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Debe empezar con Med" ValidationExpression="^MED-\d{4}-\d+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
@@ -51,7 +51,7 @@
                 <tr>
                     <td>Ingrese DNI:</td>
                     <td>
-                        <asp:TextBox ID="txt_dni_m" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_dni_m" runat="server" placeholder="12345678" MaxLength="10"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_DNI" runat="server" ControlToValidate="txt_dni_m" ErrorMessage="Ingrese un DNI" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_DNI" runat="server" ControlToValidate="txt_dni_m" ErrorMessage="Ingrese solo Numeros" ValidationExpression="^[0-9]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
@@ -60,7 +60,7 @@
                 <tr>
                     <td>Nombre:</td>
                     <td>
-                        <asp:TextBox ID="txt_nombre_m" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_nombre_m" runat="server" placeholder="nombre" MaxLength="50"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_nombre" runat="server" ControlToValidate="txt_nombre_m" ErrorMessage="Ingrese un Nombre" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_Nombre" runat="server" ControlToValidate="txt_nombre_m" ErrorMessage="Ingrese solo letras" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
@@ -69,7 +69,7 @@
                 <tr>
                     <td>Apellido:</td>
                     <td>
-                        <asp:TextBox ID="txt_apellido_m" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_apellido_m" runat="server" placeholder="apellido" MaxLength="50"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Apellido" runat="server" ControlToValidate="txt_apellido_m" ErrorMessage="Ingrese un Apellido" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_Apellido" runat="server" ControlToValidate="txt_apellido_m" ErrorMessage="Ingrese solo letras" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
@@ -91,7 +91,7 @@
                 <tr>
                     <td>Nacionalidad:</td>
                     <td>
-                        <asp:TextBox ID="txt_nacionalidad" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_nacionalidad" runat="server" placeholder="nacionalidad" MaxLength="100"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Nacionalidad" runat="server" ControlToValidate="txt_nacionalidad" ErrorMessage="Ingrese una Nacionalidad" ValidationGroup="1">*</asp:RequiredFieldValidator>
@@ -110,7 +110,7 @@
                 <tr>
                     <td>Direccion:</td>
                     <td>
-                        <asp:TextBox ID="txt_direccion_m" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_direccion_m" runat="server" placeholder="direccion" MaxLength="300"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Direccion" runat="server" ControlToValidate="txt_direccion_m" ErrorMessage="Ingrese una direccion" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_Direccion" runat="server" ControlToValidate="txt_direccion_m" ErrorMessage="Ingrese una direccion valida" ValidationExpression="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
@@ -149,7 +149,7 @@
                 <tr>
                     <td>Correo Electronico:</td>
                     <td>
-                        <asp:TextBox ID="txt_correo_m" runat="server" TextMode="Email"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_correo_m" runat="server" TextMode="Email" placeholder="correo@ejemplo.com" MaxLength="100"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Correo" runat="server" ControlToValidate="txt_correo_m" ErrorMessage="Ingrese un Correo" ValidationGroup="1">*</asp:RequiredFieldValidator>
                     </td>
@@ -157,7 +157,7 @@
                 <tr>
                     <td>Telefono:</td>
                     <td>
-                        <asp:TextBox ID="txt_telefono_m" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_telefono_m" runat="server" placeholder="1234567890" MaxLength="10"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Telefono" runat="server" ControlToValidate="txt_telefono_m" ErrorMessage="Ingrese un Telefono" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_Telefono" runat="server" ControlToValidate="txt_telefono_m" ErrorMessage="Ingrese un telefono valido" ValidationExpression="^[0-9]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>

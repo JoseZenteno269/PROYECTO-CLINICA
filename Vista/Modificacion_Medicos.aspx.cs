@@ -159,11 +159,11 @@ namespace Vista
             {
                 String busqueda = txt_busqueda.Text.Trim();
                 String consulta = $" AND Legajo_Med = '{busqueda}' OR CAST(DNI_Med AS NVARCHAR) LIKE '{busqueda}%' OR Nombre_Med LIKE '{busqueda}%' OR Apellido_Med LIKE '{busqueda}%'";
-                CargarGridViewMedicos(consulta); 
+                CargarGridViewMedicos(consulta);
             }
             else
             {
-                CargarGridViewMedicos(); 
+                CargarGridViewMedicos();
             }
         }
 
@@ -175,6 +175,11 @@ namespace Vista
         protected void lb_menu_Click(object sender, EventArgs e)
         {
             Response.Redirect("Menu.aspx"); 
+        }
+
+        protected void btn_Todos_Click(object sender, EventArgs e)
+        {
+            CargarGridViewMedicos(); 
         }
     }
 }

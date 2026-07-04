@@ -214,9 +214,14 @@ div table.div-pacientes tr:nth-child(even):not(:first-child) {
 }
 
 .divlogos {
-    width: 100%;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 10px;
+    /*    left: ;*/
+    width: 99%;
     height: 150px;
     background-color: #686868;
+    display: flex;
     justify-content: center;
     align-items: center;
 }

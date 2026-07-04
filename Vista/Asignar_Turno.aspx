@@ -54,7 +54,7 @@
                     <tr>
                         <td align="center">
                             <p>Fecha</p>
-                            <asp:Calendar ID="c_calendario" runat="server" OnSelectionChanged="c_calendario_SelectionChanged" EnableTheming="True" OnDayRender="c_calendario_DayRender" OnVisibleMonthChanged="c_calendario_VisibleMonthChanged" ShowGridLines="True"></asp:Calendar>
+                            <asp:Calendar ID="c_calendario" runat="server" OnSelectionChanged="c_calendario_SelectionChanged" EnableTheming="True" OnDayRender="c_calendario_DayRender" OnVisibleMonthChanged="c_calendario_VisibleMonthChanged" ShowGridLines="True" CssClass="calendario"></asp:Calendar>
                         </td>
                         <td></td>
                     </tr>
@@ -68,7 +68,6 @@
                 </table>
             </div>
             <div class="divfila"  style="width: 50%" align="center">
-
                 <asp:GridView ID="gvPacientesSeleccion" runat="server" AutoGenerateColumns="False" CssClass="gv" OnSelectedIndexChanging="gvPacientesSeleccion_SelectedIndexChanging">
                     <Columns>
                         <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
@@ -103,22 +102,25 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-
                 </asp:GridView>
             </div>
         </div>
         <div>
             <table>
                 <tr>
+                    <td colspan="2" align="center">
+                        <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
                     <td align="center">
-                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar" OnClick="btn_confirmar_Click" />
+                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar" OnClick="btn_confirmar_Click" CssClass="btn_volver" />
                     </td>
                     <td align="center">
-                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" OnClick="btn_cancelar_Click" />
+                        <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" OnClick="btn_cancelar_Click" CssClass="btn_volver" />
                     </td>
                 </tr>
             </table>
-            <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
         </div>
         <br />
         <br />

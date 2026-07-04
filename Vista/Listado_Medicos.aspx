@@ -4,17 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<link href="Css/Listado_Medicos.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="Css/Listado_Medicos.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 50px;
-        }
-        .auto-style2 {
-            height: 42px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -42,66 +34,53 @@
                 </tr>
             </table>
         </div>
-       <div id="divcontenedor">
-
-    <table>
-        <tr>
-            <td colspan="2" class="auto-style1">
-                <h1>Buscar Médicos</h1>
-            </td>
-        </tr>
-
-        <!-- BUSCADOR -->
-        <tr>
-            <td>Buscar por Legajo</td>
-        </tr>
-
-        <tr>
-            <td>
-                <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search"></asp:TextBox>
-            </td>
-
-            <td>
-                <asp:Button ID="btn_buscar" runat="server"
-                    CssClass="btn_volver"
-                    Text="Buscar"
-                    OnClick="btn_buscar_Click" />
-            </td>
-            <td>
-                <asp:Button ID="btn_Limpiar" runat="server" CssClass="btn_volver" Text="Limpiar Filtros" OnClick="btn_Limpiar_Click" />
-            </td>
-        </tr>
-
-        <!-- FILTRO ESPECIALIDAD -->
-        <tr>
-            <td style="padding-right:60px;" class="auto-style2">
-                Filtrar por Especialidad
-                <asp:DropDownList ID="ddl_EspecialidadFiltro" runat="server"
-                    AutoPostBack="True"
-                    OnSelectedIndexChanged="ddl_EspecialidadFiltro_SelectedIndexChanged">
-                </asp:DropDownList>
-            </td>
-
-            <td class="auto-style2">
-                Filtrar por Sexo
-                <asp:DropDownList ID="ddl_SexoFiltrado" runat="server"
-                    AutoPostBack="True"
-                    OnSelectedIndexChanged="ddl_SexoFiltrado_SelectedIndexChanged">
-                </asp:DropDownList>
-            </td>
-            <td class="auto-style2">Filtrar por Provincia</td> <td class="auto-style2">
-            <asp:DropDownList ID="ddl_Provincias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Provincias_SelectedIndexChanged">
-            </asp:DropDownList>
-            </td>
-        </tr>
-
-    </table>
-
-</div>
+        <div id="divcontenedor">
+            <table>
+                <tr>
+                    <td colspan="3" align="center">
+                        <h1>Buscar Médicos</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search" placeholder="Legajo Medico"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfv_legajo" runat="server" ErrorMessage="Campo incompleto" ValidationGroup="1" ControlToValidate="txt_buscar">*</asp:RequiredFieldValidator>
+                    </td>
+                    <td>
+                        <asp:Button ID="btn_buscar" runat="server"
+                            CssClass="btn_volver"
+                            Text="Buscar"
+                            OnClick="btn_buscar_Click" ValidationGroup="1" />
+                    </td>
+                    <td>
+                        <asp:Button ID="btn_Limpiar" runat="server" CssClass="btn_volver" Text="Limpiar Filtros" OnClick="btn_Limpiar_Click" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td style="padding-right: 60px;" align="center">
+                        <p>Filtrar por Especialidad</p>
+                        <asp:DropDownList ID="ddl_EspecialidadFiltro" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_EspecialidadFiltro_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </td>
+                    <td style="padding-right: 60px;" align="center">
+                        <p>Filtrar por Sexo</p>
+                        <asp:DropDownList ID="ddl_SexoFiltrado" runat="server"
+                            AutoPostBack="True"
+                            OnSelectedIndexChanged="ddl_SexoFiltrado_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </td>
+                    <td align="center">
+                        <p>Filtrar por Provincia</p>
+                        <asp:DropDownList ID="ddl_Provincias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Provincias_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <br />
-        <br />
-        <br />
-        <div class="contenedor-lista" >
+        <div class="contenedor-lista">
             <asp:ListView ID="lv_Medicos" runat="server" DataSourceID="SqlDataSourceMedicos" OnPagePropertiesChanging="lv_Medicos_PagePropertiesChanging">
                 <%--<AlternatingItemTemplate>
                     <tr style="">
@@ -174,7 +153,7 @@
                             <asp:TextBox ID="NacionalidadTextBox" runat="server" Text='<%# Bind("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="Fecha_de_NacimientoTextBox" runat="server" Text='<%# Bind("[Fecha de Nacimiento]") %>' />
+                            <asp:TextBox ID="Fecha_de_NacimientoTextBox" runat="server" Text='<%# Bind("[Fecha de Nacimiento]", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:TextBox ID="DireccionTextBox" runat="server" Text='<%# Bind("Direccion") %>' />
@@ -225,7 +204,7 @@
                             <asp:TextBox ID="NacionalidadTextBox" runat="server" Text='<%# Bind("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="Fecha_de_NacimientoTextBox" runat="server" Text='<%# Bind("[Fecha de Nacimiento]") %>' />
+                            <asp:TextBox ID="Fecha_de_NacimientoTextBox" runat="server" Text='<%# Bind("[Fecha de Nacimiento]", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:TextBox ID="DireccionTextBox" runat="server" Text='<%# Bind("Direccion") %>' />
@@ -265,7 +244,7 @@
                             <asp:Label ID="NacionalidadLabel" runat="server" Text='<%# Eval("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]") %>' />
+                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />
@@ -282,7 +261,7 @@
                     <table runat="server">
                         <tr runat="server">
                             <td runat="server">
-                                <table runat="server" id="itemPlaceholderContainer" class="tabla-datos" border="0" >
+                                <table runat="server" id="itemPlaceholderContainer" class="tabla-datos" border="0">
                                     <tr runat="server" style="">
                                         <th runat="server">Legajo</th>
                                         <th runat="server">Provincia</th>
@@ -342,7 +321,7 @@
                             <asp:Label ID="NacionalidadLabel" runat="server" Text='<%# Eval("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]") %>' />
+                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />
@@ -356,7 +335,7 @@
                     </tr>
                 </SelectedItemTemplate>
             </asp:ListView>
-             <br />
+            <br />
 
             <br />
             <asp:SqlDataSource ID="SqlDataSourceMedicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand="SELECT Legajo_Med AS Legajo,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad, Nombre_Espe AS Especialidad,DNI_Med AS Dni,(Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Sexo_Med AS Sexo,Nacionalidad_Med AS Nacionalidad,FechaNacimiento_Med AS [Fecha de Nacimiento],Direccion_Med AS Direccion,CorreoElectronico_Med AS Email,Telefono_Med AS Telefono
@@ -364,11 +343,9 @@ FROM Medicos INNER JOIN Provincias ON Medicos.Id_Provincia_Med = Provincias.Id_P
 INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local
 INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe
 WHERE Activo_Med = 1"></asp:SqlDataSource>
-         </div>
-        <br />
-        <br />
-        <br />
-        <br />
+            <asp:ValidationSummary ID="vs_errores" runat="server" DisplayMode="List" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
+        </div>
+
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>

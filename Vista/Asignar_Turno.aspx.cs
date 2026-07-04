@@ -21,17 +21,17 @@ namespace Vista
         {
             if (!IsPostBack)
             {
-                if (Session["UsuarioAdmin"] != null)
-                {
-                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
-                    CargarDropDawnListEspecialidades();
-                    CargarDropDawnListMedicos();
-                    CargarGridviewPacientes();
-                }
-                else
-                {
-                    Response.Redirect("Inicio.aspx");
-                }
+                //if (Session["UsuarioAdmin"] != null)
+                //{
+                //    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                CargarDropDawnListEspecialidades();
+                CargarDropDawnListMedicos();
+                CargarGridviewPacientes();
+                //}
+                //else
+                //{
+                //    Response.Redirect("Inicio.aspx");
+                //}
             }
 
         }
@@ -197,10 +197,6 @@ namespace Vista
         protected void btn_cancelar_Click(object sender, EventArgs e)
         {
             LimpiarCampos(); 
-            //ddl_especialidad.SelectedIndex = 0;
-            //ddl_medicos.SelectedIndex = 0;
-            //ddl_horas.SelectedIndex = 0;
-            //c_calendario.SelectedDate = DateTime.Now;
         }
     }
 }

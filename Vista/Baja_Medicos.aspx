@@ -38,9 +38,9 @@
         <div id="divcontenedor">
             <table class="tabla-inicio">
                 <tr>
-                    <td>Ingrese ID del Medico: </td>
+<%--                    <td>Ingrese ID del Medico: </td>--%>
                     <td>
-                        <asp:TextBox ID="txt_IdMedico" runat="server" TextMode="Search"></asp:TextBox>
+                        <asp:TextBox ID="txt_IdMedico" runat="server" TextMode="Search" placeholder="ID del Medico"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_IdMedico" runat="server" ControlToValidate="txt_IdMedico" ErrorMessage="Ingrese un Id a dar de baja" ValidationGroup="3">*</asp:RequiredFieldValidator>

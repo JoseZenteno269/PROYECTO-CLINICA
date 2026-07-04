@@ -34,14 +34,14 @@ namespace Vista
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("Inicio.aspx");
                 }
             }
         }
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Inicio.aspx");
         }
 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
@@ -103,14 +103,11 @@ namespace Vista
 
             SqlDataSourceMedicos.SelectCommand = consulta;
             lv_Medicos.DataBind();
-
-
         }
         protected void ddl_EspecialidadFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
             FiltrarMedicos();
         }
-
 
         /// Filtrar por Sexo
 
@@ -120,8 +117,6 @@ namespace Vista
             ddl_SexoFiltrado.Items.Add(new ListItem("Femenino", "Femenino"));
             ddl_SexoFiltrado.Items.Insert(0, new ListItem("-- Seleccione un Genero -- ", "%"));
         }
-
-
 
         protected void lb_menu_Click(object sender, EventArgs e)
         {

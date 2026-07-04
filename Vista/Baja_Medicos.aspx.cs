@@ -35,7 +35,7 @@ namespace Vista
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx"); 
+            Response.Redirect("Inicio.aspx"); 
         }
 
         public void CargarActivosMedicos()
@@ -72,11 +72,13 @@ namespace Vista
         protected void btn_inactivos_Click(object sender, EventArgs e)
         {
             CargarInactivosMedicos(); 
+            lbl_Mensaje.Text = string.Empty;
         }
 
         protected void btn_activos_Click(object sender, EventArgs e)
         {
             CargarActivosMedicos(); 
+            lbl_Mensaje.Text = string.Empty;
         }
 
         protected void lb_perfil_Click(object sender, EventArgs e)

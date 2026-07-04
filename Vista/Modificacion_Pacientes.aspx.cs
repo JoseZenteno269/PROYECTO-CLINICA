@@ -148,5 +148,27 @@ namespace Vista
         {
             Response.Redirect("Menu.aspx"); 
         }
+
+        protected void btn_Aceptar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_busqueda.Text.Trim()))
+            {
+                String busqueda = txt_busqueda.Text.Trim();
+                String consulta = $" AND CAST(DNI_Paci AS NVARCHAR) LIKE '{busqueda}%' OR Nombre_Paci LIKE '{busqueda}%' OR Apellido_Paci LIKE '{busqueda}%'";
+                CargarGridViewPacientes(consulta); 
+                txt_busqueda.Text = string.Empty;
+            }
+            else
+            {
+                CargarGridViewPacientes(); 
+            }
+            
+        }
+
+        protected void btn_Todos_Click(object sender, EventArgs e)
+        {
+            CargarGridViewPacientes();
+            txt_busqueda.Text = string.Empty; 
+        }
     }
 }

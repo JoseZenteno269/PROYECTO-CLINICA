@@ -71,7 +71,8 @@ form {
         }
 
 .grupo-pacientes {
-    height: 60vh;
+    border-radius: 12px; 
+    height: 70vh;
     margin: 0 auto;
     overflow-y: auto; /* scroll vertical */
     overflow-x: auto; /* scroll horizontal si la tabla es ancha */
@@ -86,9 +87,10 @@ form {
     }
 
 input[type=search] {
+    border-radius: 10px; 
     padding-left: 5px;
     font-size: 15px;
-    width: 100px;
+    width: 120px;
     height: 30px;
 }
 .btn_volver {
@@ -181,9 +183,14 @@ input[type=search] {
 }
 
 .divlogos {
-    width: 100%;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 10px;
+    /*    left: ;*/
+    width: 99%;
     height: 150px;
     background-color: #686868;
+    display: flex;
     justify-content: center;
     align-items: center;
 }

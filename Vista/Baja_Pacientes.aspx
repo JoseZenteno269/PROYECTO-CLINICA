@@ -40,9 +40,8 @@
         <div id="divcontenedor">
             <table>
                 <tr>
-                    <td>Ingrese ID del Paciente: </td>
                     <td>
-                        <asp:TextBox ID="txt_IDPacientes" runat="server" TextMode="Search"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_IDPacientes" runat="server" TextMode="Search" placeholder="ID Paciente"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Pacientes" runat="server" ControlToValidate="txt_IDPacientes" ErrorMessage="Ingrese un Id de paciente" ValidationGroup="5">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_Pacientes" runat="server" ControlToValidate="txt_IDPacientes" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ValidationGroup="5">*</asp:RegularExpressionValidator>

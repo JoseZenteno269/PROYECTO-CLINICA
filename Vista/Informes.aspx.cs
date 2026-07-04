@@ -21,9 +21,9 @@ namespace Vista
 
             if (!Page.IsPostBack)
             {
-                //if (Session["UsuarioAdmin"] != null)
-                //{
-                //    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                if (Session["UsuarioAdmin"] != null)
+                {
+                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
                     CargarEspecialidades();
                     CargarGridViewPacientes();
                     CargarDropDownListProvincias();
@@ -31,11 +31,11 @@ namespace Vista
                     CargarGridViewEdad();
                     CargarDropDownListAños();
                     CargarDropDownListMeses();
-                //}
-                //else
-                //{
-                //    Response.Redirect("Login.aspx");
-                //}
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 

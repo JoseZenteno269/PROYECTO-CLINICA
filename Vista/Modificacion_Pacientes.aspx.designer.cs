@@ -78,22 +78,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_cerrar_sesion;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control txt_busqueda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-
-        /// <summary>
-        /// Control btn_Aceptar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Aceptar;
+        protected global::System.Web.UI.WebControls.TextBox txt_busqueda;
 
         /// <summary>
         /// Control rfv_Busqueda.
@@ -112,6 +103,24 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_Busqueda;
+
+        /// <summary>
+        /// Control btn_Aceptar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Aceptar;
+
+        /// <summary>
+        /// Control btn_Todos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Todos;
 
         /// <summary>
         /// Control lbl_mensaje.

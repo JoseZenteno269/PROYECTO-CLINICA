@@ -111,6 +111,7 @@ namespace Vista
         {
             ddl_Letras.SelectedIndex = 0;
             ddl_ProvinciasFiltro.SelectedIndex = 0;
+            lv_pacientes.DataBind(); 
         }
     }
 }

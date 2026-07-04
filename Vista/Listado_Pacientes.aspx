@@ -31,25 +31,19 @@
             </table>
         </div>
    <div id="divcontenedor">
-
-    <h1>Buscar Pacientes</h1>
-
-    <!-- BUSCADOR -->
+    <h2>Buscar Pacientes</h2>
     <table>
         <tr>
-            <td>Buscar por DNI</td>
-        </tr>
-
-        <tr>
             <td>
-                <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search"></asp:TextBox>
+                <asp:TextBox ID="txt_buscar" runat="server" TextMode="Search" placeholder="DNI"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfv_dni" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_buscar" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="rev_dni" runat="server" ErrorMessage="Ingrese solo numeros " ControlToValidate="txt_buscar" ValidationExpression="^[0-9]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
             </td>
-
             <td>
                 <asp:Button ID="btn_buscar" runat="server"
                     CssClass="btn_volver"
                     Text="Buscar"
-                    OnClick="btn_buscar_Click" />
+                    OnClick="btn_buscar_Click" ValidationGroup="1" />
             </td>
 
             <td>
@@ -60,22 +54,18 @@
             </td>
         </tr>
     </table>
-
-    <br />
-
-    <!-- FILTROS (DDL AL LADO DEL TEXTO) -->
     <table>
         <tr>
-            <td style="padding-right:60px;">
-                Filtrar por inicial
+            <td style="padding-right: 50px" align="center">
+                <p>Filtrar por inicial</p>
                 <asp:DropDownList ID="ddl_Letras" runat="server"
                     AutoPostBack="True"
                     OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
 
-            <td>
-                Filtrar por provincia
+            <td align="center">
+                <p>Filtrar por provincia</p>
                 <asp:DropDownList ID="ddl_ProvinciasFiltro" runat="server"
                     AutoPostBack="True"
                     OnSelectedIndexChanged="ddl_ProvinciasFiltro_SelectedIndexChanged">
@@ -83,11 +73,8 @@
             </td>
         </tr>
     </table>
-
 </div>
-        
         <div class="tabla-datos" align="center">
-
             <asp:ListView ID="lv_pacientes" runat="server" DataSourceID="SqlDataSourcePacientes">
                <%-- <AlternatingItemTemplate>
                     <tr style="">
@@ -144,7 +131,7 @@
                             <asp:Label ID="Nacionalidad_PaciLabel" runat="server" Text='<%# Eval("Nacionalidad_Paci") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci") %>' />
+                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:Label ID="Direccion_PaciLabel" runat="server" Text='<%# Eval("Direccion_Paci") %>' />
@@ -182,7 +169,7 @@
                             <asp:TextBox ID="Nacionalidad_PaciTextBox" runat="server" Text='<%# Bind("Nacionalidad_Paci") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="FechaNacimiento_PaciTextBox" runat="server" Text='<%# Bind("FechaNacimiento_Paci") %>' />
+                            <asp:TextBox ID="FechaNacimiento_PaciTextBox" runat="server" Text='<%# Bind("FechaNacimiento_Paci", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:TextBox ID="Direccion_PaciTextBox" runat="server" Text='<%# Bind("Direccion_Paci") %>' />
@@ -227,7 +214,7 @@
                             <asp:TextBox ID="Nacionalidad_PaciTextBox" runat="server" Text='<%# Bind("Nacionalidad_Paci") %>' />
                         </td>
                         <td>
-                            <asp:TextBox ID="FechaNacimiento_PaciTextBox" runat="server" Text='<%# Bind("FechaNacimiento_Paci") %>' />
+                            <asp:TextBox ID="FechaNacimiento_PaciTextBox" runat="server" Text='<%# Bind("FechaNacimiento_Paci", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:TextBox ID="Direccion_PaciTextBox" runat="server" Text='<%# Bind("Direccion_Paci") %>' />
@@ -261,7 +248,7 @@
                             <asp:Label ID="Nacionalidad_PaciLabel" runat="server" Text='<%# Eval("Nacionalidad_Paci") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci") %>' />
+                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:Label ID="Direccion_PaciLabel" runat="server" Text='<%# Eval("Direccion_Paci") %>' />
@@ -330,7 +317,7 @@
                             <asp:Label ID="Nacionalidad_PaciLabel" runat="server" Text='<%# Eval("Nacionalidad_Paci") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci") %>' />
+                            <asp:Label ID="FechaNacimiento_PaciLabel" runat="server" Text='<%# Eval("FechaNacimiento_Paci", "{0:d}") %>' />
                         </td>
                         <td>
                             <asp:Label ID="Direccion_PaciLabel" runat="server" Text='<%# Eval("Direccion_Paci") %>' />
@@ -344,16 +331,12 @@
                     </tr>
                 </SelectedItemTemplate>
             </asp:ListView>
-            <br />
-
             <asp:SqlDataSource ID="SqlDataSourcePacientes" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand= "SELECT DNI_Paci AS DNI,Descripcion_Prov AS Provincia,Descripcion_Local AS Localidad, (Nombre_Paci +' '+ Apellido_Paci) AS [Nombre y Apellido],Sexo_Paci,Nacionalidad_Paci,FechaNacimiento_Paci,Direccion_Paci,CorreoElectronico_Paci,Telefono_Paci 
  FROM Pacientes INNER JOIN Provincias ON Pacientes.Id_Provincia_Paci = Provincias.Id_Provincia_Prov 
  INNER JOIN Localidades ON Pacientes.Id_Localidad_Paci = Localidades.Id_Localidad_Local
 WHERE Activo_Paci = 1"></asp:SqlDataSource>
+            <asp:ValidationSummary ID="vs_errores" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
         </div>
-        <br />
-        <br />
-        <br />
         <br />
         <div class="divlogos">
             <table style="width: 100%">

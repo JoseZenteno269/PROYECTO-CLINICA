@@ -37,15 +37,14 @@
         <div align="center" class="contenedor-horarios">
             <table class="tableshoras">
                 <tr>
-                    <td align="center" colspan="6">
+                    <td align="center" colspan="7">
                         <h1>Carga Horarios</h1>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="6" align="center">
-                        <p>Legajo</p>
-                        <asp:TextBox ID="txt_legajo" runat="server" Width="100px"></asp:TextBox><br />
-                        <asp:RequiredFieldValidator ID="rfv_legajo" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_legajo" ValidationGroup="1"></asp:RequiredFieldValidator>
+                    <td colspan="7" align="center">
+                        <asp:TextBox ID="txt_legajo" runat="server" placeholder="Legajo Medico" TextMode="Search"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfv_legajo" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_legajo" ValidationGroup="1">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -180,19 +179,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="6">
+                    <td colspan="7">
                         <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="6" align="center">
+                    <td colspan="7" align="center">
                         <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" CssClass="btnAceptar" ValidationGroup="1" /></td>
                 </tr>
             </table>
             <asp:ValidationSummary ID="vs_errores" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
         </div>
-        <br />
-        <br />
         <br />
         <br />
         <div class="divlogos">
