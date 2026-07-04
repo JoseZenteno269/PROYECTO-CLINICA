@@ -86,6 +86,19 @@ namespace Datos
 
         // ---------------------------------------------------------------------------------------//
 
+        /// informe 4
+        
+        public int ConsultaInforme4(int mes, int anio, int diasemana)
+        {
+            String consulta = "SET DATEFIRST 1 SELECT COUNT(Id_Turno_Tur) AS TOTAL FROM Turnos WHERE Activo_Tur = 1 AND MONTH(Fecha_Tur) = @MES AND YEAR(Fecha_Tur) = @ANIO AND DATEPART(WEEKDAY, Fecha_Tur) = @DIASEMANA";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@MES", mes); 
+            comando.Parameters.AddWithValue("@ANIO", anio); 
+            comando.Parameters.AddWithValue("@DIASEMANA", diasemana);
+            return datos.EjecutarEscalarInt(comando, consulta) ?? 0;
+        } 
+
+
         public DataTable getTablaTurno()
         {
             DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, Id_Medico_Tur, Id_Especialidad_Tur, Id_Paciente_Tur, Id_EstadoPaciente_Tur, Id_EstadoTurno_Tur, Fecha_Tur, Horario_Tur, Descripcion_Tur, Activo_Tur FROM Turnos");

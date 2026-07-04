@@ -144,31 +144,36 @@
                             <asp:DropDownList ID="ddl_Informe3" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Informe3_SelectedIndexChanged1">
                             </asp:DropDownList></td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+
+                            <asp:GridView ID="gv_Informe3" runat="server" AutoGenerateColumns="False">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Medico">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lbl_it_Medico" runat="server" Text='<%# Eval("MEDICO") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Turnos">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lbl_it_Turnos" runat="server" Text='<%# Eval("TOTAL_TURNOS") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Ausentes">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lbl_it_Ausentes" runat="server" Text='<%# Eval("AUSENTES") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Presentes">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lbl_it_Presentes" runat="server" Text='<%# Eval("PRESENTES") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </td>
+                    </tr>
                 </table>
-                <asp:GridView ID="gv_Informe3" runat="server" AutoGenerateColumns="False">
-    <Columns>
-        <asp:TemplateField HeaderText="Medico">
-            <ItemTemplate>
-                <asp:Label ID="lbl_it_Medico" runat="server" Text='<%# Eval("MEDICO") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:TemplateField HeaderText="Turnos">
-            <ItemTemplate>
-                <asp:Label ID="lbl_it_Turnos" runat="server" Text='<%# Eval("TOTAL_TURNOS") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:TemplateField HeaderText="Ausentes">
-            <ItemTemplate>
-                <asp:Label ID="lbl_it_Ausentes" runat="server" Text='<%# Eval("AUSENTES") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:TemplateField HeaderText="Presentes">
-            <ItemTemplate>
-                <asp:Label ID="lbl_it_Presentes" runat="server" Text='<%# Eval("PRESENTES") %>'></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
             </div>
         </div>
         <div id="contenedor4" align="center">
@@ -190,30 +195,45 @@
                             <asp:DropDownList ID="ddl_anio_4" runat="server"></asp:DropDownList></td>
                     </tr>
                     <tr>
-                        <td style="width: 10%">Lunes</td>
-                        <td colspan="2" style="padding: 20px">
-                            <asp:Button ID="barr1" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" />
+                        <td colspan="2" align="center">
+                            <asp:Button ID="btn_aceptar2" runat="server" Text="Aceptar" OnClick="btn_aceptar2_Click" />
                         </td>
                     </tr>
                     <tr>
-                        <td style="width: 10%">Martes</td>
-                        <td colspan="2" style="padding: 20px">
+                        <td style="width: 80px">Lunes</td>
+                        <td colspan="2" style="padding: 20px" align="initial">
+                            <asp:Button ID="barra1" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Martes</td>
+                        <td colspan="2" style="padding: 20px" align="initial">
                             <asp:Button ID="barra2" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td style="width: 10%">Miercoles</td>
-                        <td colspan="2" style="padding: 20px">
+                        <td>Miercoles</td>
+                        <td colspan="2" style="padding: 20px" align="initial">
                             <asp:Button ID="barra3" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td style="width: 10%">Jueves</td>
-                        <td colspan="2" style="padding: 20px">
+                        <td>Jueves</td>
+                        <td colspan="2" style="padding: 20px" align="initial">
                             <asp:Button ID="barra4" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td style="width: 10%">Viernes</td>
-                        <td colspan="2" style="padding: 20px">
+                        <td>Viernes</td>
+                        <td colspan="2" style="padding: 20px" align="initial">
                             <asp:Button ID="barra5" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
+                    </tr>
+                    <tr>
+                        <td>Sabado</td>
+                        <td colspan="2" style="padding: 20px" align="initial">
+                            <asp:Button ID="barra6" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
+                    </tr>
+                    <tr>
+                        <td>Domingo</td>
+                        <td colspan="2" style="padding: 20px" align="initial">
+                            <asp:Button ID="barra7" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
                         <td colspan="2" align="initial">
@@ -223,7 +243,7 @@
                 </table>
             </div>
             <div align="center" style="width: 50%; flex-direction: row; display: flex">
-                
+
                 <table class="table-informes" align="center">
                     <tr>
                         <td colspan="2">
@@ -264,7 +284,7 @@
                         <td>
                             <p>Seleccione un Rango de edad:</p>
                             <asp:DropDownList ID="ddl_RangosEdad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_RangosEdad_SelectedIndexChanged">
-                                <asp:ListItem Value="0">--Seleccione un rango de Edad -- </asp:ListItem>
+                                <asp:ListItem Value="0">--Rango de Edad -- </asp:ListItem>
                                 <asp:ListItem Value="1">0 a 18</asp:ListItem>
                                 <asp:ListItem Value="2">18 a 30</asp:ListItem>
                                 <asp:ListItem Value="3">30 a 60</asp:ListItem>

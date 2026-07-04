@@ -222,13 +222,22 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList ddl_anio_4;
 
         /// <summary>
-        /// Control barr1.
+        /// Control btn_aceptar2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button barr1;
+        protected global::System.Web.UI.WebControls.Button btn_aceptar2;
+
+        /// <summary>
+        /// Control barra1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button barra1;
 
         /// <summary>
         /// Control barra2.
@@ -265,6 +274,24 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button barra5;
+
+        /// <summary>
+        /// Control barra6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button barra6;
+
+        /// <summary>
+        /// Control barra7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button barra7;
 
         /// <summary>
         /// Control Label1.

@@ -59,6 +59,13 @@ namespace Negocio
 
         //----------------------------------------------------------------//
 
+        //Infomre 4 
+
+        public int ConsultaInforme4(int mes, int anio, int diasemana)
+        {
+            return daoTurnos.ConsultaInforme4(mes, anio, diasemana); 
+        }
+
         public DataTable getTurnos()
         {
             return daoTurnos.getTablaTurno();

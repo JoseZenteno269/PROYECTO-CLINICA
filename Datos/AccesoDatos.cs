@@ -79,35 +79,6 @@ namespace Datos
             return null;
         }
 
-        //public String ObtenerIdUsuario(SqlCommand comando, String consulta)
-        //{
-        //    SqlConnection conexion = ObtenerConexion();
-        //    comando.Connection = conexion;
-        //    comando.CommandText = consulta; 
-        //    SqlDataReader lectura = comando.ExecuteReader();
-        //    if (lectura.Read())
-        //    {
-        //        return lectura["Id_Usuario_Usu"].ToString();
-        //    }
-
-        //    return null;
-        //}
-
-        //public String LoginMedicoAdministrador(SqlCommand comando, String consulta)
-        //{
-        //    String tipoUsuario = "ERROR - TIPO INEXISTENTE"; 
-        //    SqlConnection conexion = ObtenerConexion();
-        //    comando.Connection = conexion;
-        //    comando.CommandText = consulta;
-        //    SqlDataReader leer = comando.ExecuteReader();
-        //    if (leer.Read())
-        //    {
-        //        tipoUsuario = leer["Tipousuario"].ToString();  
-        //    }
-        //    conexion.Close();
-        //    return tipoUsuario; 
-        //}
-
         public DataTable ObtenerTabla(String nombretabla, String consulta)
         {
             DataSet set = new DataSet();

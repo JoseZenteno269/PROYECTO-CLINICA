@@ -20,7 +20,7 @@ namespace Datos
         }
         public DataTable getMedicosInforme3()
         {
-            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT (Nombre_Med + Apellido_Med) AS NombreAPellido, Id_Medico_Med FROM Medicos WHERE Activo_Med = 1");
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT (Nombre_Med + ' ' + Apellido_Med) AS NombreAPellido, Id_Medico_Med FROM Medicos WHERE Activo_Med = 1");
             return tabla;
         }
 

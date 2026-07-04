@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Vista
@@ -20,9 +21,9 @@ namespace Vista
 
             if (!Page.IsPostBack)
             {
-                if (Session["UsuarioAdmin"] != null)
-                {
-                    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
+                //if (Session["UsuarioAdmin"] != null)
+                //{
+                //    lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
                     CargarEspecialidades();
                     CargarGridViewPacientes();
                     CargarDropDownListProvincias();
@@ -30,11 +31,11 @@ namespace Vista
                     CargarGridViewEdad();
                     CargarDropDownListAños();
                     CargarDropDownListMeses();
-                }
-                else
-                {
-                    Response.Redirect("Login.aspx");
-                }
+                //}
+                //else
+                //{
+                //    Response.Redirect("Login.aspx");
+                //}
             }
         }
 
@@ -174,6 +175,38 @@ namespace Vista
             CargarGridViewInforme3();
         }
 
+        //INFORME 4 
+        protected void btn_aceptar2_Click(object sender, EventArgs e)
+        {
+            int mes = Convert.ToInt32(ddl_mes_4.SelectedValue);
+            int anio = Convert.ToInt32(ddl_anio_4.SelectedValue);
+            Label1.Text = mes.ToString() + " - " + anio.ToString();
+            int[] dias_semana = new int[7];
+
+            for (int i = 1; i <= 7; i++)
+            {
+                int dias = negocioTurnos.ConsultaInforme4(mes, anio, i);
+                Label1.Text += dias.ToString() + "-";
+                dias_semana[i - 1] = dias;
+            }
+
+            barra1.Style["width"] = dias_semana[0] * 10 + "%";
+            barra2.Style["width"] = dias_semana[1] * 10 + "%";
+            barra3.Style["width"] = dias_semana[2] * 10 + "%";
+            barra4.Style["width"] = dias_semana[3] * 10 + "%";
+            barra5.Style["width"] = dias_semana[4] * 10 + "%";
+            barra6.Style["width"] = dias_semana[5] * 10 + "%";
+            //barra7.Style["width"] = dias_semana[6] * 10 + "%";
+            barra7.Style["width"] = 100 + "%";
+
+            barra1.Text = dias_semana[0].ToString();
+            barra2.Text = dias_semana[1].ToString();
+            barra3.Text = dias_semana[2].ToString();
+            barra4.Text = dias_semana[3].ToString();
+            barra5.Text = dias_semana[4].ToString();
+            barra6.Text = dias_semana[5].ToString();
+            barra7.Text = dias_semana[6].ToString();
+        }
 
         /// Informe 5
 
