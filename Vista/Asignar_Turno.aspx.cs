@@ -136,7 +136,7 @@ namespace Vista
 
             if(fecha <= DateTime.Now)
             {
-                lbl_mensaje.Text = "La fecha seleccionada es invalida";
+                lbl_mensaje.Text = "La fecha seleccionada es invalida, ingrese una fecha valida ";
                 return;
             }
             else
@@ -162,7 +162,7 @@ namespace Vista
 
             if (NegocioTurnos.AgregarTurno(Convert.ToInt32(ddl_especialidad.SelectedValue), Convert.ToInt32(ddl_medicos.SelectedValue), fecha, TimeSpan.Parse(ddl_horas.SelectedItem.Text), Convert.ToInt32(Session["IdPaciente"]), 1))
             {
-                lbl_mensaje.Text = "datos" + fecha.ToString("dd-MM-yyyy") + "-" + ddl_especialidad.Text + "-" + ddl_medicos.Text; 
+                lbl_mensaje.Text = "El turno con los Siguientes datos: Medico: " + ddl_medicos.Text + " -- Especialidad: " + ddl_especialidad.Text + " -- Fecha: " + fecha.ToString("dd-MM-yyyy") + " han sido registrados ";
             }
         }
 

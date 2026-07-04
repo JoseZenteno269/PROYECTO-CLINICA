@@ -64,7 +64,7 @@ namespace Vista
             }
             else
             {
-                lbl_mensaje0.Text = "Error ID no encontrado";
+                lbl_mensaje0.Text = "Error usuario no encontrado";
             }
         }
     }

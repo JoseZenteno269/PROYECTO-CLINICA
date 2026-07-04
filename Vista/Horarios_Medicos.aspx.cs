@@ -93,7 +93,7 @@ namespace Vista
             int? idmedico = negocioMedicos.getIdMedico(txt_legajo.Text.Trim());
             if (idmedico == null)
             {
-                lbl_mensaje.Text = "Medico inexistente";
+                lbl_mensaje.Text = "Medico inexistente o dado de baja";
                 return;
             }
 
@@ -123,7 +123,7 @@ namespace Vista
                     {
                         if (negocioDisponibilidad.AgregarHorarios(Convert.ToInt32(idmedico), (i + 1), TimeSpan.FromHours(horainicio[i] + j)))
                         {
-                            lbl_mensaje.Text = "horarios agregador con exito"; 
+                            lbl_mensaje.Text = "Horarios agregador con exito"; 
                         }
                     }
                 }

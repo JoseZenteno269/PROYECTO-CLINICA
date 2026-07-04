@@ -26,7 +26,7 @@ namespace Vista
             int? idusuario = negocioUsuarios.getIdUsuario(txt_usuario.Text.Trim());
             if(idusuario == null)
             {
-                lbl_mensaje.Text = "Usuario inexistente";
+                lbl_mensaje.Text = "Usuario inexistente o dado de baja";
                 return; 
             }
 
