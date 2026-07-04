@@ -19,6 +19,8 @@ namespace Datos
 
         }
 
+
+        // Informe 1
         public int? CantidadTurnos(String fechainicio, String fechafin)
         {
             String consulta = "SELECT COUNT(*) FROM Turnos WHERE Activo_Tur = 1 AND Fecha_Tur BETWEEN @FECHAINICIO AND @FECHAFIN";
@@ -36,7 +38,9 @@ namespace Datos
             comando.Parameters.AddWithValue("@FECHAFIN", fechafin);
             return datos.EjecutarEscalarString(comando, consulta);
         }
+        //----------------------------------------------------------------//
 
+        // Informe 2
         public DataTable ConsultaTurnosXEspecialidad(String fechainicio, String fechafin)
         {
             String consulta = "SELECT Especialidad.Nombre_Espe AS ESPECIALIDAD, COUNT(Id_Especialidad_Tur) AS TOTAL_TURNOS FROM Turnos INNER JOIN Especialidad ON Id_Especialidad_Tur = Id_Especialidad_Espe  WHERE Activo_Tur = 1 AND Fecha_Tur BETWEEN @FECHAINICIO AND @FECHAFIN GROUP BY Nombre_Espe";
@@ -62,6 +66,25 @@ namespace Datos
             SqlCommand comando = new SqlCommand();
             return datos.EjecutarEscalarString(comando, consulta); 
         }
+
+        //---------------------------------------------------------------------------------------//
+
+        /// Informe 3
+        public DataTable ConsultaInforme3(string idMedico, string mes)
+        {
+            string consulta = "SELECT (Nombre_Med + ' ' + Apellido_Med) AS MEDICO, COUNT(Id_Medico_Tur) AS TOTAL_TURNOS, COUNT(CASE WHEN Id_EstadoPaciente_Tur = 1 THEN 1 END) AS PRESENTES, COUNT(CASE WHEN Id_EstadoPaciente_Tur = 2 THEN 1 END) AS AUSENTES FROM Turnos INNER JOIN Medicos ON Id_Medico_Med = Id_Medico_Tur WHERE Activo_Tur = 1";
+            if (int.TryParse(idMedico, out int medico) && medico != 0)
+            {
+                consulta += " AND Id_Medico_Tur = " + medico;
+            }
+            if (!string.IsNullOrEmpty(mes))
+                consulta += " AND MONTH(Fecha_Tur) = " + mes;
+
+            consulta += " GROUP BY Nombre_Med , Apellido_Med";
+            return datos.ObtenerTabla("Turnos", consulta);
+        }
+
+        // ---------------------------------------------------------------------------------------//
 
         public DataTable getTablaTurno()
         {

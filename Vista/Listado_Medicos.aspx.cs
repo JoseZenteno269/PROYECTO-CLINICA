@@ -18,20 +18,25 @@ namespace Vista
         Medicos medicos = new Medicos();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 if (Session["UsuarioAdmin"] != null)
                 {
                     lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
                     CargarDropDownListEspecialidad();
                     CargarDropDownListSexo();
+                    CargarDropDownListProvincia();
+
+                    string especialidad = Session["FiltroEspecialidad"]?.ToString() ?? "%";
+                    string sexo = Session["FiltroSexo"]?.ToString() ?? "%";
+
+                    AplicarFiltro(especialidad, sexo);
                 }
                 else
                 {
                     Response.Redirect("Login.aspx");
                 }
             }
-           
         }
 
         protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
@@ -51,13 +56,11 @@ namespace Vista
 
         protected void btn_buscar_Click(object sender, EventArgs e)
         {
-            SqlDataSourceMedicos.SelectCommand = "SELECT Legajo_Med AS Legajo, Descripcion_Prov AS Provincia, Descripcion_Local AS Localidad, Nombre_Espe AS Especialidad, DNI_Med AS Dni, (Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Sexo_Med AS Sexo, Nacionalidad_Med AS Nacionalidad, FechaNacimiento_Med AS [Fecha de Nacimiento], Direccion_Med AS Direccion, CorreoElectronico_Med AS Email, Telefono_Med AS Telefono FROM Medicos INNER JOIN Provincias ON Medicos.Id_Provincia_Med = Provincias.Id_Provincia_Prov INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE CONVERT(VARCHAR(20), Legajo_Med) LIKE @Legajo";
+            SqlDataSourceMedicos.SelectCommand = "SELECT Legajo_Med AS Legajo, Descripcion_Prov AS Provincia, Descripcion_Local AS Localidad, Nombre_Espe AS Especialidad, DNI_Med AS Dni, (Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Sexo_Med AS Sexo, Nacionalidad_Med AS Nacionalidad, FechaNacimiento_Med AS [Fecha de Nacimiento], Direccion_Med AS Direccion, CorreoElectronico_Med AS Email, Telefono_Med AS Telefono FROM Medicos INNER JOIN Provincias ON Medicos.Id_Provincia_Med = Provincias.Id_Provincia_Prov INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE Legajo_Med = @Legajo";
             SqlDataSourceMedicos.SelectParameters.Clear();
-            SqlDataSourceMedicos.SelectParameters.Add("Legajo", "%" + txt_buscar.Text + "%");
+            SqlDataSourceMedicos.SelectParameters.Add("Legajo", txt_buscar.Text);
             lv_Medicos.DataBind();
             txt_buscar.Text = string.Empty;
-            ddl_EspecialidadFiltro.SelectedIndex = 0;
-            ddl_SexoFiltrado.SelectedIndex = 0;
         }
 
         /// Filtrar Especialidad
@@ -67,31 +70,41 @@ namespace Vista
             ddl_EspecialidadFiltro.DataTextField = "Nombre_Espe";
             ddl_EspecialidadFiltro.DataValueField = "Id_Especialidad_Espe";
             ddl_EspecialidadFiltro.DataBind();
-            ddl_EspecialidadFiltro.Items.Insert(0,new ListItem("-- Seleccione una Especialidad -- ","%"));
+            ddl_EspecialidadFiltro.Items.Insert(0, new ListItem("-- Seleccione una Especialidad -- ", "%"));
         }
         public void FiltrarMedicos()
         {
             string especialidad = ddl_EspecialidadFiltro.SelectedValue;
             string sexo = ddl_SexoFiltrado.SelectedValue;
 
-            string consulta = "SELECT Legajo_Med AS Legajo, Descripcion_Prov AS Provincia, Descripcion_Local AS Localidad, Nombre_Espe AS Especialidad, DNI_Med AS Dni, (Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Sexo_Med AS Sexo, Nacionalidad_Med AS Nacionalidad, FechaNacimiento_Med AS [Fecha de Nacimiento], Direccion_Med AS Direccion, CorreoElectronico_Med AS Email, Telefono_Med AS Telefono FROM Medicos INNER JOIN Provincias ON Medicos.Id_Provincia_Med = Provincias.Id_Provincia_Prov INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE Activo_Med = 1";
+            Session["FiltroEspecialidad"] = especialidad;
+            Session["FiltroSexo"] = sexo;
 
+            AplicarFiltro(especialidad, sexo);
+
+        }
+
+        private void AplicarFiltro(string Especialidad, string Sexo)
+        {
+            string consulta = "SELECT Legajo_Med AS Legajo, Descripcion_Prov AS Provincia, Descripcion_Local AS Localidad, Nombre_Espe AS Especialidad, DNI_Med AS Dni, (Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Sexo_Med AS Sexo, Nacionalidad_Med AS Nacionalidad, FechaNacimiento_Med AS [Fecha de Nacimiento], Direccion_Med AS Direccion, CorreoElectronico_Med AS Email, Telefono_Med AS Telefono FROM Medicos INNER JOIN Provincias ON Medicos.Id_Provincia_Med = Provincias.Id_Provincia_Prov INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE Activo_Med = 1";
             SqlDataSourceMedicos.SelectParameters.Clear();
 
-            if (especialidad != "%")
+            if (Especialidad != "%")
             {
                 consulta += " AND Id_Especialidad_Med = @Especialidad";
-                SqlDataSourceMedicos.SelectParameters.Add("Especialidad", especialidad);
+                SqlDataSourceMedicos.SelectParameters.Add("Especialidad", Especialidad);
             }
 
-            if (sexo != "%")
+            if (Sexo != "%")
             {
                 consulta += " AND Sexo_Med = @Sexo";
-                SqlDataSourceMedicos.SelectParameters.Add("Sexo", sexo);
+                SqlDataSourceMedicos.SelectParameters.Add("Sexo", Sexo);
             }
 
             SqlDataSourceMedicos.SelectCommand = consulta;
             lv_Medicos.DataBind();
+
+
         }
         protected void ddl_EspecialidadFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -108,10 +121,7 @@ namespace Vista
             ddl_SexoFiltrado.Items.Insert(0, new ListItem("-- Seleccione un Genero -- ", "%"));
         }
 
-        protected void ddl_SexoFiltrado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FiltrarMedicos();
-        }
+
 
         protected void lb_menu_Click(object sender, EventArgs e)
         {
@@ -134,7 +144,18 @@ namespace Vista
             ddl_Provincias.Items.Insert(0, new ListItem("-- Seleccione una Provincia -- ", "%"));
         }
 
-        protected void ddl_Provincia_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btn_Limpiar_Click(object sender, EventArgs e)
+        {
+            ddl_EspecialidadFiltro.SelectedIndex = 0;
+            ddl_SexoFiltrado.SelectedIndex = 0;
+            ddl_Provincias.SelectedIndex = 0;
+            lv_Medicos.DataBind();
+
+            Session["FiltroEspecialidad"] = "%";
+            Session["FiltroSexo"] = "%";
+        }
+
+        protected void ddl_Provincias_SelectedIndexChanged(object sender, EventArgs e)
         {
             string provincia = ddl_Provincias.SelectedValue;
             SqlDataSourceMedicos.SelectCommand = "SELECT Legajo_Med AS Legajo, Descripcion_Prov AS Provincia, Descripcion_Local AS Localidad, Nombre_Espe AS Especialidad, DNI_Med AS Dni, (Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Sexo_Med AS Sexo, Nacionalidad_Med AS Nacionalidad, FechaNacimiento_Med AS [Fecha de Nacimiento], Direccion_Med AS Direccion, CorreoElectronico_Med AS Email, Telefono_Med AS Telefono FROM Medicos INNER JOIN Provincias ON Medicos.Id_Provincia_Med = Provincias.Id_Provincia_Prov INNER JOIN Localidades ON Medicos.Id_Localidad_Med = Localidades.Id_Localidad_Local INNER JOIN Especialidad ON Medicos.Id_Especialidad_Med = Especialidad.Id_Especialidad_Espe WHERE Id_Provincia_Med LIKE @Provincia";
@@ -143,12 +164,20 @@ namespace Vista
             lv_Medicos.DataBind();
         }
 
-
-        protected void btn_Limpiar_Click(object sender, EventArgs e)
+        protected void ddl_SexoFiltrado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddl_EspecialidadFiltro.SelectedIndex = 0;
-            ddl_SexoFiltrado.SelectedIndex = 0;
-            ddl_Provincias.SelectedIndex = 0;
+            FiltrarMedicos();
+        }
+
+        protected void lv_Medicos_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        {
+            DataPager pager = (DataPager)lv_Medicos.FindControl("DataPager1"); // ID de tu DataPager
+            pager.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+
+            string especialidad = Session["FiltroEspecialidad"]?.ToString() ?? "%";
+            string sexo = Session["FiltroSexo"]?.ToString() ?? "%";
+
+            AplicarFiltro(especialidad, sexo);
         }
     }
 }

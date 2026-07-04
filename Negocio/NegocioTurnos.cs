@@ -18,6 +18,8 @@ namespace Negocio
         {
 
         }
+
+        // Informe 1
         public int? CantidadTurnos(String fechainicio, String fechafin)
         {
             return daoTurnos.CantidadTurnos(fechainicio, fechafin);
@@ -27,6 +29,10 @@ namespace Negocio
         {
             return daoTurnos.ConsultaPorcentajePresentes(fechainicio, fechafin);
         }
+
+        //------------------------------------------------------//
+
+        // Informe 2
 
         public DataTable ConsultaTurnosXEspecialidad(String fechainicio, String fechafin)
         {
@@ -42,6 +48,16 @@ namespace Negocio
         {
             return daoTurnos.ConsutaMaxEspecialidad(); 
         }
+
+        //----------------------------------------------------------------//
+
+        // Informe 3
+        public DataTable ConsultaInforme3(string idmendico, string mes)
+        {
+            return daoTurnos.ConsultaInforme3(idmendico, mes);
+        }
+
+        //----------------------------------------------------------------//
 
         public DataTable getTurnos()
         {

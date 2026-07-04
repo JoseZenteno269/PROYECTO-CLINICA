@@ -177,31 +177,31 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Label lbl_especialidadmayor;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control txt_MesInfo3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txt_MesInfo3;
 
         /// <summary>
-        /// Control DropDownList3.
+        /// Control ddl_Informe3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_Informe3;
 
         /// <summary>
-        /// Control GridView1.
+        /// Control gv_Informe3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gv_Informe3;
 
         /// <summary>
         /// Control ddl_mes_4.

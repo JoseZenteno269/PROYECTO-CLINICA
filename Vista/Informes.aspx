@@ -137,26 +137,38 @@
                     <tr>
                         <td>
                             <p>Mes</p>
-                            <asp:TextBox ID="TextBox1" runat="server" TextMode="Month"></asp:TextBox>
+                            <asp:TextBox ID="txt_MesInfo3" runat="server" TextMode="Month" OnTextChanged="txt_MesInfo3_TextChanged"></asp:TextBox>
                         </td>
                         <td>
                             <p>Medico</p>
-                            <asp:DropDownList ID="DropDownList3" runat="server">
-                                <asp:ListItem>--Seleccione un Medico--</asp:ListItem>
-                                <asp:ListItem>Medico 1</asp:ListItem>
-                                <asp:ListItem>Medico 2</asp:ListItem>
-                                <asp:ListItem>Medico 3</asp:ListItem>
+                            <asp:DropDownList ID="ddl_Informe3" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Informe3_SelectedIndexChanged1">
                             </asp:DropDownList></td>
                     </tr>
                 </table>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:TemplateField HeaderText="Medico"></asp:TemplateField>
-                        <asp:TemplateField HeaderText="Turnos"></asp:TemplateField>
-                        <asp:TemplateField HeaderText="Ausentes"></asp:TemplateField>
-                        <asp:TemplateField HeaderText="Presentes"></asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
+                <asp:GridView ID="gv_Informe3" runat="server" AutoGenerateColumns="False">
+    <Columns>
+        <asp:TemplateField HeaderText="Medico">
+            <ItemTemplate>
+                <asp:Label ID="lbl_it_Medico" runat="server" Text='<%# Eval("MEDICO") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Turnos">
+            <ItemTemplate>
+                <asp:Label ID="lbl_it_Turnos" runat="server" Text='<%# Eval("TOTAL_TURNOS") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Ausentes">
+            <ItemTemplate>
+                <asp:Label ID="lbl_it_Ausentes" runat="server" Text='<%# Eval("AUSENTES") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Presentes">
+            <ItemTemplate>
+                <asp:Label ID="lbl_it_Presentes" runat="server" Text='<%# Eval("PRESENTES") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
             </div>
         </div>
         <div id="contenedor4" align="center">

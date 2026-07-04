@@ -13,6 +13,17 @@ namespace Datos
         {
             /// Constructor vacio
         }
+        public DataTable ConsultaInforme3PorMedico(string idMedico)
+        {
+            DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT (Medicos.Nombre_Med + ' ' + Medicos.Apellido_Med) AS ESPECIALIDAD, COUNT(Id_Medico_Tur) AS TOTAL_TURNOS, COUNT(CASE WHEN Id_EstadoPaciente_Tur = 1 THEN 1 END) AS PRESENTES, COUNT(CASE WHEN Id_EstadoPaciente_Tur = 2 THEN 1 END) AS AUSENTES FROM Turnos INNER JOIN Medicos ON Id_Medico_Med = Id_Medico_Tur INNER JOIN EstadoPaciente ON Id_EstadoPaciente_Tur = Id_EstadoPaciente_EsPa WHERE Activo_Tur = 1 AND Id_Medico_Tur = " + idMedico + " GROUP BY Nombre_Med, Apellido_Med");
+            return tabla;
+        }
+        public DataTable getMedicosInforme3()
+        {
+            DataTable tabla = datos.ObtenerTabla("Medicos", "SELECT (Nombre_Med + Apellido_Med) AS NombreAPellido, Id_Medico_Med FROM Medicos WHERE Activo_Med = 1");
+            return tabla;
+        }
+
 
         public int? getCantidadMedicos()
         {

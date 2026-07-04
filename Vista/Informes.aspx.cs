@@ -26,6 +26,7 @@ namespace Vista
                     CargarEspecialidades();
                     CargarGridViewPacientes();
                     CargarDropDownListProvincias();
+                    CargarDropDownListMedicos();
                     CargarGridViewEdad();
                     CargarDropDownListAños();
                     CargarDropDownListMeses();
@@ -138,6 +139,42 @@ namespace Vista
             gv_TurnosXEspecialidad.DataBind();
         }
 
+        /// INFORME 3
+
+        public void CargarGridViewInforme3()
+        {
+            string medico = ddl_Informe3.SelectedValue;
+            string mes = !string.IsNullOrEmpty(txt_MesInfo3.Text)? txt_MesInfo3.Text.Split('-')[1].TrimStart('0') : "";
+
+            if (medico == "0" && string.IsNullOrEmpty(mes))
+            {
+                gv_Informe3.DataSource = null;
+                gv_Informe3.DataBind();
+                return;
+            }
+
+            gv_Informe3.DataSource = negocioTurnos.ConsultaInforme3(medico, mes);
+            gv_Informe3.DataBind();
+        }
+
+        public void CargarDropDownListMedicos()
+        {
+            ddl_Informe3.DataSource = negocioMedicos.getTablaMedicosInforme3();
+            ddl_Informe3.DataTextField = "NombreAPellido";
+            ddl_Informe3.DataValueField = "Id_Medico_Med";
+            ddl_Informe3.DataBind();
+            ddl_Informe3.Items.Insert(0, new ListItem("-- Seleccione una opcion --", "0"));
+        }
+        protected void txt_MesInfo3_TextChanged(object sender, EventArgs e)
+        {
+            CargarGridViewInforme3();
+        }
+        protected void ddl_Informe3_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            CargarGridViewInforme3();
+        }
+
+
         /// Informe 5
 
         public void CargarGridViewPacientes()
@@ -187,39 +224,20 @@ namespace Vista
             int min = 0;
             int max = 0;
 
-            if(ddl_RangosEdad.SelectedValue == "1")
-            {
-                min = 0;
-                max = 18;
-            }
+            string Seleccion = ddl_RangosEdad.SelectedValue;
 
-            else if (ddl_RangosEdad.SelectedValue == "2")
+            switch (Seleccion)
             {
-                min = 18;
-                max = 30;
-            }
-
-           else if (ddl_RangosEdad.SelectedValue == "3")
-            {
-                min = 30;
-                max = 60;
-            }
-
-            else if(ddl_RangosEdad.SelectedValue == "4")
-            {
-                min = 60;
-                max = 99;
-            }
-
-            else if(ddl_RangosEdad.SelectedValue == "0")
-            {
-                gvEdad.DataSource = negocioPacientes.getPacientes();
-                gvEdad.DataBind();
-                return;
+                case "1": min = 0; max = 18; break;
+                case "2": min = 18; max = 30; break;
+                case "3": min = 30; max = 60; break;
+                case "4": min = 60; max = 99; break;
+                case "0": gvEdad.DataSource = negocioPacientes.getPacientes(); gvEdad.DataBind(); return;
             }
 
             gvEdad.DataSource = negocioPacientes.getPacientesEdad(min, max);
             gvEdad.DataBind();
+
         }
 
     }

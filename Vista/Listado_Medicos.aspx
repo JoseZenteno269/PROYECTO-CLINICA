@@ -7,6 +7,14 @@
 <link href="Css/Listado_Medicos.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 50px;
+        }
+        .auto-style2 {
+            height: 42px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -66,7 +74,7 @@
 
         <!-- FILTRO ESPECIALIDAD -->
         <tr>
-            <td style="padding-right:60px;">
+            <td style="padding-right:60px;" class="auto-style2">
                 Filtrar por Especialidad
                 <asp:DropDownList ID="ddl_EspecialidadFiltro" runat="server"
                     AutoPostBack="True"
@@ -74,15 +82,15 @@
                 </asp:DropDownList>
             </td>
 
-            <td>
+            <td class="auto-style2">
                 Filtrar por Sexo
                 <asp:DropDownList ID="ddl_SexoFiltrado" runat="server"
                     AutoPostBack="True"
                     OnSelectedIndexChanged="ddl_SexoFiltrado_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
-            <td>Filtrar por Provincia</td> <td>
-            <asp:DropDownList ID="ddl_Provincias" runat="server" AutoPostBack="True">
+            <td class="auto-style2">Filtrar por Provincia</td> <td class="auto-style2">
+            <asp:DropDownList ID="ddl_Provincias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Provincias_SelectedIndexChanged">
             </asp:DropDownList>
             </td>
         </tr>
@@ -94,7 +102,7 @@
         <br />
         <br />
         <div class="contenedor-lista" >
-            <asp:ListView ID="lv_Medicos" runat="server" DataSourceID="SqlDataSourceMedicos">
+            <asp:ListView ID="lv_Medicos" runat="server" DataSourceID="SqlDataSourceMedicos" OnPagePropertiesChanging="lv_Medicos_PagePropertiesChanging">
                 <%--<AlternatingItemTemplate>
                     <tr style="">
                         <td>
@@ -257,7 +265,7 @@
                             <asp:Label ID="NacionalidadLabel" runat="server" Text='<%# Eval("Nacionalidad") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]", "{0:d}") %>' />
+                            <asp:Label ID="Fecha_de_NacimientoLabel" runat="server" Text='<%# Eval("[Fecha de Nacimiento]") %>' />
                         </td>
                         <td>
                             <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />
@@ -379,3 +387,4 @@ WHERE Activo_Med = 1"></asp:SqlDataSource>
     </form>
 </body>
 </html>
+

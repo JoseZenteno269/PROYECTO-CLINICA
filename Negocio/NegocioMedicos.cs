@@ -17,6 +17,15 @@ namespace Negocio
         {
             // Constructor Vacío
         }
+        public DataTable ConsultaInforme3PorMedico(string idMedico)
+        {
+            return daoMedicos.ConsultaInforme3PorMedico(idMedico);
+        }
+
+        public DataTable getTablaMedicosInforme3()
+        {
+            return daoMedicos.getMedicosInforme3();
+        }
 
         public int? getCantidadMedicos()
         {
