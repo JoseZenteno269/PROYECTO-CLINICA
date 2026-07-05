@@ -75,7 +75,7 @@
     </table>
 </div>
         <div class="tabla-datos" align="center">
-            <asp:ListView ID="lv_pacientes" runat="server" DataSourceID="SqlDataSourcePacientes">
+            <asp:ListView ID="lv_pacientes" runat="server" DataSourceID="SqlDataSourcePacientes" OnPagePropertiesChanging="lv_pacientes_PagePropertiesChanging">
                <%-- <AlternatingItemTemplate>
                     <tr style="">
                         <td>

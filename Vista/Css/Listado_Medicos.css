@@ -17,7 +17,7 @@ form {
     justify-content: center;
     align-items: center;
     height: auto;
-    margin: 20px 0;
+    margin: 20px 0;   
 }
 
 #contediv {
@@ -134,22 +134,16 @@ select {
     border-radius: 10px;
     position: fixed;
     bottom: 10px;
-    height: clamp(70px, 12vh, 150px);
-    /*    left: ;*/
+/*    left: ;*/
     width: 99%;
     height: 150px;
+    /*FIXED*/
+    position: fixed;
+    height: clamp(70px, 12vh, 150px);
+    padding-bottom: clamp(80px, 13vh, 160px);
     background-color: #686868;
-    display: flex;
     justify-content: center;
     align-items: center;
-}
-
-@media (max-height: 800px) {
-    .divlogos {
-        position: static; /* deja de flotar, ocupa su lugar real en la pagina */
-        margin-top: 20px;
-        width: 100%;
-    }
 }
 
 .logo {

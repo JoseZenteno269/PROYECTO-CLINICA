@@ -178,7 +178,7 @@ input[type=search] {
 
 .divlogos {
     border-radius: 10px;
-    position: fixed;
+    position: relative;
     bottom: 10px;
     /*    left: ;*/
     width: 99%;
