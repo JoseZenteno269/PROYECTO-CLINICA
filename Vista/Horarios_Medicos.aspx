@@ -7,6 +7,11 @@
     <link href="Css/Horarios_Medicos.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 43px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -48,22 +53,24 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:CheckBox ID="cb_lunes" runat="server" Text="Lunes" AutoPostBack="True" OnCheckedChanged="cb_lunes_CheckedChanged" /></td>
-                    <td>Hora Inicio:</td>
-                    <td>
+                    <td class="auto-style1">Hora Inicio:</td>
+                    <td class="auto-style1">
                         <asp:TextBox ID="horainiciol" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
-                    <td>
+                    <td class="auto-style1">
 
                         <asp:RequiredFieldValidator ID="rfv_horainiciol" runat="server" ControlToValidate="horainiciol" ErrorMessage="Campo obligatorio" ValidationGroup="1" Enabled="False">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_HorainicioL" runat="server" ControlToValidate="horainiciol" Enabled="False" ErrorMessage="Ingrese un horario inicio exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </td>
-                    <td>Hora Fin:</td>
-                    <td>
+                    <td class="auto-style1">Hora Fin:</td>
+                    <td class="auto-style1">
                         <asp:TextBox ID="horafinl" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
-                    <td>
+                    <td class="auto-style1">
                         <asp:RequiredFieldValidator ID="rfv_horafinl" runat="server" ControlToValidate="horafinl" ErrorMessage="Campo obligatorio" ValidationGroup="1" Enabled="False">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_HorafinL" runat="server" ControlToValidate="horafinl" Enabled="False" ErrorMessage="ingrese un horario fin exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -75,6 +82,7 @@
                     </td>
                               <td>
                         <asp:RequiredFieldValidator ID="rfv_horainiciom" runat="server" ErrorMessage="Campo Obligatorio" ControlToValidate="horainiciom" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                                  <asp:RegularExpressionValidator ID="rev_HorainicioM" runat="server" ControlToValidate="horainiciom" Enabled="False" ErrorMessage="Ingrese un horario inicio exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </td>
                     <td>Hora Fin:</td>
                     <td>
@@ -82,6 +90,7 @@
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_horafinm" runat="server" ErrorMessage="Campo Obligatorio" ControlToValidate="horafinm" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_HorafinM" runat="server" ControlToValidate="horafinm" Enabled="False" ErrorMessage="ingrese un horario fin exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -93,6 +102,7 @@
                     </td>
                               <td>
                         <asp:RequiredFieldValidator ID="rfv_horainiciomi" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainiciomi" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                                  <asp:RegularExpressionValidator ID="rev_HorainicioMi" runat="server" ControlToValidate="horainiciomi" Enabled="False" ErrorMessage="Ingrese un horario inicio exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </td>
                     <td>Hora Fin:</td>
                     <td>
@@ -100,6 +110,7 @@
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_horafinmi" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafinmi" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_HorafinMi" runat="server" ControlToValidate="horafinmi" Enabled="False" ErrorMessage=" ingrese un horario fin exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -111,6 +122,7 @@
                     </td>
                               <td>
                         <asp:RequiredFieldValidator ID="rfv_horainicioj" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainicioj" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                                  <asp:RegularExpressionValidator ID="rev_HorainicioJ" runat="server" ControlToValidate="horainicioj" Enabled="False" ErrorMessage="Ingrese un horario inicio exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </td>
                     <td>Hora Fin:</td>
                     <td>
@@ -118,6 +130,7 @@
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_horafinj" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafinj" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_HorafinJ" runat="server" ControlToValidate="horafinj" Enabled="False" ErrorMessage="ingrese un horario fin exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -129,6 +142,7 @@
                     </td>
                               <td>
                         <asp:RequiredFieldValidator ID="rfv_horainiciov" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainiciov" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                                  <asp:RegularExpressionValidator ID="rev_HorainicioV" runat="server" ControlToValidate="horainiciov" Enabled="False" ErrorMessage="Ingrese un horario inicio exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </td>
                     <td>Hora Fin:</td>
                     <td>
@@ -136,6 +150,7 @@
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_horafinv" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafinv" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_HorafinV" runat="server" ControlToValidate="horafinv" Enabled="False" ErrorMessage="ingrese un horario fin exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -148,6 +163,7 @@
                     </td>
                               <td>
                         <asp:RequiredFieldValidator ID="rfv_horainicios" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainicios" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                                  <asp:RegularExpressionValidator ID="rev_HorainicioS" runat="server" ControlToValidate="horainicios" Enabled="False" ErrorMessage="Ingrese un horario inicio exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </td>
                     <td>Hora Fin:</td>
                     <td>
@@ -155,6 +171,7 @@
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_horafins" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafins" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_HorafinS" runat="server" ControlToValidate="horafins" Enabled="False" ErrorMessage="ingrese un horario fin exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -167,6 +184,7 @@
                     </td>
                               <td>
                         <asp:RequiredFieldValidator ID="rfv_horainiciod" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horainiciod" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                                  <asp:RegularExpressionValidator ID="rev_HorainicioD" runat="server" ControlToValidate="horainiciod" EnableClientScript="False" ErrorMessage="ingresar un horario de inicio exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                         </td>
                     <td>Hora Fin:</td>
                     <td>
@@ -174,6 +192,7 @@
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_horafind" runat="server" ErrorMessage="Campo obligatorio" ControlToValidate="horafind" Enabled="False" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_HorafinD" runat="server" ControlToValidate="horafind" Enabled="False" ErrorMessage="ingrese un horario fin exacto" ValidationExpression="^.+:00$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>

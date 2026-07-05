@@ -33,7 +33,9 @@ namespace Vista
             horainiciol.Enabled = !horainiciol.Enabled;
             horafinl.Enabled = !horafinl.Enabled;
             rfv_horainiciol.Enabled = !rfv_horainiciol.Enabled; 
-            rfv_horafinl.Enabled = !rfv_horafinl.Enabled; 
+            rfv_horafinl.Enabled = !rfv_horafinl.Enabled;
+            rev_HorainicioL.Enabled = !rev_HorainicioL.Enabled;
+            rev_HorafinL.Enabled = !rev_HorafinL.Enabled;
         }
 
         protected void cb_martes_CheckedChanged(object sender, EventArgs e)
@@ -41,7 +43,9 @@ namespace Vista
             horainiciom.Enabled = !horainiciom.Enabled;
             horafinm.Enabled = !horafinm.Enabled;
             rfv_horainiciom.Enabled = !rfv_horainiciom.Enabled; 
-            rfv_horafinm.Enabled = ! rfv_horafinm.Enabled;
+            rfv_horafinm.Enabled = !rfv_horafinm.Enabled;
+            rev_HorainicioM.Enabled = !rev_HorainicioM.Enabled;
+            rev_HorafinM.Enabled = !rev_HorafinM.Enabled;
         }
 
         protected void cb_miercoles_CheckedChanged(object sender, EventArgs e)
@@ -49,7 +53,9 @@ namespace Vista
             horainiciomi.Enabled = !horainiciomi.Enabled;
             horafinmi.Enabled = !horafinmi.Enabled;
             rfv_horainiciomi.Enabled = !rfv_horainiciomi.Enabled; 
-            rfv_horafinmi.Enabled = !rfv_horafinmi.Enabled; 
+            rfv_horafinmi.Enabled = !rfv_horafinmi.Enabled;
+            rev_HorainicioMi.Enabled = !rev_HorainicioMi.Enabled;
+            rev_HorafinMi.Enabled = !rev_HorafinMi.Enabled;
         }
 
         protected void cb_jueves_CheckedChanged(object sender, EventArgs e)
@@ -58,6 +64,8 @@ namespace Vista
             horafinj.Enabled = !horafinj.Enabled;
             rfv_horainicioj.Enabled = !rfv_horainicioj.Enabled; 
             rfv_horafinj.Enabled = !rfv_horafinj.Enabled; 
+            rev_HorainicioJ.Enabled = !rev_HorainicioJ.Enabled;
+            rev_HorafinJ.Enabled = !rev_HorafinJ.Enabled;
         }
 
         protected void cb_viernes_CheckedChanged(object sender, EventArgs e)
@@ -66,6 +74,8 @@ namespace Vista
             horafinv.Enabled = !horafinv.Enabled;
             rfv_horainiciov.Enabled = !rfv_horainiciov.Enabled; 
             rfv_horafinv.Enabled = !rfv_horafinv.Enabled;
+            rev_HorainicioV.Enabled = !rev_HorainicioV.Enabled;
+            rev_HorafinV.Enabled = !rev_HorafinV.Enabled;
         }
         protected void cb_sabado_CheckedChanged(object sender, EventArgs e)
         {
@@ -73,13 +83,18 @@ namespace Vista
             horafins.Enabled = !horafins.Enabled;
             rfv_horainicios.Enabled = !rfv_horainicios.Enabled;
             rfv_horafins.Enabled = !rfv_horafins.Enabled;
+            rev_HorainicioS.Enabled = !rev_HorainicioS.Enabled;
+            rev_HorafinS.Enabled = !rev_HorafinS.Enabled;
         }
         protected void cb_domingo_CheckedChanged(object sender, EventArgs e)
         {
             horainiciod.Enabled = !horainiciod.Enabled;
             horafind.Enabled = !horafind.Enabled;
             rfv_horainiciod.Enabled = !rfv_horainiciod.Enabled; 
-            rfv_horafind.Enabled = !rfv_horafind.Enabled; 
+            rfv_horafind.Enabled = !rfv_horafind.Enabled;
+            rev_HorainicioD.Enabled = !rev_HorainicioD.Enabled;
+            rev_HorafinD.Enabled = !rev_HorafinD.Enabled;
+
         }
 
         protected void btn_aceptar_Click(object sender, EventArgs e)
@@ -93,7 +108,7 @@ namespace Vista
             int? idmedico = negocioMedicos.getIdMedico(txt_legajo.Text.Trim());
             if (idmedico == null)
             {
-                lbl_mensaje.Text = "Medico inexistente o dado de baja";
+                lbl_mensaje.Text = "Medico inexistente o inhabilitado";
                 return;
             }
 
