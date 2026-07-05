@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cancelar_Turno.aspx.cs" Inherits="Vista.Cancelar_Turno" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cancelar_Turno.aspx.cs" Inherits="Vista.Cancelar_Turno" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
 

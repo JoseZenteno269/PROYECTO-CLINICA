@@ -1,6 +1,8 @@
 ﻿body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(180deg,#F8FCFF,#EDF6FB);
+    /*-ms-zoom: 80%;
+    zoom: 80%;*/
 }
 
 form {

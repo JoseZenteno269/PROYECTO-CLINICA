@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Listado_Medicos.aspx.cs" Inherits="Vista.Listado_Medicos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Listado_Medicos.aspx.cs" Inherits="Vista.Listado_Medicos" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
 
