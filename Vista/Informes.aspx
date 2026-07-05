@@ -24,17 +24,14 @@
                         <asp:Label runat="server" ID="lbl_usuario" Text="usuario"></asp:Label>
                             </asp:LinkButton>
                             <asp:Panel ID="p_panel" CssClass="dropdown-panel" runat="server" Visible="False">
-
-                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server" OnClick="lb_perfil_Click">Mi Perfil</asp:LinkButton>
+                                <asp:LinkButton ID="lb_menu" CssClass="opcion-menu" runat="server" OnClick="lb_menu_Click">Menu</asp:LinkButton>
                                 <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
                         </div>
                     </td>
                 </tr>
             </table>
-        </div>
-        <div id="contediv">
-            <asp:Button ID="btn_menu" runat="server" Text="Menu" CssClass="button" OnClick="btn_menu_Click" />
         </div>
         <div id="contenedor1">
             <div style="width: 50%" align="center">
@@ -49,15 +46,17 @@
                         <td>
                             <p>Periodo Inicio</p>
                             <asp:TextBox ID="txt_fecha_inicio" runat="server" TextMode="Date"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_inicio" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_fecha_inicio" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         </td>
                         <td>
                             <p>Periodo Fin</p>
                             <asp:TextBox ID="txt_fecha_fin" runat="server" TextMode="Date"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_fin" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_fecha_fin" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" />
+                            <asp:Button ID="btn_aceptar" runat="server" Text="Aceptar" OnClick="btn_aceptar_Click" ValidationGroup="1" />
                         </td>
                     </tr>
                     <tr>
@@ -84,20 +83,23 @@
                         <td>
                             <p>Periodo Inicio</p>
                             <asp:TextBox ID="txt_fecha_inicio1" runat="server" TextMode="Date"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_inicio1" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_fecha_inicio1" ValidationGroup="2">*</asp:RequiredFieldValidator>
                         </td>
                         <td>
                             <p>Periodo Fin</p>
                             <asp:TextBox ID="txt_fecha_fin1" runat="server" TextMode="Date"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_fin1" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_fecha_fin1" ValidationGroup="2">*</asp:RequiredFieldValidator>
                         </td>
                         <td>
                             <p>Seleccione Especialidad</p>
                             <asp:DropDownList ID="ddl_especialidades" runat="server">
                             </asp:DropDownList>
+
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <asp:Button ID="btn_aceptar1" runat="server" Text="Aceptar" OnClick="btn_aceptar1_Click" />
+                            <asp:Button ID="btn_aceptar1" runat="server" Text="Aceptar" OnClick="btn_aceptar1_Click" ValidationGroup="2" />
                         </td>
                     </tr>
                     <tr>
@@ -145,8 +147,7 @@
                             </asp:DropDownList></td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-
+                        <td colspan="2" align="center">
                             <asp:GridView ID="gv_Informe3" runat="server" AutoGenerateColumns="False">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Medico">
@@ -187,20 +188,24 @@
                     <tr>
                         <td colspan="2" align="center">
                             <p>Mes</p>
-                            <asp:DropDownList ID="ddl_mes_4" runat="server"></asp:DropDownList></td>
+                            <asp:DropDownList ID="ddl_mes_4" runat="server"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rfv_mes4" runat="server" ErrorMessage="Selecciones un mes" ControlToValidate="ddl_mes_4" InitialValue="0" ValidationGroup="3">*</asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
                             <p>Año</p>
-                            <asp:DropDownList ID="ddl_anio_4" runat="server"></asp:DropDownList></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" align="center">
-                            <asp:Button ID="btn_aceptar2" runat="server" Text="Aceptar" OnClick="btn_aceptar2_Click" />
+                            <asp:DropDownList ID="ddl_anio_4" runat="server"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rfv_anio4" runat="server" ErrorMessage="Selecciones un año" ControlToValidate="ddl_anio_4" InitialValue="0" ValidationGroup="3">*</asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width: 80px">Lunes</td>
+                        <td colspan="2" align="center">
+                            <asp:Button ID="btn_aceptar2" runat="server" Text="Aceptar" OnClick="btn_aceptar2_Click" ValidationGroup="3" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lunes</td>
                         <td colspan="2" style="padding: 20px" align="initial">
                             <asp:Button ID="barra1" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" />
                         </td>
@@ -321,6 +326,9 @@
                 </table>
             </div>
         </div>
+        <asp:ValidationSummary ID="vs_errores1" runat="server" ValidationGroup="1" ShowMessageBox="True" ShowSummary="False"/>
+        <asp:ValidationSummary ID="vs_errores2" runat="server" ValidationGroup="2" ShowMessageBox="True" ShowSummary="False"/>
+        <asp:ValidationSummary ID="vs_errores3" runat="server" ValidationGroup="3" ShowMessageBox="True" ShowSummary="False"/>
         <br />
         <br />
         <br />

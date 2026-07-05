@@ -45,13 +45,13 @@
                         <asp:TextBox ID="txt_legajo_m" runat="server" placeholder="MED-0000-0" MaxLength="50"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Ingrese un Legajo" ValidationGroup="1">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="rev_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Debe empezar con Med" ValidationExpression="^MED-\d{4}-\d+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="rev_Legajo" runat="server" ControlToValidate="txt_legajo_m" ErrorMessage="Debe empezar con MED" ValidationExpression="^MED-\d{4}-\d+$" ValidationGroup="1">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>Ingrese DNI:</td>
                     <td>
-                        <asp:TextBox ID="txt_dni_m" runat="server" placeholder="12345678" MaxLength="10"></asp:TextBox></td>
+                        <asp:TextBox ID="txt_dni_m" runat="server" placeholder="12345678" MaxLength="8"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_DNI" runat="server" ControlToValidate="txt_dni_m" ErrorMessage="Ingrese un DNI" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_DNI" runat="server" ControlToValidate="txt_dni_m" ErrorMessage="Ingrese solo Numeros" ValidationExpression="^[0-9]+$" ValidationGroup="1">*</asp:RegularExpressionValidator>

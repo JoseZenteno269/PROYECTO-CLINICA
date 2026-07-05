@@ -60,6 +60,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.LinkButton lb_perfil;
 
         /// <summary>
+        /// Control lb_menu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lb_menu;
+
+        /// <summary>
         /// Control lb_cerrar_sesion.
         /// </summary>
         /// <remarks>
@@ -67,15 +76,6 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lb_cerrar_sesion;
-
-        /// <summary>
-        /// Control btn_menu.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_menu;
 
         /// <summary>
         /// Control txt_fecha_inicio.
@@ -87,6 +87,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_fecha_inicio;
 
         /// <summary>
+        /// Control rfv_inicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_inicio;
+
+        /// <summary>
         /// Control txt_fecha_fin.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_fecha_fin;
+
+        /// <summary>
+        /// Control rfv_fin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_fin;
 
         /// <summary>
         /// Control btn_aceptar.
@@ -132,6 +150,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_fecha_inicio1;
 
         /// <summary>
+        /// Control rfv_inicio1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_inicio1;
+
+        /// <summary>
         /// Control txt_fecha_fin1.
         /// </summary>
         /// <remarks>
@@ -139,6 +166,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_fecha_fin1;
+
+        /// <summary>
+        /// Control rfv_fin1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_fin1;
 
         /// <summary>
         /// Control ddl_especialidades.
@@ -213,6 +249,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList ddl_mes_4;
 
         /// <summary>
+        /// Control rfv_mes4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_mes4;
+
+        /// <summary>
         /// Control ddl_anio_4.
         /// </summary>
         /// <remarks>
@@ -220,6 +265,15 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_anio_4;
+
+        /// <summary>
+        /// Control rfv_anio4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_anio4;
 
         /// <summary>
         /// Control btn_aceptar2.
@@ -337,5 +391,32 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvEdad;
+
+        /// <summary>
+        /// Control vs_errores1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vs_errores1;
+
+        /// <summary>
+        /// Control vs_errores2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vs_errores2;
+
+        /// <summary>
+        /// Control vs_errores3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vs_errores3;
     }
 }

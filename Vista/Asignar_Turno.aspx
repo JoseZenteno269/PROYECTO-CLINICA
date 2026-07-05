@@ -34,8 +34,6 @@
             </table>
         </div>
         <br />
-        <br />
-        <br />
         <div id="divrow">
             <div class="divfila"  style="width: 50%" align="center">
                 <table class="tableturnos">
@@ -43,13 +41,15 @@
                         <td>
                             <p>Especilidad</p>
                             <asp:DropDownList ID="ddl_especialidad" class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_especialidad_SelectedIndexChanged"></asp:DropDownList></td>
-                        <td></td>
+                        <td>
+                            <asp:RequiredFieldValidator ID="rfv_especialidad" runat="server" ErrorMessage="Seleccione una especialidad" ControlToValidate="ddl_especialidad" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator></td>
                     </tr>
                     <tr>
                         <td>
                             <p>Medico</p>
                             <asp:DropDownList ID="ddl_medicos" class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_medicos_SelectedIndexChanged"></asp:DropDownList></td>
-                        <td></td>
+                        <td>
+                            <asp:RequiredFieldValidator ID="rfv_medicos" runat="server" ErrorMessage="Seleccione un medico" ControlToValidate="ddl_medicos" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator></td>
                     </tr>
                     <tr>
                         <td align="center">
@@ -63,7 +63,8 @@
                             <p>Horario</p>
                             <asp:DropDownList ID="ddl_horas" CssClass="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_horas_SelectedIndexChanged"></asp:DropDownList>
                         </td>
-                        <td></td>
+                        <td>
+                            <asp:RequiredFieldValidator ID="rfv_horas" runat="server" ErrorMessage="Seleccione una hora" ControlToValidate="ddl_horas" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator></td>
                     </tr>
                 </table>
             </div>
@@ -105,22 +106,25 @@
                 </asp:GridView>
             </div>
         </div>
-        <div>
+        <div align="center">
             <table>
                 <tr>
                     <td colspan="2" align="center">
                         <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
                     </td>
                 </tr>
+            </table>
+            <table>
                 <tr>
                     <td align="center">
-                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar" OnClick="btn_confirmar_Click" CssClass="btn_volver" />
+                        <asp:Button ID="btn_confirmar" runat="server" Text="Confirmar" OnClick="btn_confirmar_Click" CssClass="btn_volver" ValidationGroup="1" />
                     </td>
                     <td align="center">
                         <asp:Button ID="btn_cancelar" runat="server" Text="Cancelar" OnClick="btn_cancelar_Click" CssClass="btn_volver" />
                     </td>
                 </tr>
             </table>
+            <asp:ValidationSummary ID="vs_errores" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
         </div>
         <br />
         <br />

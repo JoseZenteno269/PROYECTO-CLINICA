@@ -36,9 +36,23 @@
         <br />
         <div id="contenedor">
             <div class="busqueda">
-                <asp:TextBox ID="txt_id" runat="server" CssClass="textbox" placeholder="ID Turno" TextMode="Search"></asp:TextBox>
-                <asp:Button ID="btn_buscar" runat="server" Text="Buscar" CssClass="btn-buscar" OnClick="btn_buscar_Click" /><br />
-                <asp:Label ID="lbl_Mensaje" runat="server"> </asp:Label>
+                <table>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="txt_id" runat="server" CssClass="textbox" placeholder="ID Turno" TextMode="Search"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_id" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_id" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev_id" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_id" ValidationExpression="^[0-9,$]*$" ValidationGroup="1">*</asp:RegularExpressionValidator>
+                        </td>
+                        <td>
+                            <asp:Button ID="btn_buscar" runat="server" Text="Buscar" CssClass="btn-buscar" OnClick="btn_buscar_Click" ValidationGroup="1" /><br /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p><asp:Label ID="lbl_Mensaje" runat="server"> </asp:Label></p>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <br />
@@ -78,6 +92,7 @@
                 </Columns>
             </asp:GridView>
         </div>
+        <asp:ValidationSummary ID="vs_errores" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
         <br />
         <div class="divlogos">
             <table style="width: 100%">

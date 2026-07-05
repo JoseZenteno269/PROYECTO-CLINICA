@@ -38,7 +38,7 @@
                 <tr><td colspan="3">Pacientes</td></tr>
                 <tr>
                     <td>Ingrese DNI:</td>
-                    <td><asp:TextBox ID="txt_dni_p" runat="server" placeholder="12345678" MaxLength="10"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txt_dni_p" runat="server" placeholder="12345678" MaxLength="8"></asp:TextBox></td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfv_DNI" runat="server" ControlToValidate="txt_dni_p" ErrorMessage="Ingrese un DNI" ValidationGroup="2">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="rev_DNI" runat="server" ControlToValidate="txt_dni_p" ErrorMessage="El DNI solo permite numeros" ValidationExpression="^[0-9]+$" ValidationGroup="2">*</asp:RegularExpressionValidator>

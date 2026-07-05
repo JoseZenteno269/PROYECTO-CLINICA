@@ -48,7 +48,7 @@ namespace Vista
             }
             else
             {
-                lbl_Mensaje.Text = "Ocurrio un error, no se pudo cancelar el turno... ";
+                lbl_Mensaje.Text = "Error al cancelar el turno";
             }
         }
 

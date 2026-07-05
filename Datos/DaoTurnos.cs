@@ -107,7 +107,7 @@ namespace Datos
 
         public DataTable getTablaCancelarTurno()
         {
-            DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, (Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Nombre_Espe, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur, Descripcion_EsTur FROM Turnos INNER JOIN Medicos ON Turnos.Id_Medico_Tur = Medicos.Id_Medico_Med INNER JOIN Especialidad ON Turnos.Id_Especialidad_Tur = Especialidad.Id_Especialidad_Espe INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Activo_Tur = 1");
+            DataTable tabla = datos.ObtenerTabla("Turnos", "SELECT Id_Turno_Tur, (Nombre_Med + ' ' + Apellido_Med) AS [Nombre y Apellido], Nombre_Espe, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur, Descripcion_EsTur FROM Turnos INNER JOIN Medicos ON Turnos.Id_Medico_Tur = Medicos.Id_Medico_Med INNER JOIN Especialidad ON Turnos.Id_Especialidad_Tur = Especialidad.Id_Especialidad_Espe INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Activo_Tur = 1 AND Id_EstadoTurno_Tur = 1");
             return tabla;
         }
 
@@ -134,9 +134,10 @@ namespace Datos
 
         public Boolean ExisteTurno(Turnos turno)
         {
-            String consulta = "SELECT * FROM Turnos WHERE Id_Turno_Tur = @IDTURNO";
+            String consulta = "SELECT * FROM Turnos WHERE Horario_Tur = @HORA AND Id_Medico_Tur = @IDMEDICO";
             SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@IDTURNO", turno.getIdTurno());
+            comando.Parameters.AddWithValue("@HORA", turno.getHorarioTurno());
+            comando.Parameters.AddWithValue("@IDMEDICO", turno.getIdMedicoTurno());
             return datos.Existe(comando, consulta);
         }
         public void ArmarParametrosTurnosAgregar(ref SqlCommand comando, Turnos turnos)

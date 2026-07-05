@@ -27,6 +27,7 @@ namespace Vista
                     CargarDropDawnListEspecialidades();
                     CargarDropDawnListMedicos();
                     CargarGridviewPacientes();
+                    ddl_horas.Items.Insert(0, new ListItem("--Seleccione un Horario", "0"));
                 }
                 else
                 {
@@ -77,7 +78,6 @@ namespace Vista
             ddl_horas.DataValueField = "Id_COD_DispMed";
             ddl_horas.DataBind();
             ddl_horas.Items.Insert(0, new ListItem("--Seleccione un Horario", "0"));
-
         }
 
         protected void ddl_especialidad_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,6 +113,7 @@ namespace Vista
             ddl_medicos.SelectedIndex = 0;
             ddl_horas.SelectedIndex = 0;
             c_calendario.SelectedDate = DateTime.Now;
+            lbl_mensaje.Text = string.Empty;
 
         }
 
@@ -158,11 +159,21 @@ namespace Vista
 
         protected void btn_confirmar_Click(object sender, EventArgs e)
         {
-            DateTime fecha = c_calendario.SelectedDate; 
+            DateTime fecha = c_calendario.SelectedDate;
+
+            if (Session["IdPaciente"] == null)
+            {
+                lbl_mensaje.Text = "Seleccione un paciente para asignar el turno";
+                return;
+            }
 
             if (NegocioTurnos.AgregarTurno(Convert.ToInt32(ddl_especialidad.SelectedValue), Convert.ToInt32(ddl_medicos.SelectedValue), fecha, TimeSpan.Parse(ddl_horas.SelectedItem.Text), Convert.ToInt32(Session["IdPaciente"]), 1))
             {
-                lbl_mensaje.Text = "El turno con los Siguientes datos: Medico: " + ddl_medicos.Text + " -- Especialidad: " + ddl_especialidad.Text + " -- Fecha: " + fecha.ToString("dd-MM-yyyy") + " han sido registrados ";
+                lbl_mensaje.Text = "El turno a sido registrado correctamente <br /> Medico: " + ddl_medicos.SelectedItem.Text + " -- Especialidad: " + ddl_especialidad.SelectedItem.Text + " -- Fecha: " + fecha.ToString("dd-MM-yyyy") + " -- Hora: " + ddl_horas.SelectedItem.Text;
+            }
+            else
+            {
+                lbl_mensaje.Text = "Error al registrar el turno, por favor intente nuevamente";
             }
         }
 
@@ -170,10 +181,17 @@ namespace Vista
 
         public void CargarDiasDisponibles()
         {
-            string diasString = NegocioDisponibilidadMedico.getDiasXMedico(Convert.ToInt32(ddl_medicos.SelectedValue));
+            String diasString = NegocioDisponibilidadMedico.getDiasXMedico(Convert.ToInt32(ddl_medicos.SelectedValue));
+
+            if(diasString == string.Empty)
+            {
+                lbl_mensaje.Text = "El medico seleccionado no tiene dias disponibles";
+                return; 
+            }
+
             int[] dias = diasString.Split(',').Select(int.Parse).ToArray();
 
-            foreach(int i in dias)
+            foreach (int i in dias)
             {
                 diasdisponibles.Add(i);
             }

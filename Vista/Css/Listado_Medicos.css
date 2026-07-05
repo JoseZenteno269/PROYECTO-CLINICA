@@ -1,6 +1,7 @@
 ﻿body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(180deg,#F8FCFF,#EDF6FB);
+    padding-bottom: clamp(80px, 13vh, 160px);
 }
 
 form {
@@ -133,13 +134,22 @@ select {
     border-radius: 10px;
     position: fixed;
     bottom: 10px;
-/*    left: ;*/
+    height: clamp(70px, 12vh, 150px);
+    /*    left: ;*/
     width: 99%;
     height: 150px;
     background-color: #686868;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-height: 800px) {
+    .divlogos {
+        position: static; /* deja de flotar, ocupa su lugar real en la pagina */
+        margin-top: 20px;
+        width: 100%;
+    }
 }
 
 .logo {

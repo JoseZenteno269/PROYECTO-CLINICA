@@ -112,8 +112,8 @@ namespace Vista
             }
             else
             {
-                lbl_mensaje.Text = "Error al ingresar nuevo Medico";
                 LimpiarCampos();
+                lbl_mensaje.Text = "Error al ingresar nuevo Medico";
             }
         }
 

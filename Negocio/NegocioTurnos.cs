@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,7 +89,11 @@ namespace Negocio
             turnos.setIdEstadoTurno(idestadoturno);
             turnos.setHorarioTurno(Hora);
 
-            filasafectadas = daoTurnos.AgregarTurnos(turnos);
+            if(daoTurnos.ExisteTurno(turnos) == false)
+            {
+                filasafectadas = daoTurnos.AgregarTurnos(turnos);
+            }
+
             return filasafectadas == 1;
         }
 

@@ -95,6 +95,7 @@ namespace Vista
             int? idmedico = NegocioMedicos.getIdMedico(NegocioMedicos.getLegajoMedico(Session["UsuarioMed"].ToString()));
             SqlDataSourceMedico.SelectCommand = $"SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion,(Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) AND (Id_EstadoTurno_Tur = 1 OR Id_EstadoTurno_Tur = 2) AND Id_Medico_Tur = {idmedico}";
             DLMedico.DataBind();
+            MostrarMensajeSinTurnos(); 
         }
         
 
@@ -106,6 +107,7 @@ namespace Vista
             SqlDataSourceMedico.SelectParameters.Clear();
             SqlDataSourceMedico.SelectParameters.Add("DNI", dni + "%");
             DLMedico.DataBind();
+            MostrarMensajeSinTurnos(); 
             txtBuscar.Text = string.Empty;
         }
 
@@ -128,6 +130,7 @@ namespace Vista
             ddl_EstadoTurno.DataTextField = "Descripcion_EsTur";
             ddl_EstadoTurno.DataValueField = "Id_Estado_EsTur";
             ddl_EstadoTurno.DataBind();
+            MostrarMensajeSinTurnos(); 
             ddl_EstadoTurno.Items.Insert(0, new ListItem("-- Seleccione un Estado -- ", "0"));
         }
         public void FiltrarTurnos()
@@ -153,6 +156,7 @@ namespace Vista
 
             SqlDataSourceMedico.SelectCommand = consulta;
             DLMedico.DataBind();
+            MostrarMensajeSinTurnos(); 
         }
         protected void ddl_Letras_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -163,6 +167,18 @@ namespace Vista
         {
             FiltrarTurnos();
         }
-    }
 
+        private void MostrarMensajeSinTurnos()
+        {
+            pnlSinTurnos.Visible = DLMedico.Items.Count == 0;
+        }
+
+        //protected void Timer1_Tick(object sender, EventArgs e)
+        //{
+        //    SqlDataSourceMedico.SelectParameters.Clear();
+        //    int? idmedico = NegocioMedicos.getIdMedico(NegocioMedicos.getLegajoMedico(Session["UsuarioMed"].ToString()));
+        //    SqlDataSourceMedico.SelectCommand = $"SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion,(Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) AND (Id_EstadoTurno_Tur = 1 OR Id_EstadoTurno_Tur = 2) AND Id_Medico_Tur = {idmedico}";
+        //    DLMedico.DataBind();
+        //}
+    }
 }

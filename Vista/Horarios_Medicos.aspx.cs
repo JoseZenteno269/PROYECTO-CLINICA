@@ -97,6 +97,8 @@ namespace Vista
                 return;
             }
 
+            
+
             int[] dia = new int[7];
             dia[0] = (cb_lunes.Checked ? Math.Abs((int)(TimeSpan.Parse(horainiciol.Text.Trim()) - TimeSpan.Parse(horafinl.Text.Trim())).TotalHours) : 0);
             dia[1] = (cb_martes.Checked ? Math.Abs((int)(TimeSpan.Parse(horainiciom.Text.Trim()) - TimeSpan.Parse(horafinm.Text.Trim())).TotalHours) : 0);
@@ -123,7 +125,7 @@ namespace Vista
                     {
                         if (negocioDisponibilidad.AgregarHorarios(Convert.ToInt32(idmedico), (i + 1), TimeSpan.FromHours(horainicio[i] + j)))
                         {
-                            lbl_mensaje.Text = "Horarios agregador con exito"; 
+                            lbl_mensaje.Text = "Horarios agregados con exito"; 
                         }
                     }
                 }

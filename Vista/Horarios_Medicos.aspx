@@ -63,9 +63,7 @@
                         <asp:TextBox ID="horafinl" runat="server" TextMode="Time" Enabled="False"></asp:TextBox>
                     </td>
                     <td>
-
                         <asp:RequiredFieldValidator ID="rfv_horafinl" runat="server" ControlToValidate="horafinl" ErrorMessage="Campo obligatorio" ValidationGroup="1" Enabled="False">*</asp:RequiredFieldValidator>
-
                     </td>
                 </tr>
                 <tr>

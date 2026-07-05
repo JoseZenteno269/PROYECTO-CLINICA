@@ -74,9 +74,10 @@ namespace Datos
 
         public Boolean ExisteMedico(Medicos medicos)
         {
-            String consulta = "SELECT * FROM Medicos WHERE DNI_Med = @DNI";
+            String consulta = "SELECT * FROM Medicos WHERE DNI_Med = @DNI OR Legajo_Med = @LEGAJO";
             SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@DNI", medicos.getDNIMedico()); 
+            comando.Parameters.AddWithValue("@DNI", medicos.getDNIMedico());
+            comando.Parameters.AddWithValue("@LEGAJO", medicos.getLegajoMedico());
             return datos.Existe(comando, consulta);
         }
 

@@ -10,6 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+<%--        <asp:ScriptManager ID="ScriptManager1" runat="server" />--%>
         <div class="divmenu">
             <table class="tablamenu">
                 <tr>
@@ -38,116 +39,121 @@
         <div id="divcontenerdor">
             <table class="buscador">
                 <tr>
-                    <td>Buscar por DNI:</td>
                     <td>
-                        <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtBuscar" runat="server" placeholder="Buscar por DNI" MaxLength="8"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ErrorMessage="Ingrese un DNI" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev_Buscar" runat="server" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RegularExpressionValidator>
                     </td>
                     <td>
                         <asp:Button ID="btnBuscar" runat="server" class="btn buscar" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="1" />
                     </td>
                     <td>
                         <asp:Button ID="btn_actualizar" runat="server" class="btn actualizar" Text="Actualizar" OnClick="btn_actualizar_Click" />
-                        <asp:RequiredFieldValidator ID="rfv_Busqueda" runat="server" ErrorMessage="Ingrese un DNI" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="rev_Buscar" runat="server" ErrorMessage="Ingrese solo numeros" ValidationExpression="^[0-9]+$" ValidationGroup="1" ControlToValidate="txtBuscar">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </table>
-          <div class="campo">
-              <table>
-                  <tr>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td>Filtrado por Inicial:</td><td>
-                      <asp:DropDownList ID="ddl_Letras"  class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged">
-                      </asp:DropDownList>
-                      </td>
-                      <td style="padding-left:20px"></td><td>Filtrado por Estado de Turno:</td><td>
-                      <asp:DropDownList ID="ddl_EstadoTurno" class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_EstadoTurno_SelectedIndexChanged">
-                      </asp:DropDownList>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-            <div class="contenedor-turnos">
-                    <table class="tabla-titulos">
-                        <tr> 
-                            <td align="center"><b>Estado</b></td>
-                            <td align="center"><b>Paciente</b></td>
-                            <td align="center"><b>Dni</b></td>
-                            <td align="center"><b>Hora</b></td>
-                            <td align="center"><b>Fecha</b></td>
-                            <td align="center"><b>Asistencia</b></td>
-                            <td align="center"><b>Descipcion</b></td>
-                        </tr>
-                    </table>
-                <asp:DataList ID="DLMedico" runat="server" CellPadding="4" DataSourceID="SqlDataSourceMedico" RepeatDirection="Horizontal" RepeatColumns="1" CssClass="dt" GridLines="None" BorderStyle="None" BorderWidth="0px" DataKeyField="Id_Turno_Tur" OnItemCommand="DLMedico_ItemCommand">
-                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                    <HeaderStyle BackColor="#333333" Font-Bold="True" />
-                    <ItemTemplate>
-                        <div class="tarjeta-turno">
-                            <table class="tabla-turnos">
-                                <tr>
-                                    <td>
-                                        <span>
-                                            <asp:Label ID="EstadoLabel" runat="server" Text='<%# Eval("Estado") %>'></asp:Label>
-                                            <asp:HiddenField ID="hf_estadoturno" runat="server" Value='<%# Eval("EstadoTurno") %>' />
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <asp:Label ID="PacienteLabel" runat="server" Text='<%# Eval("Paciente") %>' />
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("DNI") %>' />
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <asp:Label ID="HorarioLabel" runat="server" Text='<%# Eval("Horario") %>' />
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <asp:Label ID="FechaLabel" runat="server" Text='<%# Eval("Fecha", "{0:d}") %>' />
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <asp:DropDownList ID="ddlAsistencia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlAsistencia_SelectedIndexChanged" SelectedValue='<%# Eval("EstadoPaciente") %>'>
-                                                <asp:ListItem Value="0">-- Asistencia --</asp:ListItem>
-                                                <asp:ListItem Value="1">Presente</asp:ListItem>
-                                                <asp:ListItem Value="2">Ausente</asp:ListItem>
-                                            </asp:DropDownList>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <asp:Panel ID="panel1" runat="server" DefaultButton="btnGuardarObs">
-                                                <asp:TextBox ID="txtObservaciones" runat="server" Enabled="False" Width="120px" Text='<%# Eval("Observacion") %>'></asp:TextBox>
-                                                <asp:LinkButton ID="btnGuardarObs" runat="server" style="display: none" CommandName="GuardarObservacion" CommandArgument='<%# Eval("Id_Turno_Tur")%>'></asp:LinkButton>
-                                            </asp:Panel>
-                                        </span>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </ItemTemplate>
-                    <SelectedItemStyle Font-Bold="True" />
-                </asp:DataList>
-                <br />
-                <asp:SqlDataSource ID="SqlDataSourceMedico" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand="SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Fecha_Tur &gt;= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1 AND Horario_Tur &gt;= CAST(GETDATE() AS TIME)
-
-"></asp:SqlDataSource>
+            <div class="campo">
+                <table>
+                    <tr>
+                        <td>Filtrado por Inicial:</td>
+                        <td>
+                            <asp:DropDownList ID="ddl_Letras" class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_Letras_SelectedIndexChanged">
+                            </asp:DropDownList>
+                        </td>
+                        <td style="padding-left: 20px"></td>
+                        <td>Filtrado por Estado de Turno:</td>
+                        <td>
+                            <asp:DropDownList ID="ddl_EstadoTurno" class="ddl-estilo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_EstadoTurno_SelectedIndexChanged">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                </table>
             </div>
+            <br />
+<%--            <asp:UpdatePanel ID="UpdatePanelTurnos" runat="server">
+                <ContentTemplate>
+                    <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick" />--%>
+                    <div class="contenedor-turnos">
+                        <table class="tabla-titulos">
+                            <tr>
+                                <td align="center"><b>Estado</b></td>
+                                <td align="center"><b>Paciente</b></td>
+                                <td align="center"><b>Dni</b></td>
+                                <td align="center"><b>Hora</b></td>
+                                <td align="center"><b>Fecha</b></td>
+                                <td align="center"><b>Asistencia</b></td>
+                                <td align="center"><b>Descipcion</b></td>
+                            </tr>
+                        </table>
+                        <asp:DataList ID="DLMedico" runat="server" CellPadding="4" DataSourceID="SqlDataSourceMedico" RepeatDirection="Horizontal" RepeatColumns="1" CssClass="dt" GridLines="None" BorderStyle="None" BorderWidth="0px" DataKeyField="Id_Turno_Tur" OnItemCommand="DLMedico_ItemCommand">
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <HeaderStyle BackColor="#333333" Font-Bold="True" />
+                            <ItemTemplate>
+                                <div class="tarjeta-turno">
+                                    <table class="tabla-turnos">
+                                        <tr>
+                                            <td>
+                                                <span>
+                                                    <asp:Label ID="EstadoLabel" runat="server" Text='<%# Eval("Estado") %>'></asp:Label>
+                                                    <asp:HiddenField ID="hf_estadoturno" runat="server" Value='<%# Eval("EstadoTurno") %>' />
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <asp:Label ID="PacienteLabel" runat="server" Text='<%# Eval("Paciente") %>' />
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("DNI") %>' />
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <asp:Label ID="HorarioLabel" runat="server" Text='<%# Eval("Horario") %>' />
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <asp:Label ID="FechaLabel" runat="server" Text='<%# Eval("Fecha", "{0:d}") %>' />
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <asp:DropDownList ID="ddlAsistencia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlAsistencia_SelectedIndexChanged" SelectedValue='<%# Eval("EstadoPaciente") %>'>
+                                                        <asp:ListItem Value="0">-- Asistencia --</asp:ListItem>
+                                                        <asp:ListItem Value="1">Presente</asp:ListItem>
+                                                        <asp:ListItem Value="2">Ausente</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <asp:Panel ID="panel1" runat="server" DefaultButton="btnGuardarObs">
+                                                        <asp:TextBox ID="txtObservaciones" runat="server" Enabled="False" Width="120px" Text='<%# Eval("Observacion") %>'></asp:TextBox>
+                                                        <asp:LinkButton ID="btnGuardarObs" runat="server" Style="display: none" CommandName="GuardarObservacion" CommandArgument='<%# Eval("Id_Turno_Tur")%>'></asp:LinkButton>
+                                                    </asp:Panel>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </ItemTemplate>
+                            <SelectedItemStyle Font-Bold="True" />
+                        </asp:DataList>
+                        <asp:Panel ID="pnlSinTurnos" runat="server" Visible="false" CssClass="mensaje-descanso">
+                            <div class="icono">☕</div>
+                            <h2>Todo tranquilo por acá</h2>
+                            <p>No hay turnos para mostrar.</p>
+                            <p>Es un buen momento para un café.</p>
+                        </asp:Panel>
+                        <br />
+                        <asp:SqlDataSource ID="SqlDataSourceMedico" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand="SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Fecha_Tur &gt;= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1 AND Horario_Tur &gt;= CAST(GETDATE() AS TIME)"></asp:SqlDataSource>
+                    </div>
+<%--                </ContentTemplate>
+            </asp:UpdatePanel>--%>
         </div>
         <asp:ValidationSummary ID="VSBusquedaMedica" runat="server" ValidationGroup="1" />
-        <br />
-        <br />
-        <br />
-        <br />
         <br />
         <div class="divlogos">
             <table style="width: 100%">

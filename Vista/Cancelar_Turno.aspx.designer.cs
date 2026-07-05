@@ -87,6 +87,24 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txt_id;
 
         /// <summary>
+        /// Control rfv_id.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_id;
+
+        /// <summary>
+        /// Control rev_id.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_id;
+
+        /// <summary>
         /// Control btn_buscar.
         /// </summary>
         /// <remarks>
@@ -112,5 +130,14 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvTurnos;
+
+        /// <summary>
+        /// Control vs_errores.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vs_errores;
     }
 }
