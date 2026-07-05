@@ -167,27 +167,29 @@ input[type=search] {
     height: 70vh;
 }
 
-/*.divlogos {
+.divlogos {
     width: 100%;
     height: 150px;
+    bottom: 10px; 
+    border-radius: 10px; 
     background-color: #686868;
     display: flex; 
     justify-content: center;
     align-items: center;
-}*/
+}
 
-.divlogos {
+/*.divlogos {
     border-radius: 10px;
     position: relative;
-    bottom: 10px;
-    /*    left: ;*/
-    width: 99%;
+    bottom: 10px;*/
+    /* left: ;*/
+    /*width: 99%;
     height: 150px;
     background-color: #686868;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+}*/
 
 .logo {
     width: 100px;

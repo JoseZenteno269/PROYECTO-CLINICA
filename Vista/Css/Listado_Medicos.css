@@ -138,9 +138,9 @@ select {
     width: 99%;
     height: 150px;
     /*FIXED*/
-    position: fixed;
-    height: clamp(70px, 12vh, 150px);
-    padding-bottom: clamp(80px, 13vh, 160px);
+/*    position: fixed;*/
+/*    height: clamp(70px, 12vh, 150px);
+    padding-bottom: clamp(80px, 13vh, 160px);*/
     background-color: #686868;
     justify-content: center;
     align-items: center;
