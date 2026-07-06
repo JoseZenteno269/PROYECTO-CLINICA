@@ -84,7 +84,7 @@
                         </td>
                     </tr>
                 </table>
-                <asp:GridView ID="gvPacientesSeleccion" runat="server" AutoGenerateColumns="False" CssClass="gv" OnSelectedIndexChanging="gvPacientesSeleccion_SelectedIndexChanging">
+                <asp:GridView ID="gvPacientesSeleccion" runat="server" AutoGenerateColumns="False" CssClass="gv" OnSelectedIndexChanging="gvPacientesSeleccion_SelectedIndexChanging" AllowPaging="True" OnPageIndexChanging="gvPacientesSeleccion_PageIndexChanging">
                     <Columns>
                         <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
                         <asp:TemplateField HeaderText="ID Paciente">

@@ -71,12 +71,14 @@ namespace Vista
 
         protected void btn_inactivos_Click(object sender, EventArgs e)
         {
+            Session["Tipo"] = "Inactivos";
             CargarInactivosMedicos(); 
             lbl_Mensaje.Text = string.Empty;
         }
 
         protected void btn_activos_Click(object sender, EventArgs e)
         {
+            Session["Tipo"] = "Activos";
             CargarActivosMedicos(); 
             lbl_Mensaje.Text = string.Empty;
         }
@@ -89,6 +91,19 @@ namespace Vista
         protected void lb_menu_Click(object sender, EventArgs e)
         {
             Response.Redirect("Menu.aspx"); 
+        }
+
+        protected void gvMedicos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvMedicos.PageIndex = e.NewPageIndex;
+            if(Session["Tipo"] != null && Session["Tipo"].ToString() == "Inactivos")
+            {
+                CargarInactivosMedicos();
+            }
+            else
+            {
+                CargarActivosMedicos();
+            }
         }
     }
 }

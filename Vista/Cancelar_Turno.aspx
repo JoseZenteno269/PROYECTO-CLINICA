@@ -57,7 +57,7 @@
         </div>
         <br />
         <div class="contenedor-grid">
-            <asp:GridView ID="gvTurnos" runat="server" CssClass="tabla-datos" AutoGenerateColumns="False">
+            <asp:GridView ID="gvTurnos" runat="server" CssClass="tabla-datos" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gvTurnos_PageIndexChanging" PageSize="15">
                 <Columns>
                     <asp:TemplateField HeaderText="ID Turno">
                         <ItemTemplate>

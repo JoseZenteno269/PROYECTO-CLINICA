@@ -65,7 +65,7 @@
         <br />
         <div class="grupo-pacientes" align="center">
             <br />
-            <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False" CssClass="gv" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
+            <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="False" CssClass="gv" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0" AllowPaging="True" OnPageIndexChanging="gvPacientes_PageIndexChanging">
                 <Columns>
                     <asp:TemplateField HeaderText="ID Paciente">
                         <ItemTemplate>

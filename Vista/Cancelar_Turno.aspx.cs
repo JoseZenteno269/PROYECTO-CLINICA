@@ -66,5 +66,11 @@ namespace Vista
         {
             Response.Redirect("Inicio.aspx");
         }
+
+        protected void gvTurnos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvTurnos.PageIndex = e.NewPageIndex;
+            CargarGridViewTurno(); 
+        }
     }
 }

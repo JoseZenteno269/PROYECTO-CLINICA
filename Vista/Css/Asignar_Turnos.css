@@ -52,7 +52,7 @@ input[type="search"] {
 }
 
 .divfila {
-    height: 50vh;
+    height: 60vh;
     margin: 0 auto;
     overflow-y: auto; /* scroll vertical */
     overflow-x: auto; /* scroll horizontal si la tabla es ancha */

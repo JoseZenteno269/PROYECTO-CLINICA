@@ -170,5 +170,11 @@ namespace Vista
             CargarGridViewPacientes();
             txt_busqueda.Text = string.Empty; 
         }
+
+        protected void gv_pacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gv_pacientes.PageIndex = e.NewPageIndex;
+            CargarGridViewPacientes(); 
+        }
     }
 }

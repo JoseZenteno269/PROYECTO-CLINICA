@@ -58,7 +58,7 @@
         </div>
         <br />
         <div class="contenedor-grid" align="center">
-            <asp:GridView ID="gv_pacientes" CssClass="gv" runat="server" AutoGenerateColumns="False" DataKeyNames="Id_Provincia_Paci,Id_Localidad_Paci,Sexo_Paci" OnRowCancelingEdit="gv_pacientes_RowCancelingEdit" OnRowEditing="gv_pacientes_RowEditing" OnRowUpdating="gv_pacientes_RowUpdating" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
+            <asp:GridView ID="gv_pacientes" CssClass="gv" runat="server" AutoGenerateColumns="False" DataKeyNames="Id_Provincia_Paci,Id_Localidad_Paci,Sexo_Paci" OnRowCancelingEdit="gv_pacientes_RowCancelingEdit" OnRowEditing="gv_pacientes_RowEditing" OnRowUpdating="gv_pacientes_RowUpdating" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0" AllowPaging="True" OnPageIndexChanging="gv_pacientes_PageIndexChanging">
                 <Columns>
                     <asp:CommandField ButtonType="Button" ShowEditButton="True" ValidationGroup="1" />
                     <asp:TemplateField HeaderText="ID PACIENTE">

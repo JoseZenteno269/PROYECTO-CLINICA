@@ -119,10 +119,17 @@ namespace Vista
 
             if(ddl_especialidades.SelectedValue == "0")
             {
+                Session["Fechainicio"] = fechainicio.ToString("yyyy-MM-dd");
+                Session["Fechafin"] = fechafin.ToString("yyyy-MM-dd");
+                Session["Tipo"] = "GridView1";
                 CargarGridViewTurnosXEspecialiadades(fechainicio.ToString("yyyy-MM-dd"), fechafin.ToString("yyyy-MM-dd")); 
             }
             else
             {
+                Session["Fechainicio"] = fechainicio.ToString("yyyy-MM-dd");
+                Session["Fechafin"] = fechafin.ToString("yyyy-MM-dd");
+                Session["Especialidad"] = Especialidad;
+                Session["Tipo"] = "GridView2";
                 CargarGridViewTurnosXEspecialiadades(fechainicio.ToString("yyyy-MM-dd"), fechafin.ToString("yyyy-MM-dd"), Especialidad); 
             }
 
@@ -138,6 +145,18 @@ namespace Vista
         {
             gv_TurnosXEspecialidad.DataSource = negocioTurnos.ConsultaTurnosXEspecialidad(fechainicio, fechafin);
             gv_TurnosXEspecialidad.DataBind();
+        }
+        protected void gv_TurnosXEspecialidad_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gv_TurnosXEspecialidad.PageIndex = e.NewPageIndex;
+            if (Session["Tipo"] != null && Session["Tipo"].ToString() == "GridView1")
+            {
+                CargarGridViewTurnosXEspecialiadades(Session["Fechainicio"].ToString(), Session["Fechafin"].ToString());
+            }
+            else if (Session["Tipo"] != null && Session["Tipo"].ToString() == "GridView2")
+            {
+                CargarGridViewTurnosXEspecialiadades(Session["Fechainicio"].ToString(), Session["Fechafin"].ToString(), Session["Especialidad"].ToString());
+            }
         }
 
         /// INFORME 3
@@ -173,6 +192,11 @@ namespace Vista
         protected void ddl_Informe3_SelectedIndexChanged1(object sender, EventArgs e)
         {
             CargarGridViewInforme3();
+        }
+        protected void gv_Informe3_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gv_Informe3.PageIndex = e.NewPageIndex;
+            CargarGridViewInforme3(); 
         }
 
         //INFORME 4 
@@ -216,6 +240,12 @@ namespace Vista
             gv_PacientesInforme5.DataBind();
         }
 
+        public void CargarGridViewPacientes(int provincia)
+        {
+            gv_PacientesInforme5.DataSource = negocioProvincias.FiltradoProvincias(provincia);
+            gv_PacientesInforme5.DataBind();
+        }
+
         public void CargarGridViewPacientesPorEdad()
         {
             gvEdad.DataSource = negocioPacientes.getPacientes();
@@ -225,6 +255,11 @@ namespace Vista
         public void CargarGridViewEdad()
         {
             gvEdad.DataSource = negocioPacientes.getPacientes();
+            gvEdad.DataBind();
+        }
+        public void CargarGridViewEdad(int min, int max)
+        {
+            gvEdad.DataSource = negocioPacientes.getPacientesEdad(min, max);
             gvEdad.DataBind();
         }
 
@@ -241,16 +276,19 @@ namespace Vista
         {
             if (ddl_ProvinciaInforme5.SelectedValue == "0")
             {
-                gv_PacientesInforme5.DataSource = negocioPacientes.getPacientes();
-                gv_PacientesInforme5.DataBind();
-                return;
+                Session["Provincia"] = "Sinfiltro";
+                CargarGridViewPacientes(); 
+            }
+            else
+            {
+                Session["Provincia"] = "Confiltro";
+                int provincia = Convert.ToInt32(ddl_ProvinciaInforme5.SelectedValue);
+                Session["ProvinciaSeleccionada"] = provincia;
+                CargarGridViewPacientes(provincia);
             }
 
-            int provincia = Convert.ToInt32(ddl_ProvinciaInforme5.SelectedValue);
-
-            gv_PacientesInforme5.DataSource = negocioProvincias.FiltradoProvincias(provincia);
-            gv_PacientesInforme5.DataBind();
         }
+
 
         protected void ddl_RangosEdad_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -267,10 +305,38 @@ namespace Vista
                 case "4": min = 60; max = 99; break;
                 case "0": gvEdad.DataSource = negocioPacientes.getPacientes(); gvEdad.DataBind(); return;
             }
+            Session["EdadMin"] = min;
+            Session["EdadMax"] = max;
 
-            gvEdad.DataSource = negocioPacientes.getPacientesEdad(min, max);
-            gvEdad.DataBind();
-
+            CargarGridViewEdad(min, max);
+        }
+        protected void gv_PacientesInforme5_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gv_PacientesInforme5.PageIndex = e.NewPageIndex;
+            if(Session["Provincia"] != null && Session["Provincia"].ToString() == "Confiltro")
+            {
+                int provincia = Convert.ToInt32(Session["ProvinciaSeleccionada"]);
+                CargarGridViewPacientes(provincia);
+            }
+            else
+            {
+                CargarGridViewPacientes();
+            }
+        }
+        protected void gvEdad_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvEdad.PageIndex = e.NewPageIndex;
+            if(Session["EdadMin"] != null && Session["EdadMax"] != null)
+            {
+                int min = Convert.ToInt32(Session["EdadMin"]);
+                int max = Convert.ToInt32(Session["EdadMax"]);
+                CargarGridViewEdad(min, max);
+            }
+            else
+            {
+                CargarGridViewEdad();
+            }
+         
         }
 
         protected void lb_perfil_Click(object sender, EventArgs e)
@@ -282,5 +348,6 @@ namespace Vista
         {
             Response.Redirect("Menu.aspx");
         }
+
     }
 }

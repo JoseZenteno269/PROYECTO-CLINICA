@@ -181,5 +181,11 @@ namespace Vista
         {
             CargarGridViewMedicos(); 
         }
+
+        protected void gv_medicos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gv_medicos.PageIndex = e.NewPageIndex;
+            CargarGridViewMedicos(); 
+        }
     }
 }

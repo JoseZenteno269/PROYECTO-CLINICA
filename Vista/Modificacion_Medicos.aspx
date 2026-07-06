@@ -53,7 +53,7 @@
             <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
             <br />
             <div class="contenedor-grid">
-            <asp:GridView ID="gv_medicos" CssClass="gv" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gv_medicos_RowCancelingEdit" OnRowEditing="gv_medicos_RowEditing" OnRowUpdating="gv_medicos_RowUpdating" DataKeyNames="Id_Provincia_Med,Id_Localidad_Med,Id_Especialidad_Med,Sexo_Med,FechaNacimiento_Med" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0">
+            <asp:GridView ID="gv_medicos" CssClass="gv" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gv_medicos_RowCancelingEdit" OnRowEditing="gv_medicos_RowEditing" OnRowUpdating="gv_medicos_RowUpdating" DataKeyNames="Id_Provincia_Med,Id_Localidad_Med,Id_Especialidad_Med,Sexo_Med,FechaNacimiento_Med" GridLines="None" BorderStyle="None" BorderWidth="0px" CellPadding="0" AllowPaging="True" OnPageIndexChanging="gv_medicos_PageIndexChanging">
                 <Columns>
                     <asp:CommandField ButtonType="Button" ShowEditButton="True" ValidationGroup="1" />
                     <asp:TemplateField HeaderText="ID MEDICO">

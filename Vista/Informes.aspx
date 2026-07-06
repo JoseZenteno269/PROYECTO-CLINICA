@@ -104,7 +104,7 @@
                     </tr>
                     <tr>
                         <td colspan="3" align="center">
-                            <asp:GridView ID="gv_TurnosXEspecialidad" runat="server" AutoGenerateColumns="False">
+                            <asp:GridView ID="gv_TurnosXEspecialidad" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gv_TurnosXEspecialidad_PageIndexChanging" PageSize="5">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Especialidad">
                                         <ItemTemplate>
@@ -148,7 +148,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <asp:GridView ID="gv_Informe3" runat="server" AutoGenerateColumns="False">
+                            <asp:GridView ID="gv_Informe3" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gv_Informe3_PageIndexChanging" PageSize="5">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Medico">
                                         <ItemTemplate>
@@ -266,7 +266,7 @@
                         <td align="center">
                             <p>Pacientes por Provincia</p>
                             <div class="contenedor-grid">
-                                <asp:GridView ID="gv_PacientesInforme5" runat="server" AutoGenerateColumns="False">
+                                <asp:GridView ID="gv_PacientesInforme5" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gv_PacientesInforme5_PageIndexChanging" PageSize="5">
                                     <Columns>
                                         <asp:TemplateField HeaderText="DNI">
                                             <ItemTemplate>
@@ -301,7 +301,7 @@
                         <td align="center">
                             <p>Pacientes:</p>
                             <div class="contenedor-grid">
-                                <asp:GridView ID="gvEdad" runat="server" AutoGenerateColumns="False">
+                                <asp:GridView ID="gvEdad" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gvEdad_PageIndexChanging" PageSize="5">
                                     <Columns>
                                         <asp:TemplateField HeaderText="DNI">
                                             <ItemTemplate>

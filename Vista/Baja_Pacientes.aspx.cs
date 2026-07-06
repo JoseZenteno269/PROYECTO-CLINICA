@@ -69,11 +69,13 @@ namespace Vista
 
         protected void btn_activos_Click(object sender, EventArgs e)
         {
+            Session["Tipo"] = "Activos";
             CargarActivosPacientes(); 
         }
 
         protected void btn_inactivos_Click(object sender, EventArgs e)
         {
+            Session["Tipo"] = "Inactivos";
             CargarInactivosPacientes(); 
         }
 
@@ -85,6 +87,19 @@ namespace Vista
         protected void lb_menu_Click(object sender, EventArgs e)
         {
             Response.Redirect("Menu.aspx"); 
+        }
+
+        protected void gvPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvPacientes.PageIndex = e.NewPageIndex;
+            if (Session["Tipo"] != null && Session["Tipo"].ToString() == "Inactivos")
+            {
+                CargarInactivosPacientes();
+            }
+            else
+            {
+                CargarActivosPacientes();
+            }
         }
     }
 }

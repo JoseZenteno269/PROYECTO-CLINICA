@@ -26,7 +26,7 @@ namespace Vista
                     lbl_usuario.Text = Session["UsuarioAdmin"].ToString();
                     CargarDropDawnListEspecialidades();
                     CargarDropDawnListMedicos();
-                    CargarGridviewPacientes();
+                    CargarGridViewPacientes();
                     ddl_horas.Items.Insert(0, new ListItem("--Seleccione un Horario", "0"));
                 }
                 else
@@ -90,13 +90,13 @@ namespace Vista
             c_calendario.DataBind(); 
         }
 
-        public void CargarGridviewPacientes()
+        public void CargarGridViewPacientes()
         {
             gvPacientesSeleccion.DataSource = NegocioPacientes.getPacientes();
             gvPacientesSeleccion.DataBind();
         }
 
-        public void CargarGridviewPacientes(string dni)
+        public void CargarGridViewPacientes(string dni)
         {
             String consulta = " AND DNI_Paci = '" + dni + "'"; 
             gvPacientesSeleccion.DataSource = NegocioPacientes.getPacientes(consulta);
@@ -229,13 +229,27 @@ namespace Vista
         {
             if(!string.IsNullOrEmpty(txt_buscar.Text.Trim()))
             {
-                CargarGridviewPacientes(txt_buscar.Text.Trim());
+                Session["DNI_Paciente"] = txt_buscar.Text.Trim();
+                CargarGridViewPacientes(txt_buscar.Text.Trim());
             }
         }
 
         protected void btn_todos_Click(object sender, EventArgs e)
         {
-            CargarGridviewPacientes(); 
+            CargarGridViewPacientes(); 
+        }
+
+        protected void gvPacientesSeleccion_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvPacientesSeleccion.PageIndex = e.NewPageIndex;
+            if(Session["DNI_Paciente"] != null)
+            {
+                CargarGridViewPacientes(Session["DNI_Paciente"].ToString());
+            }
+            else
+            {
+                CargarGridViewPacientes();
+            }
         }
     }
 }
