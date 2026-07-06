@@ -19,7 +19,7 @@ namespace Vista
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("Inicio.aspx");
                 }
             }
         }

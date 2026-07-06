@@ -28,17 +28,38 @@ namespace Datos
 
         public DataTable getTablaDisponibilidadMedica(int dia)
         {
-            DataTable tabla = datos.ObtenerTabla("Disponibilidad_Medico", $"SELECT Id_COD_DispMed, Id_Medico_DispMed, Horario_DispMed FROM Disponibilidad_Medico WHERE DiaSemana_DispMed = {dia}"); 
+            DataTable tabla = datos.ObtenerTabla("Disponibilidad_Medico", $"SELECT Id_COD_DispMed, Id_Medico_DispMed, Horario_DispMed FROM Disponibilidad_Medico WHERE DiaSemana_DispMed = {dia} ORDER BY Horario_DispMed"); 
             return tabla;
         }
 
-        public int AgregarhoraXmedico(int idmedico, int dia, TimeSpan hora)
+        public Boolean ExisteDisponibilidadMedico(DisponibilidadMedico disponibilidadMedico)
+        {
+            String consulta = "SELECT * FROM Disponibilidad_Medico WHERE Id_Medico_DispMed = @IDMEDICO AND DiaSemana_DispMed = @DIASEMANA AND Horario_DispMed = @HORAS";
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@IDMEDICO", disponibilidadMedico.getIdMedico());
+            comando.Parameters.AddWithValue("@DIASEMANA", disponibilidadMedico.getDiaSemana());
+            comando.Parameters.AddWithValue("@HORAS", disponibilidadMedico.getHorario()); 
+            return datos.Existe(comando, consulta);
+        }
+
+        public int AgregarDisponibilidadMedico(DisponibilidadMedico disponibilidadMedico)
         {
             SqlCommand comando = new SqlCommand();
-            comando.Parameters.AddWithValue("@IDMEDICO", idmedico);
-            comando.Parameters.AddWithValue("@DIASEMANA", dia);
-            comando.Parameters.AddWithValue("@HORA", hora);
+            ArmarParametrosDisponibilidadMedico(ref comando, disponibilidadMedico);
             return datos.EjecutarProcedimientoAlmacenado(comando, "spAgregarHorariosMedico");
+        }
+
+        public void ArmarParametrosDisponibilidadMedico(ref SqlCommand comando, DisponibilidadMedico disponibilidadMedico)
+        {
+            SqlParameter parametros = new SqlParameter();
+            parametros = comando.Parameters.Add("@IDMEDICO", SqlDbType.Int);
+            parametros.Value = disponibilidadMedico.getIdMedico();
+
+            parametros = comando.Parameters.Add("@DIASEMANA", SqlDbType.Int);
+            parametros.Value = disponibilidadMedico.getDiaSemana();
+
+            parametros = comando.Parameters.Add("@HORA", SqlDbType.Time);
+            parametros.Value = disponibilidadMedico.getHorario();
         }
     }
 }

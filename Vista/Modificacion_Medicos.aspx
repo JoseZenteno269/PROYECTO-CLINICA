@@ -175,7 +175,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Correo">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txt_correo" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>' Width="100px"></asp:TextBox>
+                            <asp:TextBox ID="txt_correo" runat="server" Text='<%# Bind("CorreoElectronico_Med") %>' Width="100px" TextMode="Email"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfv_correo" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_correo" ValidationGroup="1">*</asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <ItemTemplate>

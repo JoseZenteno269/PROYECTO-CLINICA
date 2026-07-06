@@ -95,6 +95,14 @@ namespace Vista
             gvPacientesSeleccion.DataSource = NegocioPacientes.getPacientes();
             gvPacientesSeleccion.DataBind();
         }
+
+        public void CargarGridviewPacientes(string dni)
+        {
+            String consulta = " AND DNI_Paci = '" + dni + "'"; 
+            gvPacientesSeleccion.DataSource = NegocioPacientes.getPacientes(consulta);
+            gvPacientesSeleccion.DataBind();
+        }
+
         protected void c_calendario_VisibleMonthChanged(object sender, MonthChangedEventArgs e)
         {
             CargarDiasDisponibles();
@@ -103,8 +111,8 @@ namespace Vista
 
         protected void ddl_horas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarDiasDisponibles();
-            c_calendario.DataBind(); 
+            //CargarDiasDisponibles();
+            //c_calendario.DataBind();
         }
 
         public void LimpiarCampos()
@@ -135,17 +143,17 @@ namespace Vista
             int diasemanaentero = (numerodia == 0) ? 7 : numerodia;
             String nombredia = fecha.ToString("dddd");
 
-            if(fecha <= DateTime.Now)
+            if (fecha <= DateTime.Now)
             {
-                lbl_mensaje.Text = "La fecha seleccionada es invalida, ingrese una fecha valida ";
-                return;
+                lbl_mensaje.Text = "Debe de seleccionar una fecha posterior a la actual ";
+                ddl_horas.Items.Clear();
+                ddl_horas.Items.Insert(0, new ListItem("--Seleccione un Horario", "0"));
             }
-            else
+            else if (fecha > DateTime.Now)
             {
-                CargarDropDownListDisponibilidad(diasemanaentero);
                 CargarDiasDisponibles();
+                CargarDropDownListDisponibilidad(diasemanaentero);
             }
-             
         }
 
         protected void gvPacientesSeleccion_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -200,13 +208,13 @@ namespace Vista
         protected void c_calendario_DayRender(object sender, DayRenderEventArgs e)
         {
             int diaSemana = (int)e.Day.Date.DayOfWeek; 
-            int diasSenamanas = (diaSemana == 0) ? 7 : diaSemana;
+            int diasSemanas = (diaSemana == 0) ? 7 : diaSemana;
 
-            if (diasdisponibles.Contains(diasSenamanas))
+            if (diasdisponibles.Contains(diasSemanas))
             {
                 e.Cell.BackColor = System.Drawing.Color.Green;
             }
-            if (!diasdisponibles.Contains(diasSenamanas))
+            if (!diasdisponibles.Contains(diasSemanas))
             {
                 e.Day.IsSelectable = false;
             }
@@ -215,6 +223,19 @@ namespace Vista
         protected void btn_cancelar_Click(object sender, EventArgs e)
         {
             LimpiarCampos(); 
+        }
+
+        protected void btn_buscar_Click(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(txt_buscar.Text.Trim()))
+            {
+                CargarGridviewPacientes(txt_buscar.Text.Trim());
+            }
+        }
+
+        protected void btn_todos_Click(object sender, EventArgs e)
+        {
+            CargarGridviewPacientes(); 
         }
     }
 }

@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-<%--        <asp:ScriptManager ID="ScriptManager1" runat="server" />--%>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
         <div class="divmenu">
             <table class="tablamenu">
                 <tr>
@@ -47,9 +47,9 @@
                     <td>
                         <asp:Button ID="btnBuscar" runat="server" class="btn buscar" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="1" />
                     </td>
-                    <td>
+<%--                    <td>
                         <asp:Button ID="btn_actualizar" runat="server" class="btn actualizar" Text="Actualizar" OnClick="btn_actualizar_Click" />
-                    </td>
+                    </td>--%>
                 </tr>
             </table>
             <div class="campo">
@@ -70,9 +70,9 @@
                 </table>
             </div>
             <br />
-<%--            <asp:UpdatePanel ID="UpdatePanelTurnos" runat="server">
+            <asp:UpdatePanel ID="UpdatePanelTurnos" runat="server">
                 <ContentTemplate>
-                    <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick" />--%>
+                    <asp:Timer ID="Timer1" runat="server" Interval="20000" OnTick="Timer1_Tick" />
                     <div class="contenedor-turnos">
                         <table class="tabla-titulos">
                             <tr>
@@ -150,10 +150,11 @@
                         <br />
                         <asp:SqlDataSource ID="SqlDataSourceMedico" runat="server" ConnectionString="<%$ ConnectionStrings:BDClinicaConnectionString %>" SelectCommand="SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Fecha_Tur &gt;= CAST(GETDATE() AS DATE) AND Id_EstadoTurno_Tur = 1 AND Horario_Tur &gt;= CAST(GETDATE() AS TIME)"></asp:SqlDataSource>
                     </div>
-<%--                </ContentTemplate>
-            </asp:UpdatePanel>--%>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
-        <asp:ValidationSummary ID="VSBusquedaMedica" runat="server" ValidationGroup="1" />
+        <asp:ValidationSummary ID="VSBusquedaMedica" runat="server" ValidationGroup="1" ShowMessageBox="True" ShowSummary="False" />
+
         <br />
         <div class="divlogos">
             <table style="width: 100%">

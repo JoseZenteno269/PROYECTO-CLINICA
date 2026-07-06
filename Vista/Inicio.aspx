@@ -50,15 +50,15 @@
         <br />
         <br />
         <br />
-        <div class="divlogos">
-            <table style="width: 100%">
+        <div class="divlogos" align="center">
+            <table style="width: 100%" align="center">
                 <tr>
-                    <td>
+                    <td align="center">
                         <img src="Imagenes/Logo.png" class="logo" />
                     </td>
-                    <td><img src="Imagenes/Logo1.png" class="logo1" /></td>
-                    <td><img src="Imagenes/Logo2.png" class="logo2" /></td>
-                    <td><img src="Imagenes/Logo3.png" class="logo3" /></td>
+                    <td align="center"><img src="Imagenes/Logo1.png" class="logo1" /></td>
+                    <td align="center"><img src="Imagenes/Logo2.png" class="logo2" /></td>
+                    <td align="center"><img src="Imagenes/Logo3.png" class="logo3" /></td>
                 </tr>
             </table>
         </div>

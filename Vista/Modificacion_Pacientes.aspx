@@ -202,6 +202,7 @@
             </table>
         </div>
         <asp:ValidationSummary ID="VSPacientes" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
+        <asp:ValidationSummary ID="vs_errores2" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="2" />
     </form>
 </body>
 </html>

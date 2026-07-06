@@ -205,44 +205,44 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Lunes</td>
-                        <td colspan="2" style="padding: 20px" align="initial">
+                        <td style="width: 15px;">Lunes</td>
+                        <td colspan="2" style="padding: 10px; width: 90%" align="initial">
                             <asp:Button ID="barra1" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Martes</td>
-                        <td colspan="2" style="padding: 20px" align="initial">
+                        <td style="width: 15px;">Martes</td>
+                        <td colspan="2" style="padding: 10px; width: 90%" align="initial">
                             <asp:Button ID="barra2" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td>Miercoles</td>
-                        <td colspan="2" style="padding: 20px" align="initial">
+                        <td style="width: 15px;">Miercoles</td>
+                        <td colspan="2" style="padding: 10px; width: 90%" align="initial">
                             <asp:Button ID="barra3" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td>Jueves</td>
-                        <td colspan="2" style="padding: 20px" align="initial">
+                        <td style="width: 15px;">Jueves</td>
+                        <td colspan="2" style="padding: 10px; width: 90%" align="initial">
                             <asp:Button ID="barra4" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td>Viernes</td>
-                        <td colspan="2" style="padding: 20px" align="initial">
+                        <td style="width: 15px;">Viernes</td>
+                        <td colspan="2" style="padding: 10px; width: 90%" align="initial">
                             <asp:Button ID="barra5" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td>Sabado</td>
-                        <td colspan="2" style="padding: 20px" align="initial">
+                        <td style="width: 15px;">Sabado</td>
+                        <td colspan="2" style="padding: 10px; width: 90%" align="initial">
                             <asp:Button ID="barra6" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
-                        <td>Domingo</td>
-                        <td colspan="2" style="padding: 20px" align="initial">
+                        <td style="width: 15px;">Domingo</td>
+                        <td colspan="2" style="padding: 10px; width: 90%" align="initial">
                             <asp:Button ID="barra7" CssClass="barra" runat="server" Text="" Enabled="False" Font-Bold="True" ForeColor="Black" /></td>
                     </tr>
                     <tr>
                         <td colspan="2" align="initial">
-                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="lbl_informe4" runat="server"></asp:Label>
                         </td>
                     </tr>
                 </table>

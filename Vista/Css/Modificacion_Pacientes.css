@@ -57,7 +57,7 @@ select {
 
 
 .contenedor-grid {
-    height: 60vh;
+    height: 50vh;
     margin: 0 auto;
     overflow-y: auto; /* scroll vertical */
     overflow-x: auto; /* scroll horizontal si la tabla es ancha */
@@ -196,7 +196,7 @@ select {
 
 .divlogos {
     border-radius: 10px;
-    position: relative;
+    position: fixed; 
     bottom: 10px;
     /*    left: ;*/
     width: 99%;

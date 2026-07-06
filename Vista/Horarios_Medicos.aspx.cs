@@ -99,7 +99,9 @@ namespace Vista
 
         protected void btn_aceptar_Click(object sender, EventArgs e)
         {
-            if(!cb_lunes.Checked && !cb_martes.Checked && !cb_miercoles.Checked && !cb_jueves.Checked && !cb_viernes.Checked && !cb_sabado.Checked && !cb_domingo.Checked)
+            lbl_mensaje.Text = String.Empty;
+            lbl_mensajeerror.Text = String.Empty;
+            if (!cb_lunes.Checked && !cb_martes.Checked && !cb_miercoles.Checked && !cb_jueves.Checked && !cb_viernes.Checked && !cb_sabado.Checked && !cb_domingo.Checked)
             {
                 lbl_mensaje.Text = "Debe de Seleccionar un dia para empezar "; 
                 return; 
@@ -111,8 +113,6 @@ namespace Vista
                 lbl_mensaje.Text = "Medico inexistente o inhabilitado";
                 return;
             }
-
-            
 
             int[] dia = new int[7];
             dia[0] = (cb_lunes.Checked ? Math.Abs((int)(TimeSpan.Parse(horainiciol.Text.Trim()) - TimeSpan.Parse(horafinl.Text.Trim())).TotalHours) : 0);
@@ -130,9 +130,12 @@ namespace Vista
             horainicio[3] = (cb_jueves.Checked ? (int)(TimeSpan.Parse(horainicioj.Text.Trim()).Hours) : 0);
             horainicio[4] = (cb_viernes.Checked ? (int)(TimeSpan.Parse(horainiciov.Text.Trim()).Hours) : 0);
             horainicio[5] = (cb_sabado.Checked ? (int)(TimeSpan.Parse(horainicios.Text.Trim()).Hours) : 0);
-            horainicio[6] = (cb_domingo.Checked ? (int)(TimeSpan.Parse(horainiciod.Text.Trim()).Hours) : 0); 
+            horainicio[6] = (cb_domingo.Checked ? (int)(TimeSpan.Parse(horainiciod.Text.Trim()).Hours) : 0);
 
-            for(int i = 0; i < dia.Length; i++)
+            int[] diasocupado = new int[7] { 0, 0, 0, 0, 0, 0, 0 }; 
+
+
+            for (int i = 0; i < dia.Length; i++)
             {
                 if (dia[i] != 0)
                 {
@@ -142,10 +145,16 @@ namespace Vista
                         {
                             lbl_mensaje.Text = "Horarios agregados con exito"; 
                         }
+                        else
+                        {
+                            diasocupado[i] = 1;
+                            lbl_mensajeerror.Text = "Horarios no agregados y/o ya existentes ";
+                            for (int k = 0; k < diasocupado.Length; k++)
+                                lbl_mensajeerror.Text += (diasocupado[k] == 1 ? "Dias ocupados: " + (k + 1) + " - " : String.Empty);
+                        }
                     }
                 }
             }
-
             LimpiarCampos(); 
         }
 
@@ -158,6 +167,10 @@ namespace Vista
         {
             Response.Redirect("Menu.aspx"); 
         }
+        protected void lb_cerrar_sesion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
+        }
 
         protected void lb_usuario_menu_Click(object sender, EventArgs e)
         {
@@ -168,19 +181,61 @@ namespace Vista
         {
             txt_legajo.Text = String.Empty;
             horainiciol.Text = String.Empty;
+            horainiciol.Enabled = false;
+            rfv_horainiciol.Enabled = false; 
+            rev_HorainicioL.Enabled = false;
             horafinl.Text = String.Empty;
+            horafinl.Enabled = false;
+            rfv_horafinl.Enabled = false; 
+            rev_HorafinL.Enabled = false;
             horainiciom.Text = String.Empty;
+            horainiciom.Enabled = false;
+            rfv_horainiciom.Enabled = false; 
+            rev_HorainicioM.Enabled = false;
             horafinm.Text = String.Empty;
+            horafinm.Enabled = false;
+            rfv_horafinm.Enabled = false;
+            rev_HorafinM.Enabled = false;
             horainiciomi.Text = String.Empty;
+            horainiciomi.Enabled = false;
+            rfv_horainiciomi.Enabled = false;
+            rev_HorainicioMi.Enabled = false;
             horafinmi.Text = String.Empty;
+            horafinmi.Enabled = false;
+            rfv_horafinmi.Enabled = false;
+            rev_HorafinMi.Enabled = false;
             horainicioj.Text = String.Empty;
+            horainicioj.Enabled = false;
+            rfv_horainicioj.Enabled = false;
+            rev_HorainicioJ.Enabled = false;
             horafinj.Text = String.Empty;
+            horafinj.Enabled = false;
+            rfv_horafinj.Enabled = false;
+            horafinj.Enabled = false;
             horainiciov.Text = String.Empty;
+            horainiciov.Enabled = false;
+            rfv_horainiciov.Enabled = false;
+            rev_HorainicioV.Enabled = false;
             horafinv.Text = String.Empty;
+            horafinv.Enabled = false;
+            rfv_horafinv.Enabled = false;
+            rev_HorafinV.Enabled = false;
             horainicios.Text = String.Empty;
+            horainicios.Enabled = false;
+            rfv_horainicios.Enabled = false;
+            rev_HorainicioS.Enabled = false;
             horafins.Text = String.Empty;
+            horafins.Enabled = false;
+            rfv_horafins.Enabled = false;
+            rev_HorafinS.Enabled = false;
             horainiciod.Text = String.Empty;
+            horainiciod.Enabled = false;
+            rfv_horainiciod.Enabled = false;
+            rev_HorainicioD.Enabled = false;
             horafind.Text = String.Empty;
+            horafind.Enabled = false;
+            rfv_horafind.Enabled = false;
+            rev_HorafinD.Enabled = false;
             cb_lunes.Checked = false;
             cb_martes.Checked = false;
             cb_miercoles.Checked = false;

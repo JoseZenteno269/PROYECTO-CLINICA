@@ -388,14 +388,14 @@
         <div class="divlogos">
             <table style="width: 100%">
                 <tr>
-                    <td>
+                    <td align="center">
                         <img src="Imagenes/Logo.png" class="logo" />
                     </td>
-                    <td>
+                    <td align="center">
                         <img src="Imagenes/Logo1.png" class="logo1" /></td>
-                    <td>
+                    <td align="center">
                         <img src="Imagenes/Logo2.png" class="logo2" /></td>
-                    <td>
+                    <td align="center">
                         <img src="Imagenes/Logo3.png" class="logo3" /></td>
                 </tr>
             </table>

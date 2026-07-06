@@ -7,11 +7,6 @@
     <link href="Css/Horarios_Medicos.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 43px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -32,7 +27,7 @@
 
                                 <asp:LinkButton ID="lb_perfil" CssClass="opcion-menu" runat="server" OnClick="lb_perfil_Click">Mi Perfil</asp:LinkButton>
                                 <asp:LinkButton ID="lb_menu" CssClass="opcion-menu" runat="server" OnClick="lb_menu_Click">Menu</asp:LinkButton>
-                                <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server">Cerrar Sesion</asp:LinkButton>
+                                <asp:LinkButton ID="lb_cerrar_sesion" CssClass="opcion-menu opcion-roja" runat="server" OnClick="lb_cerrar_sesion_Click">Cerrar Sesion</asp:LinkButton>
                             </asp:Panel>
                         </div>
                     </td>
@@ -198,6 +193,11 @@
                 <tr>
                     <td colspan="7">
                         <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <asp:Label ID="lbl_mensajeerror" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>

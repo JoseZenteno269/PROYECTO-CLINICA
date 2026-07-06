@@ -69,6 +69,21 @@
                 </table>
             </div>
             <div class="divfila"  style="width: 50%" align="center">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="txt_buscar" runat="server" placeholder="DNI paciente..." TextMode="Search"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv_buscar" runat="server" ErrorMessage="Campo incompleto" ControlToValidate="txt_buscar" ValidationGroup="2">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev_buscar" runat="server" ErrorMessage="Caracteres invalidos" ControlToValidate="txt_buscar" ValidationGroup="2" ValidationExpression="^[0-9,$]*$">*</asp:RegularExpressionValidator>
+                        </td>
+                        <td>
+                            <asp:Button ID="btn_buscar" runat="server" Text="Buscar" CssClass="btn_volver" OnClick="btn_buscar_Click" ValidationGroup="2" />
+                        </td>
+                        <td>
+                            <asp:Button ID="btn_todos" runat="server" Text="Ver Todos" CssClass="btn_volver" OnClick="btn_todos_Click"/>
+                        </td>
+                    </tr>
+                </table>
                 <asp:GridView ID="gvPacientesSeleccion" runat="server" AutoGenerateColumns="False" CssClass="gv" OnSelectedIndexChanging="gvPacientesSeleccion_SelectedIndexChanging">
                     <Columns>
                         <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
@@ -125,6 +140,7 @@
                 </tr>
             </table>
             <asp:ValidationSummary ID="vs_errores" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" />
+            <asp:ValidationSummary ID="vs_errores1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="2" />
         </div>
         <br />
         <br />

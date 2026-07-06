@@ -134,10 +134,11 @@ namespace Datos
 
         public Boolean ExisteTurno(Turnos turno)
         {
-            String consulta = "SELECT * FROM Turnos WHERE Horario_Tur = @HORA AND Id_Medico_Tur = @IDMEDICO";
+            String consulta = "SELECT * FROM Turnos WHERE Horario_Tur = @HORA AND Id_Medico_Tur = @IDMEDICO AND Activo_Tur = 1 AND Fecha_Tur = @FECHA";
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@HORA", turno.getHorarioTurno());
             comando.Parameters.AddWithValue("@IDMEDICO", turno.getIdMedicoTurno());
+            comando.Parameters.AddWithValue("@FECHA", turno.getFechaTurno());
             return datos.Existe(comando, consulta);
         }
         public void ArmarParametrosTurnosAgregar(ref SqlCommand comando, Turnos turnos)

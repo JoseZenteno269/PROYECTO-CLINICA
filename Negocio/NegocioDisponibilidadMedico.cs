@@ -1,4 +1,5 @@
 ﻿using Datos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,8 +30,17 @@ namespace Negocio
 
         public Boolean AgregarHorarios(int idmedico, int dia, TimeSpan hora)
         {
-            int filasafectadas = daoDisponibilidadMedico.AgregarhoraXmedico(idmedico, dia, hora);
+            int filasafectadas = 0; 
+            DisponibilidadMedico disponibilidadMedico = new DisponibilidadMedico();
+            disponibilidadMedico.setIdMedico(idmedico);
+            disponibilidadMedico.setDiaSemana(dia);
+            disponibilidadMedico.setHorario(hora);
 
+            if (daoDisponibilidadMedico.ExisteDisponibilidadMedico(disponibilidadMedico) == false)
+            {
+                filasafectadas = daoDisponibilidadMedico.AgregarDisponibilidadMedico(disponibilidadMedico);
+            }
+            
             return filasafectadas == 1;
         }
     }
