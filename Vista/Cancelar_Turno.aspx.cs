@@ -42,9 +42,16 @@ namespace Vista
         {
             if(negocioTurnos.CancelarTurnos(Convert.ToInt32(txt_id.Text)))
             {
-                lbl_Mensaje.Text = "Turno cancelado con exito";
-                CargarGridViewTurno();
-                txt_id.Text = string.Empty;
+                if(negocioTurnos.AgregarAsistenciaObservacion(Convert.ToInt32(txt_id.Text), 3, null, String.Empty))
+                {
+                    lbl_Mensaje.Text = "Turno cancelado con exito";
+                    CargarGridViewTurno();
+                    txt_id.Text = string.Empty;
+                }
+                else
+                {
+                    lbl_Mensaje.Text = "Error al cancelar el turno";
+                }
             }
             else
             {

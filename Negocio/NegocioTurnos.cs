@@ -97,7 +97,7 @@ namespace Negocio
             return filasafectadas == 1;
         }
 
-        public Boolean AgregarAsistenciaObservacion(int idTurno,int idestadoturno, int idEstadoPaciente, string descripcion)
+        public Boolean AgregarAsistenciaObservacion(int idTurno,int idestadoturno, int? idEstadoPaciente, string descripcion)
         {
             int filasafectadas = 0;
 

@@ -16,8 +16,7 @@ namespace Vista
         NegocioMedicos NegocioMedicos = new NegocioMedicos();
         NegocioEstadoTurno negocioEstadoTurno = new NegocioEstadoTurno();
 
-        private const string consulta = "SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion,(Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) "; 
-
+        private const string consulta = "SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion,(Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) ";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,7 +29,6 @@ namespace Vista
                     {
                         Response.Redirect("Inicio.aspx");
                     }
-                    //SqlDataSourceMedico.SelectCommand = $"SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE Id_Medico_Tur = {idmedico} AND (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) AND (Id_EstadoTurno_Tur = 1 OR Id_EstadoTurno_Tur = 2)"; 
                     SqlDataSourceMedico.SelectCommand = consulta + $" AND Id_EstadoTurno_Tur = 1 AND Id_Medico_Tur = {idmedico}";
                     CargarDropDownListEstadoTurno();
                     CargarLetras();
@@ -94,24 +92,6 @@ namespace Vista
             }
         }
 
-        //protected void btn_actualizar_Click(object sender, EventArgs e)
-        //{
-        //    ddl_EstadoTurno.SelectedIndex = 0;
-        //    ddl_Letras.SelectedIndex = 0;
-        //    txtBuscar.Text = string.Empty;
-        //    SqlDataSourceMedico.SelectParameters.Clear();
-        //    int? idmedico = NegocioMedicos.getIdMedico(NegocioMedicos.getLegajoMedico(Session["UsuarioMed"].ToString()));
-        //    if (idmedico == null)
-        //    {
-        //        Response.Redirect("Inicio.aspx");
-        //    }
-        //    //SqlDataSourceMedico.SelectCommand = $"SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion,(Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) AND (Id_EstadoTurno_Tur = 1 OR Id_EstadoTurno_Tur = 2) AND Id_Medico_Tur = {idmedico}";
-        //    SqlDataSourceMedico.SelectCommand = consulta + $" AND (Id_EstadoTurno_Tur = 1 OR Id_EstadoTurno_Tur = 2) AND Id_Medico_Tur = {idmedico}";
-        //    DLMedico.DataBind();
-        //    MostrarMensajeSinTurnos(); 
-        //}
-        
-
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             int dni = Convert.ToInt32(txtBuscar.Text);
@@ -120,7 +100,6 @@ namespace Vista
             {
                 Response.Redirect("Inicio.aspx");
             }
-            //SqlDataSourceMedico.SelectCommand = $"SELECT Id_Turno_Tur, Descripcion_EsTur AS Estado, Id_EstadoTurno_Tur AS EstadoTurno, ISNULL(Id_EstadoPaciente_Tur, 0) AS EstadoPaciente, ISNULL(Descripcion_Tur, ' ') AS Observacion, (Nombre_Paci + ' ' + Apellido_Paci) AS Paciente, DNI_Paci AS DNI, CONVERT(VARCHAR(5), Horario_Tur, 108) AS Horario, Fecha_Tur AS Fecha FROM Turnos INNER JOIN Pacientes ON Turnos.Id_Paciente_Tur = Pacientes.Id_Paciente_Paci INNER JOIN EstadoTurno ON Turnos.Id_EstadoTurno_Tur = EstadoTurno.Id_Estado_EsTur WHERE (Fecha_Tur > CAST(GETDATE() AS DATE) OR (Fecha_Tur = CAST(GETDATE() AS DATE) AND Horario_Tur >= CAST(GETDATE() AS TIME))) AND (Id_EstadoTurno_Tur = 1 OR Id_EstadoTurno_Tur = 2) AND CONVERT(VARCHAR(20), DNI_Paci) LIKE @DNI AND Id_Medico_Tur = {idmedico}"; 
             SqlDataSourceMedico.SelectCommand = consulta + $" AND Id_EstadoTurno_Tur = 1 AND CONVERT(VARCHAR(20), DNI_Paci) LIKE @DNI AND Id_Medico_Tur = {idmedico}";
             SqlDataSourceMedico.SelectParameters.Clear();
             SqlDataSourceMedico.SelectParameters.Add("DNI", dni + "%");

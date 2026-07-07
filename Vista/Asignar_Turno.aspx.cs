@@ -121,7 +121,6 @@ namespace Vista
             ddl_medicos.SelectedIndex = 0;
             ddl_horas.SelectedIndex = 0;
             c_calendario.SelectedDate = DateTime.Now;
-            lbl_mensaje.Text = string.Empty;
 
         }
 
@@ -139,7 +138,7 @@ namespace Vista
         {
             DateTime fecha = c_calendario.SelectedDate;
             DayOfWeek diasemana = fecha.DayOfWeek;
-            int numerodia = (int)fecha.DayOfWeek; 
+            int numerodia = (int)fecha.DayOfWeek;
             int diasemanaentero = (numerodia == 0) ? 7 : numerodia;
             String nombredia = fecha.ToString("dddd");
 
@@ -148,6 +147,7 @@ namespace Vista
                 lbl_mensaje.Text = "Debe de seleccionar una fecha posterior a la actual ";
                 ddl_horas.Items.Clear();
                 ddl_horas.Items.Insert(0, new ListItem("--Seleccione un Horario", "0"));
+
             }
             else if (fecha > DateTime.Now)
             {
@@ -178,10 +178,13 @@ namespace Vista
             if (NegocioTurnos.AgregarTurno(Convert.ToInt32(ddl_especialidad.SelectedValue), Convert.ToInt32(ddl_medicos.SelectedValue), fecha, TimeSpan.Parse(ddl_horas.SelectedItem.Text), Convert.ToInt32(Session["IdPaciente"]), 1))
             {
                 lbl_mensaje.Text = "El turno a sido registrado correctamente <br /> Medico: " + ddl_medicos.SelectedItem.Text + " -- Especialidad: " + ddl_especialidad.SelectedItem.Text + " -- Fecha: " + fecha.ToString("dd-MM-yyyy") + " -- Hora: " + ddl_horas.SelectedItem.Text;
+                LimpiarCampos(); 
             }
             else
             {
                 lbl_mensaje.Text = "Error al registrar el turno, por favor intente nuevamente";
+                LimpiarCampos(); 
+                lbl_mensaje.Text = String.Empty;
             }
         }
 
@@ -223,6 +226,7 @@ namespace Vista
         protected void btn_cancelar_Click(object sender, EventArgs e)
         {
             LimpiarCampos(); 
+            lbl_mensaje.Text = String.Empty;
         }
 
         protected void btn_buscar_Click(object sender, EventArgs e)
