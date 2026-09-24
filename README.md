@@ -91,6 +91,7 @@ Persistencia desarrollada en Microsoft SQL Server, utilizando integridad referen
 *Estados: Catálogo para manejar el ciclo de vida del turno (Pendiente, Atendido, Cancelado).*
 
 **Objetos de Base de Datos**
+
 Procedimientos Almacenados (Stored Procedures): Centralización de consultas, ABM (Altas, Bajas, Modificaciones) y filtros para evitar inyección SQL y optimizar el rendimiento.
 
 Triggers: Utilizados para automatizar controles de estado y auditoría interna.
@@ -113,7 +114,6 @@ Entorno de Desarrollo: `Visual Studio / SQL Server Management Studio`
 ## ⚙️ Instalación y Configuración
 *Clonar el repositorio:*
 
-*Bash*
 git clone [https://github.com/JoseZenteno269/PROYECTO-CLINICA.git](https://github.com/JoseZenteno269/PROYECTO-CLINICA.git)
 
 * Restaurar la Base de Datos:
@@ -148,13 +148,12 @@ En esta versión inicial, Medicos y Pacientes repiten campos de información per
 
 Evolución de la Arquitectura:
 
-Migrar el sistema monolítico actual (Web Forms) a una arquitectura de API REST utilizando ASP.NET Core Web API o Node.js/Python, separando completamente el Backend del Frontend (implementado con HTML5, CSS3 y JavaScript nativo).
+Migrar el sistema monolítico actual (Web Forms) a una arquitectura de API REST utilizando ASP.NET Core Web API, separando completamente el Backend del Frontend (implementado con HTML5, CSS3 y JavaScript nativo).
 
 ## 👥 Autores
-José Zenteno
+[José Zenteno](https://github.com/JoseZenteno269)
 
-Backend Developer en formación
 
-Jeremías Tortora
+[Jeremías Tortora](https://github.com/jere2003-lab)
 
-Desarrollador / Estudiante UTN
+
