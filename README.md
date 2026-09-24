@@ -74,22 +74,14 @@ PROYECTO-CLINICA/
 Persistencia desarrollada en Microsoft SQL Server, utilizando integridad referencial, procedimientos almacenados para operaciones críticas y triggers de control.
 
 * **Tablas Principales**
-
- * *Medicos: Legajo, matrícula, datos personales y estado activo/inactivo.*
-
- * *Pacientes: Padrón de pacientes con datos de contacto.*
-
- * *Turnos: Tabla transaccional central.*
-
- * *Especialidades: Catálogo de disciplinas médicas.*
-
- * *Horarios: Días y franjas de atención asignados a cada profesional.*
-
- * *Localidades y Provincias: Normalización geográfica para domicilios.*
-
- * *Usuarios: Control de credenciales y roles (Admin/Médico).*
-
- * *Estados: Catálogo para manejar el ciclo de vida del turno (Pendiente, Atendido, Cancelado).*
+  * *Medicos: Legajo, matrícula, datos personales y estado activo/inactivo.*
+  * *Pacientes: Padrón de pacientes con datos de contacto.*
+  * *Turnos: Tabla transaccional central.*
+  * *Especialidades: Catálogo de disciplinas médicas.*
+  * *Horarios: Días y franjas de atención asignados a cada profesional.*
+  * *Localidades y Provincias: Normalización geográfica para domicilios.*
+  * *Usuarios: Control de credenciales y roles (Admin/Médico).*
+  * *Estados: Catálogo para manejar el ciclo de vida del turno (Pendiente, Atendido, Cancelado).*
 
 **Objetos de Base de Datos**
 
