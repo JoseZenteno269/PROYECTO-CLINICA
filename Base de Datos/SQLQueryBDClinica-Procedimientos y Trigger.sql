@@ -1,0 +1,215 @@
+USE BDClinica
+GO
+
+CREATE OR ALTER PROCEDURE [dbo].[spAgregarEstado_Observacion]
+(
+	@IDTURNO INT, 
+	@IDESTADOTURNO INT,
+	@IDESTADOPACIENTE INT, 
+	@DESCRIPCION NVARCHAR(300)
+)
+AS
+	UPDATE Turnos SET Id_EstadoPaciente_Tur = @IDESTADOPACIENTE, Descripcion_Tur = @DESCRIPCION, Id_EstadoTurno_Tur = @IDESTADOTURNO WHERE Id_Turno_Tur = @IDTURNO
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spAgregarHorariosMedico]
+(
+	@IDMEDICO INT, 
+	@DIASEMANA INT, 
+	@HORA TIME
+)
+AS
+BEGIN
+	INSERT INTO Disponibilidad_Medico (Id_Medico_DispMed, DiaSemana_DispMed, Horario_DispMed)
+	SELECT @IDMEDICO, @DIASEMANA, @HORA
+END
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spAgregarMedico]
+(
+	@LEGAJO NVARCHAR (15),
+	@IDPROVINCIA INT,
+	@IDLOCALIDAD INT,
+	@IDESPECIALIDAD INT,
+	@DNI INT,
+	@NOMBRE NVARCHAR (50),
+	@APELLIDO NVARCHAR (50),
+	@SEXO NVARCHAR (30),
+	@NACIONALIDAD NVARCHAR (50),
+	@FECHANACIMIENTO DATE,
+	@DIRECCION NVARCHAR (50),
+	@EMAIL NVARCHAR (300),
+	@TELEFONO NVARCHAR (30)
+)
+AS
+	INSERT INTO Medicos (Legajo_Med, Id_Provincia_Med, Id_Localidad_Med, Id_Especialidad_Med, DNI_Med, Nombre_Med, Apellido_Med, 
+	Sexo_Med, Nacionalidad_Med, FechaNacimiento_Med, Direccion_Med, CorreoElectronico_Med, Telefono_Med)
+	SELECT @LEGAJO, @IDPROVINCIA, @IDLOCALIDAD, @IDESPECIALIDAD, @DNI, @NOMBRE, @APELLIDO, @SEXO, @NACIONALIDAD, @FECHANACIMIENTO, 
+	@DIRECCION, @EMAIL, @TELEFONO
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spAgregarPaciente]
+
+(
+	@IDPROVINCIA INT,
+	@IDLOCALIDAD INT,
+	@DNI INT,
+	@NOMBRE NVARCHAR (30),
+	@APELLIDO NVARCHAR (30),
+	@SEXO NVARCHAR (15),
+	@NACIONALIDAD NVARCHAR (30),
+	@FECHANACIMIENTO DATE,
+	@DIRECCION NVARCHAR (30),
+	@EMAIL NVARCHAR (30),
+	@TELEFONO NVARCHAR (30)
+)
+AS
+
+	INSERT INTO Pacientes(Id_Provincia_Paci,Id_Localidad_Paci,DNI_Paci,Nombre_Paci,Apellido_Paci,Sexo_Paci,Nacionalidad_Paci,
+	FechaNacimiento_Paci,Direccion_Paci,CorreoElectronico_Paci,Telefono_Paci)
+	SELECT @IDPROVINCIA,@IDLOCALIDAD,@DNI,@NOMBRE,@APELLIDO,@SEXO,@NACIONALIDAD,@FECHANACIMIENTO,@DIRECCION,@EMAIL,@TELEFONO
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spAgregarTurnos]
+
+(
+	@IDMEDICO INT,
+	@IDESPECIALIDAD INT,
+	@IDPACIENTE INT,
+	@IDESTADOPACIENTE INT,
+	@IDESTADOTURNO INT,
+	@FECHA DATE,
+	@HORARIO TIME
+)
+AS
+
+INSERT INTO Turnos(Id_Medico_Tur,Id_Especialidad_Tur,Id_Paciente_Tur,Id_EstadoPaciente_Tur,Id_EstadoTurno_Tur,Fecha_Tur,Horario_Tur)
+VALUES(@IDMEDICO,@IDESPECIALIDAD,@IDPACIENTE,@IDESTADOPACIENTE,@IDESTADOTURNO,@FECHA,@HORARIO)
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spBajaMedica]
+(
+	@IDMEDICO INT
+)
+AS
+
+UPDATE Medicos SET Activo_Med = 0 WHERE Id_Medico_Med = @IDMEDICO
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spBajaPaciente]
+
+(
+	@IDPACIENTE INT
+)
+AS
+
+UPDATE Pacientes SET Activo_Paci = 0 WHERE Id_Paciente_Paci = @IDPACIENTE
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spCambioContrasena]
+(
+	@IDUSUARIO INT,
+	@PASSWORD NVARCHAR(100)
+)
+AS
+	UPDATE Usuarios SET Password_Usu = HASHBYTES('SHA2_256', CONVERT(VARCHAR, @PASSWORD)) WHERE Id_Usuario_Usu = @IDUSUARIO
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spCancelarTurnos]
+
+(
+	@IDTURNO INT
+)
+AS
+
+UPDATE Turnos SET Activo_Tur = 0, Id_EstadoTurno_Tur = 4 WHERE Id_Turno_Tur = @IDTURNO
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spGenerarUsuario]
+(
+	@IDMEDICO INT NULL,
+	@IDADMINISTRADOR INT NULL,
+	@USERNAME NVARCHAR(30),
+	@PASSWORD NVARCHAR(100)
+)
+AS
+	INSERT INTO Usuarios (Id_Medico_Usu, Id_Administrador_Usu, Username_Usu, Password_Usu)
+	SELECT @IDMEDICO, @IDADMINISTRADOR, UPPER(@USERNAME), HASHBYTES('SHA2_256', CONVERT(VARCHAR, @PASSWORD))
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spModificarMedicos]
+(
+    @IDMEDICO INT,
+    @IDPROVINCIA INT,
+    @IDLOCALIDAD INT,
+    @IDESPECIALIDAD INT,
+    @NOMBRE NVARCHAR(50),
+    @APELLIDO NVARCHAR(50),
+    @SEXO NVARCHAR(50),
+    @NACIONALIDAD NVARCHAR(50),
+    @FECHANACIMIENTO DATE,
+    @DIRECCION NVARCHAR(50),
+    @EMAIL NVARCHAR(50),
+    @TELEFONO NVARCHAR(50)
+)
+AS
+
+UPDATE Medicos SET 
+    Id_Provincia_Med = @IDPROVINCIA, 
+    Id_Localidad_Med = @IDLOCALIDAD, 
+    Id_Especialidad_Med = @IDESPECIALIDAD, 
+    Nombre_Med = @NOMBRE,
+    Apellido_Med = @APELLIDO,
+    Sexo_Med = @SEXO,
+    Nacionalidad_Med = @NACIONALIDAD,
+    FechaNacimiento_Med = @FECHANACIMIENTO,
+    Direccion_Med = @DIRECCION,
+    CorreoElectronico_Med = @EMAIL,
+    Telefono_Med = @TELEFONO
+WHERE Id_Medico_Med = @IDMEDICO
+
+
+CREATE OR ALTER PROCEDURE [dbo].[spModificarPaciente]
+(
+    @IDPACIENTE INT,
+    @IDPROVINCIA INT,
+    @IDLOCALIDAD INT,
+    @NOMBRE NVARCHAR(50),
+    @APELLIDO NVARCHAR(50),
+    @SEXO NVARCHAR(30),
+    @NACIONALIDAD NVARCHAR(50),
+    @FECHANACIMIENTO DATE,
+    @DIRECCION NVARCHAR(50),
+    @EMAIL NVARCHAR(300),
+    @TELEFONO NVARCHAR(30)
+)
+AS
+
+UPDATE Pacientes SET 
+    Id_Provincia_Paci = @IDPROVINCIA,
+    Id_Localidad_Paci = @IDLOCALIDAD,
+    Nombre_Paci = @NOMBRE,
+    Apellido_Paci = @APELLIDO,
+    Sexo_Paci = @SEXO,
+    Nacionalidad_Paci = @NACIONALIDAD,
+    FechaNacimiento_Paci = @FECHANACIMIENTO,
+    Direccion_Paci = @DIRECCION,
+    CorreoElectronico_Paci = @EMAIL,
+    Telefono_Paci = @TELEFONO
+WHERE Id_Paciente_Paci = @IDPACIENTE
+
+
+CREATE OR ALTER TRIGGER [dbo].[trBajaMedicoxUsuario]
+ON [dbo].[Medicos] AFTER UPDATE 
+AS
+BEGIN 
+	SET NOCOUNT ON 
+	IF UPDATE(Activo_Med)
+	BEGIN 
+		UPDATE U
+		SET U.Activo_Usu = I.Activo_Med
+		FROM Usuarios U 
+		INNER JOIN inserted I
+		ON U.Id_Medico_Usu = I.Id_Medico_Med
+	END
+END
