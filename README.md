@@ -14,7 +14,7 @@ Proyecto desarrollado de forma colaborativa enfocado en la aplicación de arquit
 | :---: | :---: |
 | ![Login](docs/login.png) | ![Turnos](docs/turnos.png) |
 
-| Administración de Pacientes | Agenda y Médicos |
+| Alta Pacientes | Menú Medicos |
 | :---: | :---: |
 | ![Pacientes](docs/pacientes.png) | ![Médicos](docs/medicos.png) |
 
@@ -73,22 +73,23 @@ PROYECTO-CLINICA/
 ## 🗄 Base de Datos y Modelo Relacional
 Persistencia desarrollada en Microsoft SQL Server, utilizando integridad referencial, procedimientos almacenados para operaciones críticas y triggers de control.
 
-**Tablas Principales**
-*Medicos: Legajo, matrícula, datos personales y estado activo/inactivo.*
+* **Tablas Principales**
 
-*Pacientes: Padrón de pacientes con datos de contacto.*
+ * *Medicos: Legajo, matrícula, datos personales y estado activo/inactivo.*
 
-*Turnos: Tabla transaccional central.*
+ * *Pacientes: Padrón de pacientes con datos de contacto.*
 
-*Especialidades: Catálogo de disciplinas médicas.*
+ * *Turnos: Tabla transaccional central.*
 
-*Horarios: Días y franjas de atención asignados a cada profesional.*
+ * *Especialidades: Catálogo de disciplinas médicas.*
 
-*Localidades y Provincias: Normalización geográfica para domicilios.*
+ * *Horarios: Días y franjas de atención asignados a cada profesional.*
 
-*Usuarios: Control de credenciales y roles (Admin/Médico).*
+ * *Localidades y Provincias: Normalización geográfica para domicilios.*
 
-*Estados: Catálogo para manejar el ciclo de vida del turno (Pendiente, Atendido, Cancelado).*
+ * *Usuarios: Control de credenciales y roles (Admin/Médico).*
+
+ * *Estados: Catálogo para manejar el ciclo de vida del turno (Pendiente, Atendido, Cancelado).*
 
 **Objetos de Base de Datos**
 
